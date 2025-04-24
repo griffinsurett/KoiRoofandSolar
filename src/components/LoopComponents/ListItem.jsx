@@ -7,20 +7,19 @@ import Heading from '../Heading';
  */
 export default function ListItem({ item, collectionName, HasPage }) {
     const effectiveHasPage = item.data.hasPage !== undefined ? item.data.hasPage : HasPage;
+    console.log(item.data.icon);
     return (
         <div className={`flex items-start space-x-[var(--spacing-md)]`}>
-        <div className={`flex-shrink-0 p-[var(--spacing-sm)] bg-[var(--color-accent)] rounded-full`}>
           {item.data.icon && (
             <img
-              src={item.data.icon}
+              src={item.data.icon.src}
               alt="Icon"
-              className={`w-8 h-8 bg-primary`}
+              className={`w-22 h-auto hover:scale-105 transition-transform duration-300 ease-in-out`}
             />
           )}
           {!item.data.icon && (
-            <div className={`w-8 h-8 bg-primary`} />
+            <div className={`w-8 h-8`} />
           )}
-        </div>
         <div>
           <Heading tagName={"h3"} className="h3 text-primary">
             {item.data.title}

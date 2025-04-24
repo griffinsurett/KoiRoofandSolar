@@ -87,7 +87,6 @@ export const metaSchema = z.object({
   addItemsToQuery: z.array(QueryItemSchema).optional(),
 });
 
-// Update baseSchema to include ogType as well.
 const baseSchema = ({ image }: { image: Function }) =>
   z.object({
     title: z.string(),
@@ -97,12 +96,12 @@ const baseSchema = ({ image }: { image: Function }) =>
     layout: z.string().optional(),
     itemsLayout: z.string().optional(),
     keywords: z.array(z.string()).optional(),
-    ogType: z.string().optional(), 
+    ogType: z.string().optional(),
     hasPage: z.boolean().optional(),
     sections: z.array(sectionSchema).optional(),
     addToQuery: z.array(QueryItemSchema).optional(),
     tags: z.array(z.string()).optional(),
-    icon: z.string().optional(),
+    icon: image().optional(),
   });
 
 export const collections = {
@@ -140,13 +139,5 @@ export const collections = {
   benefits: defineCollection({
     loader: file("src/content/benefits/benefits.json"), // file-loaded collection
     schema: ({ image }) => baseSchema({ image }),
-  }),
-  clients: defineCollection({
-    schema: ({ image }) =>
-      baseSchema({ image }).extend({
-        projects: z
-          .union([reference("projects"), z.array(reference("projects"))])
-          .optional(),
-      }),
   }),
 };
