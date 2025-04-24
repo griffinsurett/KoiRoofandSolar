@@ -22,7 +22,7 @@ export const SectionVariants = {
   imageCol: {
         sectionClass: "flex justify-center items-center text-left section-sm",
         contentClass:
-          "content-section flex justify-between py-[var(--spacing-md)] lg:py-[var(--spacing-xl)] items-start flex-col md:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
+          "content-section flex justify-between py-[var(--spacing-md)] lg:py-[var(--spacing-xl)] items-start flex-col md:flex-row gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
         itemsClass:
           "flex flex-col items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-1/2",
         itemClass: "",
