@@ -1,17 +1,27 @@
 [
-    {
-      "title": "Eco-Friendly Cleaning",
-      "description": "We use environmentally safe cleaning products that are gentle on your home and on the planet.",
-      "id": "eco-friendly-cleaning"
-    },
-    {
-      "title": "Fast Response Time",
-      "description": "Our team is quick to respond to your cleaning needs, ensuring minimal disruption to your day.",
-      "id": "fast-response-time"
-    },
-    {
-      "title": "Affordable Pricing",
-      "description": "Competitive pricing without compromising on quality. Our transparent pricing ensures you get the best value.",
-      "id": "affordable-pricing"
-    }
-  ]
+  {
+    "title": "0% Interest Financing",
+    "description": "Spread your payments over time with absolutely no interest for qualified homeowners.",
+    "id": "zero-percent-interest-financing"
+  },
+  {
+    "title": "$0 Down Payment",
+    "description": "Get started on your project today with zero money down—no upfront payment required.",
+    "id": "zero-down-payment"
+  },
+  {
+    "title": "No 12-Month Payments",
+    "description": "Enjoy financing options with no payments due for the first 12 months, giving you extra budget flexibility.",
+    "id": "no-12-month-payments"
+  },
+  {
+    "title": "Roofing Insurance Done for You",
+    "description": "We handle your roofing insurance claims from start to finish—no stress, no headaches.",
+    "id": "roofing-insurance-done-for-you"
+  },
+  {
+    "title": "Low Credit Score Approval",
+    "description": "Our financing program accepts credit scores as low as 550, making upgrades accessible to more homeowners.",
+    "id": "low-credit-score-approval"
+  }
+]

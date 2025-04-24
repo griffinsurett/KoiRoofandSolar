@@ -38,6 +38,12 @@
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 35px 60px rgba(0, 0, 0, 0.1);
+  --shadow-3xl: 0 45px 75px rgba(0, 0, 0, 0.1);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-outline: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  --shadow-none: none;
 }
 
 @layer base {
@@ -65,10 +71,10 @@
     @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide text-[var(--color-text)];
   }
   .h3 {
-    @apply text-xl lg:text-3xl font-medium tracking-wide text-[var(--color-text)] md:text-2xl;
+    @apply text-2xl lg:text-3xl font-medium tracking-wide text-[var(--color-text)] md:text-2xl;
   }
   .h4 {
-    @apply text-lg lg:text-2xl font-medium tracking-wide text-[var(--color-text)] md:text-xl;
+    @apply text-xl lg:text-2xl font-medium tracking-wide text-[var(--color-text)] md:text-xl;
   }
   .h5 {
     @apply text-lg lg:text-2xl font-medium text-[var(--color-text)] tracking-wide md:text-lg;
