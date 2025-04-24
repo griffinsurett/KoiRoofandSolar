@@ -22,31 +22,30 @@ export default function ServiceCard({ item, HasPage }) {
   }
 
   return (
-    <li className="service-card p-[var(--spacing-lg)] w-full rounded-4xl shadow hover:shadow-md transition min-h-[40vh] flex flex-col justify-between items-center">
-      {iconSrc && (
-        <div className="mb-[var(--spacing-sm)]">
-          <img
-            src={iconSrc}
-            alt={`${title} icon`}
-            width={icon?.width}
-            height={icon?.height}
-            className="w-auto h-18 mx-auto"
-          />
+    <li className="service-card p-[var(--spacing-lg)] rounded-4xl shadow hover:shadow-lg transition min-h-[50vh] flex flex-col justify-evenly items-center w-full">
+      <div className="card-content">
+        {iconSrc && (
+            <img
+              src={iconSrc}
+              alt={`${title} icon`}
+              width={icon?.width}
+              height={icon?.height}
+              className="w-auto h-18 mx-auto mb-[var(--spacing-sm)]"
+            />
+        )}
+
+        <div className="text-content">
+          <h3 className="text-primary text-center h3">
+            {title}
+          </h3>
+          <p className="text-center">
+            {description || item.body}
+          </p>
         </div>
-      )}
-
-<div className="text-content">
-<h3 className="mb-[var(--spacing-sm)] text-primary text-center h3">{title}</h3>
-      <p className="mb-[var(--spacing-sm)] text-center">
-        {description || item.body}
-      </p>
-</div>
-
+      </div>
       {effectiveHasPage && (
         <div className="text-center">
-          <Button href={`/services/${item.slug}`}>
-            Learn More
-          </Button>
+          <Button href={`/services/${item.slug}`}>Learn More</Button>
         </div>
       )}
     </li>

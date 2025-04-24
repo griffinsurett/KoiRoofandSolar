@@ -4,13 +4,13 @@ import { getImage } from "astro:assets";
 
 // Default base button classes for non-underline variants.
 const baseButtonClasses =
-  "px-[var(--spacing-2xl)] py-[var(--spacing-lg)] transform transition-all duration-300 ease-in-out";
+  "px-[var(--spacing-2xl)] py-[var(--spacing-md)] transform transition-all duration-300 ease-in-out";
 
 // Consolidate variant defaults.
 const buttonVariantDefaults = {
   primary: {
     variantClasses:
-      "bg-[var(--color-accent)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-bg)]",
+      "bg-[var(--color-accent)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)]",
     buttonClasses: baseButtonClasses,
   },
   secondary: {

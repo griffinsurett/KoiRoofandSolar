@@ -4,8 +4,9 @@ import ExtendedLayout from "@/layouts/ExtendedLayout.astro";
 import Section from "@/components/Section.astro";
 import PrimaryHero from "@/components/StaticSections/PrimaryHero.astro";
 import { Image } from "astro:assets";
-import image from "@/assets/glen-rushton-PjeZGaKunAI-unsplash.jpg";
+import image from "@/assets/wholeteamkoisolar-old.jpg";
 import ServiceCard from "@/components/LoopComponents/ServiceCard";
+import { SiteData } from "@/content/SiteData";
 ---
 
 <ExtendedLayout
@@ -26,11 +27,12 @@ import ServiceCard from "@/components/LoopComponents/ServiceCard";
     />
   </Section>
 
-  <section class="p-0 lg:px-[var(--spacing-4xl)]">
     <Section
-      sectionClass="flex justify-center items-center py-[var(--spacing-xl)] lg:py-[var(--spacing-3xl)] bg-cover bg-center bg-fixed"
-      contentClass="flex flex-col items-center justify-evenly text-center min-h-[35vh]"
-      buttonsSectionClass="flex flex-col items-center justify-center w-full h-full z-10"
+      sectionClass="flex justify-center items-center p-[var(--spacing-3xl)] md:p-[var(--spacing-md)] bg-cover bg-center bg-fixed rounded-4xl min-h-[65vh]"
+      contentClass="flex flex-col items-center justify-center text-center"
+      buttonsSectionClass="flex flex-col items-center justify-center w-full h-full z-10 mt-[var(--spacing-lg)]"
+      topContentClass="flex flex-col items-center justify-center text-center w-full h-full z-10 text-text-light md:w-3/4 w-auto"
+      headingAreaClass=""
       backgroundMedia={{
         image: {
           src: image,
@@ -42,11 +44,11 @@ import ServiceCard from "@/components/LoopComponents/ServiceCard";
       heading={{
         text: "Koi Roofing & Solar is a full-service contractor proudly serving New Jersey, Pennsylvania and all five boroughs of New York City",
         tagName: "h2",
-        class: "text-center text-bg h3 tracking-wider leading-8vh",
+        class: "text-center text-bg h2 tracking-wider leading-8vh mb-[var(--spacing-sm)]",
       }}
-      buttons={[{ text: "About Us", link: "/about-us", variant: "tertiary" }]}
+      description={SiteData.description}
+      buttons={[{ text: "About Us", link: "/about-us", variant: "primary" }]}
     />
-  </section>
 
   <!-- Services -->
   <Section
@@ -56,17 +58,16 @@ import ServiceCard from "@/components/LoopComponents/ServiceCard";
   />
 
   <!-- Projects -->
-  <Section
+  <!-- <Section
     collection="projects"
     query="getAll"
     heading={{ text: "Our Projects", tagName: "h2" }}
-  />
+  /> -->
 
   <!-- Testimonials -->
   <Section
     collection="testimonials"
     query="getAll"
-    heading={{ text: "Client Testimonials", tagName: "h2" }}
   />
 
   <!-- <Section collection="faq" query="getAll" /> -->
