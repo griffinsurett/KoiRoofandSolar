@@ -1,0 +1,31 @@
+---
+// src/components/StaticSections/PrimaryHero.astro
+import Section from "@/components/Section.astro";
+import HeroBg from "@/assets/wholeteamkoisolar-old.jpg";
+import { SiteData } from "@/content/SiteData";
+---
+<Section
+  heading={
+  [
+  { text: SiteData.title, tagName: "h1", class: "h5 text-bg py-[var(--spacing-lg)]" },
+  { text: '"Some start at the bottom we go to the top"', tagName: "h3", class: "h3 text-secondary italic" },
+  { text: "Top-Quality Roofing & Solar Solutions for Your Home", tagName: "h2", class: "h1 text-accent py-[var(--spacing-lg)]" },
+  { text: SiteData.tagline, tagName: "h4", class:"h4 text-bg italic" }
+  ]
+},
+    backgroundMedia={{
+        image: {
+        src: HeroBg,
+        imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+        },
+        overlayClass: "bg-secondary opacity-30",
+    }}
+  buttons={[
+    { text: "Roofing Services", link: "/roofing", variant: "tertiary" },
+    { text: "Solar Services", link: "/solar" },
+  ]}
+  buttonsSectionClass="h6 mt-[var(--spacing-3xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center"
+  sectionClass="min-h-[100vh] text-center flex items-center justify-center bg-cover bg-fixed bg-center z-100 md:p-[var(--spacing-lg)] text-bg text-xl"
+  contentClass="lg:w-3/4"
+  headingAreaClass="flex flex-col items-center justify-center text-center w-full h-full z-10"
+/>

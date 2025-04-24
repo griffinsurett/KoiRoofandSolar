@@ -1,0 +1,89 @@
+---
+// src/pages/[collection]/[slug].astro
+import { getCollection } from "astro:content";
+import ExtendedLayout from "@/layouts/ExtendedLayout.astro";
+import { Image } from "astro:assets";
+import Heading from "@/components/Heading.jsx";
+import Section from "@/components/Section.astro";
+import SecondaryHero from "@/components/StaticSections/SecondaryHero.astro";
+import { collections } from "@/content/config";
+import { getCollectionMeta } from "@/utils/FetchMeta";
+import { getCanonicalSlug } from "@/utils/ContentUtils";
+
+// Build all paths for items that end up with `hasPage: true`.
+export async function getStaticPaths() {
+  const collectionNames = Object.keys(collections);
+  let allPaths = [];
+  for (const collName of collectionNames) {
+    let meta = {};
+    try {
+      meta = await getCollectionMeta(collName);
+    } catch {}
+    const { itemsHasPage = true } = meta;
+    const entries = await getCollection(collName);
+    for (const entry of entries) {
+      if (typeof entry.data.hasPage === "undefined") {
+        entry.data.hasPage = itemsHasPage;
+      }
+    }
+    const pathsForColl = entries
+      .filter((entry) => entry.data.hasPage === true)
+      .map((entry) => {
+        const computedSlug = getCanonicalSlug(entry);
+        return {
+          params: { collection: collName, slug: computedSlug },
+          props: { collection: collName, entry },
+        };
+      });
+    allPaths.push(...pathsForColl);
+  }
+  return allPaths;
+}
+
+const { collection, entry } = Astro.props;
+const { data, body } = entry;
+let meta = {};
+try {
+  meta = await getCollectionMeta(collection);
+} catch {}
+const sections = data.sections && data.sections.length > 0
+  ? data.sections
+  : meta.itemsSections || [];
+---
+<ExtendedLayout title={data.title} description={data.description} keywords={data.keywords} ogType={data.ogType}>
+  <article>
+    <!-- Hero Section -->
+    <SecondaryHero title={data.title} />
+    <Heading tagName="h2" class="mb-[var(--spacing-md)]">
+      {data.title}
+    </Heading>
+    {data.description && <p class="mb-[var(--spacing-md)]">{data.description}</p>}
+    {data.featuredImage && (
+      <Image
+        src={data.featuredImage}
+        alt={data.title}
+        width={600}
+        height={400}
+        format="avif"
+        class="mb-[var(--spacing-md)]"
+      />
+    )}
+    {body && <p class="mb-[var(--spacing-md)]">{body}</p>}
+    {sections.map((section, i) => (
+      <Section
+        key={i}
+        variant={section.variant}  
+        collection={section.collection}
+        query={section.query}
+        heading={section.heading}
+        buttons={section.buttons}
+        sectionClass={section.sectionClass}
+        itemsClass={section.itemsClass}
+        itemClass={section.itemClass}
+        contentClass={section.contentClass}
+        buttonsSectionClass={section.buttonsSectionClass}
+        headingAreaClass={section.headingAreaClass}
+      />
+    ))}
+  </article>
+</ExtendedLayout>

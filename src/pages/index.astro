@@ -1,11 +1,77 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import ExtendedLayout from "@/layouts/ExtendedLayout.astro";
+import Section from "@/components/Section.astro";
+import PrimaryHero from "@/components/StaticSections/PrimaryHero.astro";
+import { Image } from "astro:assets";
+import image from "@/assets/glen-rushton-PjeZGaKunAI-unsplash.jpg";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<ExtendedLayout
+  title="Welcome to Astro!"
+  description="Your gateway to amazing projects."
+>
+  <!-- Hero Section -->
+  <PrimaryHero title="Welcome to Astro!" />
+
+  <Section variant="imageCol" collection="benefits" query="getAll">
+    <Image
+    src={image}
+    alt="David's Truck"
+    class="w-[498px] h-fit rounded-lg shadow-lg"
+    format="webp"
+    loading="lazy"
+    quality="low"
+  />
+  </Section>
+
+ <section class="p-0 lg:p-[var(--spacing-4xl)]">
+  <Section
+  sectionClass="flex justify-center items-center py-[var(--spacing-xl)] lg:py-[var(--spacing-3xl)] bg-cover bg-center bg-fixed"
+  contentClass="flex flex-col items-center justify-evenly text-center min-h-[35vh]"
+  buttonsSectionClass="flex flex-col items-center justify-center w-full h-full z-10"
+  backgroundMedia={{
+    image: { src: image, imageClass: "bg-cover filter brightness-50 bg-center xl:bg-fixed" },
+    overlayClass: "bg-primary/50"
+  }}
+  class="h-[60vh]"
+  heading={{
+    text: "Koi Roofing & Solar is a full-service contractor proudly serving New Jersey, Pennsylvania and all five boroughs of New York City",
+    tagName: "h2",
+    class: "text-center text-bg h3 tracking-wider leading-8vh",
+  }}
+  buttons={[{ text: "Learn More", link: "/about-us", variant: "tertiary" }]}
+  >
+</Section>
+ </section>
+
+<!-- Services -->
+<Section
+  collection="services"
+  query="getAll"
+  heading={{ text: "Our Services", tagName: "h2" }}
+/>
+
+<!-- Clients -->
+<Section
+  collection="clients"
+  query="getAll"
+  heading={{ text: "Our Clients", tagName: "h2" }}
+/>
+
+<!-- Projects -->
+<Section
+  collection="projects"
+  query="getAll"
+  heading={{ text: "Our Projects", tagName: "h2" }}
+/>
+
+<!-- Testimonials -->
+<Section
+  collection="testimonials"
+  query="getAll"
+  heading={{ text: "Client Testimonials", tagName: "h2" }}
+/>
+
+<!-- <Section collection="faq" query="getAll" /> -->
+</ExtendedLayout>

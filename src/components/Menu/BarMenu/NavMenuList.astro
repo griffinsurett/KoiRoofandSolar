@@ -1,0 +1,34 @@
+---
+import { normalizePath } from "@/utils/ContentUtils";
+const { 
+  items = [], 
+  class: extraClass = '', 
+  listClass = 'list-none', // NEW prop for ul classes
+  menuItem,
+  submenuItem,
+  isHierarchical = true, 
+  breakpoint
+} = Astro.props;
+
+const currentPath = normalizePath(Astro.url.pathname);
+
+import DefaultMenuItem from './MenuItem.astro';
+const RenderComponent = menuItem && menuItem.component ? menuItem.component : DefaultMenuItem;
+---
+<ul class={`m-0 p-0 ${listClass} ${extraClass}`}>
+  {items.map((item) => {
+    const normalizedSlug = normalizePath(item.slug);
+    return (
+      <RenderComponent 
+        item={item} 
+        depth={0} 
+        menuItem={menuItem}
+        submenuItem={submenuItem}
+        isHierarchical={isHierarchical}
+        breakpoint={breakpoint}
+        active={currentPath === normalizedSlug}
+        activeClass={menuItem?.activeClass}
+      />
+    );
+  })}
+</ul>

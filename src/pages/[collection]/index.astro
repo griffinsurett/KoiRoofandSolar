@@ -1,0 +1,55 @@
+---
+// src/pages/[collection]/index.astro
+import ExtendedLayout from "@/layouts/ExtendedLayout.astro";
+import Section from "@/components/Section.astro";
+import SecondaryHero from "@/components/StaticSections/SecondaryHero.astro";
+import { collections } from "@/content/config";
+import { getCollectionMeta } from "@/utils/FetchMeta";
+import { capitalize } from "@/utils/ContentUtils";
+
+export async function getStaticPaths() {
+  const collectionNames = Object.keys(collections);
+  const allPaths = [];
+  for (const collName of collectionNames) {
+    const meta = await getCollectionMeta(collName);
+    if (meta.hasPage !== false) {
+      allPaths.push({ params: { collection: collName } });
+    }
+  }
+  return allPaths;
+}
+
+const { collection } = Astro.params;
+let meta = {};
+try {
+  meta = await getCollectionMeta(collection);
+} catch {}
+---
+<ExtendedLayout title={capitalize(collection)} description={meta.description} keywords={meta.keywords} ogType={meta.ogType}>
+  <SecondaryHero title={capitalize(collection)} />
+  {meta.sections && meta.sections.length > 0 ? (
+    meta.sections.map((section, i) => (
+      <Section
+        key={i}
+        variant={section.variant}  
+        collection={section.collection}
+        query={section.query}
+        heading={section.heading}
+        buttons={section.buttons}
+        sectionClass={section.sectionClass}
+        itemsClass={section.itemsClass}
+        itemClass={section.itemClass}
+        contentClass={section.contentClass}
+        buttonsSectionClass={section.buttonsSectionClass}
+        headingAreaClass={section.headingAreaClass}
+      />
+    ))
+  ) : (
+    <Section
+      collection={collection}
+      query="getAll"
+      heading={{ text: capitalize(collection), tagName: "h2" }}
+      description={meta.description}
+    />
+  )}
+</ExtendedLayout>

@@ -1,0 +1,64 @@
+---
+import { SiteData } from "@/content/SiteData";
+import { buildMenuQueries } from "@/utils/ArrayQueryUtils";
+import Menu from "../components/Menu/Menu.astro";
+import MenuItem from "../components/Menu/BarMenu/MenuItem.astro"; // default main menu item
+import { Image } from "astro:assets";
+
+const MainNavMenu = [
+  { id: "home", label: "Home", slug: "/" },
+  { id: "about", label: "About Us", slug: "/about-us" },
+  { id: "contact", label: "Contact", slug: "/contact-us", position: "append", weight: 100 },
+];
+
+const breakpoint = "lg";
+---
+<header class="flex justify-between items-center w-full h-[8vh] lg:h-[15vh] bg-transparent fixed z-[10000]">
+  <div class="flex items-center justify-between w-full h-full">
+  <a href="/" class="flex items-center">
+    <Image
+      src={SiteData.logo.src}
+      alt={`${SiteData.title} logo`}
+      class="h-15 lg:h-24 w-auto"
+      format="webp"
+      loading="eager"
+      quality="low"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
+    <!-- <div class="header-text" aria-label="Site identity">
+      <div class="text-xl font-bold">{SiteData.title}</div>
+      <div class="text-sm">{SiteData.tagline}</div>
+    </div>     -->
+  </a>
+
+  <Menu 
+    items={await buildMenuQueries({ MainNavMenu })} 
+    breakpoint={breakpoint} 
+    listClass="flex flex-row text-bg"
+    barMenu={{
+      menuItem: { 
+        component: MenuItem, 
+        class: "menu-item uppercase font-medium tracking-wide hover:text-accent px-[var(--spacing-md)] py-[var(--spacing-md)]", 
+        activeClass: "text-accent" 
+      },
+      submenuItem: { 
+        component: MenuItem, 
+        class: "submenu-class text-text",
+        activeClass: "text-bg"
+      },
+      listClass: "flex gap-[var(--spacing-xl)]",
+    }}
+    hamburgerMenu={{
+      hamburgerIconClass: "custom-hamburger-icon text-bg",
+      hamburgerIconTransform: true,
+      menuBackground: "bg-primary flex items-center justify-center w-full bg-opacity-75",
+      menuItem: { component: MenuItem, class: "text-bg" },
+      submenuItem: { component: MenuItem, class: "mobile-submenu-item" },
+      listClass: "flex flex-col",
+      closeButton: false
+    }}
+    isHierarchical={true}
+  />
+</div>
+</header>

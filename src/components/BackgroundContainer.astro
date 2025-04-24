@@ -1,0 +1,34 @@
+---
+// src/components/BackgroundContainer.astro
+import BackgroundMedia from "./BackgroundMedia.astro";
+
+const {
+  /** 
+   * backgroundMedia: same shape you pass to Section
+   * e.g. { image: { src, imageClass }, video: { src, … }, overlayClass }
+   **/
+  backgroundMedia,
+
+  /** 
+   * tagName: HTML tag to render as the outer container (e.g. 'div', 'section', 'aside')
+   **/
+  tagName = "div",
+
+  /** 
+   * Optional wrapper classes (e.g. sizing, flex, grid, etc.)
+   **/
+  class: wrapperClass = "",
+
+  /** 
+   * Optional inner content classes 
+   **/
+  contentClass = ""
+} = Astro.props;
+---
+<component is={tagName} class={`relative overflow-hidden ${wrapperClass}`}>
+  {backgroundMedia && <BackgroundMedia backgroundMedia={backgroundMedia} />}
+
+  <div class={`relative z-10 ${contentClass}`}>
+    <slot />
+  </div>
+</component>
