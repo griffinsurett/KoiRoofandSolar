@@ -5,6 +5,7 @@ import Section from "@/components/Section.astro";
 import PrimaryHero from "@/components/StaticSections/PrimaryHero.astro";
 import { Image } from "astro:assets";
 import image from "@/assets/glen-rushton-PjeZGaKunAI-unsplash.jpg";
+import ServiceCard from "@/components/LoopComponents/ServiceCard";
 ---
 
 <ExtendedLayout
@@ -51,7 +52,7 @@ import image from "@/assets/glen-rushton-PjeZGaKunAI-unsplash.jpg";
   <Section
     collection="services"
     query="getAll"
-    heading={{ text: "Our Services", tagName: "h2" }}
+
   />
 
   <!-- Projects -->
