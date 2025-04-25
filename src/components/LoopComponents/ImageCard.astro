@@ -2,54 +2,56 @@
 import { Image } from "astro:assets";
 import Heading from "../Heading";
 
-// src/components/ImageCard.astro
-const { item, HasPage } = Astro.props;
+// now destructure collectionName as well
+const { item, collectionName, HasPage } = Astro.props;
 
 const effectiveHasPage =
   item.data.hasPage !== undefined ? item.data.hasPage : HasPage;
 const { title, featuredImage } = item.data;
 
 // Determine the image source
-let imageSrc;
-if (featuredImage) {
-  imageSrc = typeof featuredImage === 'string'
+let imageSrc = featuredImage
+  ? typeof featuredImage === "string"
     ? featuredImage
-    : featuredImage;
-}
+    : featuredImage
+  : null;
 ---
 <li class="relative group w-full h-auto lg:h-[45vh] overflow-hidden shadow hover:shadow-lg transition-shadow">
   {effectiveHasPage ? (
-    <a href={`/services/${item.slug}`} class="block w-full h-full relative">
+    <a
+      href={`/${collectionName}/${item.slug}`}
+      class="block w-full h-full relative"
+    >
       {imageSrc && (
         <Image
-        format="webp"
+          src={imageSrc}
+          alt={title}
+          format="webp"
           loading="lazy"
           fetchpriority="low"
           quality="low"
-          src={imageSrc}
-          alt={title}
           class="w-full h-full object-cover object-center transform transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
       )}
       <div class="absolute bottom-0 left-0 p-[var(--spacing-md)] text-bg">
-        <Heading tagName={"h3"} class="h3 text-bg">{title}</Heading>
+        <Heading tagName="h3" class="h3 text-bg">{title}</Heading>
       </div>
     </a>
   ) : (
     <div class="block w-full h-full relative">
       {imageSrc && (
         <Image
-        format="webp"
+          src={imageSrc}
+          alt={title}
+          format="webp"
           loading="lazy"
           fetchpriority="low"
           quality="low"
-          src={imageSrc}
-          alt={title}
           class="w-full h-full object-cover object-center transform transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
       )}
-      <div class="absolute bottom-0 left-0 p-4 text-bg">
-        <Heading tagName={"h3"} class="h3 text-bg">{title}</Heading>
+      <div class="absolute bottom-0 left-0 p-[var(--spacing-md)] text-bg">
+        <Heading tagName="h3" class="h3 text-bg">{title}</Heading>
       </div>
     </div>
   )}

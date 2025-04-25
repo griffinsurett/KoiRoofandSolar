@@ -3,11 +3,8 @@
 import { getImage } from 'astro:assets';
 
 const {
-  /** URL or import for your video file */
   src: videoSrc,
-  /** URL or import for your poster image */
   poster: posterSrc,
-  /** Optional image‐transform options for getImage */
   posterOptions = {
     width: 1280,
     format: 'webp',
@@ -34,7 +31,6 @@ if (posterSrc) {
   class="aspect-video"
 >
   <source src={videoSrc} type="video/mp4" />
-  <!-- Fallback for very old browsers -->
   <p>Your browser doesn’t support HTML5 video. 
     <a href={videoSrc}>Download the video</a>.
   </p>

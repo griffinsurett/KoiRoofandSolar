@@ -24,13 +24,12 @@ export const SectionVariants = {
         contentClass:
           "content-section flex justify-between py-[var(--spacing-md)] lg:py-[var(--spacing-xl)] items-start flex-col md:flex-row gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
         itemsClass:
-          "flex flex-col text-bg items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3",
+          "flex flex-col text-bg items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3 lg:sticky lg:top-0",
         itemClass: "",
         headingAreaClass: "flex flex-col",
-        backgroundMedia: undefined,
         topContentClass: "hidden",
         childPlacement: "",
-        childSlotClass: "lg:sticky lg:top-0",
+        childSlotClass: "w-auto lg:w-1/3 lg:sticky lg:top-0",
         buttonsPlacement: "top-content-section",
       },
       imageCards: {

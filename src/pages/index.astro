@@ -10,6 +10,7 @@ import KoiVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 import ServiceCard from "@/components/LoopComponents/ServiceCard";
 import { SiteData } from "@/content/SiteData";
+import BackgroundContainer from "@/components/BackgroundContainer.astro";
 ---
 
 <ExtendedLayout
@@ -19,7 +20,7 @@ import { SiteData } from "@/content/SiteData";
   <!-- Hero Section -->
   <PrimaryHero title="Welcome to Astro!" />
 
-  <Section variant="imageCol" collection="benefits" query="getAll">
+  <!-- <Section variant="imageCol" collection="benefits" query="getAll">
     <Video
     src={KoiVideo}
     poster={KoiVideoPoster}
@@ -29,9 +30,25 @@ import { SiteData } from "@/content/SiteData";
     loop={false}
     class="rounded-2xl shadow-lg"
   />
+  </Section> -->
+
+  <Section
+    collection="benefits"
+    query="getAll"
+  >
+      <!-- Your inner content here -->
+      <Video
+        src={KoiVideo}
+        poster={KoiVideoPoster}
+        controls
+        muted
+        autoplay={false}
+        loop={false}
+        class="shadow-xs"
+      />
   </Section>
 
-    <!-- <Section
+  <!-- <Section
       sectionClass="flex justify-center items-center p-[var(--spacing-3xl)] md:p-[var(--spacing-md)] bg-cover bg-center bg-fixed min-h-[75vh]"
       buttonsSectionClass="flex flex-col items-center justify-center w-full h-full z-10 mt-[var(--spacing-md)]"
       topContentClass="flex flex-col items-center justify-center text-center w-full h-full z-10 text-text-light md:w-3/4 w-auto"
@@ -54,23 +71,13 @@ import { SiteData } from "@/content/SiteData";
     /> -->
 
   <!-- Services -->
-  <Section
-    collection="services"
-    query="getAll"
-
-  />
+  <Section collection="services" query="getAll" />
 
   <!-- Projects -->
-  <Section
-    collection="projects"
-    query="getAll"
-  />
+  <Section collection="projects" query="getAll" />
 
   <!-- Testimonials -->
-  <Section
-    collection="testimonials"
-    query="getAll"
-  />
+  <Section collection="testimonials" query="getAll" />
 
   <!-- <Section collection="faq" query="getAll" /> -->
 </ExtendedLayout>

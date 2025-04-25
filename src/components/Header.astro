@@ -15,13 +15,13 @@ const MainNavMenu = [
 
 const breakpoint = "lg";
 ---
-<header class="flex justify-center items-center w-full h-[12vh] lg:h-[20vh] bg-transparent fixed z-[10000]">
+<header class="flex justify-center items-center w-full h-[12vh] lg:h-[16vh] bg-transparent fixed z-[10000]">
   <div class="flex items-center justify-between w-8/9 h-full">
   <a href="/" class="flex items-center">
     <Image
       src={SiteData.logo.src}
       alt={`${SiteData.title} logo`}
-      class="h-15 lg:h-24 w-auto"
+      class="h-12 lg:h-19 w-auto"
       format="webp"
       loading="eager"
       quality="low"
@@ -42,7 +42,7 @@ const breakpoint = "lg";
       menuItem: { 
         component: MenuItem, 
         class: "menu-item uppercase font-medium tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)]", 
-        activeClass: "text-accent" 
+        activeClass: "text-accent font-bold", 
       },
       submenuItem: { 
         component: MenuItem, 
