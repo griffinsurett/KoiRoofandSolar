@@ -38,9 +38,10 @@ export const SectionVariants = {
         contentClass:
           "content-section flex flex-col justify-center py-[var(--spacing-xl)] lg:py-[var(--spacing-2xl)] p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
         itemsClass:
-          "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-sm)] lg:gap-[var(--spacing-lg)]",
+          "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
         headingAreaClass: "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
         backgroundMedia: undefined,
         buttonsSectionClass: "py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
+        descriptionClass: "text-sm lg:text-xl text-text",
       },
 }

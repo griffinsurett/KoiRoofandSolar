@@ -11,12 +11,12 @@ const baseButtonClasses =
 const buttonVariantDefaults = {
   primary: {
     variantClasses:
-      "bg-[var(--color-accent)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)]",
+    "bg-[var(--color-primary)] text-[var(--color-bg)] hover:bg-[var(--color-secondary)] hover:text-[var(--color-primary)]",
     buttonClasses: baseButtonClasses,
   },
   secondary: {
     variantClasses:
-      "bg-[var(--color-primary)] text-[var(--color-bg)] hover:bg-[var(--color-secondary)] hover:text-[var(--color-primary)]",
+    "bg-[var(--color-accent)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)]",
     buttonClasses: baseButtonClasses,
   },
   tertiary: {

@@ -3,7 +3,7 @@ heading:
   - text: "Protect & Power: For Your Roof And Beyond!"
     tagName: "h2"
     class: "h2 text-primary font-bold"
-description: "We offer a wide range of cleaning services to meet your needs. From residential to commercial, we have the expertise and equipment to get the job done right."
+description: "We offer a comprehensive range of roofing and solar services to meet every need. From residential asphalt-shingle replacements and commercial metal-roof installations to turnkey solar-panel systems and maintenance, our licensed team combines industry-leading materials with expert craftsmanship—ensuring your home or business stays protected, energy-efficient, and built to last."
 ogType: "article"
 keywords:
   - "cleaning services"
@@ -14,6 +14,13 @@ itemsHasPage: true
 defaultSection:
   variant: "imageCards"
   component: "ImageCard"
+  buttons: [
+      {
+        text: "Contact Us",
+        link: "/contact-us",
+        variant: "primary",
+      }
+    ]
 sections:
   - collection: "services"
     query: "getAll"
@@ -24,12 +31,6 @@ sections:
     query: "related"
     heading: "Client Testimonials"
     description: "Hear what our clients have say about our work."
-    buttons: [
-      {
-        text: "Read Testimonials",
-        variant: "primary",
-      }
-    ]
   - collection: "clients"
     query: "related"
 itemsSections:
