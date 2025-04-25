@@ -3,7 +3,7 @@ import HeroBg from "@/assets/wholeteamkoisolar-old.jpg";
 export const SectionVariants = {
   // Variants for different section types
   media1: {
-    sectionClass: "flex flex-col justify-center items-center text-center section-sm text-bg",
+    sectionClass: "flex text-center flex-col section-sm justify-center items-center",
     contentClass:
     "content-section flex flex-col justify-center py-[var(--spacing-xl)] lg:py-[var(--spacing-2xl)] p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
     itemsClass:
@@ -11,6 +11,7 @@ export const SectionVariants = {
     itemClass: "",
     buttonsSectionClass: "",
     headingAreaClass: "flex flex-col text-bg",
+    descriptionClass: "text-sm lg:text-xl text-bg",
     backgroundMedia:{
       image: {
         src: HeroBg,
