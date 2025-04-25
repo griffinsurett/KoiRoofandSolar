@@ -24,7 +24,7 @@ export const SectionVariants = {
         contentClass:
           "content-section flex justify-between py-[var(--spacing-md)] lg:py-[var(--spacing-xl)] items-start flex-col md:flex-row gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
         itemsClass:
-          "flex flex-col items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3",
+          "flex flex-col text-bg items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3",
         itemClass: "",
         buttonsSectionClass: "",
         headingAreaClass: "flex flex-col",
@@ -34,14 +34,13 @@ export const SectionVariants = {
         childSlotClass: "lg:sticky lg:top-0",
         buttonsPlacement: "top-content-section",
       },
-      cards: {
+      imageCards: {
         sectionClass: "flex text-center flex-col section-sm justify-center items-center",
         contentClass:
           "content-section flex flex-col justify-center py-[var(--spacing-xl)] lg:py-[var(--spacing-2xl)] p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
         itemsClass:
-          "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]",
+          "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-sm)] lg:gap-[var(--spacing-lg)]",
         headingAreaClass: "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
         backgroundMedia: undefined,
-        buttonsPlacement: "top-content-section",
       },
 }

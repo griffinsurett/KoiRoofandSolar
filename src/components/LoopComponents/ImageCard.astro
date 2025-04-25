@@ -1,0 +1,47 @@
+---
+import Heading from "../Heading";
+
+// src/components/ImageCard.astro
+const { item, HasPage } = Astro.props;
+
+const effectiveHasPage =
+  item.data.hasPage !== undefined ? item.data.hasPage : HasPage;
+const { title, featuredImage, slug } = item.data;
+
+// Determine the image source
+let imageSrc;
+if (featuredImage) {
+  imageSrc = typeof featuredImage === 'string'
+    ? featuredImage
+    : featuredImage.src;
+}
+---
+<li class="relative group w-full h-auto lg:h-[40vh] overflow-hidden shadow hover:shadow-lg transition-shadow">
+  {effectiveHasPage ? (
+    <a href={`/services/${slug}`} class="block w-full h-full relative">
+      {imageSrc && (
+        <img
+          src={imageSrc}
+          alt={title}
+          class="w-full h-full object-cover object-center transform transition-transform duration-300 ease-in-out group-hover:scale-105"
+        />
+      )}
+      <div class="absolute bottom-0 left-0 p-[var(--spacing-md)]">
+        <Heading tagName={"h3"} class="h3 text-bg">{title}</Heading>
+      </div>
+    </a>
+  ) : (
+    <div class="block w-full h-full relative">
+      {imageSrc && (
+        <img
+          src={imageSrc}
+          alt={title}
+          class="w-full h-full object-cover object-center transform transition-transform duration-300 ease-in-out group-hover:scale-105"
+        />
+      )}
+      <div class="absolute bottom-0 left-0 p-4">
+        <Heading tagName={"h3"} class="h3 text-bg">{title}</Heading>
+      </div>
+    </div>
+  )}
+</li>
