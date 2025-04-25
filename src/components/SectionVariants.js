@@ -26,7 +26,6 @@ export const SectionVariants = {
         itemsClass:
           "flex flex-col text-bg items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3",
         itemClass: "",
-        buttonsSectionClass: "",
         headingAreaClass: "flex flex-col",
         backgroundMedia: undefined,
         topContentClass: "hidden",
@@ -42,5 +41,6 @@ export const SectionVariants = {
           "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-sm)] lg:gap-[var(--spacing-lg)]",
         headingAreaClass: "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
         backgroundMedia: undefined,
+        buttonsSectionClass: "py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
       },
 }
