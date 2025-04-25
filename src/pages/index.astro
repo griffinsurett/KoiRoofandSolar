@@ -7,6 +7,7 @@ import { Image } from "astro:assets";
 import Video from "@/components/Video.astro";
 import TeamImg from "@/assets/wholeteamkoisolar-old.jpg";
 import KoiVideo from "@/assets/notlikekoi.mp4";
+import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 import ServiceCard from "@/components/LoopComponents/ServiceCard";
 import { SiteData } from "@/content/SiteData";
 ---
@@ -21,7 +22,7 @@ import { SiteData } from "@/content/SiteData";
   <Section variant="imageCol" collection="benefits" query="getAll">
     <Video
     src={KoiVideo}
-    poster={TeamImg}
+    poster={KoiVideoPoster}
     controls
     muted
     autoplay={false}

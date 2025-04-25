@@ -3,29 +3,51 @@
 import Section from "@/components/Section.astro";
 import HeroBg from "@/assets/wholeteamkoisolar-old.jpg";
 import { SiteData } from "@/content/SiteData";
+import KoiVideo from "@/assets/video.mp4";
+import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 ---
+
 <Section
-  heading={
-  [
-  { text: SiteData.title, tagName: "h1", class: "h5 text-bg py-[var(--spacing-sm)]" },
-  { text: '"Some start at the bottom we go to the top"', tagName: "h3", class: "h3 text-secondary italic uppercase font-bold" },
-  { text: "Top-Quality Roofing & Solar Solutions for Your Home", tagName: "h2", class: "h1 text-accent py-[var(--spacing-sm)]" },
-  { text: SiteData.tagline, tagName: "h4", class:"h4 text-bg italic" }
-  ]
-},
-    backgroundMedia={{
-        image: {
-        src: HeroBg,
-        imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
-        },
-        overlayClass: "bg-secondary opacity-30",
-    }}
+  heading={[
+    {
+      text: SiteData.title,
+      tagName: "h1",
+      class: "h5 text-bg py-[var(--spacing-sm)]",
+    },
+    // {
+    //   text: '"Some start at the bottom we go to the top"',
+    //   tagName: "h3",
+    //   class: "h3 text-bg uppercase font-bold",
+    // },
+    {
+      text: "Top-Quality Roofing & Solar Solutions for Your Home",
+      tagName: "h2",
+      class: "h1 text-bg py-[var(--spacing-sm)]",
+    },
+    {
+      text: SiteData.tagline,
+      tagName: "h4",
+      class: "h5 text-bg py-[var(--spacing-sm)]",
+    },
+  ]}
+  ,
+  backgroundMedia={{
+    video: {
+      src: KoiVideo
+      
+    },
+    image: {
+      src: HeroBg,
+      imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+    },
+    overlayClass: "bg-primary opacity-60",
+  }}
   buttons={[
     { text: "Roofing Services", link: "/roofing", variant: "tertiary" },
     { text: "Solar Services", link: "/solar" },
   ]}
   buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center"
   sectionClass="min-h-[100vh] text-center flex items-center justify-center bg-cover bg-fixed bg-center z-100 p-[var(--spacing-lg)] md:p-[var(--spacing-md)] text-bg shadow-lg"
-  contentClass="lg:w-3/4"
+  contentClass="lg:w-3/4 flex flex-col items-center justify-center"
   headingAreaClass="flex flex-col items-center justify-center text-center w-full h-full z-10"
 />
