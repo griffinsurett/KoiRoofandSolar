@@ -3,7 +3,7 @@ import HeroBg from "@/assets/wholeteamkoisolar-old.jpg";
 export const SectionVariants = {
   // Variants for different section types
   media1: {
-    sectionClass: "flex text-center flex-col section-sm justify-center items-center",
+    sectionClass: "min-h-[100vh] flex text-center flex-col section-sm justify-center items-center",
     contentClass:
     "content-section flex flex-col justify-center py-[var(--spacing-xl)] lg:py-[var(--spacing-2xl)] p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
     itemsClass:
@@ -11,7 +11,7 @@ export const SectionVariants = {
     itemClass: "",
     buttonsSectionClass: "",
     headingAreaClass: "flex flex-col text-bg",
-    descriptionClass: "text-sm lg:text-xl text-bg",
+    descriptionClass: "text-sm lg:text-xl text-bg py-[var(--spacing-sm)]",
     backgroundMedia:{
       image: {
         src: HeroBg,
@@ -21,7 +21,7 @@ export const SectionVariants = {
   }
   },  
   imageCol: {
-        sectionClass: "flex justify-center items-center text-left section-sm",
+        sectionClass: "min-h-[100vh] flex justify-center items-center text-left py-[var(--spacing-2xl)] section-sm",
         contentClass:
           "content-section flex justify-between py-[var(--spacing-md)] lg:py-[var(--spacing-xl)] items-start flex-col md:flex-row gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
         itemsClass:
@@ -34,7 +34,7 @@ export const SectionVariants = {
         buttonsPlacement: "top-content-section",
       },
       imageCards: {
-        sectionClass: "flex text-center flex-col section-sm justify-center items-center",
+        sectionClass: "flex text-center flex-col section-sm justify-center items-center min-h-[100vh]",
         contentClass:
           "content-section flex flex-col justify-center py-[var(--spacing-xl)] lg:py-[var(--spacing-2xl)] p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
         itemsClass:

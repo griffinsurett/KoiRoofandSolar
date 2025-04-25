@@ -46,7 +46,7 @@ const {
   contentClass: rawContentClass,
   itemsClass: rawItemsClass,
   itemClass: rawItemClass,
-  buttonsSectionClass: rawButtonsSectionClass,
+  buttonsSectionClass: rawButtonsSectionClass = "h-[20vh] flex items-center justify-center",
   headingAreaClass: rawHeadingAreaClass,
   backgroundMedia: rawBackgroundMedia,
   topContentClass: rawTopContentClass = "",
@@ -351,7 +351,7 @@ const itemsDefaultHasPage = meta.itemsHasPage ?? false;
     {isDynamic &&
       buttonsPlacementArray.includes("content-section") &&
       buttonsArray.length > 0 && (
-        <div class={buttonsSectionClass}>
+        <div class={`${buttonsSectionClass}`}>
           {buttonsArray.map((btn, idx) => {
             const defaults = {
               text: capitalize(collectionName),

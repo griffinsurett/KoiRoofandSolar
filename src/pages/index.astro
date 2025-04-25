@@ -70,14 +70,14 @@ import BackgroundContainer from "@/components/BackgroundContainer.astro";
       buttons={[{ text: "About Us", link: "/about-us", variant: "primary" }]}
     /> -->
 
+  <!-- Testimonials -->
+  <Section collection="testimonials" query="getAll" />
+  
   <!-- Services -->
   <Section collection="services" query="getAll" />
 
   <!-- Projects -->
   <Section collection="projects" query="getAll" />
-
-  <!-- Testimonials -->
-  <Section collection="testimonials" query="getAll" />
 
   <!-- <Section collection="faq" query="getAll" /> -->
 </ExtendedLayout>
