@@ -1,0 +1,31 @@
+---
+// src/components/LoopComponents/VideoCard.astro
+import Video from "../Video.astro";
+import { Image } from "astro:assets";
+
+const { item, collectionName } = Astro.props;
+const { video: videoSrc, poster: posterSrc, featuredImage } = item.data;
+---
+<li class="relative group w-full h-auto lg:h-[45vh] overflow-hidden shadow-xs transition-shadow">
+  {videoSrc ? (
+    <Video
+      src={videoSrc}
+      poster={posterSrc}
+      autoplay
+      loop
+      muted
+      playsinline
+      class="w-full h-full object-cover object-center"
+    />
+  ) : featuredImage ? (
+    <Image
+      src={typeof featuredImage === "string" ? featuredImage : featuredImage}
+      alt={item.data.title || item.slug}
+      format="webp"
+      loading="lazy"
+      fetchpriority="low"
+      quality="low"
+      class="w-full h-full object-cover object-center"
+    />
+  ) : null}
+</li>

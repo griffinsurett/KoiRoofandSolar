@@ -5,12 +5,12 @@ export const SectionVariants = {
   media1: {
     sectionClass: "flex flex-col justify-center items-center text-center section-sm text-bg",
     contentClass:
-      "content-section flex justify-between items-center flex-col",
+    "content-section flex flex-col justify-center py-[var(--spacing-xl)] lg:py-[var(--spacing-2xl)] p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
     itemsClass:
-      "flex flex-col items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-1/2",
+    "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
     itemClass: "",
     buttonsSectionClass: "",
-    headingAreaClass: "flex flex-col text-accent",
+    headingAreaClass: "flex flex-col text-bg",
     backgroundMedia:{
       image: {
         src: HeroBg,
