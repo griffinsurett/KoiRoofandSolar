@@ -1,4 +1,4 @@
-import HeroBg from "@/assets/wholeteamkoisolar-old.jpg";
+import HeroBg from "@/assets/roof.png";
 
 export const SectionVariants = {
   // Variants for different section types
@@ -9,7 +9,6 @@ export const SectionVariants = {
     itemsClass:
     "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
     itemClass: "",
-    buttonsSectionClass: "",
     headingAreaClass: "flex flex-col text-bg",
     descriptionClass: "text-sm lg:text-xl text-bg py-[var(--spacing-sm)]",
     backgroundMedia:{
