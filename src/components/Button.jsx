@@ -62,12 +62,12 @@ export default async function Button({
   } = mergedIconProps;
 
   // Ensure the button container is positioned correctly.
-  const containerDefaults = "relative inline-flex items-center group";
+  const containerDefaults = "relative group";
 
   // Build overall class names.
   let combinedClassNames =
     variant === "underline"
-      ? `${className} ${variantClasses} transition-colors duration-300 ease-in-out ${containerDefaults} inline-flex items-center group`
+      ? `${className} ${variantClasses} transition-colors duration-300 ease-in-out ${containerDefaults} group`
       : `${className} ${variantClasses} ${buttonClasses} ${containerDefaults}`;
 
   // Determine disabled state.

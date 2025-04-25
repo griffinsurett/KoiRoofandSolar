@@ -10,71 +10,90 @@ import PhoneIcon from "@/components/Phone"; // Import the phone icon
 const MainNavMenu = [
   { id: "home", label: "Home", slug: "/", weight: 100, position: "prepend" },
   { id: "about", label: "About Us", slug: "/about-us" },
-  { id: "contact", label: "Contact", slug: "/contact-us", position: "append", weight: 100 },
+  {
+    id: "contact",
+    label: "Contact",
+    slug: "/contact-us",
+    position: "append",
+    weight: 100,
+  },
 ];
 
 const breakpoint = "lg";
 ---
-<header class="flex justify-center items-center w-full h-[12vh] lg:h-[16vh] bg-transparent fixed z-[10000]">
+
+<header
+  class="flex justify-center items-center w-full h-[10vh] lg:h-[16vh] bg-transparent fixed z-[10000]"
+>
   <div class="flex items-center justify-between w-8/9 h-full">
-  <a href="/" class="flex items-center">
-    <Image
-      src={SiteData.logo.src}
-      alt={`${SiteData.title} logo`}
-      class="h-12 lg:h-19 w-auto"
-      format="webp"
-      loading="eager"
-      quality="low"
-      fetchpriority="high"
-      aria-hidden="true"
-    />
-    <!-- <div class="header-text" aria-label="Site identity">
+    <a href="/" class="flex items-center order-2 lg:order-first">
+      <Image
+        src={SiteData.logo.src}
+        alt={`${SiteData.title} logo`}
+        class="h-12 lg:h-19 w-auto"
+        format="webp"
+        loading="eager"
+        quality="low"
+        fetchpriority="high"
+        aria-hidden="true"
+      />
+      <!-- <div class="header-text" aria-label="Site identity">
       <div class="text-xl font-bold">{SiteData.title}</div>
       <div class="text-sm">{SiteData.tagline}</div>
     </div>     -->
-  </a>
+    </a>
 
-  <Menu 
-    items={await buildMenuQueries({ MainNavMenu })} 
-    breakpoint={breakpoint} 
-    listClass="flex flex-row text-bg"
-    barMenu={{
-      menuItem: { 
-        component: MenuItem, 
-        class: "menu-item uppercase font-medium tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)]", 
-        activeClass: "text-accent font-bold", 
-      },
-      submenuItem: { 
-        component: MenuItem, 
-        class: "submenu-class text-text shadow-inner-outer bg-bg",
-        activeClass: "text-bg"
-      },
-      listClass: "flex gap-[var(--spacing-xl)]",
-    }}
-    hamburgerMenu={{
-      hamburgerIconClass: "custom-hamburger-icon text-bg",
-      hamburgerIconTransform: true,
-      menuBackground: "bg-primary flex items-center justify-center w-full bg-opacity-75",
-      menuItem: { component: MenuItem, class: "text-bg h2" },
-      submenuItem: { component: MenuItem, class: "mobile-submenu-item" },
-      listClass: "flex flex-col",
-      closeButton: false
-    }}
-    isHierarchical={true}
-  />
-  <header class="…">
-    <!-- … your logo/menu … -->
-    <Button
-      href={`tel:${ContactData.phone}`}
-      variant="secondary"
-      showIcon={true}
-      iconProps={{
-        element: PhoneIcon,
-        position: "left",
-        className: "mr-[var(--spacing-sm)]",
+    <Menu
+      items={await buildMenuQueries({ MainNavMenu })}
+      breakpoint={breakpoint}
+      listClass="flex flex-row text-bg"
+      barMenu={{
+        menuItem: {
+          component: MenuItem,
+          class:
+            "menu-item uppercase font-medium tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)]",
+          activeClass: "text-accent font-bold",
+        },
+        submenuItem: {
+          component: MenuItem,
+          class: "submenu-class text-text shadow-inner-outer bg-bg",
+          activeClass: "text-bg",
+        },
+        listClass: "flex gap-[var(--spacing-xl)]",
       }}
-    >
-      Call Us
-    </Button>
-</div>
+      hamburgerMenu={{
+        hamburgerIconClass: "custom-hamburger-icon text-bg",
+        hamburgerIconTransform: true,
+        menuBackground:
+          "bg-primary flex items-center justify-center w-full bg-opacity-75",
+        menuItem: { component: MenuItem, class: "text-bg h2" },
+        submenuItem: { component: MenuItem, class: "mobile-submenu-item" },
+        listClass: "flex flex-col",
+        closeButton: false,
+      }}
+      isHierarchical={true}
+    />
+
+      <div class="order-last">
+        <Button
+          href={`tel:${ContactData.phone}`}
+          variant="secondary"
+          className="hidden lg:flex"
+          showIcon={true}
+          iconProps={{
+            element: PhoneIcon,
+            position: "left",
+            className: "mr-[var(--spacing-sm)]",
+          }}
+        >
+          Call Us
+        </Button>
+        <a 
+          class="flex lg:hidden text-accent"
+          href={`tel:${ContactData.phone}`}>
+          <PhoneIcon className="h-8 w-auto"/>
+          </a>
+        </div>
+
+  </div>
 </header>
