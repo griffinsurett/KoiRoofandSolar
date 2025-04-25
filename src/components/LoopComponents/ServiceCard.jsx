@@ -17,26 +17,46 @@ export default function ServiceCard({ item, HasPage }) {
   }
 
   return (
-    <li className="service-card p-[var(--spacing-lg)] rounded-4xl shadow hover:shadow-lg transition-shadow group min-h-[20vh] lg:min-h-[50vh] flex flex-col justify-evenly items-center w-full">
-      <div className="card-content">
-        {iconSrc && (
-          <img
-            src={iconSrc}
-            alt={`${title} icon`}
-            width={icon?.width}
-            height={icon?.height}
-            className="w-auto h-18 mx-auto mb-[var(--spacing-sm)]"
-          />
-        )}
-
-        <div className="text-content">
-          <h3 className="text-primary text-center h3">{title}</h3>
+    <li className="service-card p-[var(--spacing-lg)] rounded-4xl shadow hover:shadow-lg transition-shadow group flex flex-col justify-between items-center w-full min-h-[30vh] lg:min-h-[50vh]">
+      {effectiveHasPage ? (
+        <a
+          href={`/services/${item.slug}`}
+          className="w-full flex-1 flex flex-col justify-evenly items-center text-center no-underline"
+        >
+          {iconSrc && (
+            <img
+              src={iconSrc}
+              alt={`${title} icon`}
+              width={icon?.width}
+              height={icon?.height}
+              className="w-auto h-18 mx-auto mb-[var(--spacing-sm)] transition-transform duration-300 ease-in-out group-hover:scale-120"
+            />
+          )}
+          <h3 className="text-primary text-center h3 mb-[var(--spacing-sm)]">
+            {title}
+          </h3>
+          <p className="text-center">{description || item.body}</p>
+        </a>
+      ) : (
+        <div className="card-content flex-1 flex flex-col justify-evenly items-center text-center">
+          {iconSrc && (
+            <img
+              src={iconSrc}
+              alt={`${title} icon`}
+              width={icon?.width}
+              height={icon?.height}
+              className="w-auto h-18 mx-auto mb-[var(--spacing-sm)] transition-transform duration-300 ease-in-out group-hover:scale-110"
+            />
+          )}
+          <h3 className="text-primary text-center h3 mb-[var(--spacing-sm)]">
+            {title}
+          </h3>
           <p className="text-center">{description || item.body}</p>
         </div>
-      </div>
+      )}
 
       {effectiveHasPage && (
-        <div className="text-center">
+        <div className="mt-4 text-center">
           <Button
             href={`/services/${item.slug}`}
             className="transition-colors duration-300 ease-in-out group-hover:bg-[var(--color-secondary)] group-hover:text-[var(--color-primary)]"

@@ -4,7 +4,9 @@ import ExtendedLayout from "@/layouts/ExtendedLayout.astro";
 import Section from "@/components/Section.astro";
 import PrimaryHero from "@/components/StaticSections/PrimaryHero.astro";
 import { Image } from "astro:assets";
-import image from "@/assets/wholeteamkoisolar-old.jpg";
+import Video from "@/components/Video.astro";
+import TeamImg from "@/assets/wholeteamkoisolar-old.jpg";
+import KoiVideo from "@/assets/notlikekoi.mp4";
 import ServiceCard from "@/components/LoopComponents/ServiceCard";
 import { SiteData } from "@/content/SiteData";
 ---
@@ -17,14 +19,15 @@ import { SiteData } from "@/content/SiteData";
   <PrimaryHero title="Welcome to Astro!" />
 
   <Section variant="imageCol" collection="benefits" query="getAll">
-    <Image
-      src={image}
-      alt="David's Truck"
-      class="w-[498px] h-fit rounded-lg shadow-lg"
-      format="webp"
-      loading="lazy"
-      quality="low"
-    />
+    <Video
+    src={KoiVideo}
+    poster={TeamImg}
+    controls
+    muted
+    autoplay={false}
+    loop={false}
+    class="rounded-2xl shadow-lg"
+  />
   </Section>
 
     <Section
@@ -35,7 +38,7 @@ import { SiteData } from "@/content/SiteData";
       headingAreaClass=""
       backgroundMedia={{
         image: {
-          src: image,
+          src: TeamImg,
           imageClass: "bg-cover filter brightness-50 bg-center xl:bg-fixed",
         },
         overlayClass: "bg-primary/50",

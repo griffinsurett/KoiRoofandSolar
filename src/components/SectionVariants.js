@@ -24,7 +24,7 @@ export const SectionVariants = {
         contentClass:
           "content-section flex justify-between py-[var(--spacing-md)] lg:py-[var(--spacing-xl)] items-start flex-col md:flex-row gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
         itemsClass:
-          "flex flex-col items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-1/2",
+          "flex flex-col items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3",
         itemClass: "",
         buttonsSectionClass: "",
         headingAreaClass: "flex flex-col",
