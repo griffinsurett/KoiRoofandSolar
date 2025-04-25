@@ -5,40 +5,69 @@ import { getImage } from "astro:assets";
 // Accept a backgroundMedia prop that may include video, image, and overlay information.
 const { backgroundMedia } = Astro.props;
 
+// Optimize the background image (used as poster)
 let optimizedBackgroundImage = null;
 if (backgroundMedia?.image && backgroundMedia.image.src) {
-  optimizedBackgroundImage = await getImage({ src: backgroundMedia.image.src }, {
-    format: "webp",
-    quality: 50,
-    width: 1200,
-    placeholder: "blur",
-  });
+  optimizedBackgroundImage = await getImage(
+    { src: backgroundMedia.image.src },
+    {
+      format: "webp",
+      quality: 50,
+      width: 1200,
+      placeholder: "blur",
+    }
+  );
 }
 ---
 {backgroundMedia?.video && backgroundMedia.video.src ? (
   <video
-    class={`absolute inset-0 z-0 w-full h-full object-cover ${backgroundMedia.video.videoClass || ""}`}
-    autoPlay={backgroundMedia.video.autoPlay !== undefined ? backgroundMedia.video.autoPlay : true}
-    muted={backgroundMedia.video.muted !== undefined ? backgroundMedia.video.muted : true}
-    loop={backgroundMedia.video.loop !== undefined ? backgroundMedia.video.loop : true}
-    playsInline={backgroundMedia.video.playsInline !== undefined ? backgroundMedia.video.playsInline : true}
-    controls={backgroundMedia.video.controls || false}
-    preload={backgroundMedia.video.preload || "metadata"}
-    poster={optimizedBackgroundImage ? optimizedBackgroundImage.src : ""}
+    class={`astro-bg-video lazy absolute inset-0 z-0 w-full h-full object-cover ${backgroundMedia.video.videoClass || ''}`}
+    // Defer loading until needed
+    preload="none"
+    // Use optimized image as poster
+    poster={optimizedBackgroundImage?.src || backgroundMedia.image?.src || ''}
+    muted={backgroundMedia.video.muted ?? true}
+    loop={backgroundMedia.video.loop ?? true}
+    playsinline={backgroundMedia.video.playsInline ?? true}
+    autoplay={backgroundMedia.video.autoPlay ?? true}
+    controls={backgroundMedia.video.controls ?? false}
     aria-hidden="true"
+    data-src={backgroundMedia.video.src}
   >
-    <source src={backgroundMedia.video.src} type="video/mp4" />
+    <source type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 ) : (
   optimizedBackgroundImage && (
     <div
-      class={`absolute inset-0 z-0 ${backgroundMedia?.image?.imageClass || ""}`}
+      class={`absolute inset-0 z-0 ${backgroundMedia.image?.imageClass || ''}`}
       style={`background-image: url('${optimizedBackgroundImage.src}');`}
       aria-hidden="true"
     ></div>
   )
 )}
+
 {backgroundMedia?.overlayClass && (
   <div class={`absolute inset-0 ${backgroundMedia.overlayClass} z-0`} aria-hidden="true"></div>
 )}
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting) return;
+        const video = target;
+        const src = video.dataset.src;
+        if (src) {
+          const source = video.querySelector('source');
+          source.src = src;
+          video.load();
+        }
+        io.unobserve(video);
+      });
+    });
+    document.querySelectorAll('video.astro-bg-video.lazy').forEach((vid) => {
+      io.observe(vid);
+    });
+  });
+</script>
