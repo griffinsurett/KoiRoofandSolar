@@ -1,9 +1,11 @@
 ---
-import { SiteData } from "@/content/SiteData";
+import { ContactData, SiteData } from "@/content/SiteData";
 import { buildMenuQueries } from "@/utils/ArrayQueryUtils";
 import Menu from "../components/Menu/Menu.astro";
 import MenuItem from "../components/Menu/BarMenu/MenuItem.astro"; // default main menu item
 import { Image } from "astro:assets";
+import Button from "@/components/Button.jsx";
+import PhoneIcon from "@/components/Phone"; // Import the phone icon
 
 const MainNavMenu = [
   { id: "home", label: "Home", slug: "/", weight: 100, position: "prepend" },
@@ -39,7 +41,7 @@ const breakpoint = "lg";
     barMenu={{
       menuItem: { 
         component: MenuItem, 
-        class: "menu-item uppercase font-medium tracking-wide hover:text-accent px-[var(--spacing-md)] py-[var(--spacing-md)]", 
+        class: "menu-item uppercase font-medium tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)]", 
         activeClass: "text-accent" 
       },
       submenuItem: { 
@@ -60,5 +62,19 @@ const breakpoint = "lg";
     }}
     isHierarchical={true}
   />
+  <header class="…">
+    <!-- … your logo/menu … -->
+    <Button
+      href={`tel:${ContactData.phone}`}
+      variant="primary"
+      showIcon={true}
+      iconProps={{
+        element: PhoneIcon,
+        position: "left",
+        className: "mr-[var(--spacing-sm)]",
+      }}
+    >
+      Call Us
+    </Button>
 </div>
 </header>

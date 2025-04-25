@@ -8,6 +8,10 @@ import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 ---
 
 <Section
+  buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center"
+  sectionClass="min-h-[110vh] text-center flex items-center justify-center bg-cover bg-fixed bg-center z-100 text-bg shadow-lg p-[var(--spacing-lg)] md:p-[var(--spacing-md)]"
+  contentClass="lg:w-4/6 flex flex-col items-center justify-center"
+  headingAreaClass="flex flex-col items-center justify-center text-center w-full h-full z-10"
   heading={[
     {
       text: SiteData.title,
@@ -33,8 +37,7 @@ import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
   ,
   backgroundMedia={{
     video: {
-      src: KoiVideo
-      
+      src: KoiVideo,
     },
     image: {
       src: HeroBg,
@@ -46,8 +49,4 @@ import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
     { text: "Roofing Services", link: "/roofing", variant: "tertiary" },
     { text: "Solar Services", link: "/solar" },
   ]}
-  buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center"
-  sectionClass="min-h-[100vh] text-center flex items-center justify-center bg-cover bg-fixed bg-center z-100 p-[var(--spacing-lg)] md:p-[var(--spacing-md)] text-bg shadow-lg"
-  contentClass="lg:w-3/4 flex flex-col items-center justify-center"
-  headingAreaClass="flex flex-col items-center justify-center text-center w-full h-full z-10"
 />
