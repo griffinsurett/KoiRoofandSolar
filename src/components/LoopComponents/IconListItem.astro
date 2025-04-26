@@ -1,0 +1,34 @@
+---
+// src/components/LoopComponents/IconListItem.astro
+import { getImage } from "astro:assets";
+import Heading from "../Heading";
+
+const { item } = Astro.props;
+let optimizedIcon = null;
+if (item.data.icon) {
+  optimizedIcon = await getImage(
+    { src: item.data.icon },
+    { format: "webp", quality: 80, width: 64 }
+  );
+}
+---
+<div class="flex items-start space-x-[var(--spacing-md)]">
+  {optimizedIcon ? (
+    <img
+      src={optimizedIcon.src}
+      alt={item.data.title || "Icon"}
+      class="w-22 h-auto hover:scale-105 transition-transform duration-300 ease-in-out"
+      loading="lazy"
+    />
+  ) : (
+    <div class="w-8 h-8" />
+  )}
+  <div class="text-primary">
+    <Heading tagName="h3" class="h3 text-primary">
+      {item.data.title}
+    </Heading>
+    <p class="mt-[var(--spacing-xs)] text-text text-sm lg:text-xl">
+      {item.data.description || item.body}
+    </p>
+  </div>
+</div>
