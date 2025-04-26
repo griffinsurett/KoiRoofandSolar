@@ -4,14 +4,15 @@ import Section from "@/components/Section.astro";
 import HeroBg from "@/assets/wholeteamkoisolar-old.jpg";
 import { SiteData } from "@/content/SiteData";
 import KoiVideo from "@/assets/video.mp4";
-import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
+import QuoteForm from "../Forms/QuoteForm.astro";
 ---
 
 <Section
   buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center w-4/5"
-  sectionClass="min-h-[110vh] text-center flex items-center justify-center bg-cover bg-fixed bg-center z-100 text-bg shadow-lg p-[var(--spacing-lg)] md:p-[var(--spacing-md)]"
-  contentClass="lg:w-4/6 flex flex-col items-center justify-center"
-  headingAreaClass="flex flex-col items-center justify-center text-center w-full h-full z-10"
+  sectionClass="lg:min-h-[110vh] lg:text-left flex items-center justify-center bg-cover bg-fixed bg-center z-100 text-bg shadow-lg pt-[var(--spacing-4xl)] md:p-[var(--spacing-md)]"
+  contentClass="flex flex-col lg:flex-row justify-center items-center lg:gap-[var(--spacing-xl)] w-9/10"
+  topContentClass="w-9/10 lg:w-3/6 py-[var(--spacing-lg)]"
+  headingAreaClass="flex flex-col text-center lg:text-left w-full h-full z-10 my-[var(--spacing-lg)]"
   heading={[
     {
       text: SiteData.title,
@@ -40,8 +41,7 @@ import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
     },
     overlayClass: "bg-primary opacity-60",
   }}
-  buttons={[
-    { text: "Roofing Services", link: "/roofing", variant: "tertiary", class: "w-full" },
-    { text: "Solar Services", link: "/solar", variant: "secondary", class: "w-full" },
-  ]}
-/>
+  buttonsSectionClass="hidden"
+>
+<QuoteForm/>
+</Section>
