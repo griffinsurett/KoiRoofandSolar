@@ -23,7 +23,7 @@ const breakpoint = "lg";
 ---
 
 <header
-  class="flex justify-center items-center w-full h-[10vh] xl:h-[16vh] bg-transparent fixed z-[10000]"
+  class="flex justify-center items-center w-full h-[10vh] xl:h-[16vh] bg-transparent fixed z-[10000]" id="site-header"
 >
   <div class="flex items-center justify-between w-9/10 h-full">
     <a href="/" class="flex items-center order-2 lg:order-first">
@@ -97,3 +97,35 @@ const breakpoint = "lg";
 
   </div>
 </header>
+<script is:inline client:idle>
+  const header = document.getElementById("site-header");                        // select header :contentReference[oaicite:0]{index=0}
+  const menuLinks = document.querySelectorAll(".menu-item");                    // select bar-menu links :contentReference[oaicite:1]{index=1}
+  const hamburgerIcon = document.querySelector(".custom-hamburger-icon");       // select hamburger icon :contentReference[oaicite:2]{index=2}
+  const ACTIVE_CLASS = "text-accent";                                           // your active link color
+
+  function onScroll() {
+    const scrolled = window.scrollY > 50;                                       // get vertical scroll :contentReference[oaicite:3]{index=3}
+
+    // Header background + shadow
+    header.classList.toggle("bg-bg", scrolled);                              // add/remove bg & shadow :contentReference[oaicite:4]{index=4}
+    header.classList.toggle("shadow-md", scrolled);
+    header.classList.toggle("bg-transparent", !scrolled);
+
+    // Bar-menu links: non-active only
+    menuLinks.forEach((link) => {
+      if (link.classList.contains(ACTIVE_CLASS)) return;                        // skip active :contentReference[oaicite:5]{index=5}
+
+      link.classList.toggle("text-primary", scrolled);                         // toggle text color :contentReference[oaicite:6]{index=6}
+      link.classList.toggle("text-bg", !scrolled);
+    });
+
+    // Hamburger icon: always toggle
+    if (hamburgerIcon) {
+      hamburgerIcon.classList.toggle("text-primary", scrolled);                 // switch between text-primary/text-bg :contentReference[oaicite:7]{index=7}
+      hamburgerIcon.classList.toggle("text-bg", !scrolled);
+    }
+  }
+
+  window.addEventListener("scroll", onScroll);                                  // listen for scroll :contentReference[oaicite:8]{index=8}
+  onScroll();                                                                    // initialize on load
+</script>
