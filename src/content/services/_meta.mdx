@@ -11,6 +11,7 @@ keywords:
   - "eco-friendly cleaning"
 hasPage: false
 itemsHasPage: true
+itemsLayout: "../../layouts/ServicesLayout.astro"
 defaultSection:
   variant: "imageCards"
   component: "ImageCard"
@@ -25,14 +26,10 @@ sections:
     query: "related"
     heading: "Client Testimonials"
     description: "Hear what our clients have say about our work."
-  - collection: "clients"
-    query: "related"
 itemsSections:
   - collection: "projects"
     query: "related"
   - collection: "testimonials"
-    query: "related"
-  - collection: "clients"
     query: "related"
   - collection: "services"
     query: "parent"
@@ -42,5 +39,6 @@ itemsSections:
     heading: "Child Services"
   - collection: "services"
     query: "sibling"
-    heading: "Sibling Services"
+    heading: "We Also Offer"
+    descriptionClass: "hidden"
 ---

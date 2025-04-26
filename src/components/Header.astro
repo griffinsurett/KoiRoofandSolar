@@ -51,7 +51,7 @@ const breakpoint = "lg";
         menuItem: {
           component: MenuItem,
           class:
-            "menu-item uppercase font-medium tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)]",
+            "menu-item uppercase tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)]",
           activeClass: "text-accent font-bold",
         },
         submenuItem: {
@@ -98,34 +98,51 @@ const breakpoint = "lg";
   </div>
 </header>
 <script is:inline client:idle>
-  const header = document.getElementById("site-header");                        // select header :contentReference[oaicite:0]{index=0}
-  const menuLinks = document.querySelectorAll(".menu-item");                    // select bar-menu links :contentReference[oaicite:1]{index=1}
-  const hamburgerIcon = document.querySelector(".custom-hamburger-icon");       // select hamburger icon :contentReference[oaicite:2]{index=2}
-  const ACTIVE_CLASS = "text-accent";                                           // your active link color
+  const header        = document.getElementById("site-header");
+  const menuLinks     = document.querySelectorAll(".menu-item");
+  const hamburgerIcon = document.querySelector(".custom-hamburger-icon");
+  const menuToggle    = document.getElementById("hamburger-toggle");
+  const ACTIVE_CLASS  = "text-accent";
 
+  // Scroll handler (unchanged)
   function onScroll() {
-    const scrolled = window.scrollY > 50;                                       // get vertical scroll :contentReference[oaicite:3]{index=3}
+    const scrolled = window.scrollY > 50;                                          // read scroll position :contentReference[oaicite:0]{index=0}
 
-    // Header background + shadow
-    header.classList.toggle("bg-bg", scrolled);                              // add/remove bg & shadow :contentReference[oaicite:4]{index=4}
-    header.classList.toggle("shadow-md", scrolled);
+    header.classList.toggle("bg-white", scrolled);
+    header.classList.toggle("shadow-md", scrolled);                               // toggle box-shadow :contentReference[oaicite:1]{index=1}
     header.classList.toggle("bg-transparent", !scrolled);
 
-    // Bar-menu links: non-active only
     menuLinks.forEach((link) => {
-      if (link.classList.contains(ACTIVE_CLASS)) return;                        // skip active :contentReference[oaicite:5]{index=5}
-
-      link.classList.toggle("text-primary", scrolled);                         // toggle text color :contentReference[oaicite:6]{index=6}
+      if (link.classList.contains(ACTIVE_CLASS)) return;
+      link.classList.toggle("text-primary", scrolled);
       link.classList.toggle("text-bg", !scrolled);
     });
 
-    // Hamburger icon: always toggle
     if (hamburgerIcon) {
-      hamburgerIcon.classList.toggle("text-primary", scrolled);                 // switch between text-primary/text-bg :contentReference[oaicite:7]{index=7}
+      hamburgerIcon.classList.toggle("text-primary", scrolled);
       hamburgerIcon.classList.toggle("text-bg", !scrolled);
     }
   }
 
-  window.addEventListener("scroll", onScroll);                                  // listen for scroll :contentReference[oaicite:8]{index=8}
-  onScroll();                                                                    // initialize on load
+  // Menu open/close handler
+  if (menuToggle) {
+    menuToggle.addEventListener("change", () => {                                // listen for toggle :contentReference[oaicite:2]{index=2}
+      if (menuToggle.checked) {
+        // When the menu opens: force header to primary bg, remove any shadow
+        header.classList.add("bg-primary");
+        header.classList.remove("shadow-md");                                   // ✅ remove the box-shadow
+        header.classList.remove("bg-white", "bg-transparent");
+        if (hamburgerIcon) {
+          hamburgerIcon.classList.add("text-bg");
+          hamburgerIcon.classList.remove("text-primary");
+        }
+      } else {
+        // When closed: fall back to scroll state
+        onScroll();
+      }
+    });
+  }
+
+  window.addEventListener("scroll", onScroll);                                   // scroll listener :contentReference[oaicite:3]{index=3}
+  onScroll();                                                                    // initialize on page load
 </script>

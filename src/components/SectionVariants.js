@@ -6,7 +6,7 @@ export const SectionVariants = {
     sectionClass:
       "min-h-[100vh] flex text-center flex-col section-sm justify-center items-center",
     contentClass:
-      "content-section flex flex-col justify-center p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
+      "content-section flex flex-col justify-center px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
     "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
     itemClass: "",
@@ -37,7 +37,7 @@ export const SectionVariants = {
     sectionClass:
       "flex text-center flex-col section-sm justify-center items-center min-h-[100vh]",
     contentClass:
-      "content-section flex flex-col justify-center py-[var(--spacing-xl)] lg:py-[var(--spacing-2xl)] p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
+      "content-section flex flex-col justify-center py-[var(--spacing-md)] lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
       "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
     headingAreaClass:
