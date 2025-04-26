@@ -23,14 +23,14 @@ const breakpoint = "lg";
 ---
 
 <header
-  class="flex justify-center items-center w-full h-[10vh] lg:h-[16vh] bg-transparent fixed z-[10000]"
+  class="flex justify-center items-center w-full h-[10vh] xl:h-[16vh] bg-transparent fixed z-[10000]"
 >
-  <div class="flex items-center justify-between w-8/9 h-full">
+  <div class="flex items-center justify-between w-9/10 h-full">
     <a href="/" class="flex items-center order-2 lg:order-first">
       <Image
         src={SiteData.logo.src}
         alt={`${SiteData.title} logo`}
-        class="h-17 lg:h-19 w-auto"
+        class="h-17 xl:h-19 w-auto"
         format="webp"
         loading="eager"
         quality="low"
@@ -78,7 +78,7 @@ const breakpoint = "lg";
         <Button
           href={`tel:${ContactData.phone}`}
           variant="secondary"
-          className="hidden lg:flex"
+          className="hidden xl:flex"
           showIcon={true}
           iconProps={{
             element: PhoneIcon,
@@ -89,7 +89,7 @@ const breakpoint = "lg";
           Call Us
         </Button>
         <a 
-          class="flex lg:hidden text-accent"
+          class="flex xl:hidden text-accent"
           href={`tel:${ContactData.phone}`}>
           <PhoneIcon className="h-8 w-auto"/>
           </a>
