@@ -102,6 +102,22 @@
   .shadow-koi {
     box-shadow: var(--shadow-koi);
   }
+
+  .section-xs {
+    @apply min-h-[100vh] md:min-h-[80vh];
+  }
+
+  .section-sm {
+    @apply min-h-[100vh];
+  }
+
+  .section-md {
+    @apply min-h-[120vh];
+  }
+
+  .section-lg {
+    @apply min-h-[140vh];
+  }
 }
 
 @keyframes fade-in-up {

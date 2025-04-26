@@ -4,7 +4,7 @@ export const SectionVariants = {
   // Variants for different section types
   media1: {
     sectionClass:
-      "min-h-[100vh] flex text-center flex-col section-sm justify-center items-center",
+      "section-lg flex text-center flex-col justify-center items-center",
     contentClass:
       "content-section flex flex-col justify-center px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
@@ -22,7 +22,7 @@ export const SectionVariants = {
   },
   imageCol: {
     sectionClass:
-      "min-h-[100vh] flex justify-center items-center text-left py-[var(--spacing-2xl)] section-sm",
+      "section-lg flex justify-center items-center text-left py-[var(--spacing-2xl)]",
     contentClass:
       "content-section flex flex-col-reverse md:flex-row justify-between py-[var(--spacing-md)] lg:py-[var(--spacing-xl)] items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
     itemsClass:
@@ -35,7 +35,7 @@ export const SectionVariants = {
   },
   imageCards: {
     sectionClass:
-      "flex text-center flex-col section-sm justify-center items-center min-h-[100vh]",
+      "section-lg flex text-center flex-col section-sm justify-center items-center",
     contentClass:
       "content-section flex flex-col justify-center py-[var(--spacing-md)] lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
