@@ -1,5 +1,6 @@
 // SiteData.js
 import Logo from "@/assets/logo.png"
+import LogoWithWords from "@/assets/logowwords.png"
 
 export const SiteData = {
     title: "Koi Roofing and Solar",
