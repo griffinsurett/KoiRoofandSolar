@@ -4,14 +4,11 @@ import BaseLayout from "./BaseLayout.astro";
 import Section from "@/components/Section.astro";
 import HeroBg from "@/assets/background.svg";
 import KoiVideo from "@/assets/video.mp4";
-import { SiteData } from "@/content/SiteData";
 import QuoteForm from "@/components/Forms/QuoteForm.astro";
 
 const {
   entry,
-  title,
   description,
-  heading,   // ← pull in the MDX heading frontmatter
 } = Astro.props;
 console.log("entry", entry);
 ---
@@ -27,7 +24,7 @@ console.log("entry", entry);
     {
       text: `Koi ${entry.slug}`,
       tagName: "h1",
-      class: "h5 text-accent uppercase py-[var(--spacing-sm)]",
+      class: "text-accent py-[var(--spacing-sm)] top-heading",
     },
     {
       text: `Top-Quality ${entry.slug} Solutions for Your Home`,

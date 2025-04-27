@@ -87,6 +87,11 @@
   .h6 {
     @apply text-lg tracking-wide md:text-lg;
   }
+
+  .top-heading {
+    @apply text-lg lg:text-xl font-medium tracking-widest uppercase;
+  }
+
   .h1,
   .h2,
   .h3,

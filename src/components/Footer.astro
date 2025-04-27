@@ -2,28 +2,102 @@
 import { buildMenuQueries } from "@/utils/ArrayQueryUtils";
 import Menu from "./Menu/BarMenu/NavMenu.astro";
 import { Image } from "astro:assets";
-import { SiteData } from "@/content/SiteData";
+import { SiteData, ContactData } from "@/content/SiteData";
+import BackgroundContainer from "./BackgroundContainer.astro";
+import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
+import KoiVideo from "@/assets/video.mp4";
+import Heading from "./Heading";
 
 const FooterMenu = [
-  { id: "privacy", label: "Privacy Policy", slug: "/privacy-policy", weight: 10 },
+  {
+    id: "privacy",
+    label: "Privacy Policy",
+    slug: "/privacy-policy",
+    weight: 10,
+  },
   { id: "cookie", label: "Cookie Policy", slug: "/cookie-policy", weight: 20 },
   { id: "contact", label: "Contact Us", slug: "/contact-us", weight: 30 },
 ];
 ---
+
 <footer class="text-bg">
-  <div class="footer-top p-[var(--spacing-xl)]">
-    <div class="w-full xl:w-1/2">
-      <Image 
-      src={SiteData.logo.src}
-      alt={`${SiteData.title} logo`}
-      class="h-12 lg:h-18 w-auto"
-    />
-    <p>{SiteData.description}</p>
-    </div>
+  <div class="footer-top flex justify-center items-center">
+    <BackgroundContainer
+      class="bg-cover bg-center bg-fixed flex justify-center items-center py-[var(--spacing-lg)]"
+      contentClass="flex justify-center items-center"
+      backgroundMedia={{
+        video: {
+          src: KoiVideo,
+          poster: KoiVideoPoster,
+          class: "rounded-2xl shadow-lg",
+        },
+        image: {
+          src: KoiVideoPoster,
+          imageClass: "bg-cover filter brightness-50 bg-center xl:bg-fixed",
+        },
+        overlayClass: "bg-primary opacity-60",
+      }}
+    >
+      <div
+        class="top-footer-wrap flex items-center justify-between px-[var(--spacing-lg)] flex-col xl:flex-row w-9/10"
+      >
+        <div class="w-full text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col lg:items-start justify-center items-center">
+          <Image
+            src={SiteData.logo.src}
+            alt={`${SiteData.title} logo`}
+            class="h-24 lg:h-20 w-auto"
+          />
+          <p class="text-lg font-thin pt-[var(--spacing-md)]">{SiteData.description}</p>
+        </div>
+
+        <div class="w-full flex justify-end">
+          <div class="w-9/10 flex flex-col lg:flex-row justify-between">
+            <div class="w-full lg:w-1/5">
+              <Heading tagName="h4" className="h4 pr-[var(--spacing-sm)]">What We Offer:</Heading>
+              <Menu
+                listClass="flex flex-col gap-[var(--spacing-xs)] py-[var(--spacing-xs)]"
+                items={await buildMenuQueries({ FooterMenu })}
+                menuItem={{
+                  class:"hover:text-accent"
+                }}
+              />
+            </div>
+          <div class="w-full lg:w-1/5">
+            <Heading tagName="h4" className="h4 pr-[var(--spacing-sm)]">Quick Links:</Heading>
+            <Menu
+              listClass="flex flex-col gap-[var(--spacing-xs)] py-[var(--spacing-xs)]"
+              items={await buildMenuQueries({ FooterMenu })}
+              menuItem={{
+                class:"hover:text-accent"
+              }}
+            />
+          </div>
+          <div class="w-full lg:w-2/5">
+            <Heading tagName="h4">Contact Us:</Heading>
+            <div class="contact-item flex">
+              <Heading tagName={"label"} class="h6">
+                Email Us:
+              </Heading>
+              <a href={`mailto:${ContactData.email}`} class="text-bg hover:text-accent">
+                {ContactData.email}
+              </a>
+            </div>
+            <div class="contact-item flex">
+              <Heading tagName={"label"} class="h6">
+                Call Us:
+              </Heading>
+            <a href={`tel:${ContactData.phone}`} class="text-bg hover:text-accent">
+              {ContactData.phone}
+            </a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </BackgroundContainer>
   </div>
-  <div class="footer-bottom flex">
-    <Menu items={await buildMenuQueries({ FooterMenu })} />
-    <p class="mt-[var(--spacing-md)] text-[var(--font-size-sm)]">
+  <div class="footer-bottom flex justify-center items-center">
+    <p class="text-[var(--font-size-sm)] text-lg font-thin">
       &copy; {new Date().getFullYear()} Cleanomatic. All rights reserved.
     </p>
   </div>
