@@ -8,6 +8,7 @@ import Video from "@/components/Video.astro";
 import KoiVideo from "@/assets/video.mp4";
 import NotLikeVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
+import { SiteData } from "@/content/SiteData";
 
 const {
   entry,
@@ -42,7 +43,7 @@ console.log("entry", entry);
       src: KoiVideo,
     },
     image: {
-      src: HeroBg,
+      src:  SiteData.MainBGImage.src,
       imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
     },
     overlayClass: "bg-primary opacity-60",

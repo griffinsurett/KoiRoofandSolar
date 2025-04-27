@@ -13,9 +13,10 @@ import { MainNavMenu } from "@/queries/MainNavMenu"; // ← now comes from the s
 // Only the redundant classes:
 const menuListClass =
   "flex flex-col justify-center items-center xl:items-start gap-[var(--spacing-xs)] py-[var(--spacing-xs)]";
-const menuItemClass = "hover:text-accent text-lg";
+const menuItemClass = "hover:text-accent text-lg uppercase";
 const contactItemClass = "flex justify-center xl:justify-start gap-sm text-lg";
 const linkHoverClass = "text-bg hover:text-accent";
+const bottomLinksHoverClass = "text-accent hover:text-secondary hover:underline";
 
 const FooterMenu = [
   {
@@ -55,20 +56,22 @@ const FooterMenu = [
         <div
           class="w-full text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col xl:items-start justify-center items-center"
         >
-        <a href="/">
-          <Image
-            src={SiteData.logo.src}
-            alt={`${SiteData.title} logo`}
-            class="h-24 lg:h-20 w-auto"
-          />
-        </a>
+          <a href="/">
+            <Image
+              src={SiteData.logo.src}
+              alt={`${SiteData.title} logo`}
+              class="h-24 lg:h-20 w-auto"
+            />
+          </a>
           <p class="text-lg font-thin pt-[var(--spacing-md)]">
             {SiteData.description}
           </p>
         </div>
 
         <div class="w-full flex justify-center xl:justify-end">
-          <div class="w-9/10 flex flex-col lg:flex-row justify-between gap-[var(--spacing-xl)]">
+          <div
+            class="w-9/10 flex flex-col lg:flex-row justify-between gap-[var(--spacing-xl)]"
+          >
             <div class="w-full lg:w-1/5">
               <Heading
                 tagName="h5"
@@ -132,7 +135,7 @@ const FooterMenu = [
         href="https://griffinswebservices.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-accent hover:text-bg"
+        class={bottomLinksHoverClass}
       >
         Griffin's Web Services
       </a>
@@ -141,7 +144,7 @@ const FooterMenu = [
         href="https://koicrest.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-accent hover:text-bg"
+        class={bottomLinksHoverClass}
       >
         Koi Crest Marketing
       </a>

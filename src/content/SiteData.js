@@ -1,7 +1,7 @@
 // SiteData.js
 import Logo from "@/assets/logo.png"
 import LogoWithWords from "@/assets/logowwords.png"
-import MainBGImage from "@/assets/wholeteamkoisolar-old.jpg"
+import MainBGImage from "@/assets/rooffromvid.jpg"
 
 export const SiteData = {
     title: "Koi Roofing and Solar",
