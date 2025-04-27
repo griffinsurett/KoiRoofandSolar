@@ -21,7 +21,7 @@ const FooterMenu = [
 ---
 
 <footer class="text-bg">
-  <div class="footer-top flex justify-center items-center">
+  <div class="footer-top flex justify-center items-center text-center xl:text-left">
     <BackgroundContainer
       class="bg-cover bg-center bg-fixed flex justify-center items-center py-[var(--spacing-lg)]"
       contentClass="flex justify-center items-center"
@@ -39,9 +39,9 @@ const FooterMenu = [
       }}
     >
       <div
-        class="top-footer-wrap flex items-center justify-between px-[var(--spacing-lg)] flex-col xl:flex-row w-9/10"
+        class="top-footer-wrap flex items-center justify-between xl:px-[var(--spacing-lg)] flex-col xl:flex-row w-9/10"
       >
-        <div class="w-full text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col lg:items-start justify-center items-center">
+        <div class="w-full text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col xl:items-start justify-center items-center">
           <Image
             src={SiteData.logo.src}
             alt={`${SiteData.title} logo`}
@@ -53,9 +53,9 @@ const FooterMenu = [
         <div class="w-full flex justify-end">
           <div class="w-9/10 flex flex-col lg:flex-row justify-between">
             <div class="w-full lg:w-1/5">
-              <Heading tagName="h4" className="h4 pr-[var(--spacing-sm)]">What We Offer:</Heading>
+              <Heading tagName="h5" className="h5 font-bold pr-[var(--spacing-sm)]">What We Offer:</Heading>
               <Menu
-                listClass="flex flex-col gap-[var(--spacing-xs)] py-[var(--spacing-xs)]"
+                listClass="flex flex-col justify-center items-center xl:items-start gap-[var(--spacing-xs)] py-[var(--spacing-xs)]"
                 items={await buildMenuQueries({ FooterMenu })}
                 menuItem={{
                   class:"hover:text-accent"
@@ -63,18 +63,18 @@ const FooterMenu = [
               />
             </div>
           <div class="w-full lg:w-1/5">
-            <Heading tagName="h4" className="h4 pr-[var(--spacing-sm)]">Quick Links:</Heading>
+            <Heading tagName="h5" className="h5 font-bold pr-[var(--spacing-sm)]">Quick Links:</Heading>
             <Menu
-              listClass="flex flex-col gap-[var(--spacing-xs)] py-[var(--spacing-xs)]"
+              listClass="flex flex-col justify-center items-center xl:items-start gap-[var(--spacing-xs)] py-[var(--spacing-xs)]"
               items={await buildMenuQueries({ FooterMenu })}
               menuItem={{
                 class:"hover:text-accent"
               }}
             />
           </div>
-          <div class="w-full lg:w-2/5">
-            <Heading tagName="h4">Contact Us:</Heading>
-            <div class="contact-item flex">
+          <div class="w-full lg:w-2/5 justify-center items-center xl:items-start text-center xl:text-left">
+            <Heading tagName="h5" className="h5 font-bold">Contact Us:</Heading>
+            <div class="contact-item flex justify-center xl:justify-start gap-sm">
               <Heading tagName={"label"} class="h6 font-medium">
                 Email Us:
               </Heading>
@@ -82,7 +82,7 @@ const FooterMenu = [
                 {ContactData.email}
               </a>
             </div>
-            <div class="contact-item flex">
+            <div class="contact-item flex justify-center xl:justify-start gap-sm">
               <Heading tagName={"label"} class="h6 font-medium">
                 Call Us:
               </Heading>
