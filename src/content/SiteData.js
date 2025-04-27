@@ -1,6 +1,7 @@
 // SiteData.js
 import Logo from "@/assets/logo.png"
 import LogoWithWords from "@/assets/logowwords.png"
+import MainBGImage from "@/assets/wholeteamkoisolar-old.jpg"
 
 export const SiteData = {
     title: "Koi Roofing and Solar",
@@ -9,7 +10,11 @@ export const SiteData = {
     logo: {
         src: Logo,
         alt: "Koi Roofing and Solar logo",
-    }
+    },
+    MainBGImage: {
+        src: MainBGImage,
+        alt: "Koi Roofing and Solar team",
+    },
 }
 
 export const ContactData = {
