@@ -1,32 +1,24 @@
 ---
+// src/components/Header.astro
+
 import { ContactData, SiteData } from "@/content/SiteData";
 import { buildMenuQueries } from "@/utils/ArrayQueryUtils";
 import Menu from "../components/Menu/Menu.astro";
-import MenuItem from "../components/Menu/BarMenu/MenuItem.astro"; // default main menu item
+import MenuItem from "../components/Menu/BarMenu/MenuItem.astro";
 import { Image } from "astro:assets";
 import Button from "@/components/Button.jsx";
-import PhoneIcon from "@/components/Phone"; // Import the phone icon
-
-const MainNavMenu = [
-  { id: "home", label: "Home", slug: "/", weight: 100, position: "prepend" },
-  { id: "about", label: "About Us", slug: "/about-us" },
-  {
-    id: "contact",
-    label: "Contact",
-    slug: "/contact-us",
-    position: "append",
-    weight: 100,
-  },
-];
+import PhoneIcon from "@/components/Phone";
+import { MainNavMenu } from "@/queries/MainNavMenu"; // ← now comes from the shared TS file
 
 const breakpoint = "lg";
 ---
 
 <header
-  class="flex justify-center items-center w-full h-[12vh] xl:h-[16vh] bg-transparent fixed z-[10000]" id="site-header"
+  id="site-header"
+  class="fixed top-0 w-full h-[12vh] xl:h-[16vh] flex justify-center items-center bg-transparent z-[10000]"
 >
-  <div class="flex items-center justify-between w-9/10 h-full">
-    <a href="/" class="flex items-center order-2 lg:order-first">
+  <div class="w-9/10 h-full flex items-center justify-between">
+    <a href="/" class="order-2 lg:order-first flex items-center">
       <Image
         src={SiteData.logo.src}
         alt={`${SiteData.title} logo`}
@@ -37,10 +29,6 @@ const breakpoint = "lg";
         fetchpriority="high"
         aria-hidden="true"
       />
-      <!-- <div class="header-text" aria-label="Site identity">
-      <div class="text-xl font-bold">{SiteData.title}</div>
-      <div class="text-sm">{SiteData.tagline}</div>
-    </div>     -->
     </a>
 
     <Menu
@@ -74,42 +62,39 @@ const breakpoint = "lg";
       isHierarchical={true}
     />
 
-      <div class="order-last">
-        <Button
-          href={`tel:${ContactData.phone}`}
-          variant="secondary"
-          className="hidden xl:flex"
-          showIcon={true}
-          iconProps={{
-            element: PhoneIcon,
-            position: "left",
-            className: "mr-[var(--spacing-sm)]",
-          }}
-        >
-          Call Us
-        </Button>
-        <a 
-          class="flex xl:hidden text-accent"
-          href={`tel:${ContactData.phone}`}>
-          <PhoneIcon className="h-8 w-auto"/>
-          </a>
-        </div>
+    <div class="order-last flex items-center">
+      <Button
+        href={`tel:${ContactData.phone}`}
+        variant="secondary"
+        className="hidden xl:flex"
+        showIcon={true}
+        iconProps={{
+          element: PhoneIcon,
+          position: "left",
+          className: "mr-[var(--spacing-sm)]",
+        }}
+      >
+        Call Us
+      </Button>
 
+      <a href={`tel:${ContactData.phone}`} class="flex xl:hidden text-accent">
+        <PhoneIcon className="h-8 w-auto" />
+      </a>
+    </div>
   </div>
 </header>
+
 <script is:inline client:idle>
-  const header        = document.getElementById("site-header");
-  const menuLinks     = document.querySelectorAll(".menu-item");
+  const header = document.getElementById("site-header");
+  const menuLinks = document.querySelectorAll(".menu-item");
   const hamburgerIcon = document.querySelector(".custom-hamburger-icon");
-  const menuToggle    = document.getElementById("hamburger-toggle");
-  const ACTIVE_CLASS  = "text-accent";
+  const menuToggle = document.getElementById("hamburger-toggle");
+  const ACTIVE_CLASS = "text-accent";
 
-  // Scroll handler (unchanged)
   function onScroll() {
-    const scrolled = window.scrollY > 50;                                          // read scroll position :contentReference[oaicite:0]{index=0}
-
+    const scrolled = window.scrollY > 50;
     header.classList.toggle("bg-white", scrolled);
-    header.classList.toggle("shadow-md", scrolled);                               // toggle box-shadow :contentReference[oaicite:1]{index=1}
+    header.classList.toggle("shadow-md", scrolled);
     header.classList.toggle("bg-transparent", !scrolled);
 
     menuLinks.forEach((link) => {
@@ -124,25 +109,19 @@ const breakpoint = "lg";
     }
   }
 
-  // Menu open/close handler
   if (menuToggle) {
-    menuToggle.addEventListener("change", () => {                                // listen for toggle :contentReference[oaicite:2]{index=2}
+    menuToggle.addEventListener("change", () => {
       if (menuToggle.checked) {
-        // When the menu opens: force header to primary bg, remove any shadow
         header.classList.add("bg-primary");
-        header.classList.remove("shadow-md");                                   // ✅ remove the box-shadow
-        header.classList.remove("bg-white", "bg-transparent");
-        if (hamburgerIcon) {
-          hamburgerIcon.classList.add("text-bg");
-          hamburgerIcon.classList.remove("text-primary");
-        }
+        header.classList.remove("shadow-md", "bg-white", "bg-transparent");
+        hamburgerIcon?.classList.add("text-bg");
+        hamburgerIcon?.classList.remove("text-primary");
       } else {
-        // When closed: fall back to scroll state
         onScroll();
       }
     });
   }
 
-  window.addEventListener("scroll", onScroll);                                   // scroll listener :contentReference[oaicite:3]{index=3}
-  onScroll();                                                                    // initialize on page load
+  window.addEventListener("scroll", onScroll);
+  onScroll();
 </script>
