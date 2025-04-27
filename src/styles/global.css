@@ -104,19 +104,19 @@
   }
 
   .section-xs {
-    @apply min-h-[100vh] md:min-h-[80vh];
+    @apply min-h-[80vh] md:min-h-[40vh];
   }
 
   .section-sm {
-    @apply min-h-[100vh];
+    @apply min-h-[80vh] md:min-h-[50vh];
   }
 
   .section-md {
-    @apply min-h-[120vh];
+    @apply min-h-[100vh];
   }
 
   .section-lg {
-    @apply min-h-[140vh];
+    @apply min-h-[110vh];
   }
 }
 

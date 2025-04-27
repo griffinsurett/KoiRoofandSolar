@@ -22,9 +22,9 @@ export const SectionVariants = {
   },
   imageCol: {
     sectionClass:
-      "section-lg flex justify-center items-center text-left py-[var(--spacing-2xl)]",
+      "section-xs flex justify-center items-center text-left py-[var(--spacing-2xl)]",
     contentClass:
-      "content-section flex flex-col-reverse md:flex-row justify-between py-[var(--spacing-md)] lg:py-[var(--spacing-xl)] items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
+      "content-section flex flex-col-reverse md:flex-row justify-between items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
     itemsClass:
       "flex flex-col text-bg items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3 lg:sticky lg:top-0",
     itemClass: "",
@@ -35,7 +35,7 @@ export const SectionVariants = {
   },
   imageCards: {
     sectionClass:
-      "section-lg flex text-center flex-col section-sm justify-center items-center",
+      "flex text-center flex-col section-sm justify-center items-center",
     contentClass:
       "content-section flex flex-col justify-center py-[var(--spacing-md)] lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
