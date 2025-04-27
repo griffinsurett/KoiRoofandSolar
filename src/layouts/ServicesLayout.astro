@@ -5,7 +5,8 @@ import Section from "@/components/Section.astro";
 import HeroBg from "@/assets/background.svg";
 import QuoteForm from "@/components/Forms/QuoteForm.astro";
 import Video from "@/components/Video.astro";
-import KoiVideo from "@/assets/notlikekoi.mp4";
+import KoiVideo from "@/assets/video.mp4";
+import NotLikeVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 
 const {
@@ -55,9 +56,8 @@ console.log("entry", entry);
 collection="benefits"
 query="getAll"
 >
-  <!-- Your inner content here -->
   <Video
-    src={KoiVideo}
+    src={NotLikeVideo}
     poster={KoiVideoPoster}
     controls
     muted
