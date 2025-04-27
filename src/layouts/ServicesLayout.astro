@@ -3,8 +3,10 @@
 import BaseLayout from "./BaseLayout.astro";
 import Section from "@/components/Section.astro";
 import HeroBg from "@/assets/background.svg";
-import KoiVideo from "@/assets/video.mp4";
 import QuoteForm from "@/components/Forms/QuoteForm.astro";
+import Video from "@/components/Video.astro";
+import KoiVideo from "@/assets/notlikekoi.mp4";
+import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 
 const {
   entry,
@@ -46,7 +48,23 @@ console.log("entry", entry);
   }}
   buttonsSectionClass="hidden"
 >
+
 <QuoteForm/>
+</Section>
+<Section
+collection="benefits"
+query="getAll"
+>
+  <!-- Your inner content here -->
+  <Video
+    src={KoiVideo}
+    poster={KoiVideoPoster}
+    controls
+    muted
+    autoplay={true}
+    loop={false}
+    class="shadow-xs"
+  />
 </Section>
   <slot />
 </BaseLayout>
