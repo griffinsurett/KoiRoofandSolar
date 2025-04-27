@@ -7,7 +7,7 @@ export const SiteData = {
     description: "At Koi Roofing & Solar, our mission is simple: to deliver beautiful, high-performance roofs and solar installations that protect your property and empower you with sustainable energy.",
     logo: {
         src: Logo,
-        alt: "Griffin's logo",
+        alt: "Koi Roofing and Solar logo",
     }
 }
 
