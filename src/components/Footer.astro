@@ -39,11 +39,11 @@ const FooterMenu = [
       backgroundMedia={{
         video: {
           src: KoiVideo,
-          poster: SiteData.MainBGImage,
+          poster: SiteData.MainBGImage.src,
           class: "rounded-2xl shadow-lg",
         },
         image: {
-          src: SiteData.MainBGImage,
+          src: SiteData.MainBGImage.src,
           imageClass: "bg-cover filter brightness-50 bg-center xl:bg-fixed",
         },
         overlayClass: "bg-primary opacity-60",
@@ -55,11 +55,13 @@ const FooterMenu = [
         <div
           class="w-full text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col xl:items-start justify-center items-center"
         >
+        <a href="/">
           <Image
             src={SiteData.logo.src}
             alt={`${SiteData.title} logo`}
             class="h-24 lg:h-20 w-auto"
           />
+        </a>
           <p class="text-lg font-thin pt-[var(--spacing-md)]">
             {SiteData.description}
           </p>
