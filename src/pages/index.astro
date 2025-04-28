@@ -13,16 +13,17 @@ import { Image } from "astro:assets";
 
 <ExtendedLayout
   title={SiteData.title || SiteData.tagline}
-  description="Your gateway to amazing projects."
+  description={SiteData.description}
 >
   <!-- Hero Section -->
-  <PrimaryHero title="Welcome to Astro!" />
+  <PrimaryHero />
 
   <Section
   variant="imageCol"
   contentClass="md:flex-row-reverse"
   topContentClass="lg:sticky lg:top-0"
-  headingAreaClass="py-[var(--spacing-2xl)] md:py-[var(--spacing-md)]"
+  headingAreaClass="py-[var(--spacing-sm)] md:py-[var(--spacing-md)]"
+  buttonsSectionClass="flex flex-col xl:flex-row justify-center items-start xl:items-center"
   heading={[
     {
       text: "About Koi Roofing & Solar",
