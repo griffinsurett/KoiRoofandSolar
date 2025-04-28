@@ -26,12 +26,15 @@ export const SectionVariants = {
     contentClass:
       "content-section flex flex-col-reverse md:flex-row justify-between items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
     itemsClass:
-      "flex flex-col text-bg items-start justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3 lg:sticky lg:top-0",
+      "flex flex-col text-bg items-start justify-start p-[var(--spacing-sm)] gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3 lg:sticky lg:top-0",
     itemClass: "",
-    headingAreaClass: "flex flex-col",
-    topContentClass: "hidden",
+    headingAreaClass: "flex flex-col py-[var(--spacing-2xl)]",
+    buttonsSectionClass: "hidden",
     childSlotClass: "w-auto lg:w-1/3 lg:sticky lg:top-0",
-    buttonsPlacement: "top-content-section",
+    buttonsPlacement: "content-section",
+    itemPlacement: "top-content-section",
+    topContentClass:
+      "flex flex-col",
   },
   imageCards: {
     sectionClass:
@@ -39,7 +42,7 @@ export const SectionVariants = {
     contentClass:
       "content-section flex flex-col justify-center py-[var(--spacing-md)] lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
-      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
+      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)] py-[var(--spacing-xl)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
     buttonsSectionClass: "py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
