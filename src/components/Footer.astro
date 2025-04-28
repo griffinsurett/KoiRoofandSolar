@@ -16,7 +16,9 @@ const menuListClass =
 const menuItemClass = "hover:text-accent text-lg uppercase";
 const contactItemClass = "flex justify-center xl:justify-start gap-sm text-lg";
 const linkHoverClass = "text-bg hover:text-accent";
-const bottomLinksHoverClass = "text-accent hover:text-secondary hover:underline";
+const bottomLinksHoverClass =
+  "text-accent hover:text-secondary hover:underline";
+const menuHeadingClass = "h5 font-bold pr-[var(--spacing-sm)]";
 
 const FooterMenu = [
   {
@@ -75,7 +77,7 @@ const FooterMenu = [
             <div class="w-full lg:w-1/5">
               <Heading
                 tagName="h5"
-                className="h5 font-bold pr-[var(--spacing-sm)]"
+                className={menuHeadingClass}
                 >Quick Links:</Heading
               >
               <Menu
@@ -85,9 +87,7 @@ const FooterMenu = [
               />
             </div>
             <div class="w-full lg:w-1/5">
-              <Heading
-                tagName="h5"
-                className="h5 font-bold pr-[var(--spacing-sm)]"
+              <Heading tagName="h5" className={menuHeadingClass}
                 >Important Links:</Heading
               >
               <Menu
@@ -99,7 +99,7 @@ const FooterMenu = [
             <div
               class="w-full lg:w-2/5 justify-center items-center xl:items-start text-center xl:text-left"
             >
-              <Heading tagName="h5" className="h5 font-bold"
+              <Heading tagName="h5" className={menuHeadingClass}
                 >Contact Us:</Heading
               >
               <div class={contactItemClass}>
