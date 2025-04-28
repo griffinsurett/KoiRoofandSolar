@@ -67,5 +67,6 @@ export const SectionVariants = {
     "flex text-center flex-col section-md justify-center items-center",
     contentClass:
       "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
-  }
+      headingAreaClass: "pb-[var(--spacing-2xl)]"
+    }
 };

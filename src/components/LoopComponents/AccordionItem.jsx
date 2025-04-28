@@ -11,19 +11,18 @@ export default function AccordionItem({
   const toggle = () => setOpen((prev) => !prev);
 
   return (
-    <li
-      className={`${itemClass} border-t border-text-text`}
-    >
+    <li className={`${itemClass} border-t border-text-text`}>
       {/* Header: clicking toggles open/closed */}
       <div
         onClick={toggle}
-        className="w-full flex justify-between items-center py-[var(--spacing-2xl)] cursor-pointer select-none"
+        className="w-full flex justify-between items-center py-[var(--spacing-2xl)] px-[var(--spacing-xl)]
+                  cursor-pointer select-none
+                  transition-colors duration-500 ease-in-out
+                 hover:bg-bg-2"
       >
         <span className="h3 font-thin">{item.data.title || item.slug}</span>
         {/* + when closed, – when open */}
-        <span className="ml-2 text-4xl font-thin">
-          {open ? "−" : "+"}
-        </span>
+        <span className="ml-2 text-4xl font-thin">{open ? "−" : "+"}</span>
       </div>
 
       {/* Body: conditionally rendered */}
