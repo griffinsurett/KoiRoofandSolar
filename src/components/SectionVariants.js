@@ -8,10 +8,11 @@ export const SectionVariants = {
     contentClass:
       "content-section flex flex-col justify-center",
     itemsClass:
-    "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)] p-[var(--spacing-sm)]",
+    "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
     itemClass: "",
-    headingAreaClass: "flex flex-col text-bg px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
-    descriptionClass: "text-sm lg:text-xl text-bg py-[var(--spacing-sm)]",
+    itemPlacement: "section-heading-area",
+    headingAreaClass: "flex flex-col text-bg md:px-[var(--spacing-md)] gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]",
+    descriptionClass: "order-2 text-lg text-text-light lg:text-3xl text-bg",
     buttonsSectionClass: "my-[var(--spacing-lg)]",
     backgroundMedia: {
       image: {
@@ -58,8 +59,7 @@ export const SectionVariants = {
       "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] mt-[var(--spacing-lg)] lg:gap-[var(--spacing-3xl)] py-[var(--spacing-md)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
-    // buttonsSectionClass: "my-[var(--spacing-lg)]",
-    descriptionClass: "text-lg order-2 lg:text-2xl text-text-light m-[var(--spacing-lg)]",
+    descriptionClass: "text-lg order-2 lg:text-2xl text-text m-[var(--spacing-lg)]",
     itemPlacement: "section-heading-area",
   },
 };
