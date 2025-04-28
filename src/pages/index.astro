@@ -12,7 +12,7 @@ import { Image } from "astro:assets";
 ---
 
 <ExtendedLayout
-  title="Welcome to Astro!"
+  title={SiteData.title || SiteData.tagline}
   description="Your gateway to amazing projects."
 >
   <!-- Hero Section -->
