@@ -6,11 +6,11 @@ export const SectionVariants = {
     sectionClass:
       "section-lg flex text-center flex-col justify-center items-center sec-spacing-y",
     contentClass:
-      "content-section flex flex-col justify-center px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
+      "content-section flex flex-col justify-center",
     itemsClass:
     "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)] p-[var(--spacing-sm)]",
     itemClass: "",
-    headingAreaClass: "flex flex-col text-bg",
+    headingAreaClass: "flex flex-col text-bg px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     descriptionClass: "text-sm lg:text-xl text-bg py-[var(--spacing-sm)]",
     buttonsSectionClass: "my-[var(--spacing-lg)] lg:mt-0",
     backgroundMedia: {
