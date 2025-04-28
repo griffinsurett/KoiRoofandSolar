@@ -28,5 +28,11 @@
     "description": "Our financing program accepts credit scores as low as 550, making upgrades accessible to more homeowners.",
     "icon": "@/assets/solar-house.webp",
     "id": "low-credit-score-approval"
+  },
+  {
+    "title": "50 Year Warranty",
+    "description": "Our roofing systems come with a 50-year warranty, ensuring long-lasting protection and peace of mind.",
+    "icon": "@/assets/50-year-warranty.png",
+    "id": "low-credit-score-approval"
   }
 ]

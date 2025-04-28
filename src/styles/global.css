@@ -27,7 +27,7 @@
   --spacing-2xl: 2.5rem;
   --spacing-3xl: 3rem;
   --spacing-4xl: 6rem;
-  --spacing-sec-top: 75px;
+  --spacing-sec-y: 75px;
 
   /* Border Radius */
   --radius-xs: 0.125rem;
@@ -103,6 +103,17 @@
   }
   p {
     @apply mb-4 leading-relaxed text-base;
+  }
+
+  .sec-spacing-y {
+    padding-top: 37.5px;
+  }
+
+  /* on screens ≥768px (md) use full 75px */
+  @screen md {
+    .sec-spacing-y {
+      padding-top: 75px;
+    }
   }
 
   .shadow-koi {

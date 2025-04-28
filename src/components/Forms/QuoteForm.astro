@@ -1,19 +1,16 @@
 ---
-/* Uses the generic <Form> wrapper but keeps the same visual layout */
-import Form from "@/components/Forms/Form.astro";
+import Form      from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
-import Textarea from "@/components/Forms/Inputs/Textarea.astro";
+import Textarea  from "@/components/Forms/Inputs/Textarea.astro";
 import { getCurrentEntryId } from "@/utils/CurrentEntry";
 
 const {
-  inputClasses = "border border-[var(--color-border)] transition-default p-[var(--spacing-sm)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] focus:bg-bg-2 rounded-md",
-  wrapperClasses = "mb-[var(--spacing-md)] w-full flex flex-col text-left",
-  labelClasses = "text-primary mb-[var(--spacing-xs)] font-thin",
+  inputClasses    = "border border-[var(--color-border)] transition-default p-[var(--spacing-sm)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] focus:bg-bg-2 rounded-md",
+  wrapperClasses  = "mb-[var(--spacing-md)] w-full flex flex-col text-left",
+  labelClasses    = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
 } = Astro.props;
 
-// Extract current page identifier
 const currentPage = getCurrentEntryId(Astro);
-console.log("Current page:", currentPage);
 ---
 <Form
   name="quote-form"
@@ -29,14 +26,14 @@ console.log("Current page:", currentPage);
   <!-- Hidden input for current page -->
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 
-  <!-- Row 1 -->
+  <!-- Row 1 -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)] text-sm">
     <div class="w-full lg:w-1/2">
       <TextInput
         name="firstName"
         label="First Name"
         placeholder="First Name"
-        required={true}
+        required
         inputClass={inputClasses}
         wrapperClass={wrapperClasses}
         labelClass={labelClasses}
@@ -47,7 +44,7 @@ console.log("Current page:", currentPage);
         name="lastName"
         label="Last Name"
         placeholder="Last Name"
-        required={true}
+        required
         inputClass={inputClasses}
         wrapperClass={wrapperClasses}
         labelClass={labelClasses}
@@ -55,7 +52,7 @@ console.log("Current page:", currentPage);
     </div>
   </div>
 
-  <!-- Row 2 -->
+  <!-- Row 2 -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)]">
     <div class="w-full lg:w-1/2">
       <TextInput
@@ -63,7 +60,7 @@ console.log("Current page:", currentPage);
         type="email"
         label="Email Address"
         placeholder="you@example.com"
-        required={true}
+        required
         inputClass={inputClasses}
         wrapperClass={wrapperClasses}
         labelClass={labelClasses}
@@ -82,17 +79,33 @@ console.log("Current page:", currentPage);
     </div>
   </div>
 
-  <!-- Row 3 -->
+  <!-- Row 3 -->
   <div class="w-full">
     <Textarea
       name="message"
       label="Message Us"
       placeholder="Tell us more about your needs…"
-      required={true}
+      required
       rows={5}
       inputClass={inputClasses}
       wrapperClass={wrapperClasses}
       labelClass={labelClasses}
     />
   </div>
+
+  <!-- Consent Checkbox -->
+  <div class={"flex items-start"}>
+    <input
+      type="checkbox"
+      id="consent"
+      name="consent"
+      required
+      class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
+    />
+    <label for="consent" class={labelClasses + " m-0"}>
+      I consent to have Koi Solar store my submitted information so they can respond to my inquiry
+    </label>
+  </div>
+
 </Form>
+

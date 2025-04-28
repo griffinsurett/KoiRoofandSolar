@@ -3,10 +3,14 @@
 import SecondaryHero from "@/components/StaticSections/SecondaryHero.astro";
 import ExtendedLayout from "../layouts/ExtendedLayout.astro";
 import { ContactData } from "@/content/SiteData";
+import Section from "@/components/Section.astro";
+import Video from "@/components/Video.astro";
+import QuoteForm from "@/components/Forms/QuoteForm.astro";
+import ContactForm from "@/components/Forms/ContactForm.astro";
 ---
 <ExtendedLayout title="Contact Us" description="Get in touch with Cleanomatic">
   <SecondaryHero title="Contact Us" description="Get in touch with Cleanomatic" />
-  <section class="p-[var(--spacing-lg)]">
+  <!-- <section class="p-[var(--spacing-lg)]">
     <h1>Contact Us</h1>
     <p>
       If you have any questions, please email us at 
@@ -14,5 +18,21 @@ import { ContactData } from "@/content/SiteData";
       or call 
       <a href={`tel:${ContactData.phone}`}>{ContactData.phone}</a>.
     </p>
-  </section>
+  </section> -->
+  <Section
+    sectionClass="flex justify-center items-center p-[var(--spacing-3xl)] md:p-[var(--spacing-md)] bg-cover bg-center bg-fixed min-h-[100vh]"
+    buttonsSectionClass="flex flex-col items-center justify-center w-full h-full z-10 mt-[var(--spacing-md)]"
+    topContentClass="flex flex-col items-center justify-center text-center w-full h-full z-10 text-text-light md:w-3/4 w-auto"
+    headingAreaClass="">
+     <!-- Your inner content here -->
+     <div class="contact-page flex justify-between items-center w-full">
+      <div class="contact-info flex flex-col">
+        <a href={`mailto:${ContactData.email}`} class="text-primary hover:underline">{ContactData.email}</a>
+        <a href={`tel:${ContactData.phone}`} class="text-primary hover:underline">{ContactData.phone}</a>.
+    </div>
+    <ContactForm/>
+     </div>
+  
+  </Section>
+
 </ExtendedLayout>
