@@ -62,4 +62,10 @@ export const SectionVariants = {
     descriptionClass: "text-lg order-2 lg:text-2xl text-text m-[var(--spacing-lg)]",
     itemPlacement: "section-heading-area",
   },
+  faqs: {
+    sectionClass:
+    "flex text-center flex-col section-md justify-center items-center",
+    contentClass:
+      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
+  }
 };
