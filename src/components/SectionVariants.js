@@ -59,7 +59,7 @@ export const SectionVariants = {
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
     // buttonsSectionClass: "my-[var(--spacing-lg)]",
-    descriptionClass: "text-lg order-2 lg:text-xl text-text m-[var(--spacing-lg)]",
+    descriptionClass: "text-lg order-2 lg:text-2xl text-text-light m-[var(--spacing-lg)]",
     itemPlacement: "section-heading-area",
   },
 };

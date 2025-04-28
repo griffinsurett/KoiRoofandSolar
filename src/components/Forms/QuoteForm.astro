@@ -2,6 +2,7 @@
 import Form from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
 import Textarea from "@/components/Forms/Inputs/Textarea.astro";
+import { SiteData } from "@/content/SiteData";
 import { getCurrentEntryId } from "@/utils/CurrentEntry";
 
 const {
@@ -94,8 +95,8 @@ const currentPage = getCurrentEntryId(Astro);
     />
   </div>
 
-  <!-- Consent Checkbox -->
-  <div class={"flex items-start"}>
+   <!-- Consent Checkbox -->
+   <div class={"flex items-start"}>
     <input
       type="checkbox"
       id="consent"
@@ -104,8 +105,7 @@ const currentPage = getCurrentEntryId(Astro);
       class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
     />
     <label for="consent" class={labelClasses + " m-0"}>
-      I consent to have Koi Solar store my submitted information so they can
+      I consent to have {SiteData.title} store my submitted information so they can
       respond to my inquiry
     </label>
-  </div>
 </Form>
