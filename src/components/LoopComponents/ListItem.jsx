@@ -10,7 +10,7 @@ export default function NumberedListItem({ item }) {
   return (
     <li className="flex items-center space-x-[var(--spacing-md)]">
       {/* Static number indicator */}
-      <span className="font-bold text-primary text-lg flex-shrink-0">1.</span>
+      <span className="font-thin text-primary text-lg flex-shrink-0">1.</span>
       <Heading tagName="h3" className="h4 text-primary m-0">
         {title}
       </Heading>

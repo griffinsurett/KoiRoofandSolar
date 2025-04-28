@@ -71,13 +71,13 @@
 
   /* Global header styles (these are our dynamic header classes) */
   .h1 {
-    @apply text-3xl md:text-5xl lg:text-6xl font-bold tracking-wider;
+    @apply text-3xl md:text-5xl lg:text-6xl font-thin tracking-wider;
   }
   .h2 {
-    @apply text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide;
+    @apply text-2xl md:text-4xl lg:text-5xl font-thin tracking-wide;
   }
   .h3 {
-    @apply text-2xl lg:text-3xl font-bold tracking-wide md:text-2xl;
+    @apply text-2xl lg:text-3xl font-medium tracking-wide md:text-2xl;
   }
   .h4 {
     @apply text-xl lg:text-2xl font-medium tracking-wide md:text-xl;
