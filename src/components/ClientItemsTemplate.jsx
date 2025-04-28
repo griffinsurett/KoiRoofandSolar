@@ -10,7 +10,7 @@ export default function ClientItemsTemplate({
     <ul className={itemsClass}>
       {items.map(item => (
         <Comp
-          key={item.slug}
+          key={item.slug || item.id}
           item={item}
           itemClass={itemClass}
           collectionName={collectionName}

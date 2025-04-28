@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "title": "How Does Solar Energy Save Money?",
+    "description": "Solar energy reduces your utility bills by generating free power from the sun. Over time, the savings on electricity can offset the initial cost of the solar panel system. Additionally, solar panels can increase your home’s value and may qualify you for various tax incentives and rebates, further enhancing your savings.",
+    "services": ["solar"]
+  },
+  {
+    "id": 1,
+    "title": "Is My Home Suitable For Solar Panels?",
+    "description": "Most homes are suitable for solar panels, but factors such as roof condition, orientation, shading, and local climate can affect performance. A solar professional can assess your home’s solar potential and recommend the best setup.",
+    "services": ["solar"]
+  },
+  {
+    "id": 2,
+    "title": "How Long Do Solar Panels Last?",
+    "description": "Solar panels are designed to be durable and can last 25 to 30 years or longer. While their efficiency may decrease slightly over time, they will continue to produce electricity for many years.",
+    "services": ["solar"]
+  },
+  {
+    "id": 3,
+    "title": "What Happens On Cloudy Days Or At Night?",
+    "description": "Solar panels produce less electricity on cloudy days and none at night. However, net metering allows you to use electricity from the grid when solar production is low and earn credits by sending excess solar power back to the grid during peak production times.",
+    "services": ["solar"]
+  },
+  {
+    "id": 4,
+    "title": "Do Solar Panels Require Maintenance?",
+    "description": "Solar panels require minimal maintenance. Keeping them clean and clear of debris helps maintain efficiency. Most systems are also monitored remotely by installers to ensure they operate smoothly.",
+    "services": ["solar"]
+  },
+  {
+    "id": 5,
+    "title": "Can I Go Off-Grid With Solar Panels?",
+    "description": "While possible, going off-grid requires a significant investment in solar panels and battery storage to ensure a reliable power supply. Most homeowners choose a grid-tied system to take advantage of net metering and have a backup power source.",
+    "services": ["solar"]
+  },
+  {
+    "id": 6,
+    "title": "Are There Incentives For Installing Solar Panels?",
+    "description": "Yes, many governments offer tax credits, rebates, and other incentives to reduce the cost of solar installations. These incentives vary by location, so it’s important to research what’s available in your area.",
+    "services": ["solar"]
+  },
+  {
+    "id": 7,
+    "title": "How Much Does A Solar Panel System Cost?",
+    "description": "The cost of a solar panel system varies based on size, location, and other factors. However, falling equipment costs and available incentives have made solar more affordable than ever. A solar provider can give you a detailed quote based on your specific needs.",
+    "services": ["solar"]
+  },
+  {
+    "id": 8,
+    "title": "What Size Solar System Do I Need?",
+    "description": "The size of your solar system depends on your electricity usage, the efficiency of the panels, and how much of your electricity bill you wish to offset. A solar professional can analyze your energy needs and recommend an appropriately sized system.",
+    "services": ["solar"]
+  },
+  {
+    "id": 9,
+    "title": "How Does Solar Impact The Environment?",
+    "description": "Solar energy is a clean, renewable resource that reduces reliance on fossil fuels, decreasing greenhouse gas emissions and pollution. By choosing solar, you’re contributing to a more sustainable and environmentally friendly energy future.",
+    "services": ["solar"]
+  }
+]

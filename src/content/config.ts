@@ -132,7 +132,13 @@ export const collections = {
     schema: ({ image }) => baseSchema({ image }),
   }),
   faq: defineCollection({
-    schema: ({ image }) => baseSchema({ image }),
+    loader: file("src/content/faq/faqs.json"), // file-loaded collection
+    schema: ({ image }) =>
+      baseSchema({ image }).extend({
+        services: z
+          .union([reference("services"), z.array(reference("services"))])
+          .optional(),
+      }),
   }),
   benefits: defineCollection({
     loader: file("src/content/benefits/benefits.json"), // file-loaded collection

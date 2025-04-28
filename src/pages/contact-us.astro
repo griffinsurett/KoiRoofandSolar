@@ -5,6 +5,8 @@ import ExtendedLayout from "../layouts/ExtendedLayout.astro";
 import { ContactData } from "@/content/SiteData";
 import Section from "@/components/Section.astro";
 import ContactForm from "@/components/Forms/ContactForm.astro";
+import Menu from "@/components/Menu/Menu.astro";
+import { getContactMenuItems } from "@/queries/ContactMenu";
 ---
 <ExtendedLayout title="Contact Us" description="Get in touch with Cleanomatic">
   <SecondaryHero title="Contact Us" description="Get in touch with Cleanomatic" />
@@ -23,11 +25,10 @@ import ContactForm from "@/components/Forms/ContactForm.astro";
     topContentClass="flex flex-col items-center justify-center text-center w-full h-full z-10 text-text-light md:w-3/4 w-auto"
     headingAreaClass="">
      <!-- Your inner content here -->
-     <div class="contact-page flex justify-between items-center w-full">
-      <div class="contact-info flex flex-col">
-        <a href={`mailto:${ContactData.email}`} class="text-primary hover:underline">{ContactData.email}</a>
-        <a href={`tel:${ContactData.phone}`} class="text-primary hover:underline">{ContactData.phone}</a>.
-    </div>
+     <Menu
+     items={await getContactMenuItems()}
+   />
+    
     <ContactForm/>
      </div>
   
