@@ -12,7 +12,7 @@ if (item.data.icon) {
   );
 }
 ---
-<div class="flex items-start space-x-[var(--spacing-md)]">
+<li class="flex items-start space-x-[var(--spacing-md)]">
   {optimizedIcon ? (
     <img
       src={optimizedIcon.src}
@@ -31,4 +31,4 @@ if (item.data.icon) {
       {item.data.description || item.body}
     </p>
   </div>
-</div>
+</li>
