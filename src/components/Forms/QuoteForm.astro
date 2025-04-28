@@ -1,17 +1,18 @@
 ---
-import Form      from "@/components/Forms/Form.astro";
+import Form from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
-import Textarea  from "@/components/Forms/Inputs/Textarea.astro";
+import Textarea from "@/components/Forms/Inputs/Textarea.astro";
 import { getCurrentEntryId } from "@/utils/CurrentEntry";
 
 const {
-  inputClasses    = "border border-[var(--color-border)] transition-default p-[var(--spacing-sm)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] focus:bg-bg-2 rounded-md",
-  wrapperClasses  = "mb-[var(--spacing-md)] w-full flex flex-col text-left",
-  labelClasses    = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
+  inputClasses = "border border-[var(--color-border)] transition-default p-[var(--spacing-sm)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] rounded-md",
+  wrapperClasses = "mb-[var(--spacing-md)] w-full flex flex-col text-left",
+  labelClasses = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
 } = Astro.props;
 
 const currentPage = getCurrentEntryId(Astro);
 ---
+
 <Form
   name="quote-form"
   class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] transition-default rounded-4xl shadow-lg hover:shadow-xl w-[90vw] lg:w-full gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
@@ -103,9 +104,8 @@ const currentPage = getCurrentEntryId(Astro);
       class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
     />
     <label for="consent" class={labelClasses + " m-0"}>
-      I consent to have Koi Solar store my submitted information so they can respond to my inquiry
+      I consent to have Koi Solar store my submitted information so they can
+      respond to my inquiry
     </label>
   </div>
-
 </Form>
-
