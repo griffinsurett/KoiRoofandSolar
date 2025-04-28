@@ -40,7 +40,7 @@ export const SectionVariants = {
     sectionClass:
       "flex text-center flex-col section-sm justify-center items-center sec-spacing-y",
     contentClass:
-      "content-section flex flex-col justify-center py-[var(--spacing-md)] lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
+      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
       "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)] py-[var(--spacing-md)]",
     headingAreaClass:
