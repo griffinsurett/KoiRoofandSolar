@@ -1,23 +1,23 @@
 ---
-// ImageCard.astro
+// src/components/ImageCard.astro
 import { Image } from "astro:assets";
 import Heading from "../Heading";
 
-// now destructure collectionName as well
 const { item, collectionName, HasPage } = Astro.props;
 
 const effectiveHasPage =
   item.data.hasPage !== undefined ? item.data.hasPage : HasPage;
-const { title, featuredImage } = item.data;
 
-// Determine the image source
+// pull in description
+const { title, featuredImage, description } = item.data;
+
 let imageSrc = featuredImage
   ? typeof featuredImage === "string"
     ? featuredImage
     : featuredImage
   : null;
 ---
-<li class="relative group border-radius w-full h-auto lg:h-[45vh] overflow-hidden shadow hover:shadow-lg transition-shadow">
+<li class="relative group rounded-lg w-full h-auto lg:h-[60vh] overflow-hidden shadow hover:shadow-lg transition-shadow">
   {effectiveHasPage ? (
     <a
       href={`/${collectionName}/${item.slug}`}
@@ -34,9 +34,11 @@ let imageSrc = featuredImage
           class="w-full h-full object-cover object-center transform transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
       )}
-      {/* <div class="absolute bottom-0 left-0 p-[var(--spacing-md)] text-bg">
-        <Heading tagName="h3" class="h3 text-bg">{title}</Heading>
-      </div> */}
+      <div class="absolute text-bg top-5 left-5 p-[var(--spacing-md)] z-[400]">
+        <Heading tagName="h3" class="h3">
+          {title}
+        </Heading>
+      </div>
     </a>
   ) : (
     <div class="block w-full h-full relative">
@@ -51,9 +53,18 @@ let imageSrc = featuredImage
           class="w-full h-full object-cover object-center transform transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
       )}
-      <div class="absolute bottom-0 left-0 p-[var(--spacing-md)] text-bg">
-        <Heading tagName="h3" class="h3 text-bg">{title}</Heading>
-      </div>
+    </div>
+  )}
+
+  {description && (
+    <div
+    class="pointer-events-none absolute inset-0 flex items-center justify-center
+             opacity-0 translate-y-4 transition-all duration-300 ease-in-out
+             group-hover:opacity-100 group-hover:translate-y-0 bg-text/40"
+    >
+      <p class="text-bg text-center p-[var(--spacing-md)] text-lg">
+        {description}
+      </p>
     </div>
   )}
 </li>

@@ -12,7 +12,7 @@ export const SectionVariants = {
     itemClass: "",
     headingAreaClass: "flex flex-col text-bg px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     descriptionClass: "text-sm lg:text-xl text-bg py-[var(--spacing-sm)]",
-    buttonsSectionClass: "my-[var(--spacing-lg)] lg:mt-0",
+    buttonsSectionClass: "my-[var(--spacing-lg)]",
     backgroundMedia: {
       image: {
         src: HeroBg,
@@ -23,7 +23,7 @@ export const SectionVariants = {
   },
   imageCol: {
     sectionClass:
-      "section-xs flex justify-center items-center text-left sec-spacing-y",
+      "section-lg flex justify-center items-center text-left",
     contentClass:
       "content-section flex flex-col-reverse md:flex-row justify-between items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
     itemsClass:
@@ -39,14 +39,27 @@ export const SectionVariants = {
   },
   imageCards: {
     sectionClass:
-      "flex text-center flex-col section-sm justify-center items-center sec-spacing-y",
+      "flex text-center flex-col section-sm justify-center items-center",
     contentClass:
       "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
-      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)] py-[var(--spacing-md)]",
+      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] lg:gap-[var(--spacing-3xl)] py-[var(--spacing-md)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
-    buttonsSectionClass: "my-[var(--spacing-lg)] lg:mt-0",
+    buttonsSectionClass: "my-[var(--spacing-lg)]",
     descriptionClass: "text-sm lg:text-xl text-text",
+  },
+  portfolio: {
+    sectionClass:
+      "flex text-center flex-col section-md justify-center items-center",
+    contentClass:
+      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
+    itemsClass:
+      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] mt-[var(--spacing-lg)] lg:gap-[var(--spacing-3xl)] py-[var(--spacing-md)]",
+    headingAreaClass:
+      "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
+    // buttonsSectionClass: "my-[var(--spacing-lg)]",
+    descriptionClass: "text-lg order-2 lg:text-xl text-text m-[var(--spacing-lg)]",
+    itemPlacement: "section-heading-area",
   },
 };

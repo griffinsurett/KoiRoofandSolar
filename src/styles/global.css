@@ -93,6 +93,10 @@
     @apply text-lg lg:text-xl font-medium tracking-widest uppercase;
   }
 
+  .border-radius {
+    @apply rounded-2xl;
+  }
+
   .h1,
   .h2,
   .h3,
@@ -125,7 +129,7 @@
   }
 
   .section-sm {
-    @apply min-h-[80vh] md:min-h-[50vh];
+    @apply min-h-[60vh] md:min-h-[50vh];
   }
 
   .section-md {
@@ -133,7 +137,7 @@
   }
 
   .section-lg {
-    @apply min-h-[110vh];
+    @apply min-h-[110vh] py-[100px];
   }
 }
 
