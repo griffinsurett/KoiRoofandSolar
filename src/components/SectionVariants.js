@@ -12,6 +12,7 @@ export const SectionVariants = {
     itemClass: "",
     headingAreaClass: "flex flex-col text-bg",
     descriptionClass: "text-sm lg:text-xl text-bg py-[var(--spacing-sm)]",
+    buttonsSectionClass: "my-[var(--spacing-lg)] lg:mt-0",
     backgroundMedia: {
       image: {
         src: HeroBg,
@@ -45,7 +46,7 @@ export const SectionVariants = {
       "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)] py-[var(--spacing-md)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
-    buttonsSectionClass: "py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
+    buttonsSectionClass: "my-[var(--spacing-lg)] lg:mt-0",
     descriptionClass: "text-sm lg:text-xl text-text",
   },
 };
