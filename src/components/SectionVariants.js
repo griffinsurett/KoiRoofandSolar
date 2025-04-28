@@ -8,7 +8,7 @@ export const SectionVariants = {
     contentClass:
       "content-section flex flex-col justify-center px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     itemsClass:
-    "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
+    "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)] p-[var(--spacing-sm)]",
     itemClass: "",
     headingAreaClass: "flex flex-col text-bg",
     descriptionClass: "text-sm lg:text-xl text-bg py-[var(--spacing-sm)]",
