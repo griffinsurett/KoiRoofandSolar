@@ -4,8 +4,11 @@ import ExtendedLayout from "@/layouts/ExtendedLayout.astro";
 import Section from "@/components/Section.astro";
 import PrimaryHero from "@/components/StaticSections/PrimaryHero.astro";
 import Video from "@/components/Video.astro";
+import AboutImage from "@/assets/koiandfriends.jpg";
 import KoiVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
+import { SiteData } from "@/content/SiteData";
+import { Image } from "astro:assets";
 ---
 
 <ExtendedLayout
@@ -15,17 +18,42 @@ import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
   <!-- Hero Section -->
   <PrimaryHero title="Welcome to Astro!" />
 
-  <!-- <Section variant="imageCol" collection="benefits" query="getAll">
-    <Video
-    src={KoiVideo}
-    poster={KoiVideoPoster}
-    controls
-    muted
-    autoplay={false}
-    loop={false}
-    class="rounded-2xl shadow-lg"
-  />
-  </Section> -->
+  <Section
+  variant="imageCol"
+  contentClass="md:flex-row-reverse"
+  topContentClass="lg:sticky lg:top-0"
+  headingAreaClass="py-[var(--spacing-2xl)] md:py-[var(--spacing-md)]"
+  heading={[
+    {
+      text: "About Koi Roofing & Solar",
+      tagName: "h2",
+    },
+    {
+      text: `"Some start at the bottom we go to the top"`,
+      tagName: "h5",
+      class: "h5 py-[var(--spacing-sm)] font-thin",
+    },
+
+  ]}
+  buttons={[
+    { text: "Get Started", href: "/contact-us", variant: "primary" },
+    { text: "Learn More", href: "/about-us", variant: "secondary" },
+  ]}
+  description={SiteData.description}
+>
+  <Image
+    src={AboutImage}
+    alt="About Us"
+    class="w-full h-auto object-cover rounded-lg shadow-lg"
+    loading="lazy"
+    decoding="async"
+    quality={"medium"}
+    fetchpriority="low"
+    width={600}
+    height={400}
+    sizes="(max-width: 600px) 100vw, 600px"
+    />
+</Section>
 
   <Section
     collection="benefits"
