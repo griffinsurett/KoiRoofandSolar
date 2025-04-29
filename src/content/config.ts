@@ -129,7 +129,11 @@ export const collections = {
       }),
   }),
   testimonials: defineCollection({
-    schema: ({ image }) => baseSchema({ image }),
+    schema: ({ image }) => baseSchema({ image }).extend({
+      services: z
+          .union([reference("services"), z.array(reference("services"))])
+          .optional(),
+    }),
   }),
   faq: defineCollection({
     loader: file("src/content/faq/faqs.json"), // file-loaded collection
@@ -142,6 +146,19 @@ export const collections = {
   }),
   benefits: defineCollection({
     loader: file("src/content/benefits/benefits.json"), // file-loaded collection
-    schema: ({ image }) => baseSchema({ image }),
+    schema: ({ image }) => baseSchema({ image }).extend({
+      services: z
+          .union([reference("services"), z.array(reference("services"))])
+          .optional(),
+    }),
+  }),
+  pricing: defineCollection({
+    loader: file("src/content/pricing/paymentOptions.json"), // file-loaded collection
+    schema: ({ image }) => baseSchema({ image }).extend({
+      price: z.string().optional(),
+      services: z
+          .union([reference("services"), z.array(reference("services"))])
+          .optional(),
+    }),
   }),
 };

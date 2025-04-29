@@ -1,0 +1,81 @@
+[
+    {
+      "id": "1",
+      "title": "No Credit Check Financing (3–48 Months) — APR: 7%–30%",
+      "price": "$475–$500/mo",
+      "services": ["roofing"]
+    },
+    {
+      "id": "2",
+      "title": "No Monthly Payment Plan (0% for first 12 months, then 84-month financing)",
+      "price": "$275–$325/mo after deferment",
+      "services": ["roofing"]
+    },
+    {
+      "id": "3",
+      "title": "120-Month Financing (Credit Check) — APR: 8%–25%",
+      "price": "$250–$280/mo",
+      "services": ["roofing"]
+    },
+    {
+      "id": "4",
+      "title": "180-Month Financing (Credit Check) — APR: 9%–24%",
+      "price": "$200–$240/mo",
+      "services": ["roofing"]
+    },
+    {
+      "id": "5",
+      "title": "Solar PPA Lease — 0% escalator rate (must save ≥ $30/mo vs. current bill)",
+      "price": "Savings locked to your bill",
+      "services": ["solar"]
+    },
+    {
+      "id": "6",
+      "title": "Solar PPA Lease — 0.99% escalator rate (must save ≥ $30/mo vs. current bill)",
+      "price": "Savings locked to your bill",
+      "services": ["solar"]
+    },
+    {
+      "id": "7",
+      "title": "Solar PPA Lease — 1.99% escalator rate (must save ≥ $30/mo vs. current bill)",
+      "price": "Savings locked to your bill",
+      "services": ["solar"]
+    },
+    {
+      "id": "8",
+      "title": "Solar PPA Lease — 2.99% escalator rate (must save ≥ $30/mo vs. current bill)",
+      "price": "Savings locked to your bill",
+      "services": ["solar"]
+    },
+    {
+      "id": "9",
+      "title": "Solar Financing (5–25 Years) — APR: 3.99%–20%",
+      "price": "$70–$85/mo",
+      "services": ["solar"]
+    },
+    {
+      "id": "10",
+      "title": "Federal Tax Rebate (30% of system cost)",
+      "price": "30% back",
+      "services": ["solar"]
+    },
+    {
+      "id": "11",
+      "title": "SREC Credits (approx. $800 for 10 kW)",
+      "price": "~$800",
+      "services": ["solar"]
+    },
+    {
+      "id": "12",
+      "title": "Cash Purchase (before incentives)",
+      "price": "$30,000–$35,000",
+      "services": ["solar"]
+    },
+    {
+      "id": "13",
+      "title": "Cash Purchase (after 30% tax credit)",
+      "price": "$21,000–$24,500",
+      "services": ["solar"]
+    }
+  ]
+  

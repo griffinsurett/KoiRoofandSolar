@@ -31,7 +31,7 @@ export const SectionVariants = {
     itemClass: "",
     itemPlacement: "section-heading-area",
     headingAreaClass:
-      "flex flex-col text-bg md:px-[var(--spacing-md)] gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]",
+      "flex flex-col text-bg md:px-[var(--spacing-md)] gap-[var(--spacing-sm)]",
     descriptionClass: "order-2 text-lg text-text-light lg:text-3xl text-bg",
     buttonsSectionClass: "my-[var(--spacing-lg)]",
   },
@@ -83,7 +83,7 @@ export const SectionVariants = {
     contentClass:
       "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] md:px-[var(--spacing-md)]",
     itemsClass:
-      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] mt-[var(--spacing-lg)] lg:gap-[var(--spacing-3xl)]",
+      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] mt-[var(--spacing-lg)] lg:gap-[var(--spacing-md)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
     descriptionClass:
