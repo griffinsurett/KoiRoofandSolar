@@ -37,11 +37,11 @@ export const SectionVariants = {
   },
   imageCol: {
     sectionClass:
-      "section-lg flex justify-center items-center text-left",
+      "min-h-[70vh] md:min-h-[80vh] flex justify-center items-center text-left",
     contentClass:
       "content-section flex flex-col-reverse md:flex-row justify-between items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
     headingAreaClass: "flex flex-col",
-    buttonsSectionClass: "justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-lg)]",
+    buttonsSectionClass: "flex flex-col xl:flex-row justify-start items-start xl:items-center gap-[var(--spacing-md)]",
     childSlotClass: "w-auto lg:w-1/2 lg:sticky lg:top-0",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
