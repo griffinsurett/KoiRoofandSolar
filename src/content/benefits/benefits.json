@@ -40,5 +40,33 @@
     "id": 5,
     "icon": "@/assets/solar-house.webp",
     "services": ["roofing", "solar"]
+  },
+  {
+    "title": "No Credit Check Financing",
+    "description": "Finance without a credit check over 3–48 months at APR 7%–30%, with estimated payments of $475–$500/month.",
+    "id": 6,
+    "icon": "",
+    "services": ["roofing"]
+  },
+  {
+    "title": "Solar PPA Lease Options",
+    "description": "No-credit-check lease options with 0.99%, 1.99%, or 2.99% escalator rates—must save at least $30/month compared to your current bill.",
+    "id": 7,
+    "icon": "",
+    "services": ["solar"]
+  },
+  {
+    "title": "Solar Financing Options",
+    "description": "Get a 30% federal tax rebate, SREC credits (~$800 for 10 kW), finance over 5–25 years at APR 3.99%–20%, with estimated payments of $70–$85/month.",
+    "id": 8,
+    "icon": "",
+    "services": ["solar"]
+  },
+  {
+    "title": "Cash Deals",
+    "description": "Pay cash and save: system cost $30,000–$35,000 before incentives; after 30% tax credit, cost is $21,000–$24,500.",
+    "id": 9,
+    "icon": "",
+    "services": ["solar"]
   }
 ]

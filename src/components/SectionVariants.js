@@ -60,7 +60,7 @@ export const SectionVariants = {
       "flex flex-col py-[var(--spacing-sm)] lg:py-[var(--spacing-xl)]",
     buttonsSectionClass:
       "justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
-    childSlotClass: "w-auto lg:w-1/3 lg:sticky lg:top-0",
+    childSlotClass: "w-auto lg:w-3/5 lg:sticky lg:top-0",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
     topContentClass: "flex flex-col",
