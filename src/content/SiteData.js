@@ -1,5 +1,6 @@
 // SiteData.js
-import Logo from "@/assets/logo.png"
+import Logo from "@/assets/logo2.png"
+import LogoBGWhite from "@/assets/logo3.png"
 import LogoWithWords from "@/assets/logowwords.png"
 import MainBGImage from "@/assets/rooffromvid.jpg"
 
