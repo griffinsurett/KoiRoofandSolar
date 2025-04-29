@@ -79,14 +79,14 @@ export const SectionVariants = {
   },
   portfolio: {
     sectionClass:
-      "flex text-center flex-col section-md justify-center items-center bg-primary text-bg",
+      "flex text-center flex-col section-md justify-center items-center bg-primary text-bg lg:py-[var(--spacing-2xl)]",
     contentClass:
-      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
+      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] md:px-[var(--spacing-md)]",
     itemsClass:
-      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] mt-[var(--spacing-lg)] lg:gap-[var(--spacing-3xl)] py-[var(--spacing-md)]",
+      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] mt-[var(--spacing-lg)] lg:gap-[var(--spacing-3xl)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
-    descriptionClass: "text-lg order-2 lg:text-2xl text-text-light m-[var(--spacing-lg)]",
+    descriptionClass: "text-lg order-2 lg:text-2xl text-text-light md:m-[var(--spacing-lg)]",
     itemPlacement: "section-heading-area",
   },
   cardSection: {
@@ -105,6 +105,6 @@ export const SectionVariants = {
     "flex text-center flex-col section-md justify-center items-center",
     contentClass:
       "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
-      headingAreaClass: "pb-[var(--spacing-2xl)]"
+      headingAreaClass: "lg:pb-[var(--spacing-2xl)]"
     }
 };
