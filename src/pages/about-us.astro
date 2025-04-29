@@ -2,12 +2,50 @@
 // src/pages/about-us.astro
 import Section from "@/components/Section.astro";
 import SecondaryHero from "@/components/StaticSections/SecondaryHero.astro";
+import { SiteData } from "@/content/SiteData";
 import ExtendedLayout from "@/layouts/ExtendedLayout.astro";
+
+const accentSpan = "text-secondary"; // centralize the accent class
 ---
 <ExtendedLayout title="About Us" description="Learn more about our company, our mission, and our team.">
   <SecondaryHero title="About Us" />
   <Section
-    heading="About Us"
-    description="We are a company dedicated to providing the best services to our clients. Our mission is to deliver quality and excellence in everything we do."
-  />
+    sectionClass="section-md flex justify-center items-center"
+    contentClass="md:flex-row-reverse w-7/10"
+    topContentClass="my-[var(--spacing-xl)] w-9/10"
+    descriptionClass="text-text text-lg md:text-xl"
+    childSlotClass="text-text text-lg md:text-xl"
+    headingAreaClass="flex-col"
+    heading={[
+      {
+        text: "Putting Homeowners First, Every Step of the Way",
+        tagName: "label",
+        class: "h6 text-primary uppercase"
+      },
+      {
+        text: "About Koi Roofing & Solar",
+        tagName: "h2",
+        class: "h2 text-primary my-[var(--spacing-sm)]"
+      },
+      {
+        text: SiteData.tagline,
+        tagName: "h5",
+        class: "h5 font-medium text-secondary italic",
+      }
+    ]}
+  >
+    <p class="text-text text-lg md:text-xl">
+      <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing and solar company—we’re a <span class={accentSpan}>family-style business</span> rooted in New Jersey and built on a foundation of <span class={accentSpan}>trust, expert craftsmanship,</span> and <span class={accentSpan}>lasting relationships</span>. Our mission is to redefine how people experience contractors by making home upgrades feel <span class={accentSpan}>smooth, stress-free,</span> and even enjoyable.
+    </p>
+
+    <p class="text-text text-lg md:text-xl">
+      We specialize in <span class={accentSpan}>residential roof replacements</span> and <span class={accentSpan}>solar energy systems</span>, with a unique expertise in <span class={accentSpan}>flat roofs</span>—a service that few companies in New Jersey confidently offer and warranty. Whether your project involves <span class={accentSpan}>storm damage, an aging roof,</span> or the need to cut down <span class={accentSpan}>high electric bills</span>, we offer reliable, full-service solutions.
+    </p>
+
+    <p class="text-text text-lg md:text-xl">
+      Best of all, we make these upgrades accessible to everyone through <span class={accentSpan}>$0 down financing</span> and flexible options tailored to <span class={accentSpan}>all credit types</span>. At Koi Roofing and Solar, it’s not just about installing panels or replacing shingles—it’s about delivering peace of mind and real value to homeowners across New Jersey, Pennsylvania, and New York.
+    </p>
+  </Section>
+  <Section collection="values" query="queryAll"/>
+  <Section collection="team" query="getAll"/>
 </ExtendedLayout>
