@@ -5,7 +5,7 @@ import ButtonIcon from "./ButtonIcon.jsx"; // <-- import ButtonIcon component
 
 // Default base button classes for non-underline variants.
 const baseButtonClasses =
-  "border-radius uppercase px-[var(--spacing-3xl)] py-[var(--spacing-md)] transform transition-all duration-300 ease-in-out font-medium";
+  "border-radius uppercase text-center px-[var(--spacing-xl)] lg:px-[var(--spacing-3xl)] py-[var(--spacing-md)] transform transition-all duration-300 ease-in-out font-medium text-center w-full lg:w-auto";
 
 // Consolidate variant defaults.
 const buttonVariantDefaults = {
