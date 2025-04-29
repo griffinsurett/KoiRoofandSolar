@@ -135,7 +135,7 @@
   }
 
   .section-lg {
-    @apply min-h-[110vh] py-[50px] lg:py-[100px];
+    @apply min-h-[110vh] py-[80px] lg:py-[100px];
   }
 }
 

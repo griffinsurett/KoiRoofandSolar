@@ -20,12 +20,12 @@ import { Image } from "astro:assets";
 
   <Section
   variant="imageCol"
+  sectionClass="section-lg"
   contentClass="md:flex-row-reverse"
   topContentClass="lg:sticky lg:top-0"
-  headingAreaClass="py-[var(--spacing-sm)] md:py-[var(--spacing-md)]"
   descriptionClass="text-text text-lg md:text-xl"
   childSlotClass="hidden lg:block"
-  buttonsSectionClass="w-4/6 lg:w-full"
+  buttonsSectionClass="w-18/20 lg:w-full"
   heading={[
     {
       text: "About Koi Roofing & Solar",
@@ -35,7 +35,7 @@ import { Image } from "astro:assets";
     {
       text: `"Some start at the bottom we go to the top"`,
       tagName: "h5",
-      class: "h5 py-[var(--spacing-sm)] font-thin",
+      class: "h5 py-[var(--spacing-sm)] font-medium italic text-secondary",
     },
 
   ]}
@@ -43,7 +43,7 @@ import { Image } from "astro:assets";
     { text: "Get Started", link: "/contact-us", variant: "primary" },
     { text: "Learn More", link: "/about-us", variant: "secondary" },
   ]}
-  description={SiteData.description}
+  description="Koi Roofing and Solar is a family-style roofing and solar company based in New Jersey, built on trust, craftsmanship, and long-term relationships. We're here to change the way people experience contractors-making home upgrades smooth, enjoyable, and accessible for everyone. We specialize in residential roof replacements and solar energy systems, including flat roofs, which few companies in New Jersey confidently handle and warranty. Whether it's storm damage, an aging roof, or high electric bills-we provide full-service solutions with $0 down and financing options designed for all credit types."
 >
   <Image
     src={AboutImage}
