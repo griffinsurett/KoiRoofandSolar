@@ -93,9 +93,11 @@ const breakpoint = "lg";
 
   function onScroll() {
     const scrolled = window.scrollY > 50;
-    header.classList.toggle("bg-bg", scrolled);
-    header.classList.toggle("shadow-md", scrolled);
-    header.classList.toggle("bg-transparent", !scrolled);
+  // Always clear any manual bg-primary
+  header.classList.remove("bg-primary");
+  header.classList.toggle("bg-bg", scrolled);
+  header.classList.toggle("shadow-md", scrolled);
+  header.classList.toggle("bg-transparent", !scrolled);
 
     menuLinks.forEach((link) => {
       if (link.classList.contains(ACTIVE_CLASS)) return;
