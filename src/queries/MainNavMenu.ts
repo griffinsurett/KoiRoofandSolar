@@ -10,6 +10,6 @@ export interface MenuItem {
 
 export const MainNavMenu: MenuItem[] = [
   { id: "home",    label: "Home",     slug: "/",             weight: 100, position: "prepend" },
-  { id: "about",   label: "About Us", slug: "#",                },
+  { id: "about",   label: "About Us", slug: "/about-us",                },
   { id: "contact", label: "Contact",  slug: "/contact-us", weight: 100, position: "append" },
 ];
