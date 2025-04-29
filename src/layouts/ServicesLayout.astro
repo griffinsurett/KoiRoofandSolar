@@ -24,6 +24,8 @@ console.log("entry", entry);
   contentClass="flex flex-col lg:flex-row justify-center items-center lg:gap-[var(--spacing-xl)] w-9/10 container mx-auto text-center"
   topContentClass="w-9/10 lg:w-4/6 py-[var(--spacing-sm)] lg:py-0 flex flex-col items-center justify-center lg:justify-end"
   headingAreaClass="flex flex-col text-center lg:text-left w-full h-full z-10 my-[var(--spacing-lg)]"
+  buttonsSectionClass="hidden"
+  childSlotClass="w-full lg:w-3/7"
   heading={[
     {
       text: `Koi ${entry.slug}`,
@@ -48,7 +50,6 @@ console.log("entry", entry);
     },
     overlayClass: "bg-primary opacity-60",
   }}
-  buttonsSectionClass="hidden"
 >
 
 <QuoteForm/>

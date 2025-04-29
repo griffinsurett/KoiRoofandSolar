@@ -19,8 +19,8 @@
   --font-heading: "Poppins", sans-serif;
 
   /* Spacing tokens */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
+  --spacing-xs: 0.35rem;
+  --spacing-sm: 0.7rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
@@ -53,7 +53,6 @@
   body {
     font-family: var(--font-base);
     background-color: var(--color-primary);
-    /* color: var(--color-text); */
     overflow-x: hidden;
   }
 
@@ -69,7 +68,6 @@
     width: 85%;
   }
 
-  /* Global header styles (these are our dynamic header classes) */
   .h1 {
     @apply text-3xl md:text-5xl lg:text-6xl font-thin tracking-wider;
   }
