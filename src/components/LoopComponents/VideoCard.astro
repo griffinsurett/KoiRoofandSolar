@@ -14,14 +14,16 @@ const posterSrc = item.data.featuredImage;
       <Video
         src={videoSrc}
         poster={posterSrc}
+        controls
         muted
         loop
         playsinline
         class="w-full h-auto object-cover object-center"
       />
       <button
-        class="play-button absolute inset-0 flex items-center justify-center bg-heading/50 text-white text-4xl opacity-100 transition-opacity"
+        class="play-button absolute inset-0 flex items-center justify-center bg-heading/50 text-white text-4xl transition-opacity"
         aria-label="Play video"
+        style="opacity:1; pointer-events:auto;"
       >
         ▶
       </button>
@@ -40,28 +42,26 @@ const posterSrc = item.data.featuredImage;
 </li>
 
 <script is:inline client:load>
-  // Attach play/pause behavior to each video card
   document.querySelectorAll('.video-card').forEach(card => {
     const video = card.querySelector('video');
     const btn = card.querySelector('.play-button');
     if (!video || !btn) return;
 
-    // Play on button click
     btn.addEventListener('click', () => {
       video.play();
     });
 
-    // Hide overlay when video plays
     video.addEventListener('play', () => {
       btn.style.opacity = '0';
+      btn.style.pointerEvents = 'none';   // let clicks pass through
     });
-
-    // Show overlay when video pauses or ends
     video.addEventListener('pause', () => {
       btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';   // re-enable overlay clicks
     });
     video.addEventListener('ended', () => {
       btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
     });
   });
 </script>
