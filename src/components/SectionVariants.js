@@ -55,7 +55,7 @@ export const SectionVariants = {
     contentClass:
       "content-section flex flex-col-reverse md:flex-row justify-between items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
     itemsClass:
-      "flex flex-col text-bg items-start justify-start p-[var(--spacing-sm)] gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full lg:w-2/3",
+      "flex flex-col text-bg items-start justify-start p-[var(--spacing-sm)] gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)] w-full",
     itemClass: "items-start",
     headingAreaClass:
       "flex flex-col py-[var(--spacing-sm)] lg:py-[var(--spacing-xl)]",

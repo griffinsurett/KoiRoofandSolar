@@ -6,20 +6,18 @@ import Heading from "../Heading";
 const { item } = Astro.props;
 const iconSrc = item.data.icon;
 ---
-<li class="flex items-start space-x-[var(--spacing-md)]">
+<li class="flex items-start justify-center space-x-[var(--spacing-lg)]">
   {iconSrc ? (
     <Image
       src={iconSrc}
       alt={item.data.title || "Icon"}
-      width={64}
       format="webp"
-      quality={30}
-      class="h-auto hover:scale-105 transition-transform duration-300 ease-in-out"
+      class="hover:scale-105 transition-transform duration-300 ease-in-out w-25 h-auto"
     />
   ) : (
     <div class="w-8 h-8" />
   )}
-  <div class="text-primary">
+  <div class="text-primary flex flex-col items-start justify-center">
     <Heading tagName="h3" class="h3 text-primary">
       {item.data.title}
     </Heading>
