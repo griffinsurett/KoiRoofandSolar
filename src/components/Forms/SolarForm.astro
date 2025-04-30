@@ -1,0 +1,165 @@
+---
+// src/form/SolarForm.astro
+import Form     from "@/components/Forms/Form.astro";
+import TextInput from "@/components/Forms/Inputs/TextInput.astro";
+import Textarea  from "@/components/Forms/Inputs/Textarea.astro";
+import { SiteData } from "@/content/SiteData";
+import { getCurrentEntryId } from "@/utils/CurrentEntry";
+
+const {
+  inputClasses    = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] rounded-md",
+  wrapperClasses  = "mb-[var(--spacing-md)] w-full flex flex-col text-left",
+  labelClasses    = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
+} = Astro.props;
+
+const currentPage = getCurrentEntryId(Astro);
+---
+
+<Form
+  name="solar-form"
+  class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] transition-default rounded-4xl shadow-lg hover:shadow-xl w-[90vw] lg:w-full gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
+  labelClass="text-primary h5 uppercase"
+  formClass="pt-[var(--spacing-md)]"
+  netlify={true}                         
+  formLabel="Solar Inquiry"
+  enableSuccessBanner={true}
+  successBannerMessage="Thanks—I’ll be in touch soon!"
+  successBannerClass="p-[var(--spacing-sm)] bg-primary text-bg border border-[var(--color-border)] bg-light-opacity"
+>
+  <!-- Hidden input: track which service page -->
+  <input type="hidden" name="Page-of-Submission" value={currentPage} />
+
+  <!-- Name & Email Row -->
+  <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)] text-sm">
+    <div class="w-full lg:w-1/2">
+      <TextInput
+        name="firstName"
+        label="First Name"
+        placeholder="First Name"
+        required
+        inputClass={inputClasses}
+        wrapperClass={wrapperClasses}
+        labelClass={labelClasses}
+      />
+    </div>
+    <div class="w-full lg:w-1/2">
+      <TextInput
+        name="lastName"
+        label="Last Name"
+        placeholder="Last Name"
+        required
+        inputClass={inputClasses}
+        wrapperClass={wrapperClasses}
+        labelClass={labelClasses}
+      />
+    </div>
+  </div>
+
+  <!-- Contact Row -->
+  <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)]">
+    <div class="w-full lg:w-1/2">
+      <TextInput
+        name="email"
+        type="email"
+        label="Email Address"
+        placeholder="you@example.com"
+        required
+        inputClass={inputClasses}
+        wrapperClass={wrapperClasses}
+        labelClass={labelClasses}
+      />
+    </div>
+    <div class="w-full lg:w-1/2">
+      <TextInput
+        name="phone"
+        type="tel"
+        label="Phone Number"
+        placeholder="123-456-7890"
+        required
+        inputClass={inputClasses}
+        wrapperClass={wrapperClasses}
+        labelClass={labelClasses}
+      />
+    </div>
+  </div>
+
+  <!-- Address Row -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--spacing-sm)]">
+    <TextInput
+      name="address"
+      label="Street Address"
+      placeholder="123 Main St"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+    <TextInput
+      name="city"
+      label="City"
+      placeholder="City"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+    <TextInput
+      name="state"
+      label="State"
+      placeholder="State"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+    <TextInput
+      name="zip"
+      label="Zip Code"
+      placeholder="Zip Code"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Utility Bill -->
+  <div class="w-full">
+    <TextInput
+      name="avgMonthlyBill"
+      label="Avg. Monthly Utility Bill"
+      placeholder="$0.00"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Additional Message -->
+  <div class="w-full">
+    <Textarea
+      name="message"
+      label="Additional Details"
+      placeholder="Tell us more about your solar goals…"
+      rows={5}
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Consent -->
+  <div class="flex items-start">
+    <input
+      type="checkbox"
+      id="consent"
+      name="consent"
+      required
+      class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
+    />
+    <label for="consent" class={labelClasses + " m-0"}>
+      I consent to have {SiteData.title} store my info to respond to my inquiry
+    </label>
+  </div>
+</Form>

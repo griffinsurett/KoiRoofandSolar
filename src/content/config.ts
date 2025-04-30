@@ -107,6 +107,7 @@ export const collections = {
   services: defineCollection({
     schema: ({ image }) =>
       baseSchema({ image }).extend({
+        form: z.string().optional(),
         parent: z
           .union([reference("services"), z.array(reference("services"))])
           .optional(),

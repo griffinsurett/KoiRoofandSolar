@@ -1,25 +1,36 @@
 ---
 // src/layouts/ServicesLayout.astro
 import BaseLayout from "./BaseLayout.astro";
-import Section from "@/components/Section.astro";
-import QuoteForm from "@/components/Forms/QuoteForm.astro";
-import Video from "@/components/Video.astro";
-import KoiVideo from "@/assets/video.mp4";
-import NotLikeVideo from "@/assets/notlikekoi.mp4";
+import Section    from "@/components/Section.astro";
+import QuoteForm  from "@/components/Forms/QuoteForm.astro";
+import SolarForm  from "@/components/Forms/SolarForm.astro";
+import Video      from "@/components/Video.astro";
+import KoiVideo   from "@/assets/video.mp4";
+import NotLikeVideo   from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
-import { SiteData } from "@/content/SiteData";
+import { SiteData }   from "@/content/SiteData";
 
 const { entry, description } = Astro.props;
----
 
+// 1️⃣ Glob-register all .astro under /src/components/Forms
+const formModules = import.meta.glob("/src/components/Forms/*.astro", { eager: true });
+
+// 2️⃣ Take the user’s `form` value (e.g. "components/Forms/SolarForm.astro")
+//    and turn it into the filesystem key:
+const raw = entry.data.form;                   // "components/Forms/SolarForm.astro"
+const fsKey = raw ? `/src${raw}` : undefined; // "/src/components/Forms/SolarForm.astro"
+
+// 3️⃣ Lookup in the glob map, fallback to QuoteForm
+const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
+---
 <BaseLayout {...Astro.props}>
   <Section
     title={Astro.props.title}
     buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center w-4/5"
     sectionClass="min-h-[100vh] lg:text-left flex items-center justify-center bg-cover bg-fixed bg-center z-100 shadow-lg pt-[var(--spacing-4xl)] mb-[100px]"
-    contentClass="flex flex-col lg:flex-row justify-center items-center lg:gap-[var(--spacing-xl)] mx-auto text-center container"
-    topContentClass="w-9/10 lg:w-6/11 py-[var(--spacing-sm)] lg:py-0 flex flex-col items-center justify-center lg:justify-end"
-    headingAreaClass="flex flex-col text-center lg:text-left w-full h-full z-10 my-[var(--spacing-lg)]"
+    contentClass="flex flex-col lg:flex-row justify-center items-center lg:items-start lg:gap-[var(--spacing-xl)] mx-auto text-center container"
+    topContentClass="w-9/10 lg:w-6/11 py-[var(--spacing-sm)] lg:py-0 flex flex-col items-center justify-center lg:justify-end lg:sticky lg:top-0"
+    headingAreaClass="flex flex-col text-center lg:text-left w-full h-full z-10 mt-[var(--spacing-4xl)]"
     buttonsSectionClass="hidden"
     childSlotClass="lg:w-3/7"
     heading={[
@@ -48,8 +59,8 @@ const { entry, description } = Astro.props;
       overlayClass: "bg-primary opacity-60",
     }}
   >
-    <QuoteForm />
-  </Section>
+  <FormComponent />
+</Section>
   <Section
     collection="benefits"
     query="related"
