@@ -27,11 +27,10 @@ export const SectionVariants = {
   },
   testimonials: {
     sectionClass:
-      "section-lg bg-primary flex text-center flex-col justify-center items-center sec-spacing-y",
+      "section-lg bg-bg flex text-center flex-col justify-center items-center sec-spacing-y",
     contentClass: "content-section flex flex-col justify-center",
     itemsClass:
-      "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
-    itemClass: "",
+      "w-full columns-1 md:columns-2 lg:columns-3 rows-auto",
     itemPlacement: "section-heading-area",
     headingAreaClass:
       "flex flex-col text-bg md:px-[var(--spacing-md)] gap-[var(--spacing-sm)]",
@@ -39,8 +38,7 @@ export const SectionVariants = {
     buttonsSectionClass: "my-[var(--spacing-lg)]",
   },
   imageCol: {
-    sectionClass:
-      "section-lg flex justify-center items-center text-left",
+    sectionClass: "section-lg flex justify-center items-center text-left",
     contentClass:
       "content-section flex flex-col-reverse md:flex-row justify-between items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
     headingAreaClass: "flex flex-col",

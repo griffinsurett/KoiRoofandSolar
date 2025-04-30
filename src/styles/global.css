@@ -135,7 +135,7 @@
   }
 
   .section-lg {
-    @apply min-h-[110vh] md:min-h-[150vh] lg:min-h-[110vh] py-[80px] sm:py-[90px] md:py-[100px];
+    @apply min-h-[110vh] lg:min-h-[110vh] py-[80px] sm:py-[90px] md:py-[100px];
   }
 }
 
