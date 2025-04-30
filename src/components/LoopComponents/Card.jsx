@@ -14,7 +14,7 @@ export default function Card({ item, collectionName, HasPage }) {
       <h3 className="mb-[var(--spacing-sm)] text-primary">{item.data.title}</h3>
       <p className="mb-[var(--spacing-sm)]">{item.data.description || item.body}</p>
       {effectiveHasPage && (
-        <Button href={`/${collectionName}/${item.slug}`}>
+        <Button href={`/${collectionName}/${item.slug || item.id}`} variant="primary" className="w-full">
           View More
         </Button>
       )}

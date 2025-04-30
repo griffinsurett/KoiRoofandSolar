@@ -1,25 +1,28 @@
 import HeroBg from "@/assets/roof.png";
+import KoiVideo from "@/assets/video.mp4";
+import { SiteData } from "@/content/SiteData";
 
 export const SectionVariants = {
   // Variants for different section types
   media1: {
     sectionClass:
-      "section-lg flex text-center flex-col justify-center items-center sec-spacing-y",
+      "section-sm flex text-center flex-col justify-center items-center sec-spacing-y",
     contentClass: "content-section flex flex-col justify-center",
     itemsClass:
       "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
     itemClass: "",
     itemPlacement: "section-heading-area",
-    headingAreaClass:
-      "flex flex-col text-bg md:px-[var(--spacing-md)] gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]",
-    descriptionClass: "order-2 text-lg text-text-light lg:text-3xl text-bg",
+    descriptionClass: "text-text-light text-lg md:text-3xl italic",
     buttonsSectionClass: "my-[var(--spacing-lg)]",
     backgroundMedia: {
+      video: {
+        src: KoiVideo,
+      },
       image: {
-        src: HeroBg,
+        src: SiteData.MainBGImage.src,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
       },
-      overlayClass: "bg-secondary opacity-30",
+      overlayClass: "bg-primary opacity-60",
     },
   },
   testimonials: {
@@ -37,17 +40,17 @@ export const SectionVariants = {
   },
   imageCol: {
     sectionClass:
-      "min-h-[70vh] md:min-h-[80vh] flex justify-center items-center text-left",
+      "section-lg flex justify-center items-center text-left",
     contentClass:
       "content-section flex flex-col-reverse md:flex-row justify-between items-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
     headingAreaClass: "flex flex-col",
     buttonsSectionClass:
-      "flex flex-col xl:flex-row justify-start items-start xl:items-center gap-[var(--spacing-md)]",
+      "flex flex-col xl:flex-row justify-start items-start xl:items-center gap-[var(--spacing-md)] w-18/20 lg:w-full",
     childSlotClass: "w-auto lg:w-1/2 lg:sticky lg:top-0",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
-    descriptionClass: "py-[var(--spacing-sm)]",
-    topContentClass: "flex flex-col w-full lg:w-1/2",
+    descriptionClass: "py-[var(--spacing-sm)] text-text text-lg md:text-xl",
+    topContentClass: "flex flex-col w-full lg:sticky lg:top-0 lg:w-1/2",
   },
   vidCol: {
     sectionClass: "section-lg flex justify-center items-center text-left",
