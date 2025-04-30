@@ -5,11 +5,12 @@ import { Image } from "astro:assets";
 
 const { item, collectionName } = Astro.props;
 const { video: videoSrc, poster: posterSrc, featuredImage } = item.data;
+console.log(videoSrc);
 ---
 <li class="relative border-radius group w-full h-auto overflow-hidden shadow-xs transition-shadow aspect-video">
   {videoSrc ? (
     <Video
-      src={videoSrc}
+      src={videoSrc.src}
       poster={posterSrc}
       autoplay
       loop

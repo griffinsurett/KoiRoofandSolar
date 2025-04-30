@@ -131,6 +131,7 @@ export const collections = {
   testimonials: defineCollection({
     schema: ({ image }) =>
       baseSchema({ image }).extend({
+        video: z.string().optional(),
         services: z
           .union([reference("services"), z.array(reference("services"))])
           .optional(),

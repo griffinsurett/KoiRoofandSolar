@@ -40,19 +40,28 @@ import { Image } from "astro:assets";
     ]}
     description="Koi Roofing and Solar is a family-style roofing and solar company based in New Jersey, built on trust, craftsmanship, and long-term relationships. We're here to change the way people experience contractors-making home upgrades smooth, enjoyable, and accessible for everyone. We specialize in residential roof replacements and solar energy systems, including flat roofs, which few companies in New Jersey confidently handle and warranty. Whether it's storm damage, an aging roof, or high electric bills-we provide full-service solutions with $0 down and financing options designed for all credit types."
   >
-    <Image
-      src={AboutImage}
-      alt="About Us"
-      class="w-full h-auto object-cover border-radius"
-      loading="lazy"
-      decoding="async"
-      quality={"medium"}
-      fetchpriority="low"
-      width={600}
-      height={400}
-      sizes="(max-width: 600px) 100vw, 600px"
-    />
+  <Video
+  src={KoiVideo}
+  poster={KoiVideoPoster}
+  controls
+  muted
+  autoplay={true}
+  loop={false}
+  class="shadow-xs border-radius"
+/>
   </Section>
+
+  <Section
+  variant="media1"
+  heading={[
+    {
+      text: "Our goal is simple:",
+      tagName: "h2",
+      class: "h2 text-bg uppercase py-[var(--spacing-sm)]",
+    },
+  ]}
+  description=`"Make Roofing and Solar an enjoyable, trustworthy, and inspiring experience for everyone."`
+/>
 
   <Section collection="benefits" query="getAll">
     <!-- Your inner content here -->
@@ -66,18 +75,6 @@ import { Image } from "astro:assets";
       class="shadow-xs border-radius"
     />
   </Section>
-
-  <Section
-    variant="media1"
-    heading={[
-      {
-        text: "Our goal is simple:",
-        tagName: "h2",
-        class: "h2 text-bg uppercase py-[var(--spacing-sm)]",
-      },
-    ]}
-    description=`"Make Roofing and Solar an enjoyable, trustworthy, and inspiring experience for everyone."`
-  />
 
   <!-- <Section
       sectionClass="flex justify-center items-center p-[var(--spacing-3xl)] md:p-[var(--spacing-md)] bg-cover bg-center bg-fixed min-h-[75vh]"
