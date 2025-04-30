@@ -1,0 +1,28 @@
+---
+// src/components/LoopComponents/TeamCard.astro
+import { Image } from "astro:assets";
+
+const { item } = Astro.props;
+const { title, role, description, featuredImage } = item.data;
+---
+<li class="team-card p-[var(--spacing-lg)] border-radius shadow hover:shadow-lg transition-shadow group flex flex-col justify-center items-center text-center h-[60vh] w-full">
+  {featuredImage ? (
+    <Image
+      src={featuredImage}
+      alt={title}
+      width={112}          
+      height={112}
+      format="webp"
+      quality={60}
+      class="w-28 h-28 rounded-full object-cover mb-[var(--spacing-sm)]"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="low"
+    />
+  ) : (
+    <div class="w-28 h-28 rounded-full bg-primary mb-[var(--spacing-sm)]" />
+  )}
+  <h3 class="text-primary h3 mb-[var(--spacing-xs)]">{title}</h3>
+  {role && <p class="text-text h6 mb-[var(--spacing-sm)]">{role}</p>}
+  <p class="text-center">{description}</p>
+</li>

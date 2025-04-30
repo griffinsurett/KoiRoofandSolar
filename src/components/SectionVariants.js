@@ -7,7 +7,7 @@ export const SectionVariants = {
   media1: {
     sectionClass:
       "section-sm flex text-center flex-col justify-center items-center sec-spacing-y",
-    contentClass: "content-section flex flex-col justify-center",
+    contentClass: "content-section flex justify-center",
     itemsClass:
       "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
     itemClass: "",
@@ -45,6 +45,7 @@ export const SectionVariants = {
     buttonsSectionClass:
       "flex flex-col xl:flex-row justify-start items-start xl:items-center gap-[var(--spacing-md)] w-18/20 lg:w-full",
     childSlotClass: "w-auto lg:w-1/2 lg:sticky lg:top-0",
+    itemsClass: "flex flex-col justify-start items-start",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
     descriptionClass: "py-[var(--spacing-sm)] text-text text-lg md:text-xl",

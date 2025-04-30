@@ -7,14 +7,19 @@ import { SiteData } from "@/content/SiteData";
 import ExtendedLayout from "@/layouts/ExtendedLayout.astro";
 import KoiVideo from "@/assets/close.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
-import TeamCard from "@/components/LoopComponents/TeamCard";
+import TeamCard from "@/components/LoopComponents/TeamCard.astro";
 import { Image } from "astro:assets";
 import AboutImage from "@/assets/koiandfriends2.jpg";
+import RichiePic from "@/assets/richard-faria.jpg";
 import IconListItem from "@/components/LoopComponents/IconListItem.astro";
 
 const accentSpan = "text-secondary font-bold"; // centralize the accent class
 ---
-<ExtendedLayout title="About Us" description="Learn more about our company, our mission, and our team.">
+
+<ExtendedLayout
+  title="About Us"
+  description="Learn more about our company, our mission, and our team."
+>
   <SecondaryHero title="About Us" />
   <Section
     sectionClass="section-md flex justify-center items-center"
@@ -27,98 +32,153 @@ const accentSpan = "text-secondary font-bold"; // centralize the accent class
       {
         text: "Putting Homeowners First, Every Step of the Way",
         tagName: "label",
-        class: "h4 text-accent uppercase font-bold"
+        class: "h4 text-accent uppercase font-bold",
       },
       {
         text: SiteData.tagline,
         tagName: "h2",
-        class: "h2 text-primary my-[var(--spacing-md)]"
+        class: "h2 text-primary my-[var(--spacing-md)]",
       },
       {
         text: SiteData.tagline,
         tagName: "h5",
         class: "h4 font-thin text-secondary italic",
-      }
+      },
     ]}
   >
     <p class="text-text text-lg md:text-xl">
-      <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing and solar company—we’re a <span class={accentSpan}>family-style business</span> rooted in New Jersey and built on a foundation of <span class={accentSpan}>trust, expert craftsmanship,</span> and <span class={accentSpan}>lasting relationships</span>. Our mission is to redefine how people experience contractors by making home upgrades feel <span class={accentSpan}>smooth, stress-free,</span> and even enjoyable.
+      <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing
+      and solar company—we’re a <span class={accentSpan}
+        >family-style business</span
+      > rooted in New Jersey and built on a foundation of <span
+        class={accentSpan}>trust, expert craftsmanship,</span
+      > and <span class={accentSpan}>lasting relationships</span>. Our mission
+      is to redefine how people experience contractors by making home upgrades
+      feel <span class={accentSpan}>smooth, stress-free,</span> and even enjoyable.
     </p>
 
     <p class="text-text text-lg md:text-xl">
-      We specialize in <span class={accentSpan}>residential roof replacements</span> and <span class={accentSpan}>solar energy systems</span>, with a unique expertise in <span class={accentSpan}>flat roofs</span>—a service that few companies in New Jersey confidently offer and warranty. Whether your project involves <span class={accentSpan}>storm damage, an aging roof,</span> or the need to cut down <span class={accentSpan}>high electric bills</span>, we offer reliable, full-service solutions.
+      We specialize in <span class={accentSpan}
+        >residential roof replacements</span
+      > and <span class={accentSpan}>solar energy systems</span>, with a unique
+      expertise in <span class={accentSpan}>flat roofs</span>—a service that few
+      companies in New Jersey confidently offer and warranty. Whether your
+      project involves <span class={accentSpan}
+        >storm damage, an aging roof,</span
+      > or the need to cut down <span class={accentSpan}
+        >high electric bills</span
+      >, we offer reliable, full-service solutions.
     </p>
 
     <p class="text-text text-lg md:text-xl">
-      Best of all, we make these upgrades accessible to everyone through <span class={accentSpan}>$0 down financing</span> and flexible options tailored to <span class={accentSpan}>all credit types</span>. At Koi Roofing and Solar, it’s not just about installing panels or replacing shingles—it’s about delivering peace of mind and real value to homeowners across New Jersey, Pennsylvania, and New York.
+      Best of all, we make these upgrades accessible to everyone through <span
+        class={accentSpan}>$0 down financing</span
+      > and flexible options tailored to <span class={accentSpan}
+        >all credit types</span
+      >. At Koi Roofing and Solar, it’s not just about installing panels or
+      replacing shingles—it’s about delivering peace of mind and real value to
+      homeowners across New Jersey, Pennsylvania, and New York.
     </p>
-    <!-- Your inner content here -->
+
+    <!-- New paragraph inserted below the video -->
     <Video
-    src={KoiVideo}
-    poster={KoiVideoPoster}
-    controls
-    muted
-    autoplay={true}
-    loop={false}
-    class="shadow-xs border-radius"
-  />
+      src={KoiVideo}
+      poster={KoiVideoPoster}
+      controls
+      muted
+      autoplay={true}
+      loop={false}
+      class="shadow-xs border-radius"
+    />
+
+    <p class="text-text text-lg md:text-xl mt-[var(--spacing-lg)]">
+      We’re building one of the <span class={accentSpan}
+        >fastest-growing roofing and solar companies in New Jersey</span
+      >—not by cutting corners, but by <span class={accentSpan}
+        >doing things differently</span
+      >. We <span class={accentSpan}>honor every promise</span>, <span
+        class={accentSpan}>create opportunity</span
+      >, and <span class={accentSpan}>bring life and energy</span> into a space that’s
+      <span class={accentSpan}>long overdue for change</span>.
+    </p>
   </Section>
 
   <Section
-  variant="media1"
-  heading={
-    {
+    variant="media1"
+    heading={{
       text: "Our Vision",
       tagName: "h2",
-      class: "h2 text-bg uppercase py-[var(--spacing-sm)]"
-    }
-  }
-  description=`"We believe the contractor world doesn't have to be cold, boring, or stuck in the past. At Koi Roofing and Solar, we welcome creativity, passion, and progress. We don't judge based on age, background, or past experience. We hire the hungry, the passionate, and the people with something to prove."`
-  
-/>
+      class: "h2 text-bg uppercase py-[var(--spacing-sm)]",
+    }}
+    description=`"We believe the contractor world doesn't have to be cold, boring, or stuck in the past. At Koi Roofing and Solar, we welcome creativity, passion, and progress. We don't judge based on age, background, or past experience. We hire the hungry, the passionate, and the people with something to prove."`
+  />
 
-  <Section variant="imageCol" collection="values" query="getAll" component={IconListItem}>
+  <Section
+    variant="imageCol"
+    collection="values"
+    query="getAll"
+    component={IconListItem}
+  >
     <Image
-    src={AboutImage}
-    alt="About Us"
-    class="w-full h-auto object-cover border-radius"
-    loading="lazy"
-    decoding="async"
-    quality={"medium"}
-    fetchpriority="low"
-    width={600}
-    height={400}
-    sizes="(max-width: 600px) 100vw, 600px"
+      src={AboutImage}
+      alt="About Us"
+      class="w-full h-auto object-cover border-radius"
+      loading="lazy"
+      decoding="async"
+      quality={"medium"}
+      fetchpriority="low"
+      width={600}
+      height={400}
+      sizes="(max-width: 600px) 100vw, 600px"
     />
     <!-- <div slot="belowItemsInjection">
       <p class="text-text text-lg md:text-xl">
         We believe in a world where contractors are not just service providers, but trusted partners in your home improvement journey. Our values reflect our commitment to this vision:
     </div> -->
-
   </Section>
   <Section
-  variant="media1"
-  heading={[
-    {
-      text: "As our CEO says:",
-      tagName: "label",
-      class: "h4 text-accent uppercase font-bold"
-    },
-    {
-      text: `"All I have is my words and my smile, and without that-I am nothing."`,
-      tagName: "h2",
-      class: "h2 text-bg uppercase italic py-[var(--spacing-sm)]"
-    },
-    {
-      text: "That quote defines our culture. We don't chase hype. We chase results, service, and the trust of our community.",
-      tagName: "p",
-      class: "font-thin text-text-light text-xl lg:text-2xl",
-    }
-  ]
-  }
-  contentClass="text-left"
->
-</Section>
-  
-  <Section variant="imageCards" collection="team" query="getAll" component={TeamCard} />
+    variant="media1"
+    childSlotClass="flex flex-col items-center justify-center"
+    heading={[
+      {
+        text: "As our CEO says:",
+        tagName: "label",
+        class: "h4 text-accent uppercase font-bold",
+      },
+      {
+        text: `"All I have is my words and my smile, and without that-I am nothing."`,
+        tagName: "h2",
+        class: "h2 text-bg uppercase italic py-[var(--spacing-sm)]",
+      },
+      {
+        text: "That quote defines our culture. We don't chase hype. We chase results, service, and the trust of our community.",
+        tagName: "p",
+        class: "font-thin text-text-light text-xl lg:text-2xl",
+      },
+    ]}
+    contentClass="lg:text-left flex-col-reverse lg:flex-row-reverse gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]"
+  >
+  <div class="w-40 h-40 md:w-70 md:h-70 rounded-full overflow-hidden bg-accent mb-[var(--spacing-sm)]">
+    <Image
+      src={RichiePic}
+      alt="Richard Faria"
+      class="w-full h-full object-cover"
+      width={320}
+      height={320}
+      sizes="(max-width: 768px) 160px, 320px"
+      loading="lazy"
+      decoding="async"
+      quality={60}
+      fetchpriority="low"
+    />
+  </div>
+
+  </Section>
+
+  <Section
+    variant="imageCards"
+    collection="team"
+    query="getAll"
+    component={TeamCard}
+  />
 </ExtendedLayout>

@@ -166,7 +166,6 @@ export const collections = {
       }),
   }),
   team: defineCollection({
-    loader: file("src/content/team/team.json"), // file-loaded collection
     schema: ({ image }) =>
       baseSchema({ image }).extend({
         role: z.string().optional(),
