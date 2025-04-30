@@ -31,7 +31,7 @@ export const SectionVariants = {
     contentClass: "content-section flex flex-col justify-center",
     itemsClass:
       "w-full columns-1 md:columns-2 lg:columns-3 rows-auto",
-    itemPlacement: "section-heading-area",
+    topContentClass: "py-[var(--spacing-xl)]",
     headingAreaClass:
       "flex flex-col text-bg md:px-[var(--spacing-md)] gap-[var(--spacing-sm)]",
     descriptionClass: "order-2 text-lg text-text-light lg:text-3xl text-bg",
