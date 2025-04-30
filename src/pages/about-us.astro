@@ -65,16 +65,17 @@ const accentSpan = "text-secondary font-bold"; // centralize the accent class
   </Section>
 
   <Section
-    variant="media1"
-    heading={
-      {
-        text: "Our Vision",
-        tagName: "h2",
-        class: "h2 text-bg uppercase py-[var(--spacing-sm)]"
-      }
+  variant="media1"
+  heading={
+    {
+      text: "Our Vision",
+      tagName: "h2",
+      class: "h2 text-bg uppercase py-[var(--spacing-sm)]"
     }
-    description=`"We believe the contractor world doesn't have to be cold, boring, or stuck in the past. At Koi Roofing and Solar, we welcome creativity, passion, and progress. We don't judge based on age, background, or past experience. We hire the hungry, the passionate, and the people with something to prove."`
-  />
+  }
+  description=`"We believe the contractor world doesn't have to be cold, boring, or stuck in the past. At Koi Roofing and Solar, we welcome creativity, passion, and progress. We don't judge based on age, background, or past experience. We hire the hungry, the passionate, and the people with something to prove."`
+  
+/>
 
   <Section variant="imageCol" collection="values" query="getAll" component={IconListItem}>
     <Image
@@ -89,19 +90,35 @@ const accentSpan = "text-secondary font-bold"; // centralize the accent class
     height={400}
     sizes="(max-width: 600px) 100vw, 600px"
     />
-  </Section>
+    <!-- <div slot="belowItemsInjection">
+      <p class="text-text text-lg md:text-xl">
+        We believe in a world where contractors are not just service providers, but trusted partners in your home improvement journey. Our values reflect our commitment to this vision:
+    </div> -->
 
+  </Section>
   <Section
   variant="media1"
-  heading={
+  heading={[
     {
-      text: "Our Vision",
+      text: "As our CEO says:",
+      tagName: "label",
+      class: "h4 text-accent uppercase font-bold"
+    },
+    {
+      text: `"All I have is my words and my smile, and without that-I am nothing."`,
       tagName: "h2",
-      class: "h2 text-bg uppercase py-[var(--spacing-sm)]"
+      class: "h2 text-bg uppercase italic py-[var(--spacing-sm)]"
+    },
+    {
+      text: "That quote defines our culture. We don't chase hype. We chase results, service, and the trust of our community.",
+      tagName: "p",
+      class: "font-thin text-text-light text-xl lg:text-2xl",
     }
+  ]
   }
-  description=`"We believe the contractor world doesn't have to be cold, boring, or stuck in the past. At Koi Roofing and Solar, we welcome creativity, passion, and progress. We don't judge based on age, background, or past experience. We hire the hungry, the passionate, and the people with something to prove."`
-/>
+  contentClass="text-left"
+>
+</Section>
   
   <Section variant="imageCards" collection="team" query="getAll" component={TeamCard} />
 </ExtendedLayout>
