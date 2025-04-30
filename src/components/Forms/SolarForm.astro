@@ -1,10 +1,11 @@
 ---
 // src/form/SolarForm.astro
-import Form     from "@/components/Forms/Form.astro";
+import Form from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
-import Textarea  from "@/components/Forms/Inputs/Textarea.astro";
+import Textarea from "@/components/Forms/Inputs/Textarea.astro";
 import { SiteData } from "@/content/SiteData";
 import { getCurrentEntryId } from "@/utils/CurrentEntry";
+import Select from "./Inputs/Select.astro";
 
 const {
   inputClasses    = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] rounded-md",
@@ -20,7 +21,7 @@ const currentPage = getCurrentEntryId(Astro);
   class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] transition-default rounded-4xl shadow-lg hover:shadow-xl w-[90vw] lg:w-full gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
   labelClass="text-primary h5 uppercase"
   formClass="pt-[var(--spacing-md)]"
-  netlify={true}                         
+  netlify={true}
   formLabel="Solar Inquiry"
   enableSuccessBanner={true}
   successBannerMessage="Thanks—I’ll be in touch soon!"
@@ -83,8 +84,8 @@ const currentPage = getCurrentEntryId(Astro);
     </div>
   </div>
 
-  <!-- Address Row -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--spacing-sm)]">
+  <!-- Street Address (full width) -->
+  <div class="w-full">
     <TextInput
       name="address"
       label="Street Address"
@@ -94,6 +95,10 @@ const currentPage = getCurrentEntryId(Astro);
       wrapperClass={wrapperClasses}
       labelClass={labelClasses}
     />
+  </div>
+
+  <!-- City / State / Zip (3 columns) -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--spacing-sm)]">
     <TextInput
       name="city"
       label="City"
