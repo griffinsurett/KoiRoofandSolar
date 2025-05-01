@@ -4,6 +4,7 @@ import Section from "../Section.astro";
 const { title } = Astro.props; // The hero title passed in as a prop
 import HeroBg from "@/assets/background.svg";
 import KoiVideo from "@/assets/video.mp4";
+import { SiteData } from "@/content/SiteData";
 ---
 <Section
 backgroundMedia={{
@@ -11,7 +12,7 @@ backgroundMedia={{
     src: KoiVideo,
   },
   image: {
-    src: HeroBg,
+    src: SiteData.MainBGImage.src,
     imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
   },
   overlayClass: "bg-primary opacity-60",

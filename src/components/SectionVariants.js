@@ -27,10 +27,10 @@ export const SectionVariants = {
   },
   testimonials: {
     sectionClass:
-      "section-lg bg-bg flex text-center flex-col justify-center items-center sec-spacing-y",
+      "bg-bg flex text-center flex-col justify-center items-center",
     contentClass: "content-section flex flex-col justify-center",
     itemsClass:
-      "w-full columns-1 md:columns-2 lg:columns-3 rows-auto",
+      "w-full columns-1 md:columns-2 lg:columns-3 rows-auto place-items-center",
     topContentClass: "py-[var(--spacing-xl)]",
     headingAreaClass:
       "flex flex-col text-bg md:px-[var(--spacing-md)] gap-[var(--spacing-sm)]",
@@ -62,10 +62,10 @@ export const SectionVariants = {
       "flex flex-col py-[var(--spacing-sm)] lg:py-[var(--spacing-xl)]",
     buttonsSectionClass:
       "justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
-    childSlotClass: "w-auto lg:w-3/5 lg:sticky lg:top-0",
+    childSlotClass: "w-auto lg:w-1/2 lg:sticky lg:top-0",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
-    topContentClass: "flex flex-col",
+    topContentClass: "flex flex-col lg:w-1/2",
   },
   imageCards: {
     sectionClass:
