@@ -82,7 +82,8 @@ export async function queryItems(
 
   // Standard "getAll" query.
   if (queryType === "getAll" || queryType === `getAll${collectionName}`) {
-    return await getAllItems(collectionName);
+  const items = await getCollection(collectionName);
+  return items.reverse();
   }
 
   // "related" query handling.

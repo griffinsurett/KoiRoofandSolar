@@ -9,6 +9,7 @@ import KoiVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 import { SiteData } from "@/content/SiteData";
 import { Image } from "astro:assets";
+import RichiePic from "@/assets/richard-faria.jpg";
 ---
 
 <ExtendedLayout
@@ -100,6 +101,45 @@ import { Image } from "astro:assets";
 
   <!-- Testimonials -->
   <Section collection="testimonials" query="getAll" />
+
+  <Section
+  variant="media1"
+  childSlotClass="flex flex-col items-center justify-center"
+  heading={[
+    {
+      text: "Hear From Our CEO, Richard Faria",
+      tagName: "label",
+      class: "h4 text-accent uppercase font-bold",
+    },
+    {
+      text: `"All I have is my words and my smile, and without that-I am nothing."`,
+      tagName: "h2",
+      class: "h2 text-bg uppercase italic py-[var(--spacing-sm)]",
+    },
+    {
+      text: "Dominican-American entrepreneur and U.S. military veteran who built Koi with a vision to bring transparency and life back into the roofing and solar industry.",
+      tagName: "p",
+      class: "font-thin text-text-light text-xl lg:text-2xl",
+    },
+  ]}
+  contentClass="lg:text-left flex-col-reverse lg:flex-row-reverse gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]"
+>
+<div class="w-40 h-40 md:w-70 md:h-70 rounded-full overflow-hidden bg-accent mb-[var(--spacing-sm)]">
+  <Image
+    src={RichiePic}
+    alt="Richard Faria"
+    class="w-full h-full object-cover"
+    width={320}
+    height={320}
+    sizes="(max-width: 768px) 160px, 320px"
+    loading="lazy"
+    decoding="async"
+    quality={60}
+    fetchpriority="low"
+  />
+</div>
+
+</Section>
 
   <!-- Services -->
   <Section collection="services" query="getAll" />

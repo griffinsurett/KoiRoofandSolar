@@ -1,14 +1,16 @@
 ---
 // src/components/LoopComponents/VideoCard.astro
 
+import { SiteData } from "@/content/SiteData";
 import Video from "../Video.astro";
 import { Image } from "astro:assets";
-
 const { item } = Astro.props;
 const videoSrc = item.data.video;
 const posterSrc = item.data.featuredImage;
 ---
-<li class="video-card break-inside-avoid mb-[var(--spacing-md)] self-start relative border-radius w-full overflow-hidden shadow-xs transition-shadow">
+<li
+  class="video-card break-inside-avoid mb-[var(--spacing-md)] self-start relative border-radius w-full overflow-hidden shadow-xs transition-shadow"
+>
   {videoSrc ? (
     <div class="relative w-full">
       <Video
@@ -39,6 +41,14 @@ const posterSrc = item.data.featuredImage;
       class="w-full h-auto object-cover object-center"
     />
   ) : null}
+
+  {item.body && (
+    <div
+      class="flex justify-start items-center px-[var(--spacing-md)] italic text-center bg-primary text-bg"
+    >
+      <p class="text-xl m-0 py-[var(--spacing-lg)]">"{item.body}"</p>
+    </div>
+  )}
 </li>
 
 <script is:inline client:load>
