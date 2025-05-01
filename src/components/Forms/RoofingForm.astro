@@ -30,17 +30,30 @@ const currentPage = getCurrentEntryId(Astro);
   <!-- Hidden input: track which service page -->
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 
-  <!-- Full Name -->
-  <div class="w-full">
-    <TextInput
-      name="fullName"
-      label="Full Name"
-      placeholder="Your Full Name"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
+  <!-- Row 1 -->
+  <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)] text-sm">
+    <div class="w-full lg:w-1/2">
+      <TextInput
+        name="firstName"
+        label="First Name"
+        placeholder="First Name"
+        required
+        inputClass={inputClasses}
+        wrapperClass={wrapperClasses}
+        labelClass={labelClasses}
+      />
+    </div>
+    <div class="w-full lg:w-1/2">
+      <TextInput
+        name="lastName"
+        label="Last Name"
+        placeholder="Last Name"
+        required
+        inputClass={inputClasses}
+        wrapperClass={wrapperClasses}
+        labelClass={labelClasses}
+      />
+    </div>
   </div>
 
   <!-- Address (Include ZIP code) -->

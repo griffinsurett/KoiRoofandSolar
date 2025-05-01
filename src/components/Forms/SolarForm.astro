@@ -3,9 +3,9 @@
 import Form from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
 import Textarea from "@/components/Forms/Inputs/Textarea.astro";
+import Select from "./Inputs/Select.astro";
 import { SiteData } from "@/content/SiteData";
 import { getCurrentEntryId } from "@/utils/CurrentEntry";
-import Select from "./Inputs/Select.astro";
 
 const {
   inputClasses    = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] rounded-md",
@@ -30,7 +30,7 @@ const currentPage = getCurrentEntryId(Astro);
   <!-- Hidden input: track which service page -->
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 
-  <!-- Name & Email Row -->
+  <!-- Name Row -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)] text-sm">
     <div class="w-full lg:w-1/2">
       <TextInput
@@ -56,20 +56,21 @@ const currentPage = getCurrentEntryId(Astro);
     </div>
   </div>
 
-  <!-- Contact Row -->
+  <!-- Address -->
+  <div class="w-full">
+    <TextInput
+      name="address"
+      label="Address (Include ZIP code)"
+      placeholder="123 Main St, City, ST 12345"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Phone & Email Row -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)]">
-    <div class="w-full lg:w-1/2">
-      <TextInput
-        name="email"
-        type="email"
-        label="Email Address"
-        placeholder="you@example.com"
-        required
-        inputClass={inputClasses}
-        wrapperClass={wrapperClasses}
-        labelClass={labelClasses}
-      />
-    </div>
     <div class="w-full lg:w-1/2">
       <TextInput
         name="phone"
@@ -82,57 +83,25 @@ const currentPage = getCurrentEntryId(Astro);
         labelClass={labelClasses}
       />
     </div>
+    <div class="w-full lg:w-1/2">
+      <TextInput
+        name="email"
+        type="email"
+        label="Email Address"
+        placeholder="you@example.com"
+        required
+        inputClass={inputClasses}
+        wrapperClass={wrapperClasses}
+        labelClass={labelClasses}
+      />
+    </div>
   </div>
 
-  <!-- Street Address (full width) -->
+  <!-- Monthly Electric Bill Amount -->
   <div class="w-full">
     <TextInput
-      name="address"
-      label="Street Address"
-      placeholder="123 Main St"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
-
-  <!-- City / State / Zip (3 columns) -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--spacing-sm)]">
-    <TextInput
-      name="city"
-      label="City"
-      placeholder="City"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-    <TextInput
-      name="state"
-      label="State"
-      placeholder="State"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-    <TextInput
-      name="zip"
-      label="Zip Code"
-      placeholder="Zip Code"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
-
-  <!-- Utility Bill -->
-  <div class="w-full">
-    <TextInput
-      name="avgMonthlyBill"
-      label="Avg. Monthly Utility Bill"
+      name="monthlyBill"
+      label="Monthly Electric Bill Amount"
       placeholder="$0.00"
       required
       inputClass={inputClasses}
@@ -141,12 +110,88 @@ const currentPage = getCurrentEntryId(Astro);
     />
   </div>
 
-  <!-- Additional Message -->
+  <!-- Do you own the home? -->
+  <div class="w-full">
+    <Select
+      name="ownHome"
+      label="Do you own the home?"
+      required
+      options={[
+        { value: "Yes", label: "Yes" },
+        { value: "No",  label: "No"  },
+      ]}
+      selectClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Utility Provider -->
+  <div class="w-full">
+    <TextInput
+      name="utilityProvider"
+      label="Utility Provider"
+      placeholder="e.g. PSE&G"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Roof Type -->
+  <div class="w-full">
+    <Select
+      name="roofType"
+      label="Roof Type"
+      required
+      options={[
+        { value: "Shingle", label: "Shingle" },
+        { value: "Flat",    label: "Flat"    },
+        { value: "Metal",   label: "Metal"   },
+        { value: "Other",   label: "Other"   },
+      ]}
+      selectClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Trees or Shading -->
+  <div class="w-full">
+    <Select
+      name="shading"
+      label="Are there trees or shading on your roof?"
+      required
+      options={[
+        { value: "Yes", label: "Yes" },
+        { value: "No",  label: "No"  },
+      ]}
+      selectClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Preferred Consultation Date & Time -->
+  <div class="w-full">
+    <TextInput
+      name="preferredConsultation"
+      type="datetime-local"
+      label="Preferred Date & Time for Consultation"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+  </div>
+
+  <!-- Additional Notes or Questions -->
   <div class="w-full">
     <Textarea
-      name="message"
-      label="Additional Details"
-      placeholder="Tell us more about your solar goals…"
+      name="notes"
+      label="Additional Notes or Questions"
+      placeholder="Let us know any special requests or questions…"
       rows={5}
       inputClass={inputClasses}
       wrapperClass={wrapperClasses}
