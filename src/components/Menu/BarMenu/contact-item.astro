@@ -1,0 +1,42 @@
+---
+// src/components/Menu/BarMenu/ContactMenuItem.astro
+import PhoneIcon from "@/components/Phone.jsx";
+const { item } = Astro.props;
+
+// detect type
+const isPhone = item.id === "phone";
+const isEmail = item.id === "email";
+const href = isPhone
+  ? `tel:${item.slug}`
+  : isEmail
+  ? `mailto:${item.slug}`
+  : item.slug;
+---
+<li class="mb-[var(--spacing-lg)]">
+  <a
+    href={href}
+    class="flex flex-col items-center text-left text-primary hover:text-secondary space-y-[var(--spacing-xs)]"
+  >
+    {isPhone && (
+      <PhoneIcon className="h-6 w-6" />
+    )}
+    {isEmail && (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3 8l7.5 5L18 8m0 8H3V6h15v10z"
+        />
+      </svg>
+    )}
+    <span class="text-lg font-medium">{item.label}</span>
+    <span class="text-sm font-thin">{item.slug}</span>
+  </a>
+</li>
