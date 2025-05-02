@@ -1,8 +1,12 @@
 ---
 // src/components/Menu/ContactMenuItem.astro
 // Renders a single contact menu item with the correct tel: / mailto: prefix
-import PhoneIcon from "@/components/Phone.jsx";
+import { Image } from "astro:assets";
 const { item } = Astro.props;
+import PhoneIcon from "@/assets/phone.png";
+import EmailIcon from "@/assets/email.png";
+
+// const iconClasses = "h-18 lg:h-32 w-auto"
 
 const isPhone = item.id === "phone";
 const isEmail = item.id === "email";
@@ -15,28 +19,22 @@ const href = isPhone
 <li class="mb-[var(--spacing-md)] flex">
   <a
     href={href}
-    class="flex items-center text-lg text-primary hover:text-secondary"
+    class="flex flex-col items-start text-lg text-primary hover:text-secondary"
   >
-    <!-- {isPhone && (
-      <PhoneIcon className="h-6 w-6 mr-[var(--spacing-sm)]" />
-    )}
+    {isPhone && (
+<Image
+        src={PhoneIcon}
+        alt="Phone Icon"
+        class='h-18 lg:h-26 w-auto py-[var(--spacing-sm)]'
+      />    )}
     {isEmail && (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 mr-[var(--spacing-sm)]"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3 8l7.5 5L18 8m0 8H3V6h15v10z"
-        />
-      </svg>
-    )} -->
-    <span class="mr-auto pr-[var(--spacing-xs)]">{item.label}:</span>
-    <span class="text-sm font-thin">{item.slug}</span>
+      <Image
+        src={EmailIcon}
+        alt="Email Icon"
+        class='h-18 lg:h-20 w-auto py-[var(--spacing-sm)]'
+      />
+    )}
+    <span class="mr-auto pr-[var(--spacing-xs)] h4">{item.label}:</span>
+    <span class="text-lg font-thin">{item.slug}</span>
   </a>
 </li>
