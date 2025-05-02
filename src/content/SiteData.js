@@ -23,6 +23,11 @@ export const ContactData = {
     phone: "732-939-1309",
 }
 
+export const ServiceBtns = [
+    { text: "Roofing Services", link: "/services/roofing", variant: "tertiary", class: "w-full" },
+    { text: "Solar Services", link: "/services/solar", variant: "secondary", class: "w-full" },
+  ]
+
 export const SocialData = [
     {
         title: "Twitter",

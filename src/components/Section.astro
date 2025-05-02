@@ -229,11 +229,11 @@ const itemsDefaultHasPage = meta.itemsHasPage ?? false;
 
   <div
     class={`${contentClass} relative z-10 ${
-      isDynamic ? "my-[var(--spacing-lg)]" : ""
+      isDynamic ? "" : ""
     }`}
   >
     <div class={`top-content-section ${topContentClass}`}>
-      <div class={`section-heading-area text-primary ${headingAreaClass}`}>
+      <div class={`section-heading-area text-secondary ${headingAreaClass}`}>
         {finalHeadingArray.map((head, i) => {
           const headObj = typeof head === "string" ? { text: head } : head;
           const Tag = headObj.tagName || "h2";

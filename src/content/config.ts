@@ -167,10 +167,9 @@ export const collections = {
       }),
   }),
   team: defineCollection({
-    schema: ({ image }) =>
-      baseSchema({ image }).extend({
+    schema: ({ image }) => baseSchema({ image }).extend({
         role: z.string().optional(),
-      }),
+    }),
   }),
   values: defineCollection({
     loader: file("src/content/values/values.json"), // file-loaded collection

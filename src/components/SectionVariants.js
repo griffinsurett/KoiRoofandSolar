@@ -78,17 +78,18 @@ export const SectionVariants = {
     descriptionClass: "text-sm lg:text-xl text-text",
   },
   portfolio: {
-    sectionClass:
-      "flex text-center flex-col section-lg justify-center items-center bg-primary text-bg lg:py-[var(--spacing-2xl)]",
+    // sectionClass:
+    //   "flex text-center flex-col justify-center items-center bg-bg text-bg m-0 p-0",
     contentClass:
-      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] md:px-[var(--spacing-md)]",
+      "flex flex-col justify-center m-0 p-0",
     itemsClass:
-      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] mt-[var(--spacing-lg)] lg:gap-[var(--spacing-md)]",
+      "w-full flex items-center justify-evenly flex-col lg:flex-row",
     headingAreaClass:
-      "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
+      "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] hidden",
     descriptionClass:
       "text-lg order-2 lg:text-2xl text-text-light md:m-[var(--spacing-lg)]",
-    itemPlacement: "section-heading-area",
+    itemPlacement: "",
+    buttonsSectionClass: "hidden",
   },
   cardSection: {
     sectionClass:
