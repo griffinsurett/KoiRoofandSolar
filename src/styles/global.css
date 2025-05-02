@@ -95,6 +95,10 @@
     @apply rounded-2xl;
   }
 
+  .heading-primary {
+    @apply bg-gradient-to-r from-primary to-secondary inline-block text-transparent bg-clip-text
+  }
+
   .h1,
   .h2,
   .h3,
