@@ -18,9 +18,9 @@ import ContactItem from "@/components/Menu/BarMenu/contact-item.astro";
   <Section
     sectionClass="flex justify-center items-center p-[var(--spacing-3xl)] md:p-[var(--spacing-md)] bg-cover bg-center bg-fixed min-h-[100vh]"
     topContentClass="flex flex-col items-center justify-center text-center w-full h-full z-10 text-text-light md:w-3/4 w-auto"
-    childSlotClass="flex flex-col lg:flex-row"
+    childSlotClass="flex flex-col lg:flex-row justify-center items-center"
   >
-    <div class="menu-container lg:w-1/3 w-full">
+    <!-- <div class="menu-container lg:w-1/3 w-full">
       <Menu
       items={await getContactMenuItems()}
       listClass="flex flex-col gap-[var(--spacing-md)] text-left"
@@ -30,8 +30,8 @@ import ContactItem from "@/components/Menu/BarMenu/contact-item.astro";
       }}
       breakpoint="none"
     />
-    </div>
-    <div class="form-container lg:w-2/3 w-full">
+    </div> -->
+    <div class="form-container lg:w-3/4 w-full mt-[-25vh]">
       <ContactForm />
     </div>
   </Section>
