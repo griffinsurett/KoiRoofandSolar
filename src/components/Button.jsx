@@ -21,7 +21,7 @@ const buttonVariantDefaults = {
   },
   tertiary: {
     variantClasses:
-      "bg-[var(--color-secondary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-bg)]",
+      "bg-[var(--color-bg)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)] hover:text-[var(--color-bg)]",
     buttonClasses: baseButtonClasses,
   },
   underline: {
