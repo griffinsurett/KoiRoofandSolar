@@ -27,7 +27,16 @@ const posterSrc = item.data.featuredImage;
         aria-label="Play video"
         style="opacity:1; pointer-events:auto;"
       >
-        ▶
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="64"
+          height="64"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-16 h-16"
+        >
+          <path d="M8 5v14l11-7z" />
+        </svg>
       </button>
     </div>
   ) : posterSrc ? (
