@@ -96,7 +96,8 @@
   }
 
   .heading-primary {
-    @apply bg-gradient-to-r from-primary to-secondary inline-block text-transparent bg-clip-text
+    @apply bg-gradient-to-r from-primary to-secondary inline-block text-transparent bg-clip-text leading-tight;
+
   }
 
   .h1,
