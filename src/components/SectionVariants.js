@@ -25,9 +25,31 @@ export const SectionVariants = {
       overlayClass: "bg-primary opacity-60",
     },
   },
+  media2: {
+    backgroundMedia: {
+      // video: {
+      //   src: KoiVideo,
+      // },
+      image: {
+        src: SiteData.MainBGImage.src,
+        imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+      },
+      overlayClass: "bg-primary opacity-60",
+    },
+    sectionClass: "flex flex-col justify-center items-center section-md",
+    contentClass: "m-0 p-0 content-section",
+    itemsClass:
+      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-lg)] lg:gap-[var(--spacing-md)]",
+    headingAreaClass:
+      "flex flex-col gap-[var(--spacing-sm)] text-center text-bg pb-[var(--spacing-lg)]",
+    descriptionClass:
+      "text-lg order-2 lg:text-2xl text-text-light md:mx-[var(--spacing-lg)]",
+    itemPlacement: "",
+    buttonsSectionClass: "hidden",
+  },
   testimonials: {
     sectionClass: "bg-bg flex text-center flex-col justify-center items-center",
-    contentClass: "content-section flex flex-col justify-center",
+    contentClass: "content-section flex flex-col justify-center py-[var(--spacing-2xl)]",
     itemsClass: `w-full columns-1 md:columns-2 lg:columns-3 gap-x-[var(--spacing-xl)] gap-y-[var(--spacing-xl)]`,
     topContentClass: "py-[var(--spacing-xl)]",
     headingAreaClass:
@@ -80,14 +102,11 @@ export const SectionVariants = {
   portfolio: {
     // sectionClass:
     //   "flex text-center flex-col justify-center items-center bg-bg text-bg m-0 p-0",
-    contentClass:
-      "flex flex-col justify-center m-0 p-0",
-    itemsClass:
-      "w-full flex items-center justify-evenly flex-col lg:flex-row",
-    headingAreaClass:
-      "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] hidden",
+    contentClass: "flex flex-col justify-center m-0 p-0",
+    itemsClass: "w-full flex items-center justify-evenly flex-col lg:flex-row",
+    headingAreaClass: "flex flex-col gap-[var(--spacing-sm)] text-center",
     descriptionClass:
-      "text-lg order-2 lg:text-2xl text-text-light md:m-[var(--spacing-lg)]",
+      "text-lg order-2 lg:text-2xl text-text-light md:m-[var(--spacing-lg)] hidden",
     itemPlacement: "",
     buttonsSectionClass: "hidden",
   },

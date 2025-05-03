@@ -136,7 +136,7 @@
   }
 
   .section-md {
-    @apply min-h-[75vh] md:min-h-[60vh] py-[40px];
+    @apply min-h-[75vh] md:min-h-[85vh] py-[var(--spacing-lg)];
   }
 
   .section-lg {
