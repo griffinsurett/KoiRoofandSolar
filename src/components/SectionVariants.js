@@ -26,6 +26,24 @@ export const SectionVariants = {
     },
   },
   media2: {
+    sectionClass:
+      "section-sm flex text-center flex-col justify-center items-center sec-spacing-y",
+    contentClass: "content-section flex justify-center",
+    itemsClass:
+      "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
+    itemClass: "",
+    itemPlacement: "section-heading-area",
+    descriptionClass: "text-text-light text-lg md:text-3xl italic",
+    buttonsSectionClass: "my-[var(--spacing-lg)]",
+    backgroundMedia: {
+      image: {
+        src: SiteData.MainBGImage.src,
+        imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+      },
+      overlayClass: "bg-primary opacity-60",
+    },
+  },
+  media3: {
     backgroundMedia: {
       // video: {
       //   src: KoiVideo,
