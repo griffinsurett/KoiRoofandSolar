@@ -128,9 +128,13 @@ const servicesMenuItems = servicesEntries.map(entry => ({
             <div
               class="w-full lg:w-2/5 justify-center items-center xl:items-start text-center xl:text-left"
             >
-              <Heading tagName="h4" className={menuHeadingClass}
-                >Contact Us:</Heading
-              >
+              <div class={contactItemClass}>
+                <Heading tagName="label" class="h6 font-medium"
+                  >Business Hours:</Heading
+                >
+                {ContactData.businessHours.days}:
+                {ContactData.businessHours.hours}
+              </div>
               <div class={contactItemClass}>
                 <Heading tagName="label" class="h6 font-medium"
                   >Email Us:</Heading

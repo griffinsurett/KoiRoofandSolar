@@ -21,6 +21,10 @@ export const SiteData = {
 export const ContactData = {
     email: "customersupport@koiroofingandsolar.com",
     phone: "732-939-1309",
+    businessHours: {
+        days: "Everyday",
+        hours: "8AM - 8PM",
+    },
 }
 
 export const ServiceBtns = [
