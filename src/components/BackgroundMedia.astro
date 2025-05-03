@@ -20,7 +20,7 @@ if (backgroundMedia?.image && backgroundMedia.image.src) {
     class={`absolute inset-0 z-0 w-full h-full object-cover ${backgroundMedia.video.videoClass || ""}`}
     autoPlay={backgroundMedia.video.autoPlay !== undefined ? backgroundMedia.video.autoPlay : true}
     muted={backgroundMedia.video.muted !== undefined ? backgroundMedia.video.muted : true}
-    loop={backgroundMedia.video.loop !== undefined ? backgroundMedia.video.loop : true}
+    loop={backgroundMedia.video.loop !== undefined ? backgroundMedia.video.loop : false}
     playsInline={backgroundMedia.video.playsInline !== undefined ? backgroundMedia.video.playsInline : true}
     controls={backgroundMedia.video.controls || false}
     preload={backgroundMedia.video.preload || "metadata"}
