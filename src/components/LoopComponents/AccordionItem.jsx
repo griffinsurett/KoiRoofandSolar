@@ -15,7 +15,7 @@ export default function AccordionItem({
       className={`
         ${itemClass}
         group
-        border-t border-border
+        border-t border-border slide-up
         transition-colors duration-500 ease-in-out
         ${open ? "bg-bg-2" : "hover:bg-bg-2"}
       `}
