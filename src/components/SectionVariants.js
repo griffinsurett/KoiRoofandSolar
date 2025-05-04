@@ -88,7 +88,7 @@ export const SectionVariants = {
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
     descriptionClass: "py-[var(--spacing-sm)] text-text text-lg md:text-xl",
-    topContentClass: "flex flex-col w-full lg:sticky lg:top-0 lg:w-1/2 slide-in",
+    topContentClass: "flex flex-col w-full lg:sticky lg:top-0 lg:w-1/2",
   },
   vidCol: {
     sectionClass: "section-lg flex justify-center items-center text-left",
