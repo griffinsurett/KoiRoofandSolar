@@ -6,7 +6,7 @@ export const SectionVariants = {
   // Variants for different section types
   media1: {
     sectionClass:
-      "section-sm flex text-center flex-col justify-center items-center sec-spacing-y",
+      "section-sm animate-on-appear flex text-center flex-col justify-center items-center sec-spacing-y",
     contentClass: "content-section flex justify-center",
     itemsClass:
       "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
@@ -28,7 +28,7 @@ export const SectionVariants = {
   },
   media2: {
     sectionClass:
-      "section-sm flex text-center flex-col justify-center items-center sec-spacing-y",
+      "section-sm flex text-center flex-col justify-center items-center sec-spacing-y animate-on-appear",
     contentClass: "content-section flex justify-center",
     itemsClass:
       "w-full grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)]",
@@ -55,7 +55,7 @@ export const SectionVariants = {
       },
       overlayClass: "bg-primary opacity-60",
     },
-    sectionClass: "flex flex-col justify-center items-center section-md",
+    sectionClass: "flex flex-col justify-center items-center section-md animate-on-appear",
     contentClass: "m-0 p-0 content-section",
     itemsClass:
       "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
@@ -83,7 +83,7 @@ export const SectionVariants = {
     headingAreaClass: "flex flex-col",
     buttonsSectionClass:
       "flex flex-col xl:flex-row justify-start items-start xl:items-center gap-[var(--spacing-md)] w-18/20 lg:w-full",
-    childSlotClass: "w-auto lg:w-1/2 lg:sticky lg:top-0",
+    childSlotClass: "w-auto lg:w-1/2 lg:sticky lg:top-0 slide-in",
     itemsClass: "flex flex-col justify-start items-start",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
@@ -101,7 +101,7 @@ export const SectionVariants = {
       "flex flex-col py-[var(--spacing-sm)] lg:py-[var(--spacing-xl)]",
     buttonsSectionClass:
       "justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
-    childSlotClass: "w-auto lg:w-1/2 lg:sticky lg:top-0",
+    childSlotClass: "w-auto slide-in lg:w-1/2 lg:sticky lg:top-0",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
     topContentClass: "flex flex-col lg:w-1/2",

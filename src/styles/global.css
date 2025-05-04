@@ -156,12 +156,6 @@
 }
 
 @layer utilities {
-  .scroll-fade-up {
-    animation: fade-in-up linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 45%;
-  }
-
   .transition-default {
     transition: var(--transition-default);
     transition-delay: var(--transition-delay-default);

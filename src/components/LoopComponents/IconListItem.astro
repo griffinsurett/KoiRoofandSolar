@@ -7,14 +7,14 @@ const { item } = Astro.props;
 const iconSrc = item.data.icon;
 ---
 
-<li class="flex items-start justify-center space-x-[var(--spacing-lg)]">
+<li class="flex items-start justify-center space-x-[var(--spacing-lg)] slide-left">
   {
     iconSrc ? (
       <Image
         src={iconSrc}
         alt={item.data.title || "Icon"}
-        width={100}
-        height={100}
+        width={200}
+        height={200}
         sizes="(max-width: 640px) 4rem, 150px"
         format="webp"
         quality={50}
