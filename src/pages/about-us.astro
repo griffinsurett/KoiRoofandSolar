@@ -14,6 +14,7 @@ import RichiePic from "@/assets/richard-faria.jpg";
 import IconListItem from "@/components/LoopComponents/IconListItem.astro";
 
 const accentSpan = "text-secondary font-bold"; // centralize the accent class
+const paragraphClass = "text-text text-lg md:text-xl slide-up";
 ---
 
 <ExtendedLayout
@@ -46,7 +47,7 @@ const accentSpan = "text-secondary font-bold"; // centralize the accent class
       },
     ]}
   >
-    <p class="text-text text-lg md:text-xl">
+    <p class={paragraphClass}>
       <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing
       and solar company—we’re a <span class={accentSpan}
         >family-style business</span
@@ -57,7 +58,7 @@ const accentSpan = "text-secondary font-bold"; // centralize the accent class
       feel <span class={accentSpan}>smooth, stress-free,</span> and even enjoyable.
     </p>
 
-    <p class="text-text text-lg md:text-xl">
+    <p class={paragraphClass}>
       We specialize in <span class={accentSpan}
         >residential roof replacements</span
       > and <span class={accentSpan}>solar energy systems</span>, with a unique
@@ -70,7 +71,7 @@ const accentSpan = "text-secondary font-bold"; // centralize the accent class
       >, we offer reliable, full-service solutions.
     </p>
 
-    <p class="text-text text-lg md:text-xl">
+    <p class={paragraphClass}>
       Best of all, we make these upgrades accessible to everyone through <span
         class={accentSpan}>$0 down financing</span
       > and flexible options tailored to <span class={accentSpan}
@@ -91,7 +92,7 @@ const accentSpan = "text-secondary font-bold"; // centralize the accent class
       class="shadow-xs border-radius"
     />
 
-    <p class="text-text text-lg md:text-xl mt-[var(--spacing-lg)]">
+    <p class={paragraphClass}>
       We’re building one of the <span class={accentSpan}
         >fastest-growing roofing and solar companies in New Jersey</span
       >—not by cutting corners, but by <span class={accentSpan}
@@ -162,7 +163,7 @@ const accentSpan = "text-secondary font-bold"; // centralize the accent class
     <Image
       src={RichiePic}
       alt="Richard Faria"
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover scale-up"
       width={320}
       height={320}
       sizes="(max-width: 768px) 160px, 320px"
