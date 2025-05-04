@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 const { item } = Astro.props;
 const { title, role, description, featuredImage } = item.data;
 ---
-<li class="scale-up team-card p-[var(--spacing-lg)] border-radius shadow hover:shadow-lg transition-shadow group flex flex-col justify-center items-center text-center h-[60vh] w-full">
+<li class="team-card p-[var(--spacing-lg)] border-radius shadow hover:shadow-lg transition-shadow group flex flex-col justify-center items-center text-center h-[60vh] w-full">
   {featuredImage ? (
     <Image
       src={featuredImage}
