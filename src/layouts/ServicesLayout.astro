@@ -23,7 +23,7 @@ const fsKey = raw ? `/src${raw}` : undefined; // "/src/components/Forms/SolarFor
 const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
 ---
 <BaseLayout {...Astro.props}>
-  <div class="page overflow-hidden">
+  <!-- <div class="page overflow-hidden"> -->
   <Section
     title={Astro.props.title}
     buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center w-4/5"
@@ -32,7 +32,7 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     topContentClass="w-9/10 lg:w-6/11 py-[var(--spacing-sm)] lg:py-0 flex flex-col items-center justify-center lg:justify-end lg:sticky lg:top-0"
     headingAreaClass="flex flex-col text-center lg:text-left w-full h-full z-10 lg:mt-[var(--spacing-2xl)]"
     buttonsSectionClass="hidden"
-    childSlotClass="lg:w-3/7 p-0 m-0 w-[80vw]"
+    childSlotClass="lg:w-3/7 p-0 m-0 w-[90vw]"
     heading={[
       {
         text: `Koi ${entry.slug}`,
@@ -114,6 +114,6 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     contentClass="container mx-auto"
     heading={[{ text: "Frequently Asked Questions", tagName: "h2", class: "h2" }]}
   />
-</div>
+<!-- </div> -->
   <slot />
 </BaseLayout>
