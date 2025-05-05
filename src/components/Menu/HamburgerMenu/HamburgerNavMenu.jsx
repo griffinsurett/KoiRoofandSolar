@@ -18,10 +18,13 @@ export default function HamburgerNavMenu({
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => {
     setMenuOpen(false);
-    if (document.activeElement) {
-      document.activeElement.blur();
+    // force the native change handler to run:
+    const toggle = document.getElementById("hamburger-toggle");
+    if (toggle) {
+      toggle.dispatchEvent(new Event("change", { bubbles: true }));
     }
   };
+  
 
   return (
     <>
