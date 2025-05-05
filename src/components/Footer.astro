@@ -13,7 +13,7 @@ import { getCollection } from "astro:content";
 
 // Only the redundant classes:
 const menuListClass =
-  "flex flex-col justify-center items-center xl:items-start gap-[var(--spacing-xs)] py-[var(--spacing-xs)]";
+  "flex flex-col justify-center items-center xl:items-start gap-[var(--spacing-xs)] py-[var(--spacing-xs)] ";
 const menuItemClass = "hover:text-accent text-lg uppercase";
 const contactItemClass =
   "flex flex-col justify-center xl:justify-start gap-[var(--spacing-xs)] pt-[var(--spacing-sm)] text-lg";
@@ -41,7 +41,7 @@ const servicesMenuItems = servicesEntries.map(entry => ({
   slug: `/${entry.slug}`,
 }));
 ---
-<footer class="text-bg">
+<footer class="text-bg slide-up">
   <div
     class="footer-top flex justify-center items-center text-center xl:text-left"
   >
@@ -66,7 +66,7 @@ const servicesMenuItems = servicesEntries.map(entry => ({
       >
         <!-- Logo & Description -->
         <div
-          class="w-full text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col xl:items-start justify-center items-center mb-[var(--spacing-lg)] lg:mt-0"
+          class="w-full slide-up text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col xl:items-start justify-center items-center mb-[var(--spacing-lg)] lg:mt-0"
         >
           <a href="/">
             <Image
@@ -75,7 +75,7 @@ const servicesMenuItems = servicesEntries.map(entry => ({
               class="h-28 w-auto"
             />
           </a>
-          <p class="text-lg font-thin text-text-light pt-[var(--spacing-md)]">
+          <p class="text-lg font-thin text-text-light pt-[var(--spacing-md)] slide-up">
             {SiteData.description}
           </p>
         </div>
