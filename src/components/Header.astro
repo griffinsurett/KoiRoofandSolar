@@ -1,4 +1,5 @@
 ---
+// src/components/Header.astro
 import { ContactData, SiteData } from "@/content/SiteData";
 import LogoBGWhite from "@/assets/logo3.png";
 import { buildMenuQueries } from "@/utils/ArrayQueryUtils";
@@ -11,7 +12,6 @@ import { MainNavMenu } from "@/queries/MainNavMenu";
 
 const breakpoint = "lg";
 ---
-
 <header
   id="site-header"
   class="fixed top-0 w-full h-[12vh] md:h-[14vh] flex justify-center items-center bg-transparent z-[10000]"
@@ -101,13 +101,13 @@ const breakpoint = "lg";
   const header = document.getElementById("site-header");
   const menuLinks = document.querySelectorAll(".menu-item");
   const hamburgerIcon = document.querySelector(".custom-hamburger-icon");
-  const menuToggle = document.getElementById("hamburger-toggle");
   const logoDefault = document.getElementById("logo-default");
   const logoWhite = document.getElementById("logo-white");
   const ACTIVE_CLASS = "text-accent";
 
   function updateLogo(scrolled) {
-    if (menuToggle?.checked || scrolled) {
+    // only based on scroll now; no more checkbox
+    if (scrolled) {
       logoDefault.classList.add("hidden");
       logoWhite.classList.remove("hidden");
     } else {
@@ -118,6 +118,7 @@ const breakpoint = "lg";
 
   function onScroll() {
     const scrolled = window.scrollY > 50;
+
     header.classList.remove("bg-primary");
     header.classList.toggle("bg-bg", scrolled);
     header.classList.toggle("shadow-md", scrolled);
@@ -136,27 +137,6 @@ const breakpoint = "lg";
 
     updateLogo(scrolled);
   }
-
-  if (menuToggle) {
-    menuToggle.addEventListener("change", () => {
-      if (menuToggle.checked) {
-        header.classList.add("bg-primary");
-        header.classList.remove("shadow-md", "bg-white", "bg-transparent");
-        hamburgerIcon?.classList.add("text-bg");
-        hamburgerIcon?.classList.remove("text-primary");
-        updateLogo(true);
-      } else {
-        onScroll();
-      }
-    });
-  }
-
-  // ** NEW ** listen for React-driven close event:
-  window.addEventListener("react-hamburger-toggle", (e) => {
-    if (!e.detail.isOpen) {
-      onScroll();
-    }
-  });
 
   window.addEventListener("scroll", onScroll);
   onScroll();
