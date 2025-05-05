@@ -27,9 +27,9 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
   <Section
     title={Astro.props.title}
     buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center w-4/5"
-    sectionClass="min-h-[100vh] lg:text-left flex items-center justify-center bg-cover bg-fixed bg-center z-100 shadow-lg pt-[var(--spacing-4xl)] mb-[100px] w-full"
-    contentClass="flex flex-col lg:flex-row justify-center items-center lg:gap-[var(--spacing-xl)] mx-auto text-center container mt-[var(--spacing-3xl)]"
-    topContentClass="w-9/10 lg:w-6/11 py-[var(--spacing-sm)] lg:py-0 flex flex-col items-center justify-center lg:justify-end lg:sticky lg:top-0"
+    sectionClass="min-h-[100vh] lg:text-left flex items-center justify-center z-100 shadow-lg pt-[var(--spacing-4xl)] mb-[100px] w-full"
+    contentClass="flex flex-col lg:flex-row justify-center lg:items-start items-center lg:gap-[var(--spacing-xl)] mx-auto text-center container mt-[var(--spacing-3xl)]"
+    topContentClass="w-9/10 lg:w-6/11 lg:sticky lg:top-0 py-[var(--spacing-sm)] lg:py-0 flex flex-col items-center justify-center lg:justify-end"
     headingAreaClass="flex flex-col text-center lg:text-left w-full h-full z-10 lg:mt-[var(--spacing-2xl)]"
     buttonsSectionClass="hidden"
     childSlotClass="lg:w-3/7 p-0 m-0 w-[90vw]"
