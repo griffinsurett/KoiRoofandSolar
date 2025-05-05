@@ -23,6 +23,7 @@ const fsKey = raw ? `/src${raw}` : undefined; // "/src/components/Forms/SolarFor
 const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
 ---
 <BaseLayout {...Astro.props}>
+  <div class="page overflow-hidden">
   <Section
     title={Astro.props.title}
     buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center w-4/5"
@@ -113,5 +114,6 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     contentClass="container mx-auto"
     heading={[{ text: "Frequently Asked Questions", tagName: "h2", class: "h2" }]}
   />
+</div>
   <slot />
 </BaseLayout>
