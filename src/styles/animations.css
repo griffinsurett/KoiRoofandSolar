@@ -1,55 +1,52 @@
 /* src/styles/animations.css */
 @import "tailwindcss";
 
-/* Timeline‑based animations when supported */
+/* 1️⃣ Scroll‑linked animations in supporting browsers */
 @layer utilities {
-  @supports ((animation-timeline: view()) or (animation-timeline: scroll())) {
-    .use-timeline .animate-on-appear {
+  @supports (animation-timeline: view()) or (animation-timeline: scroll()) {
+    .animate-on-appear {
       animation-name: fade-in-up;
       animation-duration: 1s;
       animation-timeline: view();
       animation-range: entry 0% cover 45%;
       animation-fill-mode: both;
     }
-
-    .use-timeline .slide-down {
+    .slide-down {
       animation-name: slide-down;
       animation-duration: 1s;
       animation-timeline: view();
       animation-range: entry 0% cover 45%;
       animation-fill-mode: both;
     }
-    .use-timeline .slide-in {
+    .slide-in {
       animation-name: slide-in;
       animation-duration: 1s;
       animation-timeline: view();
       animation-range: entry 0% cover 45%;
       animation-fill-mode: both;
     }
-    .use-timeline .slide-up {
+    .slide-up {
       animation-name: slide-up;
       animation-duration: 1s;
       animation-timeline: view();
       animation-range: entry 0% cover 45%;
       animation-fill-mode: both;
     }
-
-    .use-timeline .slide-left {
+    .slide-left {
       animation-name: slide-left;
       animation-duration: 1s;
       animation-timeline: view();
       animation-range: entry 0% cover 45%;
       animation-fill-mode: both;
     }
-    .use-timeline .slide-right {
+    .slide-right {
       animation-name: slide-right;
       animation-duration: 1s;
       animation-timeline: view();
       animation-range: entry 0% cover 45%;
       animation-fill-mode: both;
     }
-
-    .use-timeline .scale-up {
+    .scale-up {
       animation-name: scale-up;
       animation-duration: 1s;
       animation-timeline: view();
@@ -59,82 +56,36 @@
   }
 }
 
-/* Intersection Observer fallback */
+/* 2️⃣ IntersectionObserver fallback when timeline isn’t supported */
 @layer utilities {
   @supports not ((animation-timeline: view()) or (animation-timeline: scroll())) {
-    .use-io .animate-on-appear {
+    /* Hide by default until intersection */
+    .use-io .animate-on-appear,
+    .use-io .slide-down,
+    .use-io .slide-in,
+    .use-io .slide-up,
+    .use-io .slide-left,
+    .use-io .slide-right,
+    .use-io .scale-up {
       opacity: 0;
       transform: translateY(1rem);
       transition: opacity 500ms ease-out, transform 500ms ease-out;
     }
-    .use-io .animate-on-appear.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .use-io .slide-down {
-      opacity: 0;
-      transform: translateY(-2rem);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
-    }
-    .use-io .slide-down.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .use-io .slide-in {
-      opacity: 0;
-      transform: translateX(-2rem);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
-    }
-    .use-io .slide-in.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .use-io .slide-up {
-      opacity: 0;
-      transform: translateY(2rem);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
-    }
-    .use-io .slide-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .use-io .slide-left {
-      opacity: 0;
-      transform: translateX(-2rem);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
-    }
-    .use-io .slide-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .use-io .slide-right {
-      opacity: 0;
-      transform: translateX(2rem);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
-    }
-    .use-io .slide-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .use-io .scale-up {
-      opacity: 0;
-      transform: scale(0.8);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
-    }
+    /* When JS adds .visible */
+    .use-io .animate-on-appear.visible,
+    .use-io .slide-down.visible,
+    .use-io .slide-in.visible,
+    .use-io .slide-up.visible,
+    .use-io .slide-left.visible,
+    .use-io .slide-right.visible,
     .use-io .scale-up.visible {
       opacity: 1;
-      transform: scale(1);
+      transform: translateY(0);
     }
   }
 }
 
-/* Keyframes */
+/* 3️⃣ Shared keyframes (for scroll‑linked only) */
 @layer utilities {
   @keyframes fade-in-up {
     from { opacity: 0; transform: translateY(1rem); }
