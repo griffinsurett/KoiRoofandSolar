@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState, useEffect } from "react";
 
 // Lazy load the Hamburger Menu Container and Hamburger Button
 const HamburgerMenuContainer = lazy(() => import("./HamburgerMenuContainer.jsx"));
@@ -14,7 +14,15 @@ export default function HamburgerNavMenu({
   listClass,
   hamburgerMenu, // additional hamburger customization options
 }) {
-  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Dispatch a CustomEvent whenever menuOpen changes
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent("react-hamburger-toggle", { detail: { isOpen: menuOpen } })
+    );
+  }, [menuOpen]);
+
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => {
     setMenuOpen(false);
