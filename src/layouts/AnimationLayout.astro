@@ -9,7 +9,7 @@ import "@/styles/animations.css";
   <body>
     <slot />
 
-    <script is:inline client:idle>
+    <script is:inline client:load>
       (function () {
         const hasTimeline =
           CSS.supports("animation-timeline", "view()") ||
