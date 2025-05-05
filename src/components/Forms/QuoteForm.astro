@@ -1,5 +1,4 @@
 ---
-// QuoteForm.astro
 import Form from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
 import Textarea from "@/components/Forms/Inputs/Textarea.astro";
@@ -20,7 +19,6 @@ const currentPage = getCurrentEntryId(Astro);
   class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] transition-default rounded-4xl shadow-lg hover:shadow-xl w-[90vw] lg:w-full gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
   labelClass="text-primary h5 uppercase"
   formClass="pt-[var(--spacing-md)]"
-  netlify={true}
   formLabel="Get in Touch"
   enableSuccessBanner={true}
   successBannerMessage="Thank you for your message. We will get in touch with you shortly."
@@ -96,17 +94,17 @@ const currentPage = getCurrentEntryId(Astro);
     />
   </div>
 
-   <!-- Consent Checkbox -->
-   <div class={"flex items-start"}>
+  <!-- Consent -->
+  <div class="flex items-start">
     <input
       type="checkbox"
       id="consent"
       name="consent"
       required
-      class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 cursor-pointer checked:bg-primary"
+      class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
     />
     <label for="consent" class={labelClasses + " m-0"}>
-      I consent to have {SiteData.title} store my submitted information so they can
-      respond to my inquiry
+      I consent to have {SiteData.title} store my message so they can respond
     </label>
+  </div>
 </Form>

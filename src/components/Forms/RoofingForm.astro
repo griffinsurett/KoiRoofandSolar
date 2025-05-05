@@ -1,5 +1,4 @@
 ---
-// src/form/RoofingForm.astro
 import Form from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
 import Textarea from "@/components/Forms/Inputs/Textarea.astro";
@@ -22,16 +21,13 @@ const currentPage = getCurrentEntryId(Astro);
   class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] transition-default rounded-4xl shadow-lg hover:shadow-xl gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
   labelClass="text-primary h5 uppercase"
   formClass="pt-[var(--spacing-md)]"
-  netlify={true}
   formLabel="Roofing Inquiry"
   enableSuccessBanner={false}
-  successBannerMessage="Thanks—I’ll be in touch soon!"
-  successBannerClass="p-[var(--spacing-sm)] bg-primary text-bg border border-[var(--color-border)] bg-light-opacity"
 >
   <!-- Hidden input: track which service page -->
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 
-  <!-- Row 1 -->
+  <!-- First/Last Name Row -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)] text-sm">
     <div class="w-full lg:w-1/2">
       <TextInput
@@ -57,18 +53,16 @@ const currentPage = getCurrentEntryId(Astro);
     </div>
   </div>
 
-  <!-- Address (Include ZIP code) -->
-  <div class="w-full">
-    <TextInput
-      name="address"
-      label="Address (Include ZIP code)"
-      placeholder="123 Main St, City, ST 12345"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <!-- Address -->
+  <TextInput
+    name="address"
+    label="Address (Include ZIP code)"
+    placeholder="123 Main St, City, ST 12345"
+    required
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Phone & Email Row -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)]">
@@ -99,128 +93,112 @@ const currentPage = getCurrentEntryId(Astro);
   </div>
 
   <!-- Roof Age -->
-  <div class="w-full">
-    <TextInput
-      name="roofAge"
-      label="How old is your roof?"
-      placeholder="e.g. 10 years"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <TextInput
+    name="roofAge"
+    label="How old is your roof?"
+    placeholder="e.g. 10 years"
+    required
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Roof Type -->
-  <div class="w-full">
-    <Select
-      name="roofType"
-      label="What type of roof do you have?"
-      required
-      options={[
-        { value: "Shingle", label: "Shingle" },
-        { value: "Flat", label: "Flat" },
-        { value: "Metal", label: "Metal" },
-        { value: "Tile", label: "Tile" },
-        { value: "Other", label: "Other" },
-      ]}
-      selectClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <Select
+    name="roofType"
+    label="What type of roof do you have?"
+    required
+    options={[
+      { value: "Shingle", label: "Shingle" },
+      { value: "Flat", label: "Flat" },
+      { value: "Metal", label: "Metal" },
+      { value: "Tile", label: "Tile" },
+      { value: "Other", label: "Other" },
+    ]}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Visible Damage -->
-  <div class="w-full">
-    <Select
-      name="visibleDamage"
-      label="Visible damage, leaks, or missing shingles?"
-      required
-      options={[
-        { value: "Yes", label: "Yes" },
-        { value: "No", label: "No" },
-      ]}
-      selectClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <Select
+    name="visibleDamage"
+    label="Visible damage, leaks, or missing shingles?"
+    required
+    options={[
+      { value: "Yes", label: "Yes" },
+      { value: "No", label: "No" },
+    ]}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Replacement Timeline -->
-  <div class="w-full">
-    <Select
-      name="replacementTimeline"
-      label="If replacement is needed, how soon would you like it fixed?"
-      required
-      options={[
-        { value: "within-1-week", label: "Within 1 week" },
-        { value: "within-2-weeks", label: "Within 2 weeks" },
-        { value: "within-a-month", label: "Within a month" },
-        { value: "just-exploring", label: "Just exploring options" },
-      ]}
-      selectClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <Select
+    name="replacementTimeline"
+    label="If replacement is needed, how soon would you like it fixed?"
+    required
+    options={[
+      { value: "within-1-week", label: "Within 1 week" },
+      { value: "within-2-weeks", label: "Within 2 weeks" },
+      { value: "within-a-month", label: "Within a month" },
+      { value: "just-exploring", label: "Just exploring options" },
+    ]}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- $0 Out-of-Pocket Program -->
-  <div class="w-full">
-    <Select
-      name="zeroOutOfPocket"
-      label="Interested in $0 out-of-pocket roof replacement program?"
-      required
-      options={[
-        { value: "Yes", label: "Yes" },
-        { value: "No", label: "No" },
-      ]}
-      selectClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <Select
+    name="zeroOutOfPocket"
+    label="Interested in $0 out-of-pocket roof replacement?"
+    required
+    options={[
+      { value: "Yes", label: "Yes" },
+      { value: "No", label: "No" },
+    ]}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Insurance Claim -->
-  <div class="w-full">
-    <Select
-      name="insuranceClaim"
-      label="Is this related to an insurance claim?"
-      required
-      options={[
-        { value: "Yes", label: "Yes" },
-        { value: "No", label: "No" },
-      ]}
-      selectClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <Select
+    name="insuranceClaim"
+    label="Is this related to an insurance claim?"
+    required
+    options={[
+      { value: "Yes", label: "Yes" },
+      { value: "No", label: "No" },
+    ]}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Preferred Inspection Date & Time -->
-  <div class="w-full">
-    <TextInput
-      name="preferredInspection"
-      type="datetime-local"
-      label="Preferred date & time for a free inspection"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <TextInput
+    name="preferredInspection"
+    type="datetime-local"
+    label="Preferred date & time for a free inspection"
+    required
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
-  <!-- Additional Notes or Questions -->
-  <div class="w-full">
-    <Textarea
-      name="notes"
-      label="Additional Notes or Questions"
-      placeholder="Let us know any special requests or questions…"
-      rows={5}
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <!-- Additional Notes -->
+  <Textarea
+    name="notes"
+    label="Additional Notes or Questions"
+    placeholder="Let us know any special requests or questions…"
+    rows={5}
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Consent -->
   <div class="flex items-start">
@@ -232,7 +210,7 @@ const currentPage = getCurrentEntryId(Astro);
       class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
     />
     <label for="consent" class={labelClasses + " m-0"}>
-      I consent to have {SiteData.title} store my info to respond to my inquiry
+      I consent to have {SiteData.title} store my information so they can respond
     </label>
   </div>
 </Form>

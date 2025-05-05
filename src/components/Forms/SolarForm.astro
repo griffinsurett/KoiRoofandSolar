@@ -1,5 +1,4 @@
 ---
-// src/form/SolarForm.astro
 import Form from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
 import Textarea from "@/components/Forms/Inputs/Textarea.astro";
@@ -22,88 +21,62 @@ const currentPage = getCurrentEntryId(Astro);
   class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] transition-default rounded-4xl shadow-lg hover:shadow-xl gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
   labelClass="text-primary h5 uppercase"
   formClass="pt-[var(--spacing-md)]"
-  netlify={true}
   formLabel="Solar Inquiry"
   enableSuccessBanner={false}
-  successBannerMessage="Thanks—I’ll be in touch soon!"
-  successBannerClass="p-[var(--spacing-sm)] bg-primary text-bg border border-[var(--color-border)] bg-light-opacity"
 >
   <!-- Hidden input: track which service page -->
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 
   <!-- Name Row -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)] text-sm">
-    <div class="w-full lg:w-1/2">
-      <TextInput
-        name="firstName"
-        label="First Name"
-        placeholder="First Name"
-        required
-        inputClass={inputClasses}
-        wrapperClass={wrapperClasses}
-        labelClass={labelClasses}
-      />
-    </div>
-    <div class="w-full lg:w-1/2">
-      <TextInput
-        name="lastName"
-        label="Last Name"
-        placeholder="Last Name"
-        required
-        inputClass={inputClasses}
-        wrapperClass={wrapperClasses}
-        labelClass={labelClasses}
-      />
-    </div>
+    <TextInput
+      name="firstName"
+      label="First Name"
+      placeholder="First Name"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+    <TextInput
+      name="lastName"
+      label="Last Name"
+      placeholder="Last Name"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
   </div>
 
   <!-- Address -->
-  <div class="w-full">
-    <TextInput
-      name="address"
-      label="Address (Include ZIP code)"
-      placeholder="123 Main St, City, ST 12345"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <TextInput
+    name="address"
+    label="Address (Include ZIP code)"
+    placeholder="123 Main St, City, ST 12345"
+    required
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Phone & Email Row -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)]">
-    <div class="w-full lg:w-1/2">
-      <TextInput
-        name="phone"
-        type="tel"
-        label="Phone Number"
-        placeholder="123-456-7890"
-        required
-        inputClass={inputClasses}
-        wrapperClass={wrapperClasses}
-        labelClass={labelClasses}
-      />
-    </div>
-    <div class="w-full lg:w-1/2">
-      <TextInput
-        name="email"
-        type="email"
-        label="Email Address"
-        placeholder="you@example.com"
-        required
-        inputClass={inputClasses}
-        wrapperClass={wrapperClasses}
-        labelClass={labelClasses}
-      />
-    </div>
-  </div>
-
-  <!-- Monthly Electric Bill Amount -->
-  <div class="w-full">
     <TextInput
-      name="monthlyBill"
-      label="Monthly Electric Bill Amount"
-      placeholder="$0.00"
+      name="phone"
+      type="tel"
+      label="Phone Number"
+      placeholder="123-456-7890"
+      required
+      inputClass={inputClasses}
+      wrapperClass={wrapperClasses}
+      labelClass={labelClasses}
+    />
+    <TextInput
+      name="email"
+      type="email"
+      label="Email Address"
+      placeholder="you@example.com"
       required
       inputClass={inputClasses}
       wrapperClass={wrapperClasses}
@@ -111,94 +84,93 @@ const currentPage = getCurrentEntryId(Astro);
     />
   </div>
 
-  <!-- Do you own the home? -->
-  <div class="w-full">
-    <Select
-      name="ownHome"
-      label="Do you own the home?"
-      required
-      options={[
-        { value: "Yes", label: "Yes" },
-        { value: "No",  label: "No"  },
-      ]}
-      selectClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <!-- Monthly Bill -->
+  <TextInput
+    name="monthlyBill"
+    label="Monthly Electric Bill Amount"
+    placeholder="$0.00"
+    required
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
+
+  <!-- Own Home? -->
+  <Select
+    name="ownHome"
+    label="Do you own the home?"
+    required
+    options={[
+      { value: "Yes", label: "Yes" },
+      { value: "No",  label: "No"  },
+    ]}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Utility Provider -->
-  <div class="w-full">
-    <TextInput
-      name="utilityProvider"
-      label="Utility Provider"
-      placeholder="e.g. PSE&G"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <TextInput
+    name="utilityProvider"
+    label="Utility Provider"
+    placeholder="e.g. PSE&G"
+    required
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Roof Type -->
-  <div class="w-full">
-    <Select
-      name="roofType"
-      label="Roof Type"
-      required
-      options={[
-        { value: "Shingle", label: "Shingle" },
-        { value: "Flat",    label: "Flat"    },
-        { value: "Metal",   label: "Metal"   },
-        { value: "Other",   label: "Other"   },
-      ]}
-      selectClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <Select
+    name="roofType"
+    label="Roof Type"
+    required
+    options={[
+      { value: "Shingle", label: "Shingle" },
+      { value: "Flat",    label: "Flat"    },
+      { value: "Metal",   label: "Metal"   },
+      { value: "Other",   label: "Other"   },
+    ]}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
-  <!-- Trees or Shading -->
-  <div class="w-full">
-    <Select
-      name="shading"
-      label="Are there trees or shading on your roof?"
-      required
-      options={[
-        { value: "Yes", label: "Yes" },
-        { value: "No",  label: "No"  },
-      ]}
-      selectClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <!-- Trees/Shading -->
+  <Select
+    name="shading"
+    label="Are there trees or shading on your roof?"
+    required
+    options={[
+      { value: "Yes", label: "Yes" },
+      { value: "No",  label: "No"  },
+    ]}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
-  <!-- Preferred Consultation Date & Time -->
-  <div class="w-full">
-    <TextInput
-      name="preferredConsultation"
-      type="datetime-local"
-      label="Preferred Date & Time for Consultation"
-      required
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <!-- Preferred Consultation -->
+  <TextInput
+    name="preferredConsultation"
+    type="datetime-local"
+    label="Preferred Date & Time for Consultation"
+    required
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
-  <!-- Additional Notes or Questions -->
-  <div class="w-full">
-    <Textarea
-      name="notes"
-      label="Additional Notes or Questions"
-      placeholder="Let us know any special requests or questions…"
-      rows={5}
-      inputClass={inputClasses}
-      wrapperClass={wrapperClasses}
-      labelClass={labelClasses}
-    />
-  </div>
+  <!-- Additional Notes -->
+  <Textarea
+    name="notes"
+    label="Additional Notes or Questions"
+    placeholder="Let us know any special requests or questions…"
+    rows={5}
+    inputClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <!-- Consent -->
   <div class="flex items-start">
@@ -210,7 +182,7 @@ const currentPage = getCurrentEntryId(Astro);
       class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
     />
     <label for="consent" class={labelClasses + " m-0"}>
-      I consent to have {SiteData.title} store my info to respond to my inquiry
+      I consent to have {SiteData.title} store my info so they can respond
     </label>
   </div>
 </Form>

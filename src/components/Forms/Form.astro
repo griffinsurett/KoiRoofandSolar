@@ -24,14 +24,12 @@
  * submit          – optional custom submit content; if omitted we render a
  *                   default <Button />
  */
- import Button from "@/components/Button";
+import Button from "@/components/Button";
 
 const {
   name = "generic-form",
   method = "post",
   action,
-  netlify = false,
-  honeypotName = "bot-field",
   class: className = "",
   formLabel = "",
   labelClass = "",
@@ -59,19 +57,9 @@ const {
     data-success-banner={enableSuccessBanner}
     data-success-message={successBannerMessage}
     data-success-class={successBannerClass}
-    {...(netlify
-      ? { "data-netlify": "true", "netlify-honeypot": honeypotName }
-      : {})}
   >
-    {netlify && (
-      <>
-        <input type="hidden" name="form-name" value={name} />
-        <input type="hidden" name={honeypotName} />
-      </>
-    )}
-
     <slot />
-      
+
     {Astro.slots.has("submit") ? (
       <slot name="submit" />
     ) : (
