@@ -38,10 +38,10 @@ resetSectionIds();
   <Theme />
   <slot name="head" />
 </head>
-<body class="m-0 p-0 w-full h-full overflow-hidden">
+<body class="m-0 p-0 w-full h-full">
   <AnimationLayout>
   <Header />
-  <main class="min-h-[80vh] bg-[var(--color-bg)] font-thin">
+  <main class="min-h-[80vh] bg-[var(--color-bg)] font-thin overflow-x-hidden">
     <slot />
   </main>
   <Footer />
