@@ -59,29 +59,25 @@
 /* 2️⃣ IntersectionObserver fallback when timeline isn’t supported */
 @layer utilities {
   @supports not ((animation-timeline: view()) or (animation-timeline: scroll())) {
-    /* Hide by default until intersection */
-    .use-io .animate-on-appear,
-    .use-io .slide-down,
-    .use-io .slide-in,
-    .use-io .slide-up,
-    .use-io .slide-left,
-    .use-io .slide-right,
-    .use-io .scale-up {
+    .animate-on-appear,
+    .slide-down,
+    .slide-in,
+    .slide-up,
+    .slide-left,
+    .slide-right,
+    .scale-up {
       opacity: 0;
       transform: translateY(1rem);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
     }
-    /* When JS adds .visible */
-    .use-io .animate-on-appear.visible,
-    .use-io .slide-down.visible,
-    .use-io .slide-in.visible,
-    .use-io .slide-up.visible,
-    .use-io .slide-left.visible,
-    .use-io .slide-right.visible,
-    .use-io .scale-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+    /* Once JS adds .visible, run the same keyframe animation */
+    .animate-on-appear.visible    { animation: fade-in-up 1s both; }
+    .slide-down.visible           { animation: slide-down 1s both; }
+    .slide-in.visible             { animation: slide-in 1s both; }
+    .slide-up.visible             { animation: slide-up 1s both; }
+    .slide-left.visible           { animation: slide-left 1s both; }
+    .slide-right.visible          { animation: slide-right 1s both; }
+    .scale-up.visible             { animation: scale-up 1s both; }
   }
 }
 
