@@ -4,13 +4,13 @@ import type { APIRoute } from 'astro';
 export const GET: APIRoute = () => {
   // Grab the domain from your env (fall back if necessary)
   const domainEnv = import.meta.env.PUBLIC_SITE_DOMAIN;
-  const domain = `https://${domainEnv}`; 
+  const domain = `https://${domainEnv}working`; 
 
   // Build your robots directives
   const lines = [
     'User-agent: *',
     'Allow: /',
-    `Sitemap: ${domain}/sitemap.xml`,
+    `Sitemap: ${domain}/sitemap-0.xml`,
     `Host: ${domain.replace(/^https?:\/\//, '')}`,
   ];
 
