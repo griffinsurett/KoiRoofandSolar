@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 
+import sitemap from '@astrojs/sitemap';
+
 export default defineConfig({
   server: {
     port: 5500,
@@ -24,5 +26,7 @@ export default defineConfig({
       },
     },
   },
-  integrations: [mdx(), react()],
+  integrations: [mdx(), react(), sitemap(
+    
+  )],
 });
