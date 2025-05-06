@@ -30,8 +30,8 @@ console.log("OG type:", finalOgType);
 <title>{title}</title>
 <meta name="description" content={description} />
 {finalCanonicalUrl && <link rel="canonical" href={finalCanonicalUrl} />}
-{robots && <meta name="robots" content={robots} />}
-
+<!-- {robots && <meta name="robots" content={robots} />} -->
+<meta name="robots" content="index,follow" />
 {keywords && Array.isArray(keywords) && keywords.length > 0 && (
   <meta name="keywords" content={keywords.join(", ")} />
 )}
