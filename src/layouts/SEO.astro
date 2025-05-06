@@ -14,8 +14,9 @@ const {
 // Use a fallback value if ogType is falsy
 const finalOgType = ogType || "website";
 
-// Determine your site’s base URL (could also come from an env var)
-const domain = "https://koiroofingandsolar.com";
+// Determine your site’s base URL from env or fallback
+const domainEnv = import.meta.env.PUBLIC_SITE_DOMAIN;
+const domain = `https://${domainEnv}`;
 
 // Build canonical URL if none provided
 const finalCanonicalUrl = canonicalUrl || `${domain}${Astro.url.pathname}`;
@@ -32,7 +33,7 @@ console.log("Robots:", effectiveRobots);
 <title>{title}</title>
 <meta name="description" content={description} />
 {finalCanonicalUrl && <link rel="canonical" href={finalCanonicalUrl} />}
-<meta name="robots" content={effectiveRobots} />
+<meta name="robots" content={effectiveRobots}" />
 
 {keywords && Array.isArray(keywords) && keywords.length > 0 && (
   <meta name="keywords" content={keywords.join(", ")} />
