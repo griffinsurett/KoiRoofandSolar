@@ -11,7 +11,7 @@ export const GET: APIRoute = () => {
     'User-agent: *',
     'Allow: /',
     `Sitemap: ${domain}/sitemap-0.xml`,
-    `Host: ${domain.replace(/^https?:\/\//, '')}`,
+    `Host: ${domain}`,
   ];
 
   return new Response(lines.join('\n'), {
