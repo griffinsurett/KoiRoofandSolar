@@ -1,10 +1,10 @@
 // src/pages/robots.txt.ts
 import type { APIRoute } from 'astro';
+const domainEnv = import.meta.env.PUBLIC_SITE_DOMAIN;
+const domain = `https://${domainEnv}`; 
 
 export const GET: APIRoute = () => {
   // Grab the domain from your env (fall back if necessary)
-  const domainEnv = import.meta.env.PUBLIC_SITE_DOMAIN;
-  const domain = `https://${domainEnv}working`; 
 
   // Build your robots directives
   const lines = [
