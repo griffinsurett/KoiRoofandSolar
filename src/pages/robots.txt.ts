@@ -1,0 +1,20 @@
+// src/pages/robots.txt.ts
+import type { APIRoute } from 'astro';
+
+export const GET: APIRoute = () => {
+  // Grab the domain from your env (fall back if necessary)
+  const domainEnv = import.meta.env.PUBLIC_SITE_DOMAIN;
+  const domain = `https://${domainEnv}`; 
+
+  // Build your robots directives
+  const lines = [
+    'User-agent: *',
+    'Allow: /',
+    `Sitemap: ${domain}/sitemap.xml`,
+    `Host: ${domain.replace(/^https?:\/\//, '')}`,
+  ];
+
+  return new Response(lines.join('\n'), {
+    headers: { 'Content-Type': 'text/plain' },
+  });
+};
