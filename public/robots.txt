@@ -1,6 +1,0 @@
-# Allow every bot to crawl everything
-User-agent: *
-Allow: /
-
-# Point bots to your sitemap
-Sitemap: https://koiroofandsolar-1nu38.kinsta.page/sitemap-0.xml

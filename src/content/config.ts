@@ -77,6 +77,7 @@ export const metaSchema = z.object({
   layout: z.string().optional(),
   itemsLayout: z.string().optional(),
   keywords: z.array(z.string()).optional(),
+  robots: z.string().optional(),
   ogType: z.string().optional(),
   hasPage: z.boolean().default(true),
   itemsHasPage: z.boolean().default(true),
@@ -95,6 +96,7 @@ const baseSchema = ({ image }: { image: Function }) =>
     description: descriptionSchema.optional(),
     layout: z.string().optional(),
     keywords: z.array(z.string()).optional(),
+    robots: z.string().optional(), 
     ogType: z.string().optional(),
     hasPage: z.boolean().optional(),
     sections: z.array(sectionSchema).optional(),
@@ -167,9 +169,10 @@ export const collections = {
       }),
   }),
   team: defineCollection({
-    schema: ({ image }) => baseSchema({ image }).extend({
+    schema: ({ image }) =>
+      baseSchema({ image }).extend({
         role: z.string().optional(),
-    }),
+      }),
   }),
   values: defineCollection({
     loader: file("src/content/values/values.json"), // file-loaded collection

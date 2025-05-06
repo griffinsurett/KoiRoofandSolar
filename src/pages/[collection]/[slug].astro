@@ -53,6 +53,8 @@ const { default: Layout } = await importer();
 const sections = data.sections?.length
   ? data.sections
   : meta.itemsSections || [];
+
+  console.log("robots", data.robots);
 ---
 
 <Layout
@@ -62,6 +64,7 @@ const sections = data.sections?.length
   description={data.description}
   keywords={data.keywords}
   ogType={data.ogType}
+  robots={data.robots} 
 >
   {
     sections.map((section, i) => (
