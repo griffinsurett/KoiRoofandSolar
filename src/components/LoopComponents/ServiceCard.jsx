@@ -17,7 +17,7 @@ export default function ServiceCard({ item, HasPage }) {
   }
 
   return (
-    <li className="service-card p-[var(--spacing-lg)] shadow hover:shadow-lg transition-shadow group flex flex-col justify-between items-center w-full min-h-[30vh] lg:min-h-[60vh] border-radius">
+    <li className="service-card scale-up p-[var(--spacing-lg)] shadow hover:shadow-lg transition-shadow group flex flex-col justify-between items-center w-full min-h-[30vh] lg:min-h-[60vh] border-radius">
       {effectiveHasPage ? (
         <a
           href={`/services/${item.slug}`}
