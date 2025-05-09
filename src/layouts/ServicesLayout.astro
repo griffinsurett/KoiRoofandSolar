@@ -106,6 +106,13 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     query="children"
     variant="cardSection"
     component={ServiceCard}
+    heading={[
+      {
+        text: `Explore Our ${entry.slug} Services`,
+        tagName: "h2",
+        class: "h2 text-primary uppercase py-[var(--spacing-sm)]",
+      },
+    ]}
   />
 
   <!-- Related Projects -->

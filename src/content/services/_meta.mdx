@@ -15,6 +15,7 @@ defaultSection:
   variant: "imageCards"
   component: "ImageServiceCard"
   buttonsSectionClass: "hidden"
+  headingAreaClass: "text-primary"
 sections:
   - collection: "services"
     query: "getAll"
@@ -31,25 +32,5 @@ addToItemsQuery: [
     "label": "Services",
   }
 ]
-# itemsSections:
-#   - collection: "testimonials"
-#     query: "getAll"
-#     descriptionClass: "hidden"
-#   - collection: "projects"
-#     query: "getAll"
-#     descriptionClass: "hidden"
-#     sectionClass: "bg-bg"
-#   - collection: "services"
-#     query: "parent"
-#     heading: "Parent Services"
-#   - collection: "services"
-#     query: "children"
-#     heading: "Child Services"
-#   - collection: "faq"
-#     query: "related"
-#   - collection: "services"
-#     query: "sibling"
-#     heading: "We Also Offer"
-#     descriptionClass: "hidden"
 itemsLayout: "../../layouts/ServicesLayout.astro"
 ---
