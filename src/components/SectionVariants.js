@@ -116,6 +116,7 @@ export const SectionVariants = {
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
     buttonsSectionClass: "my-[var(--spacing-lg)]",
+    headingAreaClass: "hidden",
     descriptionClass: "text-sm lg:text-xl text-text",
   },
   portfolio: {
@@ -133,9 +134,10 @@ export const SectionVariants = {
     sectionClass:
       "flex text-center flex-col section-md justify-center items-center",
     contentClass:
-      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
+      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)]",
+    // Use grid for wrapping: 1 column on mobile, 2 on sm, 3 on lg
     itemsClass:
-      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-xl)] lg:gap-[var(--spacing-3xl)] py-[var(--spacing-md)]",
+      "w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[var(--spacing-xl)] py-[var(--spacing-md)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
     descriptionClass:

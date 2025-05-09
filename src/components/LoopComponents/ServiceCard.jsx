@@ -17,7 +17,7 @@ export default function ServiceCard({ item, HasPage }) {
   }
 
   return (
-    <li className="service-card p-[var(--spacing-lg)] shadow hover:shadow-lg transition-shadow group flex flex-col justify-between items-center w-full min-h-[30vh] lg:min-h-[50vh]">
+    <li className="service-card p-[var(--spacing-lg)] shadow hover:shadow-lg transition-shadow group flex flex-col justify-between items-center w-full min-h-[30vh] lg:min-h-[60vh] border-radius">
       {effectiveHasPage ? (
         <a
           href={`/services/${item.slug}`}
@@ -29,7 +29,7 @@ export default function ServiceCard({ item, HasPage }) {
               alt={`${title} icon`}
               width={icon?.width}
               height={icon?.height}
-              className="w-auto h-18 mx-auto mb-[var(--spacing-sm)] transition-transform duration-300 ease-in-out group-hover:scale-120"
+              className="w-auto h-22 mx-auto mb-[var(--spacing-sm)] transition-transform duration-300 ease-in-out group-hover:scale-120"
             />
           )}
           <h3 className="text-primary text-center h3 mb-[var(--spacing-sm)]">
@@ -45,13 +45,13 @@ export default function ServiceCard({ item, HasPage }) {
               alt={`${title} icon`}
               width={icon?.width}
               height={icon?.height}
-              className="w-auto h-18 mx-auto mb-[var(--spacing-sm)] transition-transform duration-300 ease-in-out group-hover:scale-110"
+              className="w-auto h-22 mx-auto mb-[var(--spacing-sm)] transition-transform duration-300 ease-in-out group-hover:scale-110"
             />
           )}
           <h3 className="text-primary text-center h3 mb-[var(--spacing-sm)]">
             {title}
           </h3>
-          <p className="text-center">{description || item.body}</p>
+          <p className="text-center text-xl">{description || item.body}</p>
         </div>
       )}
 

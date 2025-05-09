@@ -208,8 +208,16 @@ export async function queryItems(
   }
 
   if (queryType === "parent" || queryType === `parent${collectionName}`) {
+    // Attempt to get the parent of the current page within the collection
     const parent = await getParentItem(collectionName, slug);
-    return parent ? [parent] : [];
+    if (parent) {
+      // Found a parent entry for a page within the collection
+      return [parent];
+    }
+    // No parent found: likely calling "parent" on a non-collection page
+    // Return all top-level (root) items in the collection (highest level)
+    const allItems = await getCollection(collectionName);
+    return allItems.filter(item => !item.data.parent);
   }
 
   if (queryType === "children" || queryType === `children${collectionName}`) {

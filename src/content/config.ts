@@ -158,7 +158,7 @@ export const collections = {
           .optional(),
       }),
   }),
-  pricing: defineCollection({
+  products: defineCollection({
     loader: file("src/content/pricing/paymentOptions.json"), // file-loaded collection
     schema: ({ image }) =>
       baseSchema({ image }).extend({

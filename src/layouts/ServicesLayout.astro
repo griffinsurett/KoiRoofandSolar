@@ -8,6 +8,7 @@ import KoiVideo   from "@/assets/video.mp4";
 import NotLikeVideo   from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 import { SiteData }   from "@/content/SiteData";
+import ServiceCard from "@/components/LoopComponents/ServiceCard";
 
 const { entry, description } = Astro.props;
 
@@ -97,7 +98,15 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     descriptionClass="hidden"
     buttonsSectionClass="py-[var(--spacing-lg)]"
   />
-<Section collection="pricing" query="related"/>
+<!-- <Section collection="pricing" query="related"/> -->
+
+  <!-- Related Services -->
+  <Section
+    collection="services"
+    query="children"
+    variant="cardSection"
+    component={ServiceCard}
+  />
 
   <!-- Related Projects -->
   <Section

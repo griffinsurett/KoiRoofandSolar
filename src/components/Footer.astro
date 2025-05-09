@@ -35,11 +35,13 @@ const FooterMenu = [
 
 // Pull in services collection and map to menu items
 const servicesEntries = await getCollection("services");
-const servicesMenuItems = servicesEntries.map(entry => ({
+const topLevelServices = servicesEntries.filter(entry => !entry.data.parent);
+const servicesMenuItems = topLevelServices.map(entry => ({
   id: entry.id,
   label: entry.data.title,
   slug: `/${entry.slug}`,
 }));
+
 ---
 <footer class="text-bg slide-up">
   <div
