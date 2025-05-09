@@ -51,7 +51,7 @@ export default function ServiceCard({ item, HasPage }) {
           <h3 className="text-primary text-center h3 mb-[var(--spacing-sm)]">
             {title}
           </h3>
-          <p className="text-center text-xl">{description || item.body}</p>
+          <p className="text-center text-lg">{description || item.body}</p>
         </div>
       )}
 
