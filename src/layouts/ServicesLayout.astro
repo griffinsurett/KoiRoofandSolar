@@ -11,7 +11,7 @@ import { SiteData } from "@/content/SiteData";
 import ListItem from "@/components/LoopComponents/ListItem";
 import PhoneIcon from "@/components/Phone";
 import { Image } from "astro:assets";
-import AboutImage from "@/assets/koiandfriends2.jpg";
+import Koiroofers from "@/assets/koiroofers.jpg";
 
 const { entry, description } = Astro.props;
 
@@ -129,7 +129,7 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     ]}
   >
   <Image
-      src={AboutImage}
+      src={Koiroofers}
       alt="About Us"
       class="w-full h-auto object-cover border-radius lg:w-1/3 lg:sticky lg:top-0"
       loading="lazy"
