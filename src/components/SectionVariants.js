@@ -52,7 +52,8 @@ export const SectionVariants = {
       },
       overlayClass: "bg-primary opacity-60",
     },
-    sectionClass: "flex flex-col justify-center items-center section-md animate-on-appear",
+    sectionClass:
+      "flex flex-col justify-center items-center section-md animate-on-appear",
     contentClass: "m-0 p-0 content-section",
     itemsClass:
       "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
@@ -71,7 +72,8 @@ export const SectionVariants = {
       },
       overlayClass: "bg-primary opacity-60",
     },
-    sectionClass: "flex flex-col justify-center items-center section-sm animate-on-appear",
+    sectionClass:
+      "flex flex-col justify-center items-center section-sm animate-on-appear",
     contentClass: "m-0 p-0 content-section",
     itemsClass:
       "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
@@ -84,7 +86,8 @@ export const SectionVariants = {
   },
   testimonials: {
     sectionClass: "bg-bg flex text-center flex-col justify-center items-center",
-    contentClass: "content-section flex flex-col justify-center py-[var(--spacing-2xl)]",
+    contentClass:
+      "content-section flex flex-col justify-center py-[var(--spacing-2xl)]",
     itemsClass: `w-full columns-1 md:columns-2 lg:columns-3 gap-x-[var(--spacing-xl)] gap-y-[var(--spacing-xl)]`,
     topContentClass: "py-[var(--spacing-xl)]",
     headingAreaClass:
@@ -154,6 +157,19 @@ export const SectionVariants = {
     // Use grid for wrapping: 1 column on mobile, 2 on sm, 3 on lg
     itemsClass:
       "w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[var(--spacing-xl)] py-[var(--spacing-md)]",
+    headingAreaClass:
+      "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
+    descriptionClass:
+      "text-lg order-2 lg:text-2xl text-text m-[var(--spacing-lg)]",
+  },
+  listSection: {
+    sectionClass:
+      "flex text-center flex-col justify-center items-center",
+    contentClass:
+      "content-section flex flex-col justify-center",
+    // Use grid for wrapping: 1 column on mobile, 2 on sm, 3 on lg
+    itemsClass:
+      "w-full grid grid-cols-1 sm:grid-cols-2 gap-[var(--spacing-xl)] py-[var(--spacing-md)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
     descriptionClass:
