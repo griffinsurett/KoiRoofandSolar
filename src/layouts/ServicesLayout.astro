@@ -10,6 +10,8 @@ import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 import { SiteData } from "@/content/SiteData";
 import ListItem from "@/components/LoopComponents/ListItem";
 import PhoneIcon from "@/components/Phone";
+import { Image } from "astro:assets";
+import AboutImage from "@/assets/koiandfriends2.jpg";
 
 const { entry, description } = Astro.props;
 
@@ -126,15 +128,15 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       },
     ]}
   >
-  <Video
-  src={NotLikeVideo}
-  poster={KoiVideoPoster}
-  controls
-  muted
-  autoplay={true}
-  loop={false}
-  class="shadow-xs border-radius w-full lg:w-1/3"
-/>
+  <Image
+      src={AboutImage}
+      alt="About Us"
+      class="w-full h-auto object-cover border-radius lg:w-1/3 lg:sticky lg:top-0"
+      loading="lazy"
+      decoding="async"
+      quality={"medium"}
+      fetchpriority="low"
+    />
     <!-- Related Services -->
     <Section
       collection="services"

@@ -158,16 +158,16 @@ export const collections = {
           .optional(),
       }),
   }),
-  // products: defineCollection({
-  //   loader: file("src/content/pricing/paymentOptions.json"), // file-loaded collection
-  //   schema: ({ image }) =>
-  //     baseSchema({ image }).extend({
-  //       price: z.string().optional(),
-  //       services: z
-  //         .union([reference("services"), z.array(reference("services"))])
-  //         .optional(),
-  //     }),
-  // }),
+  products: defineCollection({
+    loader: file("src/content/pricing/paymentOptions.json"), // file-loaded collection
+    schema: ({ image }) =>
+      baseSchema({ image }).extend({
+        price: z.string().optional(),
+        services: z
+          .union([reference("services"), z.array(reference("services"))])
+          .optional(),
+      }),
+  }),
   team: defineCollection({
     schema: ({ image }) =>
       baseSchema({ image }).extend({
