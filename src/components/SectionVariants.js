@@ -46,9 +46,6 @@ export const SectionVariants = {
   },
   media3: {
     backgroundMedia: {
-      // video: {
-      //   src: KoiVideo,
-      // },
       image: {
         src: SiteData.MainBGImage.src,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
@@ -65,6 +62,25 @@ export const SectionVariants = {
       "text-lg order-2 lg:text-2xl text-text-light md:mx-[var(--spacing-lg)]",
     itemPlacement: "",
     buttonsSectionClass: "hidden",
+  },
+  media4: {
+    backgroundMedia: {
+      image: {
+        src: SiteData.MainBGImage.src,
+        imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+      },
+      overlayClass: "bg-primary opacity-60",
+    },
+    sectionClass: "flex flex-col justify-center items-center section-sm animate-on-appear",
+    contentClass: "m-0 p-0 content-section",
+    itemsClass:
+      "w-full flex items-center justify-evenly flex-col lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
+    headingAreaClass:
+      "flex flex-col gap-[var(--spacing-sm)] text-center text-bg pb-[var(--spacing-lg)]",
+    descriptionClass:
+      "text-lg order-2 lg:text-2xl text-text-light md:mx-[var(--spacing-lg)]",
+    itemPlacement: "",
+    buttonsSectionClass: "gap-[var(--spacing-lg)] flex-col lg:flex-row",
   },
   testimonials: {
     sectionClass: "bg-bg flex text-center flex-col justify-center items-center",

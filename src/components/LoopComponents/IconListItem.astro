@@ -2,29 +2,25 @@
 // src/components/LoopComponents/IconListItem.astro
 import { Image } from "astro:assets";
 import Heading from "../Heading";
+import Default from "@/assets/koi1.png";
 
 const { item } = Astro.props;
-const iconSrc = item.data.icon;
+// Use item's icon or default to KoiRight
+const iconSrc = item.data.icon || Default;
 ---
 
 <li class="flex items-start justify-center space-x-[var(--spacing-lg)] slide-left">
-  {
-    iconSrc ? (
-      <Image
-        src={iconSrc}
-        alt={item.data.title || "Icon"}
-        width={200}
-        height={200}
-        sizes="(max-width: 640px) 4rem, 150px"
-        format="webp"
-        quality={50}
-        loading="lazy"
-        class="hover:scale-105 transition-transform duration-300 ease-in-out w-25 h-auto"
-      />
-    ) : (
-      <div class="w-2 h-2" />
-    )
-  }
+  <Image
+    src={iconSrc}
+    alt={item.data.title || "Icon"}
+    width={200}
+    height={200}
+    sizes="(max-width: 640px) 4rem, 150px"
+    format="webp"
+    quality={50}
+    loading="lazy"
+    class="hover:scale-105 transition-transform duration-300 ease-in-out w-25 h-auto"
+  />
   <div class="text-primary flex flex-col items-start justify-center">
     <Heading tagName="h3" class="h3 text-primary">
       {item.data.title}

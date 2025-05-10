@@ -5,13 +5,11 @@ import Menu from "./Menu/BarMenu/NavMenu.astro";
 import { Image } from "astro:assets";
 import { SiteData, ContactData } from "@/content/SiteData";
 import BackgroundContainer from "./BackgroundContainer.astro";
-import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
 import KoiVideo from "@/assets/video.mp4";
 import Heading from "./Heading";
 import { MainNavMenu } from "@/queries/MainNavMenu";
-import { getCollection } from "astro:content";
+import { getParentServiceItems } from "@/queries/getParentServiceItems";
 
-// Only the redundant classes:
 const menuListClass =
   "flex flex-col justify-center items-center xl:items-start gap-[var(--spacing-xs)] py-[var(--spacing-xs)] ";
 const menuItemClass = "hover:text-accent text-lg uppercase";
@@ -23,30 +21,16 @@ const bottomLinksHoverClass =
 const menuHeadingClass = "h4 font-medium pr-[var(--spacing-sm)]";
 
 const FooterMenu = [
-  {
-    id: "privacy",
-    label: "Privacy Policy",
-    slug: "/privacy-policy",
-    weight: 10,
-  },
+  { id: "privacy", label: "Privacy Policy", slug: "/privacy-policy", weight: 10 },
   { id: "cookie", label: "Cookie Policy", slug: "/cookie-policy", weight: 20 },
   { id: "contact", label: "Contact Us", slug: "/contact-us", weight: 30 },
 ];
 
-// Pull in services collection and map to menu items
-const servicesEntries = await getCollection("services");
-const topLevelServices = servicesEntries.filter(entry => !entry.data.parent);
-const servicesMenuItems = topLevelServices.map(entry => ({
-  id: entry.id,
-  label: entry.data.title,
-  slug: `/${entry.slug}`,
-}));
-
+// Pull in parent services menu items
+const servicesMenuItems = await getParentServiceItems();
 ---
 <footer class="text-bg slide-up">
-  <div
-    class="footer-top flex justify-center items-center text-center xl:text-left"
-  >
+  <div class="footer-top flex justify-center items-center text-center xl:text-left">
     <BackgroundContainer
       class="bg-cover bg-center bg-fixed flex justify-center items-center py-[var(--spacing-lg)]"
       contentClass="flex justify-center items-center"
@@ -63,13 +47,9 @@ const servicesMenuItems = topLevelServices.map(entry => ({
         overlayClass: "bg-primary opacity-60",
       }}
     >
-      <div
-        class="top-footer-wrap flex items-center justify-between py-[var(--spacing-lg)] xl:px-[var(--spacing-lg)] flex-col xl:flex-row w-9/10"
-      >
+      <div class="top-footer-wrap flex items-center justify-between py-[var(--spacing-lg)] xl:px-[var(--spacing-lg)] flex-col xl:flex-row w-9/10">
         <!-- Logo & Description -->
-        <div
-          class="w-full slide-up text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col xl:items-start justify-center items-center mb-[var(--spacing-lg)] lg:mt-0"
-        >
+        <div class="w-full slide-up text-center xl:text-left lg:w-3/4 xl:w-1/4 flex flex-col xl:items-start justify-center items-center mb-[var(--spacing-lg)] lg:mt-0">
           <a href="/">
             <Image
               src={SiteData.logo.src}
@@ -84,14 +64,10 @@ const servicesMenuItems = topLevelServices.map(entry => ({
 
         <!-- Menus -->
         <div class="w-full flex justify-center xl:justify-end">
-          <div
-            class="w-9/10 flex flex-col lg:flex-row justify-between gap-[var(--spacing-xl)]"
-          >
+          <div class="w-9/10 flex flex-col lg:flex-row justify-between gap-[var(--spacing-xl)]">
             <!-- Quick Links -->
             <div class="w-full lg:w-1/5">
-              <Heading tagName="h4" className={menuHeadingClass}
-                >Quick Links:</Heading
-              >
+              <Heading tagName="h4" className={menuHeadingClass}>Quick Links:</Heading>
               <Menu
                 listClass={menuListClass}
                 items={await buildMenuQueries({ MainNavMenu })}
@@ -101,57 +77,40 @@ const servicesMenuItems = topLevelServices.map(entry => ({
 
             <!-- Info & Services Sections -->
             <div class="w-full lg:w-1/5 space-y-[var(--spacing-md)]">
-                <!-- Services -->
-                <div class="flex-col">
-                  <Heading tagName="h4" className={menuHeadingClass}
-                    >Services:</Heading
-                  >
-                  <Menu
-                    listClass={menuListClass}
-                    items={servicesMenuItems}
-                    menuItem={{ class: menuItemClass }}
-                  />
-                </div>
+              <!-- Services -->
+              <div class="flex-col">
+                <Heading tagName="h4" className={menuHeadingClass}>Services:</Heading>
+                <Menu
+                  listClass={menuListClass}
+                  items={servicesMenuItems}
+                  menuItem={{ class: menuItemClass }}
+                />
+              </div>
+
               <!-- Info -->
               <div class="flex-col">
-                <Heading tagName="h4" className={menuHeadingClass}
-                  >Info:</Heading
-                >
+                <Heading tagName="h4" className={menuHeadingClass}>Info:</Heading>
                 <Menu
                   listClass={menuListClass}
                   items={await buildMenuQueries({ FooterMenu })}
                   menuItem={{ class: menuItemClass }}
                 />
               </div>
-            
             </div>
 
             <!-- Contact Us -->
-            <div
-              class="w-full lg:w-2/5 justify-center items-center xl:items-start text-center xl:text-left"
-            >
+            <div class="w-full lg:w-2/5 justify-center items-center xl:items-start text-center xl:text-left">
               <div class={contactItemClass}>
-                <Heading tagName="label" className={menuHeadingClass}
-                  >Business Hours:</Heading
-                >
-                {ContactData.businessHours.days}:
-                {ContactData.businessHours.hours}
+                <Heading tagName="label" className={menuHeadingClass}>Business Hours:</Heading>
+                {ContactData.businessHours.days}: {ContactData.businessHours.hours}
               </div>
               <div class={contactItemClass}>
-                <Heading tagName="label" className={menuHeadingClass}
-                  >Email Us:</Heading
-                >
-                <a href={`mailto:${ContactData.email}`} class={linkHoverClass}
-                  >{ContactData.email}</a
-                >
+                <Heading tagName="label" className={menuHeadingClass}>Email Us:</Heading>
+                <a href={`mailto:${ContactData.email}`} class={linkHoverClass}>{ContactData.email}</a>
               </div>
               <div class={contactItemClass}>
-                <Heading tagName="label" className={menuHeadingClass}
-                  >Call Us:</Heading
-                >
-                <a href={`tel:${ContactData.phone}`} class={linkHoverClass}
-                  >{ContactData.phone}</a
-                >
+                <Heading tagName="label" className={menuHeadingClass}>Call Us:</Heading>
+                <a href={`tel:${ContactData.phone}`} class={linkHoverClass}>{ContactData.phone}</a>
               </div>
             </div>
           </div>
@@ -161,9 +120,7 @@ const servicesMenuItems = topLevelServices.map(entry => ({
   </div>
 
   <!-- Footer Bottom -->
-  <div
-    class="footer-bottom flex justify-center items-center p-[var(--spacing-md)]"
-  >
+  <div class="footer-bottom flex justify-center items-center p-[var(--spacing-md)]">
     <p class="font-thin m-0 p-0 text-lg text-center">
       &copy; {new Date().getFullYear()} {SiteData.title} All rights reserved. | Website by
       <a

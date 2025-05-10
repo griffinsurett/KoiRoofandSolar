@@ -1,27 +1,34 @@
 ---
 // src/layouts/ServicesLayout.astro
 import BaseLayout from "./BaseLayout.astro";
-import Section    from "@/components/Section.astro";
-import QuoteForm  from "@/components/Forms/QuoteForm.astro";
-import Video      from "@/components/Video.astro";
-import KoiVideo   from "@/assets/video.mp4";
-import NotLikeVideo   from "@/assets/notlikekoi.mp4";
+import Section from "@/components/Section.astro";
+import QuoteForm from "@/components/Forms/QuoteForm.astro";
+import Video from "@/components/Video.astro";
+import KoiVideo from "@/assets/video.mp4";
+import NotLikeVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
-import { SiteData }   from "@/content/SiteData";
+import { SiteData } from "@/content/SiteData";
 import ServiceCard from "@/components/LoopComponents/ServiceCard";
+import ButtonIcon from "@/components/ButtonIcon";
+import PhoneIcon from "@/components/Phone";
 
 const { entry, description } = Astro.props;
 
+const getQuote = `#static-default-${entry.slug}`;
+
 // 1️⃣ Glob-register all .astro under /src/components/Forms
-const formModules = import.meta.glob("/src/components/Forms/*.astro", { eager: true });
+const formModules = import.meta.glob("/src/components/Forms/*.astro", {
+  eager: true,
+});
 
 // 2️⃣ Take the user’s `form` value (e.g. "components/Forms/SolarForm.astro")
 //    and turn it into the filesystem key:
-const raw = entry.data.form;                   // "components/Forms/SolarForm.astro"
+const raw = entry.data.form; // "components/Forms/SolarForm.astro"
 const fsKey = raw ? `/src${raw}` : undefined; // "/src/components/Forms/SolarForm.astro"
 
 // 3️⃣ Lookup in the glob map, fallback to QuoteForm
 const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
+
 ---
 <BaseLayout {...Astro.props}>
   <!-- <div class="page overflow-hidden"> -->
@@ -60,8 +67,8 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       overlayClass: "bg-primary opacity-60",
     }}
   >
-  <FormComponent />
-</Section>
+    <FormComponent />
+  </Section>
   <Section
     collection="benefits"
     query="related"
@@ -69,7 +76,8 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       {
         text: `Why Choose Koi ${entry.slug}?`,
         tagName: "label",
-        class: "h5 font-medium text-secondary uppercase py-[var(--spacing-sm)] slide-down",
+        class:
+          "h5 font-medium text-secondary uppercase py-[var(--spacing-sm)] slide-down",
       },
       {
         text: "Swiftly Installed, Smartly Priced.",
@@ -86,7 +94,7 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       autoplay={true}
       loop={false}
       class="shadow-xs border-radius"
-      />
+    />
   </Section>
   <!-- Testimonials -->
   <Section
@@ -97,9 +105,16 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     contentClass="container mx-auto"
     descriptionClass="hidden"
     buttonsSectionClass="py-[var(--spacing-lg)]"
+    buttons={[
+      {
+        text: "Get A Free Quote!",
+        link: getQuote,
+        variant: "primary",
+      },
+    ]}
   />
-<!-- <Section collection="pricing" query="related"/> -->
 
+ 
   <!-- Related Services -->
   <Section
     collection="services"
@@ -110,15 +125,43 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       {
         text: `Explore Our ${entry.slug} Services`,
         tagName: "h2",
-        class: "h2 text-primary uppercase py-[var(--spacing-sm)]",
+        class: "h2 text-primary uppercase py-[var(--spacing-xs)]",
       },
     ]}
   />
-
+  <slot />
   <!-- Related Projects -->
-  <Section
-    collection="projects"
-    query="getAll"
+  <Section collection="projects" query="getAll" />
+
+    <!-- ─── CTA SECTION ─── -->
+    <Section
+    variant="media4"
+    heading={[
+      {
+        text: `Speak to a ${entry.slug.charAt(0).toUpperCase() + entry.slug.slice(1)} Expert!`,
+        tagName: "h2",
+        class: "h2 text-bg uppercase py-[var(--spacing-sm)] slide-down",
+      },
+    ]}
+    buttons={[
+      {
+        text: "Get a Free Quote",
+        link: getQuote,
+        variant: "tertiary",
+      },
+      {
+        text: "Call Us",
+        link: "tel:+1-800-123-4567",
+        variant: "secondary",
+        showIcon: true,
+        iconProps: {
+          element: PhoneIcon,
+          position: "left",
+          className: "mr-[var(--spacing-sm)]",
+        },   
+      },
+    ]}
+    description={`Whether you need ${entry.slug} services or just want to learn more, we’ve got you covered. Scroll up to revisit details or give us a call now.`}
   />
 
   <!-- FAQ -->
@@ -128,8 +171,9 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     variant="faqs"
     sectionClass="py-[var(--spacing-2xl)]"
     contentClass="container mx-auto"
-    heading={[{ text: "Frequently Asked Questions", tagName: "h2", class: "h2" }]}
+    heading={[
+      { text: "Frequently Asked Questions", tagName: "h2", class: "h2" },
+    ]}
   />
-<!-- </div> -->
-  <slot />
+  <!-- </div> -->
 </BaseLayout>
