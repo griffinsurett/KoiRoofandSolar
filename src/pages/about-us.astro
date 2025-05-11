@@ -14,7 +14,9 @@ import RichiePic from "@/assets/richard-faria.jpg";
 import IconListItem from "@/components/LoopComponents/IconListItem.astro";
 
 const accentSpan = "text-secondary font-bold"; // centralize the accent class
-const paragraphClass = "text-text text-lg md:text-xl py-[var(--spacing-xs)] slide-up";
+const paragraphClass =
+  "text-text text-lg md:text-xl py-[var(--spacing-xs)] slide-up";
+const topAboutContainerClasses = "w-full lg:w-1/2"
 ---
 
 <ExtendedLayout
@@ -24,7 +26,7 @@ const paragraphClass = "text-text text-lg md:text-xl py-[var(--spacing-xs)] slid
   <SecondaryHero title="About Us" />
   <Section
     sectionClass="section-md flex justify-center items-center"
-    contentClass="md:flex-row-reverse w-8/10 lg:w-6/10"
+    contentClass="md:flex-row-reverse content-section"
     topContentClass="my-[var(--spacing-lg)] w-19/20"
     descriptionClass="text-text text-lg md:text-xl"
     childSlotClass="text-text text-lg md:text-xl"
@@ -47,6 +49,8 @@ const paragraphClass = "text-text text-lg md:text-xl py-[var(--spacing-xs)] slid
       },
     ]}
   >
+    <div class="about-container flex justify-center items-start gap-[var(--spacing-lg)]">
+    <div class={topAboutContainerClasses}>
     <p class={paragraphClass}>
       <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing
       and solar company—we’re a <span class={accentSpan}
@@ -70,17 +74,22 @@ const paragraphClass = "text-text text-lg md:text-xl py-[var(--spacing-xs)] slid
         >high electric bills</span
       >, we offer reliable, full-service solutions.
     </p>
-
-     <!-- New paragraph inserted below the video -->
-     <Video
-     src={KoiVideo}
-     poster={KoiVideoPoster}
-     controls
-     muted
-     autoplay={true}
-     loop={false}
-     class="shadow-xs border-radius"
-   />
+      </div>
+    <div class={`${topAboutContainerClasses} lg:sticky lg:top-0`}>
+        <Image
+          src={AboutImage}
+          alt="About Us"
+          class="w-full h-auto object-cover border-radius"
+          loading="lazy"
+          decoding="async"
+          quality={"medium"}
+          fetchpriority="low"
+          width={600}
+          height={400}
+          sizes="(max-width: 600px) 100vw, 600px"
+        />
+      </div>
+    </div>
 
     <p class={paragraphClass}>
       Best of all, we make these upgrades accessible to everyone through <span
@@ -159,22 +168,22 @@ const paragraphClass = "text-text text-lg md:text-xl py-[var(--spacing-xs)] slid
     ]}
     contentClass="lg:text-left flex-col-reverse lg:flex-row-reverse gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]"
   >
-  <div class="w-40 h-40 md:w-70 md:h-70 rounded-full overflow-hidden bg-accent mb-[var(--spacing-md)] ">
-    <Image
-      src={RichiePic}
-      alt="Richard Faria"
-      class="w-full h-full object-cover"
-      width={320}
-      height={320}
-      sizes="(max-width: 768px) 160px, 320px"
-      loading="lazy"
-      decoding="async"
-      quality={60}
-      fetchpriority="low"
-    />
-
-  </div>
-
+    <div
+      class="w-40 h-40 md:w-70 md:h-70 rounded-full overflow-hidden bg-accent mb-[var(--spacing-md)]"
+    >
+      <Image
+        src={RichiePic}
+        alt="Richard Faria"
+        class="w-full h-full object-cover"
+        width={320}
+        height={320}
+        sizes="(max-width: 768px) 160px, 320px"
+        loading="lazy"
+        decoding="async"
+        quality={60}
+        fetchpriority="low"
+      />
+    </div>
   </Section>
 
   <Section
