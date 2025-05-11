@@ -1,0 +1,61 @@
+---
+// src/components/ImageCard.astro
+import { Image } from "astro:assets";
+import Heading from "../Heading";
+
+const { item, collectionName, HasPage } = Astro.props;
+const effectiveHasPage =
+  item.data.hasPage !== undefined ? item.data.hasPage : HasPage;
+const { title, featuredImage } = item.data;
+
+let imageSrc = featuredImage
+  ? typeof featuredImage === "string"
+    ? featuredImage
+    : featuredImage
+  : null;
+---
+<li class=`group w-full lg:h-[50vh] overflow-hidden shadow border-radius hover:shadow-lg transition-shadow lg:even:flex-row-reverse scale-up`>
+  {effectiveHasPage ? (
+    <a href={`/${collectionName}/${item.slug}`} class="flex w-full h-full lg:odd:flex-row lg:even:flex-row-reverse">
+        {imageSrc && (
+          <div class="w-1/2 h-full overflow-hidden">
+            <Image
+              src={imageSrc}
+              alt={title}
+              format="webp"
+              loading="lazy"
+              fetchpriority="low"
+              quality="low"
+              class="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+            />
+          </div>
+        )}
+        <div class="w-1/2 p-[var(--spacing-md)] flex items-center justify-center text-text">
+          <Heading tagName="h3" class="h3 text-center">
+            {title}
+          </Heading>
+        </div>
+    </a>
+  ) : (
+    <div class="flex h-full group-odd:flex-row group-even:flex-row-reverse">
+      {imageSrc && (
+        <div class="w-1/2 h-full overflow-hidden">
+          <Image
+            src={imageSrc}
+            alt={title}
+            format="webp"
+            loading="lazy"
+            fetchpriority="low"
+            quality="low"
+            class="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+          />
+        </div>
+      )}
+      <div class="w-1/2 p-[var(--spacing-md)] flex items-center justify-center text-text">
+        <Heading tagName="h3" class="h3 text-center">
+          {title}
+        </Heading>
+      </div>
+    </div>
+  )}
+</li>

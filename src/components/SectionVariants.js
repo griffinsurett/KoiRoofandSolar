@@ -175,6 +175,20 @@ export const SectionVariants = {
     descriptionClass:
       "text-lg order-2 lg:text-2xl text-text m-[var(--spacing-lg)]",
   },
+  listOfBoxes: {
+    sectionClass:
+      "flex text-center flex-col justify-center items-center",
+    contentClass:
+      "content-section flex flex-col justify-center",
+    // Use grid for wrapping: 1 column on mobile, 2 on sm, 3 on lg
+    itemsClass:
+      "flex flex-col w-full gap-[var(--spacing-xl)]",
+    itemClass: "flex flex-row-reverse",
+    headingAreaClass:
+      "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",
+    descriptionClass:
+      "text-lg order-2 lg:text-2xl text-text m-[var(--spacing-lg)]",
+  },
   faqs: {
     sectionClass:
       "flex text-center flex-col section-md justify-center items-center",
