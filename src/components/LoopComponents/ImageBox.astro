@@ -14,7 +14,11 @@ let imageSrc = featuredImage
     : featuredImage
   : null;
 
-  const containerClass = `flex h-full group-odd:flex-row group-even:flex-row-reverse`
+  const containerClass = `flex h-full flex-col lg:group-odd:flex-row lg:group-even:flex-row-reverse`
+  const textContainerClass = `w-1/2 p-[var(--spacing-md)] flex flex-col items-center justify-center text-heading`
+  const headerTag = "h3"
+  const headerClass = "h3 text-bg"
+  const textClass = "text-lg lg:text-xl text-text font-thin"
 ---
 <li class=`group w-full lg:h-[50vh] overflow-hidden shadow border-radius hover:shadow-lg transition-shadow lg:even:flex-row-reverse scale-up`>
   {effectiveHasPage ? (
@@ -32,10 +36,11 @@ let imageSrc = featuredImage
             />
           </div>
         )}
-        <div class="w-1/2 p-[var(--spacing-md)] flex items-center justify-center text-text">
-          <Heading tagName="h3" class="h3 text-center">
+        <div class={textContainerClass}>
+          <Heading tagName={headerTag} class={headerClass}>
             {title}
           </Heading>
+          <p class={textClass}>{item.data.description}</p>
         </div>
     </a>
   ) : (
@@ -53,10 +58,11 @@ let imageSrc = featuredImage
           />
         </div>
       )}
-      <div class="w-1/2 p-[var(--spacing-md)] flex items-center justify-center text-text">
-        <Heading tagName="h3" class="h3 text-center">
+      <div class={textContainerClass}>
+        <Heading tagName={headerTag} class={headerClass}>
           {title}
         </Heading>
+        <p class={textClass}>{item.data.description}</p>
       </div>
     </div>
   )}
