@@ -151,6 +151,13 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
   <Section
     collection="types"
     query="related"
+    heading={[
+      {
+        text: `Types of ${entry.slug} We Offer`,
+        tagName: "h2",
+        class: "h2 heading-primary uppercase py-[var(--spacing-sm)] slide-down",
+      },
+    ]}
   />
 
   <!-- Related Projects -->

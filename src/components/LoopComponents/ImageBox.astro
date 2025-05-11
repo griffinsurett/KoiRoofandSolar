@@ -13,10 +13,12 @@ let imageSrc = featuredImage
     ? featuredImage
     : featuredImage
   : null;
+
+  const containerClass = `flex h-full group-odd:flex-row group-even:flex-row-reverse`
 ---
 <li class=`group w-full lg:h-[50vh] overflow-hidden shadow border-radius hover:shadow-lg transition-shadow lg:even:flex-row-reverse scale-up`>
   {effectiveHasPage ? (
-    <a href={`/${collectionName}/${item.slug}`} class="flex w-full h-full lg:odd:flex-row lg:even:flex-row-reverse">
+    <a href={`/${collectionName}/${item.slug}`} class={containerClass}>
         {imageSrc && (
           <div class="w-1/2 h-full overflow-hidden">
             <Image
@@ -37,7 +39,7 @@ let imageSrc = featuredImage
         </div>
     </a>
   ) : (
-    <div class="flex h-full group-odd:flex-row group-even:flex-row-reverse">
+    <div class={containerClass}>
       {imageSrc && (
         <div class="w-1/2 h-full overflow-hidden">
           <Image

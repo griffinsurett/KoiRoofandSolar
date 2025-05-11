@@ -24,11 +24,11 @@ export default function AccordionItem({
         onClick={toggle}
         className="
           w-full flex justify-between items-center
-          py-[var(--spacing-xl)] px-[var(--spacing-xl)]
+          py-[var(--spacing-lg)] px-[var(--spacing-xl)]
           cursor-pointer select-none
         "
       >
-        <span className="h3 font-thin">
+        <span className="h4 font-thin">
           {item.data.title || item.slug}
         </span>
         {/* + when closed, – when open; text-accent on hover */}
