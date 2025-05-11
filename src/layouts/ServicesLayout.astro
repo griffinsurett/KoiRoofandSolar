@@ -116,7 +116,7 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
   />
 
   <Section
-    sectionClass="w-full section-md"
+    sectionClass="w-full section-lg"
     contentClass="flex flex-col justify-center items-center lg:gap-[var(--spacing-xl)] mx-auto text-center container mt-[var(--spacing-3xl)]"
     childSlotClass="flex justify-center items-start"
     headingAreaClass="text-center"
@@ -147,6 +147,11 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       sectionClass="w-full lg:w-2/3 sticky top-0"
     />
   </Section>
+
+  <Section
+    collection="types"
+    query="related"
+  />
 
   <!-- Related Projects -->
   <Section collection="projects" query="getAll" />
