@@ -17,7 +17,6 @@ export default function AccordionItem({
         group
         border-t border-border slide-up
         transition-colors duration-500 ease-in-out
-        ${open ? "bg-bg-2" : "hover:bg-bg-2"}
       `}
     >
       {/* Header: clicking toggles open/closed */}
@@ -25,7 +24,7 @@ export default function AccordionItem({
         onClick={toggle}
         className="
           w-full flex justify-between items-center
-          py-[var(--spacing-2xl)] px-[var(--spacing-xl)]
+          py-[var(--spacing-xl)] px-[var(--spacing-xl)]
           cursor-pointer select-none
         "
       >
