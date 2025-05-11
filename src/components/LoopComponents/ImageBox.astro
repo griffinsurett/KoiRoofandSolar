@@ -15,11 +15,11 @@ let imageSrc = featuredImage
   : null;
 
   const containerClass = `flex h-full flex-col lg:group-odd:flex-row lg:group-even:flex-row-reverse`
-  const textContainerClass = `w-full lg:w-1/2 p-[var(--spacing-md)] flex flex-col items-center justify-center text-heading`
-  const imageContainerClass = `"lg:w-1/2 w-full h-full overflow-hidden"`
+  const textContainerClass = `w-full lg:w-1/2 p-[var(--spacing-md)] flex flex-col items-start lg:items-center text-left lg:text-center gap-[var(--spacing-sm)] lg:gap-0 justify-center text-heading`
+  const imageContainerClass = `"w-full lg:w-1/2 h-full overflow-hidden"`
   const headerTag = "h3"
   const headerClass = "h3 text-bg"
-  const textClass = "text-lg text-text font-thin px-[var(--spacing-md)] lg:px-[var(--spacing-xl)]"
+  const textClass = "lg:text-lg text-text font-thin lg:px-[var(--spacing-xl)]"
 ---
 <li class=`group w-full lg:h-[50vh] overflow-hidden shadow border-radius hover:shadow-lg transition-shadow lg:even:flex-row-reverse scale-up`>
   {effectiveHasPage ? (
