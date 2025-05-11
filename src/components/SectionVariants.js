@@ -177,7 +177,7 @@ export const SectionVariants = {
   },
   listOfBoxes: {
     sectionClass:
-      "flex text-center flex-col justify-center items-center",
+      "section-md flex text-center flex-col justify-center items-center",
     contentClass:
       "content-section flex flex-col justify-center",
     // Use grid for wrapping: 1 column on mobile, 2 on sm, 3 on lg
