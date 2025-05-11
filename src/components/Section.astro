@@ -233,7 +233,7 @@ const itemsDefaultHasPage = meta.itemsHasPage ?? false;
     }`}
   >
     <div class={`top-content-section ${topContentClass}`}>
-      <div class={`section-heading-area text-secondary ${headingAreaClass}`}>
+      <div class={`section-heading-area  ${headingAreaClass}`}>
         {finalHeadingArray.map((head, i) => {
           const headObj = typeof head === "string" ? { text: head } : head;
           const Tag = headObj.tagName || "h2";
