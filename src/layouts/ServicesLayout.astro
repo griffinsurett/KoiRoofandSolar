@@ -32,7 +32,6 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
 ---
 
 <BaseLayout {...Astro.props}>
-  <!-- <div class="page overflow-hidden"> -->
   <Section
     title={Astro.props.title}
     buttonsSectionClass="h6 mt-[var(--spacing-2xl)] gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center w-4/5"
@@ -128,7 +127,7 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       },
     ]}
   >
-  <Image
+    <Image
       src={Koiroofers}
       alt="About Us"
       class="w-full h-auto object-cover scale-up border-radius lg:w-1/3 lg:sticky lg:top-0"
@@ -160,11 +159,8 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     ]}
   />
 
-  <!-- Related Projects -->
-  <!-- <Section collection="projects" query="getAll" /> -->
-
   <!-- ─── CTA SECTION ─── -->
-  <Section
+  <!-- <Section
     variant="media4"
     heading={[
       {
@@ -192,7 +188,7 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       },
     ]}
     description={`Whether you need ${entry.slug} services or just want to learn more, we’ve got you covered. Scroll up to revisit details or give us a call now.`}
-  />
+  /> -->
 
   <!-- FAQ -->
   <Section
@@ -205,5 +201,37 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       { text: "Frequently Asked Questions", tagName: "h2", class: "h2" },
     ]}
   />
-  <!-- </div> -->
+
+  <!-- Related Projects -->
+  <Section
+    heading={[
+      {
+        text: `Get Started with ${entry.slug.charAt(0).toUpperCase() + entry.slug.slice(1)}, by contacting a ${entry.slug.charAt(0).toUpperCase() + entry.slug.slice(1)} Expert!`,
+        tagName: "h2",
+        class: "h2 text-bg uppercase py-[var(--spacing-sm)] slide-down",
+      },
+    ]}
+    description={`Whether you need ${entry.slug} services or just want to learn more, we’ve got you covered. Scroll up to revisit details or give us a call now.`}
+    collection="projects"
+    query="getAll"
+    buttonsSectionClass="block"
+    buttons={[
+      {
+        text: "Get a Free Quote",
+        link: getQuote,
+        variant: "tertiary",
+      },
+      {
+        text: "Call Us",
+        link: "tel:+1-800-123-4567",
+        variant: "secondary",
+        showIcon: true,
+        iconProps: {
+          element: PhoneIcon,
+          position: "left",
+          className: "mr-[var(--spacing-sm)]",
+        },
+      },
+    ]}
+  />
 </BaseLayout>

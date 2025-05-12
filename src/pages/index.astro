@@ -7,7 +7,7 @@ import Video from "@/components/Video.astro";
 import AboutImage from "@/assets/koiandfriends2.jpg";
 import KoiVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
-import { SiteData } from "@/content/SiteData";
+import { ServiceBtns, SiteData } from "@/content/SiteData";
 import { Image } from "astro:assets";
 import RichiePic from "@/assets/richard-faria.jpg";
 ---
@@ -145,7 +145,8 @@ import RichiePic from "@/assets/richard-faria.jpg";
   <Section collection="services" query="parent" />
 
   <!-- Projects -->
-  <Section collection="projects" query="getAll" />
+  <Section collection="projects" query="getAll" headingAreaClass="hidden" buttons={ServiceBtns}
+ />
 
   <!-- <Section collection="faq" query="getAll" /> -->
 </ExtendedLayout>
