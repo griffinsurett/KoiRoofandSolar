@@ -4,6 +4,15 @@
 /* 1️⃣ Scroll‑linked animations in supporting browsers */
 @layer utilities {
   @supports (animation-timeline: view()) or (animation-timeline: scroll()) {
+    /* Fades in with no motion */
+    .fade-in {
+      animation-name: fade;
+      animation-duration: 1s;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+      animation-fill-mode: both;
+    }
+
     .animate-on-appear {
       animation-name: fade-in-up;
       animation-duration: 1s;
@@ -59,6 +68,7 @@
 /* 2️⃣ IntersectionObserver fallback when timeline isn’t supported */
 @layer utilities {
   @supports not ((animation-timeline: view()) or (animation-timeline: scroll())) {
+    .fade-in,
     .animate-on-appear,
     .slide-down,
     .slide-in,
@@ -71,6 +81,7 @@
     }
 
     /* Once JS adds .visible, run the same keyframe animation */
+    .fade-in.visible         { animation: fade 1s both; }
     .animate-on-appear.visible { animation: fade-in-up 1s both; }
     .slide-down.visible        { animation: slide-down 1s both; }
     .slide-in.visible          { animation: slide-in 1s both; }

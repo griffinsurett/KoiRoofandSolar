@@ -29,11 +29,11 @@ const FooterMenu = [
 // Pull in parent services menu items
 const servicesMenuItems = await getParentServiceItems();
 ---
-<footer class="text-bg slide-up">
+<footer class="text-bg fade-in">
   <div class="footer-top flex justify-center items-center text-center xl:text-left">
     <BackgroundContainer
       class="bg-cover bg-center bg-fixed flex justify-center items-center py-[var(--spacing-lg)]"
-      contentClass="flex justify-center items-center"
+      contentClass="flex justify-center items-center slide-up"
       backgroundMedia={{
         video: {
           src: KoiVideo,
