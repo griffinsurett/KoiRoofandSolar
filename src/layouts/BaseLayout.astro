@@ -7,6 +7,7 @@ import Footer from '@/components/Footer.astro';
 import { SiteData } from '@/content/SiteData';
 import { resetSectionIds } from "@/utils/SectionUtils.js";
 import AnimationLayout from './AnimationLayout.astro';
+import KoiVideo from "@/assets/video.mp4";
 
 const {
   title = SiteData.title,
@@ -24,6 +25,12 @@ resetSectionIds();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link
+    rel="preload"
+    as="video"
+    href={KoiVideo}   
+    type="video/mp4"
+  />
   <SEO
     title={title}
     description={description}
