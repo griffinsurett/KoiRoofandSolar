@@ -29,7 +29,7 @@ export default function HamburgerNavMenu({
 
       {/* Full‑width dropdown */}
       <ul
-        className={`absolute inset-x-0 top-full w-screen bg-bg shadow-lg origin-top transform-gpu transition-transform transition-opacity duration-300 ease-in-out overflow-hidden ${listClass} ${
+        className={`absolute divide-y divide-gray-300 inset-x-0 top-full w-screen bg-bg shadow-lg origin-top transform-gpu transition-transform transition-opacity duration-300 ease-in-out overflow-hidden ${listClass} ${
           menuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
         }`}
         onClick={closeMenu}

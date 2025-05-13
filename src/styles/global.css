@@ -142,6 +142,10 @@
   .section-lg {
     @apply min-h-[110vh] lg:min-h-[110vh] py-[80px] sm:py-[90px] md:py-[100px];
   }
+
+  .media-border {
+    @apply border-y border-bg/50;
+  }
 }
 
 @keyframes fade-in-up {
