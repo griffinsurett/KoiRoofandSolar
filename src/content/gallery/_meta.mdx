@@ -1,0 +1,21 @@
+---
+robots: "noindex, nofollow"
+hasPage: false
+itemsHasPage: false
+defaultSection:
+  variant: "portfolio"
+  component: "ImageCard"
+  buttons:
+    - text: "Request Estimate"
+      link: "/contact-us"
+      variant: "secondary"
+sections:
+  - collection: "gallery"
+    query: "getAll"
+  - collection: "testimonials"
+    query: "related"
+  - collection: "services"
+    query: "related"
+addToQuery:
+  [{ "id": "MainNavMenu", label: "Gallery", slug": "/#gallery-getAll-home" }]
+---

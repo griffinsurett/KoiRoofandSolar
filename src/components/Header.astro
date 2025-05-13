@@ -23,7 +23,7 @@ const breakpoint = "lg";
         id="logo-default"
         src={SiteData.logo.src}
         alt={`${SiteData.title} logo`}
-        class="hidden h-17 xl:h-22 w-auto"
+        class="hidden h-17 xl:h-22 w-auto load-fade-in"
         format="webp"
         loading="eager"
         quality="low"
@@ -52,7 +52,7 @@ const breakpoint = "lg";
         menuItem: {
           component: MenuItem,
           class:
-            "menu-item text-lg uppercase tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)]",
+            "menu-item text-lg uppercase tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)] load-scale-up",
           activeClass: "text-accent font-bold",
         },
         submenuItem: {
@@ -75,7 +75,7 @@ const breakpoint = "lg";
       isHierarchical={true}
     />
 
-    <div class="order-last flex items-center">
+    <div class="order-last flex items-center load-fade-in">
       <Button
         href={`tel:${ContactData.phone}`}
         variant="secondary"

@@ -71,22 +71,30 @@
     }
 
     /* Once JS adds .visible, run the same keyframe animation */
-    .animate-on-appear.visible    { animation: fade-in-up 1s both; }
-    .slide-down.visible           { animation: slide-down 1s both; }
-    .slide-in.visible             { animation: slide-in 1s both; }
-    .slide-up.visible             { animation: slide-up 1s both; }
-    .slide-left.visible           { animation: slide-left 1s both; }
-    .slide-right.visible          { animation: slide-right 1s both; }
-    .scale-up.visible             { animation: scale-up 1s both; }
+    .animate-on-appear.visible { animation: fade-in-up 1s both; }
+    .slide-down.visible        { animation: slide-down 1s both; }
+    .slide-in.visible          { animation: slide-in 1s both; }
+    .slide-up.visible          { animation: slide-up 1s both; }
+    .slide-left.visible        { animation: slide-left 1s both; }
+    .slide-right.visible       { animation: slide-right 1s both; }
+    .scale-up.visible          { animation: scale-up 1s both; }
   }
 }
 
-/* 3️⃣ Shared keyframes (for scroll‑linked only) */
+/* 3️⃣ Shared keyframes (for scroll‑linked and load animations) */
 @layer utilities {
+  /* pure opacity fade */
+  @keyframes fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* fade + slide up */
   @keyframes fade-in-up {
     from { opacity: 0; transform: translateY(1rem); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
   @keyframes slide-down {
     from { opacity: 0; transform: translateY(-2rem); }
     to   { opacity: 1; transform: translateY(0); }
@@ -108,13 +116,56 @@
     to   { opacity: 1; transform: translateX(0); }
   }
   @keyframes scale-up {
-    from {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+}
+
+/* 4️⃣ Page‑load animations for top‑level elements (header & hero) */
+@layer utilities {
+  /* load-fade: opacity only */
+  .load-fade-in {
+    opacity: 0;
+    animation: fade 1s ease-out forwards;
+  }
+
+  /* load-fade-up: fade + slide up */
+  .load-fade-up {
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards;
+  }
+
+  /* Slide header down on load */
+  .load-slide-down {
+    opacity: 0;
+    animation: slide-down 1s ease-out forwards;
+  }
+
+  /* Slide hero in from left on load */
+  .load-slide-in {
+    opacity: 0;
+    animation: slide-in 1s ease-out forwards;
+  }
+
+  .load-slide-left {
+    opacity: 0;
+    animation: slide-left 1s ease-out forwards;
+  }
+
+  .load-slide-right {
+    opacity: 0;
+    animation: slide-right 1s ease-out forwards;
+  }
+
+  /* Slide hero up on load */
+  .load-slide-up {
+    opacity: 0;
+    animation: slide-up 1s ease-out forwards;
+  }
+
+  /* Scale hero elements on load */
+  .load-scale-up {
+    opacity: 0;
+    animation: scale-up 1s ease-out forwards;
   }
 }

@@ -45,17 +45,17 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       {
         text: `Koi ${entry.slug}`,
         tagName: "h1",
-        class: "text-accent py-[var(--spacing-sm)] top-heading font-bold",
+        class: "text-accent py-[var(--spacing-sm)] top-heading font-bold load-slide-down",
       },
       {
         text: `Top-Quality ${entry.slug} Solutions for Your Home`,
         tagName: "h2",
-        class: "h1 text-bg py-[var(--spacing-sm)]",
+        class: "h1 text-bg py-[var(--spacing-sm)] load-slide-up",
       },
     ]}
     ,
     description={description}
-    descriptionClass="h4 font-thin text-text-light"
+    descriptionClass="h4 font-thin text-text-light load-fade-in"
     backgroundMedia={{
       video: {
         src: KoiVideo,

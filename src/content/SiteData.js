@@ -28,8 +28,8 @@ export const ContactData = {
 }
 
 export const ServiceBtns = [
-    { text: "Roofing", link: "/services/roofing", variant: "tertiary", class: "w-full" },
-    { text: "Solar", link: "/services/solar", variant: "secondary", class: "w-full" },
+    { text: "Roofing", link: "/services/roofing", variant: "tertiary", class: "w-full load-slide-left" },
+    { text: "Solar", link: "/services/solar", variant: "secondary", class: "w-full load-slide-right" },
   ]
 
 export const SocialData = [
