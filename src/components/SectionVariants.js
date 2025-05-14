@@ -208,7 +208,7 @@ export const SectionVariants = {
   banner: {
     // mirror your solar upsell sectionClass
     sectionClass:
-      "min-h-[70vh] lg:min-h-[50vh] bg-bg text-center px-[var(--spacing-2xl)] rounded-md my-[var(--spacing-lg)] flex flex-col justify-center items-center scale-up",
+      "min-h-[70vh] lg:min-h-[50vh] bg-bg text-center px-[var(--spacing-2xl)] rounded-md my-[var(--spacing-lg)] py-[var(--spacing-lg)] lg:py-0 flex flex-col justify-center items-center scale-up",
     contentClass: "flex flex-col justify-center items-center",
     descriptionClass: "text-xl text-text py-[var(--spacing-sm)]",
     buttonsSectionClass:
