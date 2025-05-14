@@ -182,7 +182,7 @@ const currentPage = getCurrentEntryId(Astro);
       class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
     />
     <label for="consent" class={labelClasses + " m-0"}>
-      I consent to have {SiteData.title} store my info so they can respond
+      I consent to have {SiteData.title} store my info so they can respond <a href="/privacy-policy" class="text-secondary hover:underline">Learn more</a>
     </label>
   </div>
 </Form>
