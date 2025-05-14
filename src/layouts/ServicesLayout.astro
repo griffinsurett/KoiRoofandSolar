@@ -7,7 +7,7 @@ import Video from "@/components/Video.astro";
 import KoiVideo from "@/assets/video.mp4";
 import NotLikeVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
-import { SiteData } from "@/content/SiteData";
+import { ContactData, SiteData } from "@/content/SiteData";
 import ListItem from "@/components/LoopComponents/ListItem";
 import PhoneIcon from "@/components/Phone";
 import { Image } from "astro:assets";
@@ -27,6 +27,8 @@ const formModules = import.meta.glob("/src/components/Forms/*.astro", {
 const raw = entry.data.form; // "components/Forms/SolarForm.astro"
 const fsKey = raw ? `/src${raw}` : undefined; // "/src/components/Forms/SolarForm.astro"
 
+const upsellheadingClass = "h2 text-primary mb-[var(--spacing-md)]";
+
 // 3️⃣ Lookup in the glob map, fallback to QuoteForm
 const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
 ---
@@ -45,7 +47,8 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
       {
         text: `Koi ${entry.slug}`,
         tagName: "h1",
-        class: "text-accent py-[var(--spacing-sm)] top-heading font-bold load-slide-down",
+        class:
+          "text-accent py-[var(--spacing-sm)] top-heading font-bold load-slide-down",
       },
       {
         text: `Top-Quality ${entry.slug} Solutions for Your Home`,
@@ -202,7 +205,7 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     ]}
   />
 
-  <!-- Related Projects -->
+  <!-- Gallery -->
   <Section
     heading={[
       {
@@ -233,5 +236,47 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
         },
       },
     ]}
-  />
+  >
+    {
+      entry.slug === "solar" && (
+        <Section
+          variant="banner"
+          heading={{
+            text: "Is Your Roof Ready for Solar?",
+            tagName: "h2",
+            class: "h2", // you can still layer on extra classes
+          }}
+          description="A durable, leak‑free roof is the foundation of any solar installation. Upgrade to a weather‑resistant roof today and get a streamlined solar install when you’re ready."
+          buttons={[
+            {
+              text: "Get a Roofing Quote",
+              link: "/services/roofing",
+              variant: "secondary",
+            },
+          ]}
+        />
+      )
+    }
+
+    {
+      entry.slug === "roofing" && (
+        <Section
+          variant="banner"
+          heading={{
+            text: "Already Have a Roof? Go Solar and Save!",
+            tagName: "h2",
+            class: "h2",
+          }}
+          description="Maximize the value of your new roof by adding a high‑efficiency solar array. Lock in $0 down financing, reduce your energy bills, and qualify for tax incentives—all with our seamless roofing + solar package."
+          buttons={[
+            {
+              text: "Explore Solar Options",
+              link: "/services/solar",
+              variant: "secondary",
+            },
+          ]}
+        />
+      )
+    }
+  </Section>
 </BaseLayout>

@@ -205,4 +205,13 @@ export const SectionVariants = {
       "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
     headingAreaClass: "lg:pb-[var(--spacing-2xl)]",
   },
+  banner: {
+    // mirror your solar upsell sectionClass
+    sectionClass:
+      "min-h-[70vh] lg:min-h-[50vh] bg-bg text-center px-[var(--spacing-2xl)] rounded-md my-[var(--spacing-lg)] flex flex-col justify-center items-center",
+    contentClass: "flex flex-col justify-center items-center",
+    descriptionClass: "text-xl text-text py-[var(--spacing-sm)]",
+    buttonsSectionClass:
+      "flex flex-col lg:flex-row items-center justify-center gap-[var(--spacing-md)]",
+  },
 };

@@ -41,7 +41,7 @@ export default async function Button({
   href,
   variant, // "primary", "secondary", or "underline"
   iconProps = {}, // Consolidated icon properties.
-  showIcon = false, // Controls whether an icon is rendered.
+  showIcon, // Controls whether an icon is rendered.
   ...props
 }) {
   // Default the variant to "primary" if not provided.
@@ -100,7 +100,7 @@ export default async function Button({
     >
       {showIcon && position === "left" && (
         <ButtonIcon
-          showIcon={showIcon}
+          showIcon={showIcon || false}
           element={element}
           hoverOnly={hoverOnly}
           animateIcon={animateIcon}
@@ -111,7 +111,7 @@ export default async function Button({
       {children}
       {showIcon && position === "right" && (
         <ButtonIcon
-          showIcon={showIcon}
+          showIcon={showIcon || false}
           element={element}
           hoverOnly={hoverOnly}
           animateIcon={animateIcon}
