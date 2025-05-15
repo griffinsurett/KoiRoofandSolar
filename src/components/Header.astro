@@ -1,7 +1,7 @@
 ---
 // src/components/Header.astro
 import { ContactData, SiteData } from "@/content/SiteData";
-import LogoBGWhite from "@/assets/logo3.png";
+import LogoBGWhite from "@/assets/logowwords-whitebg.png";
 import { buildMenuQueries } from "@/utils/ArrayQueryUtils";
 import Menu from "../components/Menu/Menu.astro";
 import MenuItem from "../components/Menu/BarMenu/MenuItem.astro";
@@ -14,7 +14,7 @@ const breakpoint = "lg";
 ---
 <header
   id="site-header"
-  class="fixed top-0 w-full h-[12vh] md:h-[14vh] flex justify-center items-center bg-transparent z-[10000]"
+  class="fixed top-0 w-full h-[15vh] md:h-[16vh] flex justify-center items-center bg-transparent z-[10000]"
 >
   <div class="w-9/10 h-full flex items-center justify-between">
     <a href="/" class="order-2 lg:order-first flex items-center">
@@ -23,7 +23,7 @@ const breakpoint = "lg";
         id="logo-default"
         src={SiteData.logo.src}
         alt={`${SiteData.title} logo`}
-        class="hidden h-17 xl:h-22 w-auto load-fade-in"
+        class="hidden h-24 xl:h-33 w-auto load-fade-in"
         format="webp"
         loading="eager"
         quality="low"
@@ -35,7 +35,7 @@ const breakpoint = "lg";
         id="logo-white"
         src={LogoBGWhite}
         alt={`${SiteData.title} logo (white)`}
-        class="hidden h-17 xl:h-22 w-auto"
+        class="hidden h-24 xl:h-33 w-auto load-fade-in"
         format="webp"
         loading="eager"
         quality="low"
