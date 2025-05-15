@@ -1,33 +1,38 @@
 ---
-import Form from "@/components/Forms/Form.astro";
+import Form      from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
-import Textarea from "@/components/Forms/Inputs/Textarea.astro";
+import Textarea  from "@/components/Forms/Inputs/Textarea.astro";
+import Select    from "@/components/Forms/Inputs/Select.astro";
 import { SiteData } from "@/content/SiteData";
 import { getCurrentEntryId } from "@/utils/CurrentEntry";
+import { getParentServiceItems } from "@/queries/getParentServiceItems";
 
 const {
-  inputClasses = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] rounded-md",
+  inputClasses   = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary rounded-md",
   wrapperClasses = "mb-[var(--spacing-md)] w-full flex flex-col text-left",
-  labelClasses = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
+  labelClasses   = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
 } = Astro.props;
 
 const currentPage = getCurrentEntryId(Astro);
+const parentServices = await getParentServiceItems();
+const serviceOptions = parentServices.map(({ slug, label }) => ({
+  value: slug,
+  label,
+}));
 ---
 
 <Form
-  name="quote-form"
-  class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] transition-default rounded-4xl shadow-lg hover:shadow-xl w-[90vw] lg:w-full gap-[var(--spacing-md)]"
-  labelClass="text-primary h5 uppercase"
+  name="contact-form"
+  class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] rounded-4xl shadow-lg w-[90vw] lg:w-full gap-[var(--spacing-md)]"
   formClass="pt-[var(--spacing-md)]"
+  labelClass="text-primary h5 uppercase"
   formLabel="Get in Touch"
   enableSuccessBanner={true}
   successBannerMessage="Thank you for your message. We will get in touch with you shortly."
-  successBannerClass="p-[var(--spacing-sm)] bg-primary text-bg border border-[var(--color-border)] bg-light-opacity"
+  successBannerClass="p-[var(--spacing-sm)] bg-primary text-bg rounded"
 >
-  <!-- Hidden input for current page -->
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 
-  <!-- Row 1 -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)] text-sm">
     <div class="w-full lg:w-1/2">
       <TextInput
@@ -53,7 +58,6 @@ const currentPage = getCurrentEntryId(Astro);
     </div>
   </div>
 
-  <!-- Row 2 -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)]">
     <div class="w-full lg:w-1/2">
       <TextInput
@@ -80,7 +84,16 @@ const currentPage = getCurrentEntryId(Astro);
     </div>
   </div>
 
-  <!-- Row 3 -->
+  <Select
+    name="service"
+    label="Service of Interest"
+    required
+    options={serviceOptions}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
+
   <div class="w-full">
     <Textarea
       name="message"
@@ -92,19 +105,5 @@ const currentPage = getCurrentEntryId(Astro);
       wrapperClass={wrapperClasses}
       labelClass={labelClasses}
     />
-  </div>
-
-  <!-- Consent Checkbox -->
-  <div class="flex items-start cursor-pointer">
-    <input
-      type="checkbox"
-      id="consent"
-      name="consent"
-      required
-      class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
-    />
-    <label for="consent" class={labelClasses + " m-0"}>
-      I consent to have {SiteData.title} store my submitted information so they can respond to my inquiry <a href="/privacy-policy" class="text-secondary hover:underline">Learn more</a>
-    </label>
   </div>
 </Form>

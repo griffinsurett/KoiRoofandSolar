@@ -18,11 +18,16 @@ const {
   required = false,
   inputClass = "",
   wrapperClass = "",
-  labelClass = ""
+  labelClass = "",
 } = Astro.props;
 ---
 <div class={wrapperClass}>
-  {label && <label for={name} class={labelClass}>{label}</label>}
+  {label && (
+    <label for={name} class={labelClass}>
+      {label}
+      {required && <span class="text-primary ml-1">*</span>}
+    </label>
+  )}
   <input
     id={name}
     name={name}

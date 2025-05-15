@@ -1,14 +1,6 @@
 ---
 // src/components/Forms/Inputs/Select.astro
-// Props:
-// - label: (optional) label text for the select
-// - name: select name & id
-// - options: array of { value: string, label: string }
-// - required: boolean
-// - selectClass: Tailwind classes for the <select>
-// - wrapperClass: Tailwind classes for the outer <div>
-// - labelClass: Tailwind classes for the <label>
-    const {
+const {
   label,
   name,
   options = [],
@@ -19,14 +11,21 @@
 } = Astro.props;
 ---
 <div class={wrapperClass}>
-  {label && <label for={name} class={labelClass}>{label}</label>}
+  {label && (
+    <label for={name} class={labelClass}>
+      {label}
+      {required && <span class="text-primary ml-1">*</span>}
+    </label>
+  )}
   <select
     id={name}
     name={name}
     required={required}
     class={selectClass}
   >
-    <option value="" disabled selected>Select {label || name}</option>
+    <option value="" disabled selected>
+      Select {label || name}
+    </option>
     {options.map(opt => (
       <option value={opt.value}>{opt.label}</option>
     ))}

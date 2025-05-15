@@ -1,15 +1,15 @@
 ---
-import Form from "@/components/Forms/Form.astro";
+import Form      from "@/components/Forms/Form.astro";
 import TextInput from "@/components/Forms/Inputs/TextInput.astro";
-import Textarea from "@/components/Forms/Inputs/Textarea.astro";
-import Select from "./Inputs/Select.astro";
+import Textarea  from "@/components/Forms/Inputs/Textarea.astro";
+import Select    from "@/components/Forms/Inputs/Select.astro";
 import { SiteData } from "@/content/SiteData";
 import { getCurrentEntryId } from "@/utils/CurrentEntry";
 
 const {
-  inputClasses = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary outline-none focus:border-[var(--color-border)] focus:ring-1 focus:ring-[var(--color-primary)] rounded-md",
+  inputClasses   = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary rounded-md",
   wrapperClasses = "mb-[var(--spacing-md)] w-full flex flex-col text-left",
-  labelClasses = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
+  labelClasses   = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
 } = Astro.props;
 
 const currentPage = getCurrentEntryId(Astro);
@@ -18,16 +18,13 @@ const currentPage = getCurrentEntryId(Astro);
 <Form
   name="roofing-form"
   action="https://calendly.com/griffinswebservices/30min"
-  class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] transition-default rounded-4xl shadow-lg hover:shadow-xl gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px] load-scale-up"
-  labelClass="text-primary h5 uppercase"
+  class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] rounded-4xl shadow-lg w-[90vw] lg:w-full gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
   formClass="pt-[var(--spacing-md)]"
   formLabel="Roofing Inquiry"
   enableSuccessBanner={false}
 >
-  <!-- Hidden input: track which service page -->
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 
-  <!-- First/Last Name Row -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)] text-sm">
     <div class="w-full lg:w-1/2">
       <TextInput
@@ -53,7 +50,6 @@ const currentPage = getCurrentEntryId(Astro);
     </div>
   </div>
 
-  <!-- Address -->
   <TextInput
     name="address"
     label="Address (Include ZIP code)"
@@ -64,7 +60,6 @@ const currentPage = getCurrentEntryId(Astro);
     labelClass={labelClasses}
   />
 
-  <!-- Phone & Email Row -->
   <div class="flex flex-col lg:flex-row lg:space-x-[var(--spacing-sm)]">
     <div class="w-full lg:w-1/2">
       <TextInput
@@ -92,7 +87,6 @@ const currentPage = getCurrentEntryId(Astro);
     </div>
   </div>
 
-  <!-- Roof Age -->
   <TextInput
     name="roofAge"
     label="How old is your roof?"
@@ -103,38 +97,35 @@ const currentPage = getCurrentEntryId(Astro);
     labelClass={labelClasses}
   />
 
-  <!-- Roof Type -->
   <Select
     name="roofType"
     label="What type of roof do you have?"
     required
     options={[
       { value: "Shingle", label: "Shingle" },
-      { value: "Flat", label: "Flat" },
-      { value: "Metal", label: "Metal" },
-      { value: "Tile", label: "Tile" },
-      { value: "Other", label: "Other" },
+      { value: "Flat",    label: "Flat"    },
+      { value: "Metal",   label: "Metal"   },
+      { value: "Tile",    label: "Tile"    },
+      { value: "Other",   label: "Other"   },
     ]}
     selectClass={inputClasses}
     wrapperClass={wrapperClasses}
     labelClass={labelClasses}
   />
 
-  <!-- Visible Damage -->
   <Select
     name="visibleDamage"
     label="Visible damage, leaks, or missing shingles?"
     required
     options={[
       { value: "Yes", label: "Yes" },
-      { value: "No", label: "No" },
+      { value: "No",  label: "No"  },
     ]}
     selectClass={inputClasses}
     wrapperClass={wrapperClasses}
     labelClass={labelClasses}
   />
 
-  <!-- Replacement Timeline -->
   <Select
     name="replacementTimeline"
     label="If replacement is needed, how soon would you like it fixed?"
@@ -150,35 +141,32 @@ const currentPage = getCurrentEntryId(Astro);
     labelClass={labelClasses}
   />
 
-  <!-- $0 Out-of-Pocket Program -->
   <Select
     name="zeroOutOfPocket"
     label="Interested in $0 out-of-pocket roof replacement?"
     required
     options={[
       { value: "Yes", label: "Yes" },
-      { value: "No", label: "No" },
+      { value: "No",  label: "No"  },
     ]}
     selectClass={inputClasses}
     wrapperClass={wrapperClasses}
     labelClass={labelClasses}
   />
 
-  <!-- Insurance Claim -->
   <Select
     name="insuranceClaim"
     label="Is this related to an insurance claim?"
     required
     options={[
       { value: "Yes", label: "Yes" },
-      { value: "No", label: "No" },
+      { value: "No",  label: "No"  },
     ]}
     selectClass={inputClasses}
     wrapperClass={wrapperClasses}
     labelClass={labelClasses}
   />
 
-  <!-- Preferred Inspection Date & Time -->
   <TextInput
     name="preferredInspection"
     type="datetime-local"
@@ -189,7 +177,6 @@ const currentPage = getCurrentEntryId(Astro);
     labelClass={labelClasses}
   />
 
-  <!-- Additional Notes -->
   <Textarea
     name="notes"
     label="Additional Notes or Questions"
@@ -199,18 +186,4 @@ const currentPage = getCurrentEntryId(Astro);
     wrapperClass={wrapperClasses}
     labelClass={labelClasses}
   />
-
-  <!-- Consent -->
-  <div class="flex items-start">
-    <input
-      type="checkbox"
-      id="consent"
-      name="consent"
-      required
-      class="mr-[var(--spacing-sm)] mt-[4px] w-4 h-4 checked:bg-primary"
-    />
-    <label for="consent" class={labelClasses + " m-0"}>
-      I consent to have {SiteData.title} store my information so they can respond <a href="/privacy-policy" class="text-secondary hover:underline">Learn more</a>
-    </label>
-  </div>
 </Form>
