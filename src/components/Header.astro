@@ -11,6 +11,8 @@ import PhoneIcon from "@/components/Phone";
 import { MainNavMenu } from "@/queries/MainNavMenu";
 
 const breakpoint = "lg";
+const logoImgClass =
+  "h-28 xl:h-33 w-auto load-fade-in hidden";
 ---
 <header
   id="site-header"
@@ -23,7 +25,7 @@ const breakpoint = "lg";
         id="logo-default"
         src={SiteData.logo.src}
         alt={`${SiteData.title} logo`}
-        class="hidden h-27 xl:h-33 w-auto load-fade-in"
+        class={logoImgClass}
         format="webp"
         loading="eager"
         quality="low"
@@ -35,7 +37,7 @@ const breakpoint = "lg";
         id="logo-white"
         src={LogoBGWhite}
         alt={`${SiteData.title} logo (white)`}
-        class="hidden h-27 xl:h-33 w-auto load-fade-in"
+        class={logoImgClass}
         format="webp"
         loading="eager"
         quality="low"
