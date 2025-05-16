@@ -8,7 +8,7 @@ export default function AccordionItem({
   HasPage,
 }) {
   const [open, setOpen] = useState(false);
-  const toggle = () => setOpen((prev) => !prev);
+  const toggle = () => setOpen(prev => !prev);
 
   return (
     <li
@@ -19,7 +19,7 @@ export default function AccordionItem({
         transition-colors duration-500 ease-in-out
       `}
     >
-      {/* Header: clicking toggles open/closed */}
+      {/* Header */}
       <div
         onClick={toggle}
         className="
@@ -31,7 +31,6 @@ export default function AccordionItem({
         <span className="h4 font-thin">
           {item.data.title || item.slug}
         </span>
-        {/* + when closed, – when open; text-accent on hover */}
         <span
           className="
             ml-2 text-4xl font-thin
@@ -43,15 +42,20 @@ export default function AccordionItem({
         </span>
       </div>
 
-      {/* Body: conditionally rendered */}
+      {/* Body: animate max-height, opacity, and padding */}
       <div
         className={`
-          text-left text-xl font-thin text-text
-          overflow-hidden transition-[max-height] duration-[var(--transition-fast)]
-          ${open ? "max-h-96 pb-[var(--spacing-2xl)] px-[var(--spacing-xl)]" : "max-h-0"}
+          overflow-hidden
+          transition-all duration-300 ease-in-out
+          ${open
+            ? "max-h-[1000px] opacity-100 px-[var(--spacing-xl)] pb-[var(--spacing-2xl)]"
+            : "max-h-0     opacity-0   px-0                pb-0"
+          }
         `}
       >
-        {item.data.description ?? item.body}
+        <div className="text-left">
+          {item.data.description ?? item.body}
+        </div>
       </div>
     </li>
   );
