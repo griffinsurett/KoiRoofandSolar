@@ -1,0 +1,26 @@
+---
+import { formatPhoneNumber } from "@/utils/ContentUtils";
+import Section from "../Section.astro";
+import { ContactData } from "@/content/SiteData";
+---
+
+<Section
+  variant="media1"
+  contentClass="flex-col items-center justify-center"
+  heading={[
+    {
+      text: "¡Hablamos Español!",
+      tagName: "h2",
+      class: "h2 text-bg uppercase py-[var(--spacing-sm)]",
+    },
+  ]}
+  description="Nuestro equipo está listo para atenderle en su idioma. ¡Llámanos ahora!"
+  buttons={[
+    {
+      text: `Llámanos ${formatPhoneNumber(ContactData.phone)}`,
+      link: `tel:${ContactData.phone}`,
+      variant: "secondary",
+    },
+  ]}
+  buttonsSectionClass="mt-[var(--spacing-md)]"
+/>

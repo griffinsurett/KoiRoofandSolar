@@ -7,9 +7,11 @@ import Video from "@/components/Video.astro";
 import AboutImage from "@/assets/koiandfriends2.jpg";
 import KoiVideo from "@/assets/notlikekoi.mp4";
 import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
-import { ServiceBtns, SiteData } from "@/content/SiteData";
+import { ContactData, ServiceBtns, SiteData } from "@/content/SiteData";
 import { Image } from "astro:assets";
 import RichiePic from "@/assets/richard-faria.jpg";
+import { formatPhoneNumber } from "@/utils/ContentUtils";
+import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
 ---
 
 <ExtendedLayout
@@ -76,6 +78,8 @@ import RichiePic from "@/assets/richard-faria.jpg";
       class="shadow-xs border-radius"
     />
   </Section>
+
+<SpanishSection />
 
   <!-- <Section
       sectionClass="flex justify-center items-center p-[var(--spacing-3xl)] md:p-[var(--spacing-md)] bg-cover bg-center bg-fixed min-h-[75vh]"

@@ -12,6 +12,7 @@ import ListItem from "@/components/LoopComponents/ListItem";
 import PhoneIcon from "@/components/Phone";
 import { Image } from "astro:assets";
 import Koiroofers from "@/assets/roof-work-koi.jpg";
+import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
 
 const { entry, description } = Astro.props;
 
@@ -72,6 +73,10 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
   >
     <FormComponent />
   </Section>
+
+  <SpanishSection />
+
+
   <Section
     collection="benefits"
     query="related"
