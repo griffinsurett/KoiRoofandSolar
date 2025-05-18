@@ -1,5 +1,5 @@
 // src/components/Button.jsx
-import ButtonIcon from "./ButtonIcon.jsx";
+import ButtonIcon from "./ButtonIcon";
 import { ButtonVariants } from "./ButtonVariants.js";
 
 export default async function Button({
@@ -12,47 +12,55 @@ export default async function Button({
   href,
   variant = "primary",
   iconProps = {},
-  showIcon = false,
+  showIcon = true,
   ...props
 }) {
+  // 1) Pull in styling from variants
   const { variantClasses, buttonClasses, iconDefaults } =
     ButtonVariants[variant] || ButtonVariants.primary;
 
-  // merge icon defaults
-  const mergedIcon = { ...iconDefaults, ...iconProps };
+  // 2) Merge icon defaults
+  const mergedIconProps = { ...iconDefaults, ...iconProps };
   const {
     element,
     position = "right",
-    className: iconClass = "",
+    className: iconCustomClass = "",
     hoverOnly,
     animateIcon,
-  } = mergedIcon;
+  } = mergedIconProps;
 
-  // build class list
-  let classes = [className, variantClasses, buttonClasses]
-    .filter(Boolean)
-    .join(" ");
+  // 3) Build full class string
+  let combinedClasses = [
+    className,
+    variantClasses,
+    buttonClasses
+  ].filter(Boolean).join(" ");
 
-  // handle disabled/link vs. button
-  const isDisabled = disabled ?? false;
-  const ComponentFinal = isDisabled
+  // 4) Disabled logic
+  const computedDisabled = disabled ?? false;
+  const ComponentFinal = computedDisabled
     ? "button"
     : ComponentProp || (href ? "a" : "button");
 
-  const extra = { ...props };
+  const additionalProps = { ...props };
   if (ComponentFinal === "button") {
-    extra.disabled = isDisabled;
+    additionalProps.disabled = computedDisabled;
   } else {
-    extra.href = isDisabled ? undefined : href;
-    if (isDisabled) classes += " pointer-events-none opacity-50";
+    additionalProps.href = computedDisabled ? undefined : href;
+    if (computedDisabled) {
+      combinedClasses += " pointer-events-none opacity-50";
+    }
   }
 
+  // 5) Render
   return (
     <ComponentFinal
-      {...(ComponentFinal === "button" ? { type } : { href: extra.href })}
-      onClick={isDisabled ? undefined : onClick}
-      className={classes}
-      {...(ComponentFinal === "button" ? extra : {})}
+      {...(ComponentFinal === "button"
+        ? { type }
+        : { href: additionalProps.href })}
+      onClick={computedDisabled ? undefined : onClick}
+      className={combinedClasses}
+      {...(ComponentFinal === "button" ? additionalProps : {})}
     >
       {showIcon && position === "left" && (
         <ButtonIcon
@@ -61,7 +69,7 @@ export default async function Button({
           hoverOnly={hoverOnly}
           animateIcon={animateIcon}
           position={position}
-          iconCustomClass={iconClass}
+          iconCustomClass={iconCustomClass}
         />
       )}
       {children}
@@ -72,7 +80,7 @@ export default async function Button({
           hoverOnly={hoverOnly}
           animateIcon={animateIcon}
           position={position}
-          iconCustomClass={iconClass}
+          iconCustomClass={iconCustomClass}
         />
       )}
     </ComponentFinal>
