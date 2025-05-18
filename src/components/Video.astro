@@ -21,7 +21,6 @@ if (posterSrc) {
   optimizedPoster = await getImage({ src: posterSrc }, posterOptions);
 }
 ---
-
 <video
   src={videoSrc}
   poster={optimizedPoster?.src || posterSrc}
