@@ -15,7 +15,7 @@ export const ButtonVariants = {
     variantClasses:
       "bg-[var(--color-accent)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)]",
     buttonClasses: baseButtonClasses,
-    iconDefaults: { hoverOnly: true, animateIcon: true },
+    iconDefaults: { hoverOnly: false, animateIcon: true },
   },
   tertiary: {
     variantClasses:

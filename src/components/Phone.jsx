@@ -1,4 +1,4 @@
-// src/components/icons/PhoneIcon.jsx
+// src/components/icons/Phone.jsx
 import React from "react";
 
 export default function PhoneIcon({

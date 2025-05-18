@@ -2,6 +2,7 @@
 import { formatPhoneNumber } from "@/utils/ContentUtils";
 import Section from "../Section.astro";
 import { ContactData } from "@/content/SiteData";
+import PhoneIcon from "@/components/Phone";
 ---
 
 <Section
@@ -20,6 +21,12 @@ import { ContactData } from "@/content/SiteData";
       text: `Llámanos ${formatPhoneNumber(ContactData.phone)}`,
       link: `tel:${ContactData.phone}`,
       variant: "secondary",
+      showIcon: true,
+      iconProps: {
+        element: PhoneIcon,       // your SVG component
+        position: "left",         // icon on the left
+        className: "mr-2 h-5 w-auto", // spacing + sizing
+      },
     },
   ]}
   buttonsSectionClass="mt-[var(--spacing-md)]"
