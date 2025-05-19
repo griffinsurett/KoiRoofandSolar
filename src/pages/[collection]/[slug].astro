@@ -37,7 +37,7 @@ const meta = await getCollectionMeta(collection).catch(() => ({}));
 
 // 2) Default specifier (must match the glob keys)
 const spec =
-  meta.itemsLayout || meta.layout || "../../layouts/OtherPages.astro";
+  meta.itemsLayout || meta.layout || "../../layouts/ExtendedLayout.astro";
 
 // 3) Register all layouts two levels up
 const layoutImporters = import.meta.glob("../../layouts/*.astro");
@@ -54,6 +54,8 @@ const sections = data.sections?.length
   ? data.sections
   : meta.itemsSections || [];
 
+  const { Content } = await entry.render();
+
   console.log("robots", data.robots);
 ---
 
@@ -66,6 +68,8 @@ const sections = data.sections?.length
   ogType={data.ogType}
   robots={data.robots} 
 >
+<Content />
+
   {
     sections.map((section, i) => (
       <Section
