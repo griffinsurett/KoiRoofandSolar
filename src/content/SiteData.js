@@ -6,8 +6,8 @@ import MainBGImage from "@/assets/roofingandsolarvid-poster.jpg"
 
 export const SiteData = {
     title: "Koi Roofing and Solar",
-    tagline: "Koi Roofing & Solar is a full-service contractor proudly serving New Jersey, Pennsylvania and all five boroughs of New York City", 
-    description: "At Koi Roofing & Solar, our mission is simple: to deliver beautiful, high-performance roofs and solar installations that protect your property and empower you with sustainable energy.",
+    tagline: "Koi Roofing & Solar is a family run full-service contractor proudly serving New Jersey, Pennsylvania and all five boroughs of New York City", 
+description: "At Koi Roofing & Solar, we bring over 20 years of family-driven experience to every roof and solar install—combining expert craftsmanship with honest, reliable service.",
     logo: {
         src: LogoWithWords,
         alt: "Koi Roofing and Solar logo",

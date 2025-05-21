@@ -43,7 +43,7 @@ export const SectionVariants = {
       video: {
         src: KoiVideo,
       },
-      overlayClass: "bg-primary opacity-60",
+      overlayClass: "bg-primary opacity-80",
     },
   },
   media3: {
@@ -55,7 +55,7 @@ export const SectionVariants = {
       video: {
         src: KoiVideo,
       },
-      overlayClass: "bg-primary opacity-60",
+      overlayClass: "bg-primary opacity-70",
     },
     sectionClass:
       "flex flex-col justify-center items-center section-md animate-on-appear",
@@ -78,7 +78,7 @@ export const SectionVariants = {
       video: {
         src: KoiVideo,
       },
-      overlayClass: "bg-primary opacity-60",
+      overlayClass: "bg-primary opacity-80",
     },
     sectionClass:
       "flex flex-col justify-center items-center section-sm animate-on-appear",
@@ -155,7 +155,7 @@ export const SectionVariants = {
         src: SiteData.MainBGImage.src,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
       },
-      overlayClass: "bg-primary opacity-60",
+      overlayClass: "bg-primary opacity-80",
     },
     sectionClass:
       "section-md flex flex-col justify-center items-center section-md media-border",

@@ -51,29 +51,13 @@ const topAboutContainerClasses = "w-full lg:w-1/2"
   >
     <div class="about-container flex flex-col lg:flex-row justify-center items-start gap-[var(--spacing-lg)]">
     <div class={topAboutContainerClasses}>
-    <p class={paragraphClass}>
-      <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing
-      and solar company—we’re a <span class={accentSpan}
-        >family business</span
-      > rooted in New Jersey and built on a foundation of <span
-        class={accentSpan}>trust, expert craftsmanship,</span
-      > and <span class={accentSpan}>lasting relationships</span>. Our mission
-      is to redefine how people experience contractors by making home upgrades
-      feel <span class={accentSpan}>smooth, stress-free,</span> and even enjoyable.
-    </p>
+ <p class={paragraphClass}>
+  <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing and solar company—we’re a <span class={accentSpan}>family-style business</span> rooted in New Jersey and built on a foundation of <span class={accentSpan}>trust, expert craftsmanship,</span> and <span class={accentSpan}>lasting relationships</span>. Our mission is to redefine how people experience contractors by making home upgrades feel <span class={accentSpan}>smooth, stress-free,</span> and even enjoyable.
+</p>
 
-    <p class={paragraphClass}>
-      We specialize in <span class={accentSpan}
-        >residential roof replacements</span
-      > and <span class={accentSpan}>solar energy systems</span>, with a unique
-      expertise in <span class={accentSpan}>flat roofs</span>—a service that few
-      companies in New Jersey confidently offer and warranty. Whether your
-      project involves <span class={accentSpan}
-        >storm damage, an aging roof,</span
-      > or the need to cut down <span class={accentSpan}
-        >high electric bills</span
-      >, we offer reliable, full-service solutions.
-    </p>
+  <p class={paragraphClass}>
+  Our story spans <span class={accentSpan}>over 20 years</span> of hands-on experience in roofing and solar. This isn’t just a profession—it’s a legacy. What began with our grandfather’s commitment to quality roofing was passed down to our father, and now to us. Three generations of knowledge, pride, and hard work live in every project we take on today.
+</p>
       </div>
     <div class={`${topAboutContainerClasses} sticky-top`}>
         <Image
@@ -90,8 +74,9 @@ const topAboutContainerClasses = "w-full lg:w-1/2"
         />
       </div>
     </div>
-
-    <p class={paragraphClass}>
+    <div class="about-container flex flex-col-reverse lg:flex-row-reverse justify-center items-start gap-[var(--spacing-lg)]">
+    <div class={topAboutContainerClasses}>
+   <p class={paragraphClass}>
       Best of all, we make these upgrades accessible to everyone through <span
         class={accentSpan}>$0 down financing</span
       > and flexible options tailored to <span class={accentSpan}
@@ -111,6 +96,22 @@ const topAboutContainerClasses = "w-full lg:w-1/2"
       >, and <span class={accentSpan}>bring life and energy</span> into a space that’s
       <span class={accentSpan}>long overdue for change</span>.
     </p>
+      </div>
+    <div class={`${topAboutContainerClasses} sticky-top`}>
+        <Image
+          src={AboutImage}
+          alt="About Us"
+          class="w-full h-auto object-cover border-radius"
+          loading="lazy"
+          decoding="async"
+          quality={"medium"}
+          fetchpriority="low"
+          width={600}
+          height={400}
+          sizes="(max-width: 600px) 100vw, 600px"
+        />
+      </div>
+    </div>
   </Section>
 
   <Section
