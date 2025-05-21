@@ -3,6 +3,7 @@
 import Section from "@/components/Section.astro";
 import { SiteData, ServiceBtns } from "@/content/SiteData";
 import KoiVideo from "@/assets/roofingandsolarvid.MOV";
+import Poster from "@/assets/roofingandsolarvid-poster.jpg";
 ---
 <Section
   buttonsSectionClass="h6 mt-[var(--spacing-xl)] gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center w-18/20 lg:w-4/5"
@@ -33,7 +34,7 @@ import KoiVideo from "@/assets/roofingandsolarvid.MOV";
       preload: "auto",
     },
     image: {
-      src: SiteData.MainBGImage.src,
+      src: Poster,
       imageClass: "",
     },
     overlayClass: "bg-primary opacity-70 filter brightness-50 bg-cover bg-center xl:bg-fixed",

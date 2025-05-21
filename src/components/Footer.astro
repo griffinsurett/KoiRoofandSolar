@@ -5,7 +5,7 @@ import Menu from "./Menu/BarMenu/NavMenu.astro";
 import { Image } from "astro:assets";
 import { SiteData, ContactData } from "@/content/SiteData";
 import BackgroundContainer from "./BackgroundContainer.astro";
-import KoiVideo from "@/assets/video.mp4";
+import KoiVideo from "@/assets/roofingandsolarvid.MOV";
 import Heading from "./Heading";
 import { MainNavMenu } from "@/queries/MainNavMenu";
 import { getParentServiceItems } from "@/queries/getParentServiceItems";
@@ -44,7 +44,7 @@ const servicesMenuItems = await getParentServiceItems();
           src: SiteData.MainBGImage.src,
           imageClass: "bg-cover filter brightness-50 bg-center xl:bg-fixed",
         },
-        overlayClass: "bg-primary opacity-60",
+        overlayClass: "bg-primary opacity-95",
       }}
     >
       <div class="top-footer-wrap flex items-center justify-between py-[var(--spacing-lg)] xl:px-[var(--spacing-lg)] flex-col xl:flex-row w-9/10">

@@ -1,5 +1,5 @@
 import HeroBg from "@/assets/roof.png";
-import KoiVideo from "@/assets/video.mp4";
+import KoiVideo from "@/assets/roofingandsolarvid.MOV";
 import { SiteData } from "@/content/SiteData";
 
 export const SectionVariants = {
@@ -23,7 +23,7 @@ export const SectionVariants = {
         src: SiteData.MainBGImage.src,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
       },
-      overlayClass: "bg-primary opacity-60",
+      overlayClass: "bg-primary opacity-90",
     },
   },
   media2: {
@@ -102,12 +102,12 @@ export const SectionVariants = {
     headingAreaClass: "flex flex-col",
     buttonsSectionClass:
       "flex flex-col xl:flex-row justify-start items-start xl:items-center gap-[var(--spacing-md)] w-18/20 lg:w-full",
-    childSlotClass: "w-auto lg:w-1/2 lg:sticky lg:top-0 scale-up",
+    childSlotClass: "w-auto lg:w-1/2 sticky-top scale-up",
     itemsClass: "flex flex-col justify-start items-start",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
     descriptionClass: "py-[var(--spacing-sm)] text-text text-lg md:text-xl",
-    topContentClass: "flex flex-col w-full lg:sticky lg:top-0 lg:w-1/2",
+    topContentClass: "flex flex-col w-full sticky-top lg:w-1/2",
   },
   vidCol: {
     sectionClass: "section-lg flex justify-center items-center text-left",
@@ -120,7 +120,7 @@ export const SectionVariants = {
       "flex flex-col py-[var(--spacing-sm)] lg:py-[var(--spacing-xl)]",
     buttonsSectionClass:
       "justify-start gap-[var(--spacing-xl)] xl:gap-[var(--spacing-3xl)]",
-    childSlotClass: "w-auto scale-up lg:w-1/2 lg:sticky lg:top-0",
+    childSlotClass: "w-auto scale-up lg:w-1/2 sticky-top",
     buttonsPlacement: "top-content-section",
     itemPlacement: "top-content-section",
     topContentClass: "flex flex-col lg:w-1/2",
@@ -147,8 +147,8 @@ export const SectionVariants = {
       overlayClass: "bg-primary opacity-60",
     },
     sectionClass:
-      "section-md flex flex-col justify-center items-center section-md animate-on-appear",
-    contentClass: "m-0 p-0 content-section",
+      "section-md flex flex-col justify-center items-center section-md media-border",
+    contentClass: "m-0 p-0 content-section fade-in",
     itemsClass:
       "w-full flex items-center justify-evenly flex-col-reverse lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
     headingAreaClass:
