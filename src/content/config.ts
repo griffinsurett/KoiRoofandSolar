@@ -103,6 +103,7 @@ const baseSchema = ({ image }: { image: Function }) =>
     addToQuery: z.array(QueryItemSchema).optional(),
     tags: z.array(z.string()).optional(),
     icon: image().optional(),
+    
   });
 
 export const collections = {
