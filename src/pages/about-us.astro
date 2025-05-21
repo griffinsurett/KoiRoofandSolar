@@ -52,7 +52,7 @@ const topAboutContainerClasses = "w-full lg:w-1/2"
     <div class="about-container flex flex-col lg:flex-row justify-center items-start gap-[var(--spacing-lg)]">
     <div class={topAboutContainerClasses}>
  <p class={paragraphClass}>
-  <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing and solar company—we’re a <span class={accentSpan}>family-style business</span> rooted in New Jersey and built on a foundation of <span class={accentSpan}>trust, expert craftsmanship,</span> and <span class={accentSpan}>lasting relationships</span>. Our mission is to redefine how people experience contractors by making home upgrades feel <span class={accentSpan}>smooth, stress-free,</span> and even enjoyable.
+  <span class={accentSpan}>{SiteData.title}</span> is more than just a roofing and solar company—we’re a <span class={accentSpan}>family-style business</span> rooted in New Jersey and built on a foundation of <span class={accentSpan}>trust, expert craftsmanship,</span> and <span class={accentSpan}>lasting relationships</span>. Our mission is to redefine how people experience contractors by making home upgrades feel <span class={accentSpan}>smooth, stress-free,</span> and even enjoyable.
 </p>
 
   <p class={paragraphClass}>
@@ -81,7 +81,7 @@ const topAboutContainerClasses = "w-full lg:w-1/2"
         class={accentSpan}>$0 down financing</span
       > and flexible options tailored to <span class={accentSpan}
         >all credit types</span
-      >. At Koi Roofing and Solar, it’s not just about installing panels or
+      >. At {SiteData.title}, it’s not just about installing panels or
       replacing shingles—it’s about delivering peace of mind and real value to
       homeowners across New Jersey, Pennsylvania, and New York.
     </p>
@@ -121,7 +121,7 @@ const topAboutContainerClasses = "w-full lg:w-1/2"
       tagName: "h2",
       class: "h2 text-bg uppercase py-[var(--spacing-sm)]",
     }}
-    description=`"We believe the contractor world doesn't have to be cold, boring, or stuck in the past. At Koi Roofing and Solar, we welcome creativity, passion, and progress. We don't judge based on age, background, or past experience. We hire the hungry, the passionate, and the people with something to prove."`
+    description=`"We believe the contractor world doesn't have to be cold, boring, or stuck in the past. At ${SiteData.title}, we welcome creativity, passion, and progress. We don't judge based on age, background, or past experience. We hire the hungry, the passionate, and the people with something to prove."`
   />
 
   <Section
