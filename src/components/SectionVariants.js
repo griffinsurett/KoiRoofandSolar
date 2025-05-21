@@ -17,7 +17,7 @@ export const SectionVariants = {
     backgroundMedia: {
       video: {
         src: KoiVideo,
-        loop: false,
+        loop: true,
       },
       image: {
         src: SiteData.MainBGImage.src,

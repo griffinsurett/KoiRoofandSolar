@@ -49,12 +49,12 @@ const topAboutContainerClasses = "w-full lg:w-1/2"
       },
     ]}
   >
-    <div class="about-container flex justify-center items-start gap-[var(--spacing-lg)]">
+    <div class="about-container flex flex-col lg:flex-row justify-center items-start gap-[var(--spacing-lg)]">
     <div class={topAboutContainerClasses}>
     <p class={paragraphClass}>
       <span class={accentSpan}>Koi Roofing and Solar</span> is more than just a roofing
       and solar company—we’re a <span class={accentSpan}
-        >family-style business</span
+        >family business</span
       > rooted in New Jersey and built on a foundation of <span
         class={accentSpan}>trust, expert craftsmanship,</span
       > and <span class={accentSpan}>lasting relationships</span>. Our mission
@@ -150,11 +150,11 @@ const topAboutContainerClasses = "w-full lg:w-1/2"
     variant="media1"
     childSlotClass="flex flex-col items-center justify-center"
     heading={[
-      {
-        text: "As our CEO says:",
-        tagName: "label",
-        class: "h4 text-accent uppercase font-bold",
-      },
+      // {
+      //   text: "As our CEO says:",
+      //   tagName: "label",
+      //   class: "h4 text-accent uppercase font-bold",
+      // },
       {
         text: `"All I have is my words and my smile, and without that-I am nothing."`,
         tagName: "h2",
