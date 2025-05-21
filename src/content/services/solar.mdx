@@ -30,6 +30,54 @@ addToQuery:
     position: "prepend"
     weight: 300
 ---
-Custom solar installations with 0% financing.  
-Permits and inspections handled.  
-Begin saving on energy costs immediately.  
+import Section from "@/components/Section.astro";
+import PhoneIcon from "@/components/Phone";
+
+ <Section
+    heading={[
+      {
+        text: `Get Started with ${frontmatter.title}, by contacting a ${frontmatter.title} Expert!`,
+        tagName: "h2",
+        class: "h2 text-bg uppercase py-[var(--spacing-sm)] slide-down",
+      },
+    ]}
+    description={`Whether you need ${frontmatter.title} services or just want to learn more, we’ve got you covered. Scroll up to revisit details or give us a call now.`}
+    collection="projects"
+    query="getAll"
+    buttonsSectionClass="block"
+    buttons={[
+      {
+        text: "Get a Free Quote",
+        link: `#static-default-${frontmatter.slug}`,
+        variant: "tertiary",
+      },
+      {
+        text: "Call Us",
+        link: "tel:+1-800-123-4567",
+        variant: "secondary",
+        showIcon: true,
+        iconProps: {
+          element: PhoneIcon,
+          position: "left",
+          className: "mr-[var(--spacing-sm)]",
+        },
+      },
+    ]}
+  >
+        <Section
+          variant="banner"
+          heading={{
+            text: "Already Have a Roof? Go Solar and Save!",
+            tagName: "h2",
+            class: "h2",
+          }}
+          description="Maximize the value of your new roof by adding a high‑efficiency solar array. Lock in $0 down financing, reduce your energy bills, and qualify for tax incentives—all with our seamless roofing + solar package."
+          buttons={[
+            {
+              text: "Explore Solar Options",
+              link: "/services/solar",
+              variant: "secondary",
+            },
+          ]}
+        />
+  </Section>
