@@ -2,7 +2,7 @@
 import Logo from "@/assets/logo2.png"
 import LogoBGWhite from "@/assets/logo3.png"
 import LogoWithWords from "@/assets/logowwords.png"
-import MainBGImage from "@/assets/rooffromvid.jpg"
+import MainBGImage from "@/assets/roofingandsolarvid-poster.jpg"
 
 export const SiteData = {
     title: "Koi Roofing and Solar",
