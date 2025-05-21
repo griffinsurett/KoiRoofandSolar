@@ -13,11 +13,16 @@ const {
 } = Astro.props;
 
 const currentPage = getCurrentEntryId(Astro);
+
+const formAction = (
+  import.meta.env.PUBLIC_INTEGRATION_FORMSPREE +
+  import.meta.env.PUBLIC_SOLAR_FORM
+);
 ---
 
 <Form
   name="solar-form"
-  action="https://calendly.com/griffinswebservices/30min"
+  action={formAction}
   class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] rounded-4xl shadow-lg w-[90vw] lg:w-full gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
   formClass="pt-[var(--spacing-md)]"
   formLabel="Solar Inquiry"
