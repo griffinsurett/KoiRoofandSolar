@@ -34,6 +34,9 @@ const upsellheadingClass = "h2 text-primary mb-[var(--spacing-md)]";
 
 // 3️⃣ Lookup in the glob map, fallback to QuoteForm
 const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
+
+const media = entry.data.heroMedia ?? {}; // may have image/video or be empty
+console.log("media", media);
 ---
 
 <BaseLayout {...Astro.props}>
@@ -64,13 +67,11 @@ const FormComponent = (fsKey && formModules[fsKey]?.default) || QuoteForm;
     descriptionClass="h4 font-thin text-text-light load-fade-in"
     backgroundMedia={{
       image: {
-        src:
-          entry.slug === "roofing"
-            ? RoofPicture
-            : entry.slug === "solar"
-              ? PanelPicture
-              : SiteData.MainBGImage.src,
+        src: media.image,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+      },
+      video: {
+        src: media.video,
       },
       overlayClass: "bg-primary opacity-60",
     }}
