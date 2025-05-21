@@ -96,7 +96,7 @@ const baseSchema = ({ image }: { image: Function }) =>
     description: descriptionSchema.optional(),
     layout: z.string().optional(),
     keywords: z.array(z.string()).optional(),
-    robots: z.string().optional(), 
+    robots: z.string().optional(),
     ogType: z.string().optional(),
     hasPage: z.boolean().optional(),
     sections: z.array(sectionSchema).optional(),
@@ -181,5 +181,9 @@ export const collections = {
           .union([reference("services"), z.array(reference("services"))])
           .optional(),
       }),
+  }),
+  serviceAreas: defineCollection({
+    loader: file("src/content/serviceAreas/serviceAreas.json"), // file-loaded collection
+    schema: ({ image }) => baseSchema({ image }),
   }),
 };

@@ -19,6 +19,11 @@ const serviceOptions = parentServices.map(({ slug, label }) => ({
   value: slug,
   label,
 }));
+
+const formAction = (
+  import.meta.env.PUBLIC_INTEGRATION_FORMSPREE +
+  import.meta.env.PUBLIC_CONTACT_FORM
+);
 ---
 
 <Form
@@ -29,6 +34,7 @@ const serviceOptions = parentServices.map(({ slug, label }) => ({
   enableSuccessBanner={true}
   successBannerMessage="Thank you for your message. We will get in touch with you shortly."
   successBannerClass="p-[var(--spacing-sm)] bg-primary text-bg rounded"
+  action={formAction}
 >
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 

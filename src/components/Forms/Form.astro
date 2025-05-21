@@ -91,7 +91,10 @@ const {
           const data = new URLSearchParams(new FormData(form));
           await fetch(form.action || "/", {
             method: form.method.toUpperCase() || "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Accept: "application/json",
+            },
             body: data.toString(),
           });
           const banner = document.createElement("div");
