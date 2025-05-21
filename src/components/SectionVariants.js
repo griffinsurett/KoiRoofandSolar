@@ -17,7 +17,6 @@ export const SectionVariants = {
     backgroundMedia: {
       video: {
         src: KoiVideo,
-        loop: true,
       },
       image: {
         src: SiteData.MainBGImage.src,
@@ -41,6 +40,9 @@ export const SectionVariants = {
         src: SiteData.MainBGImage.src,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
       },
+      video: {
+        src: KoiVideo,
+      },
       overlayClass: "bg-primary opacity-60",
     },
   },
@@ -49,6 +51,9 @@ export const SectionVariants = {
       image: {
         src: SiteData.MainBGImage.src,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+      },
+      video: {
+        src: KoiVideo,
       },
       overlayClass: "bg-primary opacity-60",
     },
@@ -69,6 +74,9 @@ export const SectionVariants = {
       image: {
         src: SiteData.MainBGImage.src,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+      },
+      video: {
+        src: KoiVideo,
       },
       overlayClass: "bg-primary opacity-60",
     },
@@ -140,6 +148,9 @@ export const SectionVariants = {
   },
   portfolio: {
     backgroundMedia: {
+      video: {
+        src: KoiVideo,
+      },
       image: {
         src: SiteData.MainBGImage.src,
         imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
