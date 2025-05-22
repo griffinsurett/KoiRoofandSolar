@@ -58,5 +58,65 @@
     "title": "How Does Solar Impact The Environment?",
     "description": "Solar energy is a clean, renewable resource that reduces reliance on fossil fuels, decreasing greenhouse gas emissions and pollution. By choosing solar, you’re contributing to a more sustainable and environmentally friendly energy future.",
     "services": ["solar"]
+  },
+  {
+    "id": 10,
+    "title": "How Do I Know If My Roof Needs Replacement?",
+    "description": "Common signs include missing or curled shingles, visible leaks or water stains inside, excessive granule loss in gutters, and aging (most asphalt roofs last 20–25 years). We perform a free inspection to give you a clear assessment.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 11,
+    "title": "What Types of Roofing Materials Do You Offer?",
+    "description": "We install asphalt shingles (standard and architectural), metal (standing seam, corrugated), slate, tile, and flat‑roof membranes (TPO, EPDM, PVC). Each has its own cost, lifespan, and style benefits.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 12,
+    "title": "How Long Will My New Roof Installation Take?",
+    "description": "Most residential roof replacements finish in 1–3 days, depending on size, material, and weather. We’ll give you an estimated timeline during your free inspection.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 13,
+    "title": "Do You Handle Insurance Claims for Storm Damage?",
+    "description": "Yes—we’ll document damage, work with your adjuster, and manage paperwork so you get the coverage you deserve without the hassle.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 14,
+    "title": "What Warranties Come with a New Roof?",
+    "description": "We offer a workmanship warranty on all installations (typically 5–10 years) plus you’ll get the manufacturer’s warranty on your chosen roofing material, which can be 20–50 years.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 15,
+    "title": "How Much Does a Roof Replacement Cost?",
+    "description": "Costs vary by material, pitch, and square footage. Asphalt shingle roofs often range from $5,000–$15,000; metal or slate runs higher. We provide a no‑obligation, detailed quote after inspection.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 16,
+    "title": "Can I Finance My Roof Replacement?",
+    "description": "Absolutely—ask about our 0%‑interest, no‑payments‑for‑12‑months plan, and low‑credit‑score approval down to 550. We make top‑quality roofs affordable.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 17,
+    "title": "Will a New Roof Increase My Home’s Value?",
+    "description": "Yes—a new roof improves curb appeal, energy efficiency, and resale value. Many buyers see it as a major plus and may pay more for a home with a brand‑new roof.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 18,
+    "title": "How Do I Maintain My New Roof?",
+    "description": "Keep gutters clean, trim overhanging branches, remove debris after storms, and schedule an annual inspection to catch small issues before they become big problems.",
+    "services": ["roofing"]
+  },
+  {
+    "id": 19,
+    "title": "Do You Offer Flat Roof Waterproofing?",
+    "description": "Yes—we install TPO, EPDM, and peel‑and‑stick membranes that provide superior waterproofing and energy savings for low‑slope and flat roofs.",
+    "services": ["roofing"]
   }
 ]
