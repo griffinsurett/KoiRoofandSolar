@@ -137,6 +137,16 @@ export const collections = {
           .optional(),
       }),
   }),
+   gallery: defineCollection({
+    schema: ({ image }) =>
+      baseSchema({ image }).extend({
+        beforeImage: image().optional(),
+        afterImage: image().optional(),
+        services: z
+          .union([reference("services"), z.array(reference("services"))])
+          .optional(),
+      }),
+  }),
   testimonials: defineCollection({
     schema: ({ image }) =>
       baseSchema({ image }).extend({

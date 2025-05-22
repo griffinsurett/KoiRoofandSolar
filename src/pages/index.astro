@@ -106,7 +106,7 @@ import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
   <!-- Testimonials -->
   <Section collection="testimonials" query="getAll" />
 
-  <Section
+  <!-- <Section
   variant="media1"
   childSlotClass="flex flex-col items-center justify-center"
   heading={[
@@ -143,13 +143,23 @@ import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
   />
 </div>
 
-</Section>
+</Section> -->
 
   <!-- Services -->
   <Section collection="services" query="parent" />
 
   <!-- Projects -->
   <Section collection="projects" query="getAll" heading={
+    [{
+      text: `Discover ${SiteData.title}'s' Rooftop Masterpieces`,
+      tagName: "h2",
+      class: "h2 text-bg py-[var(--spacing-sm)]",
+    }]
+  } 
+ />
+
+   <!-- Gallery -->
+  <Section collection="gallery" query="getAll" heading={
     [{
       text: "Whether you need a new roof or want to go solar with NO MONEY DOWN, we make it easy!",
       tagName: "h2",
