@@ -116,6 +116,7 @@ export const collections = {
     schema: ({ image }) =>
       baseSchema({ image }).extend({
         form: z.string().optional(),
+        introVideo: z.string().optional(),
         parent: z
           .union([reference("services"), z.array(reference("services"))])
           .optional(),
@@ -137,11 +138,10 @@ export const collections = {
           .optional(),
       }),
   }),
-   gallery: defineCollection({
+  gallery: defineCollection({
+    loader: file("src/content/gallery/gallery.json"),
     schema: ({ image }) =>
       baseSchema({ image }).extend({
-        beforeImage: image().optional(),
-        afterImage: image().optional(),
         services: z
           .union([reference("services"), z.array(reference("services"))])
           .optional(),

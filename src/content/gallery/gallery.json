@@ -1,0 +1,87 @@
+[
+  {
+    "id": "roofing-project-1",
+    "title": "Residential Roof Replacement • Project 1",
+    "featuredImage": "@/assets/koi-on-ladder.jpg"
+  },
+  {
+    "id": "roofing-project-1-alt",
+    "title": "Residential Roof Replacement • Project 1 (Alternate)",
+    "featuredImage": "@/assets/roof-work-koi.jpg"
+  },
+  {
+    "id": "roofing-project-2",
+    "title": "Historic Home Roof Restoration • Project 2",
+    "featuredImage": "@/assets/koiandfriends2.jpg"
+  },
+  {
+    "id": "roofing-project-2-alt",
+    "title": "Historic Home Roof Restoration • Project 2 (Alternate)",
+    "featuredImage": "@/assets/koijohns1.jpg"
+  },
+  {
+    "id": "solar-project-1",
+    "title": "Residential Solar Array Installation • Project 1",
+    "featuredImage": "@/assets/koiteamjohns.jpg"
+  },
+  {
+    "id": "team-pic",
+    "title": "Koi Team Photo",
+    "featuredImage": "@/assets/team2.JPG"
+  },
+  {
+    "id": "team-pic",
+    "title": "Koi Team Photo",
+    "featuredImage": "@/assets/team3.JPG"
+  },
+  {
+    "id": "solar-project-1-alt",
+    "title": "Residential Solar Array Installation • Project 1 (Alternate)",
+    "featuredImage": "@/assets/roofing1.JPG"
+  },
+  {
+    "id": "solar-project-2",
+    "title": "Commercial Solar Array Installation • Project 2",
+    "featuredImage": "@/assets/roofing2.JPG"
+  },
+  {
+    "id": "solar-project-2-alt",
+    "title": "Commercial Solar Array Installation • Project 2 (Alternate)",
+    "featuredImage": "@/assets/roofing3.JPG"
+  },
+  {
+    "id": "team-pic",
+    "title": "Koi Team Photo",
+    "featuredImage": "@/assets/team4.JPG"
+  },
+  {
+    "id": "solar-project-3",
+    "title": "Residential Solar Array Installation • Project 3",
+    "featuredImage": "@/assets/roofing4.JPG"
+  },
+  {
+    "id": "team-pic",
+    "title": "Koi Team Photo",
+    "featuredImage": "@/assets/team7.JPG"
+  },
+  {
+    "id": "solar-project-3-alt",
+    "title": "Residential Solar Array Installation • Project 3 (Alternate)",
+    "featuredImage": "@/assets/roofing5.JPG"
+  },
+  {
+    "id": "solar-project-4",
+    "title": "Residential Solar Array Installation • Project 4",
+    "featuredImage": "@/assets/roofing6.JPG"
+  },
+  {
+    "id": "team-pic",
+    "title": "Koi Team Photo",
+    "featuredImage": "@/assets/team5.JPG"
+  },
+  {
+    "id": "solar-project-4-alt",
+    "title": "Residential Solar Array Installation • Project 4 (Alternate)",
+    "featuredImage": "@/assets/roofing7.JPG"
+  }
+]
