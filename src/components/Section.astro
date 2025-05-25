@@ -54,7 +54,7 @@ const {
   buttonsPlacement: rawButtonsPlacement = "",
   childSlotClass: rawChildSlotClass = "",
   client: rawClient,
-
+  slider = { enabled: false },
   // NEW: grab raw sorting props
   sortBy: rawSortBy,
   sortOrder: rawSortOrder,
@@ -260,6 +260,7 @@ const itemsDefaultHasPage = meta.itemsHasPage ?? false;
                 sortOrder={sortOrder}
                 manualOrder={manualOrder}
                 client={finalClient}
+                slider={slider}
               />
               <slot name="belowItemsInjection" />
             </>
@@ -289,6 +290,7 @@ const itemsDefaultHasPage = meta.itemsHasPage ?? false;
                 sortOrder={sortOrder}
                 manualOrder={manualOrder}
                 client={finalClient}
+                slider={slider}
               />
               <slot name="belowItemsInjection" />
             </>
@@ -380,6 +382,7 @@ const itemsDefaultHasPage = meta.itemsHasPage ?? false;
               sortOrder={sortOrder}
               manualOrder={manualOrder}
               client={finalClient}
+              slider={slider}
             />
             <slot name="belowItemsInjection" />
           </>

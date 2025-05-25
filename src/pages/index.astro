@@ -12,11 +12,14 @@ import { Image } from "astro:assets";
 import RichiePic from "@/assets/RichardFaria2.PNG";
 import { formatPhoneNumber } from "@/utils/ContentUtils";
 import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
+import ClientImageCard from "@/components/ClientImageCard";
+import BeforeAfterCard from "@/components/LoopComponents/beforeAfterCardClient";
 ---
 
 <ExtendedLayout
   title={SiteData.title || SiteData.tagline}
-  description={SiteData.description} featuredImage={SiteData.MainBGImage.src}
+  description={SiteData.description}
+  featuredImage={SiteData.MainBGImage.src}
 >
   <!-- Hero Section -->
   <PrimaryHero />
@@ -34,7 +37,8 @@ import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
       {
         text: `"Some start at the bottom we go to the top"`,
         tagName: "h5",
-        class: "h5 py-[var(--spacing-sm)] font-medium italic text-secondary slide-in",
+        class:
+          "h5 py-[var(--spacing-sm)] font-medium italic text-secondary slide-in",
       },
     ]}
     buttons={[
@@ -43,28 +47,28 @@ import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
     ]}
     description=`${SiteData.title} is a proud family-owned company based in New Jersey, built on over 20 years of experience passed down through three generations. We combine expert craftsmanship with genuine care, treating every home like our own and every client like family. Our mission is to change the way people experience contractors—making home upgrades smooth, honest, and even enjoyable. We specialize in residential roof replacements and solar energy systems, including flat roofs that few in New Jersey confidently handle or warranty. Whether it’s storm damage, an aging roof, or high electric bills, we offer full-service solutions with $0 down and flexible financing for all credit types.`
   >
-  <Video
-  src={KoiVideo}
-  poster={KoiVideoPoster}
-  controls
-  muted
-  autoplay={true}
-  loop={false}
-  class="shadow-xs border-radius"
-/>
+    <Video
+      src={KoiVideo}
+      poster={KoiVideoPoster}
+      controls
+      muted
+      autoplay={true}
+      loop={false}
+      class="shadow-xs border-radius"
+    />
   </Section>
 
   <Section
-  variant="media1"
-  heading={[
-    {
-      text: "Our goal is simple:",
-      tagName: "h2",
-      class: "h2 text-bg uppercase py-[var(--spacing-sm)]",
-    },
-  ]}
-  description=`"Make Roofing and Solar an enjoyable, trustworthy, and inspiring experience for everyone."`
-/>
+    variant="media1"
+    heading={[
+      {
+        text: "Our goal is simple:",
+        tagName: "h2",
+        class: "h2 text-bg uppercase py-[var(--spacing-sm)]",
+      },
+    ]}
+    description=`"Make Roofing and Solar an enjoyable, trustworthy, and inspiring experience for everyone."`
+  />
 
   <Section collection="benefits" query="getAll">
     <!-- Your inner content here -->
@@ -79,7 +83,7 @@ import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
     />
   </Section>
 
-<SpanishSection />
+  <SpanishSection />
 
   <!-- <Section
       sectionClass="flex justify-center items-center p-[var(--spacing-3xl)] md:p-[var(--spacing-md)] bg-cover bg-center bg-fixed min-h-[75vh]"
@@ -149,24 +153,42 @@ import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
   <Section collection="services" query="parent" />
 
   <!-- Projects -->
-  <Section collection="projects" query="getAll" heading={
-    [{
-      text: `Discover ${SiteData.title}'s' Rooftop Masterpieces`,
-      tagName: "h2",
-      class: "h2 text-bg py-[var(--spacing-sm)]",
-    }]
-  } 
- />
+  <Section
+    collection="projects"
+    query="getAll"
+    heading={[
+      {
+        text: `Discover ${SiteData.title}'s' Rooftop Masterpieces`,
+        tagName: "h2",
+        class: "h2 text-bg py-[var(--spacing-sm)]",
+      },
+    ]}
+  />
 
-   <!-- Gallery -->
-  <Section collection="gallery" query="getAll" heading={
-    [{
-      text: "Whether you need a new roof or want to go solar with NO MONEY DOWN, we make it easy!",
-      tagName: "h2",
-      class: "h2 text-bg py-[var(--spacing-sm)]",
-    }]
-  } buttons={ServiceBtns}
- />
+  <!-- Gallery -->
+  <Section
+    collection="gallery"
+    query="getAll"
+    heading={[
+      {
+        text: "Whether you need a new roof or want to go solar with NO MONEY DOWN, we make it easy!",
+        tagName: "h2",
+        class: "h2 text-bg py-[var(--spacing-sm)]",
+      },
+    ]}
+    buttons={ServiceBtns}
+    component={ClientImageCard}
+    client="idle"
+    slider={{
+      enabled: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      infinite: true,
+      slidesToShow: 5,
+      slidesToScroll: 2,
+      arrows: true,
+    }}
+  />
 
   <!-- <Section collection="faq" query="getAll" /> -->
 </ExtendedLayout>

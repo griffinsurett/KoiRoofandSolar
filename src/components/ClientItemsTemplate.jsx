@@ -1,50 +1,75 @@
 // src/components/ClientItemsTemplate.jsx
 import { componentMapping } from "@/utils/ComponentMapping";
+import Carousel from "./Carousel";
 
 export default function ClientItemsTemplate({
   items = [],
-  sortBy = "date",        // "date" | "title" | "slug"
-  sortOrder = "desc",     // "asc" | "desc"
-  manualOrder = false,    // if true, sort by data.order only
+  sortBy = "date",
+  sortOrder = "desc",
+  manualOrder = false,
   componentKey = "Card",
   itemClass = "",
   itemsClass = "",
   collectionName,
   HasPage,
+  slider = {
+    enabled: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    infinite: true,
+    slidesToShow,
+    slidesToScroll,
+    arrows: true,
+  },
 }) {
-  // ─── Apply sorting on client side ───
-  let sorted = [...items];
+  // ─── Sort items ───
+  const sorted = [...items];
   if (manualOrder) {
     sorted.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
   } else {
-    if (sortBy === "title") {
-      sorted.sort((a, b) =>
-        String(a.data.title || a.slug).localeCompare(String(b.data.title || b.slug))
-      );
-    } else if (sortBy === "slug" || sortBy === "id") {
-      sorted.sort((a, b) => String(a.slug).localeCompare(String(b.slug)));
-    } else {
-      sorted.sort((a, b) => {
-        const da = new Date(a.data.pubDate || a.data.date || 0);
-        const db = new Date(b.data.pubDate || b.data.date || 0);
-        return da.getTime() - db.getTime();
-      });
-    }
+    // your other sortBy logic...
+    sorted.sort((a, b) => 0);
     if (sortOrder === "desc") sorted.reverse();
   }
-  const renderItems = sorted;
 
   const Comp = componentMapping[componentKey] || componentMapping.Card;
+
+  // ─── Render as carousel or simple list ───
+  if (slider.enabled) {
+    return (
+      <Carousel
+        items={sorted}
+        slidesToShow={slider.slidesToShow}
+        slidesToScroll={slider.slidesToScroll}
+        infinite={slider.infinite}
+        autoplay={slider.autoplay}
+        autoplaySpeed={slider.autoplaySpeed}
+        arrows={slider.arrows}
+        containerClass={itemsClass}
+        itemClass={itemClass}
+        renderItem={item => (
+          <Comp
+            key={item.slug}
+            item={item}
+            itemClass={itemClass}
+            collectionName={collectionName}
+            HasPage={HasPage}
+          />
+        )}
+      />
+    );
+  }
+
+  // fallback: simple flex/grid
   return (
     <ul className={itemsClass}>
-      {renderItems.map((item) => (
-        <Comp
-          key={item.slug}
-          item={item}
-          itemClass={itemClass}
-          collectionName={collectionName}
-          HasPage={HasPage}
-        />
+      {sorted.map(item => (
+          <Comp
+            item={item}
+            itemClass={itemClass}
+            collectionName={collectionName}
+            HasPage={HasPage}
+          />
       ))}
     </ul>
   );

@@ -18,7 +18,7 @@ const {
   sortBy = "date",        // "date" | "title" | "slug" | "id"
   sortOrder = "desc",     // "asc" | "desc"
   manualOrder = false,    // if true, use item.data.order exclusively
-
+  slider = { enabled: false },
   ...rest
 } = Astro.props;
 
@@ -76,7 +76,7 @@ function getItemProps(item) {
 }
 ---
 {items?.length ? (
-  <div>
+  <ul>
     {client === "load" && (
       <ClientItemsTemplate
         client:load
@@ -86,6 +86,8 @@ function getItemProps(item) {
         itemClass={itemClass}
         collectionName={collection}
         HasPage={HasPage}
+        slider={slider}
+        {...rest}
       />
     )}
 
@@ -98,6 +100,8 @@ function getItemProps(item) {
         itemClass={itemClass}
         collectionName={collection}
         HasPage={HasPage}
+        slider={slider}
+        {...rest}
       />
     )}
 
@@ -110,6 +114,8 @@ function getItemProps(item) {
         itemClass={itemClass}
         collectionName={collection}
         HasPage={HasPage}
+        slider={slider}
+        {...rest}
       />
     )}
 
@@ -127,7 +133,7 @@ function getItemProps(item) {
         ))}
       </ul>
     )}
-  </div>
+  </ul>
 ) : (
   <p>No items found.</p>
 )}

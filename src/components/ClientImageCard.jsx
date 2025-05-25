@@ -21,31 +21,22 @@ export default function ClientImageCard({
 
   const { title, featuredImage } = item.data;
   // featuredImage might be a string URL or an object with .src
-  let imageSrc = null;
-  if (featuredImage) {
-    imageSrc =
-      typeof featuredImage === 'string'
-        ? featuredImage
-        : featuredImage.src || null;
-  }
+  const imageSrc = featuredImage
+    ? (typeof featuredImage === 'string' ? featuredImage : featuredImage.src)
+    : null;
 
-  // Wrapper tag is either <a> or <div>
-  const Wrapper = effectiveHasPage
-    ? ({ children }) => (
-        <a
-          href={`/${collectionName}/${item.slug}`}
-          className="block w-full h-full relative"
-        >
-          {children}
-        </a>
-      )
-    : ({ children }) => (
-        <div className="block w-full h-full relative">{children}</div>
-      );
+  // Build href only if there's a page
+  const href = effectiveHasPage
+    ? `/${collectionName}/${item.slug}`
+    : undefined;
 
   return (
-    <li className="scale-up relative group w-full h-auto lg:h-[35vh] overflow-hidden shadow hover:shadow-lg transition-shadow">
-      <Wrapper>
+    <li className="scale-up relative group w-full h-auto lg:h-[35vh] overflow-hidden shadow hover:shadow-lg transition-shadow list-none">
+      {/* always an <a> wrapper; omit href when no page */}
+      <a
+        {...(href ? { href } : {})}
+        className="block w-full h-full relative"
+      >
         {imageSrc && (
           <img
             src={imageSrc}
@@ -54,13 +45,13 @@ export default function ClientImageCard({
             className="w-full h-full object-cover object-center transform transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
         )}
-        {/* 
-        You can uncomment this overlay if you want the title:
+        {/*
+        // If you decide later you want a title overlay, you can uncomment:
         <div className="absolute bottom-0 left-0 p-4 bg-black bg-opacity-50 text-white">
           <h3 className="text-lg font-semibold">{title}</h3>
         </div>
         */}
-      </Wrapper>
+      </a>
     </li>
   );
 }
