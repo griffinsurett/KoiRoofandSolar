@@ -2,7 +2,7 @@
 
 // Shared base classes: container, spacing, typography, and transitions
 export const baseButtonClasses =
-  "relative border-radius items-center group uppercase text-center px-[var(--spacing-xl)] lg:px-[var(--spacing-3xl)] py-[var(--spacing-md)] font-medium w-full lg:w-auto transition-colors duration-300 ease-in-out";
+  "relative border-radius items-center group uppercase text-center px-[var(--spacing-xl)] lg:px-[var(--spacing-2xl)] py-[var(--spacing-md)] font-medium w-full lg:w-auto transition-colors duration-300 ease-in-out";
 
 export const ButtonVariants = {
   primary: {

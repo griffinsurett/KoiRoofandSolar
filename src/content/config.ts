@@ -203,8 +203,13 @@ export const collections = {
           .optional(),
       }),
   }),
-  serviceAreas: defineCollection({
+   serviceAreas: defineCollection({
     loader: file("src/content/serviceAreas/serviceAreas.json"), // file-loaded collection
-    schema: ({ image }) => baseSchema({ image }),
+    schema: ({ image }) => baseSchema({ image }).extend({
+      tags: z.array(z.string()).optional(),
+      parent: z
+          .union([reference("serviceAreas"), z.array(reference("serviceAreas"))])
+          .optional(),
+    }),
   }),
 };

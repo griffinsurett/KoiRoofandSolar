@@ -10,16 +10,16 @@ import Button from "@/components/Button.jsx";
 import PhoneIcon from "@/components/Phone";
 import { MainNavMenu } from "@/queries/MainNavMenu";
 
-const breakpoint = "lg";
+const breakpoint = "xl";
 const logoImgClass =
-  "h-28 xl:h-33 w-auto load-fade-in hidden";
+  "h-28 xl:h-32 w-auto load-fade-in hidden";
 ---
 <header
   id="site-header"
-  class="fixed top-0 w-full h-[13vh] md:h-[18vh] py-[var(--spacing-lg)] lg:py-0 flex justify-center items-center bg-transparent z-[10000]"
+  class={`fixed top-0 w-full h-[13vh] md:h-[18vh] py-[var(--spacing-lg)] ${breakpoint}:py-0 flex justify-center items-center bg-transparent z-[10000]`}
 >
-  <div class="w-9/10 h-full flex items-center justify-between">
-    <a href="/" class="order-2 lg:order-first flex items-center">
+  <div class="w-38/40 h-full flex items-center justify-between">
+    <a href="/" class={`order-2 ${breakpoint}:order-first flex items-center`}>
       <!-- Default logo -->
       <Image
         id="logo-default"
@@ -54,7 +54,7 @@ const logoImgClass =
         menuItem: {
           component: MenuItem,
           class:
-            "menu-item text-lg uppercase tracking-wide hover:text-accent px-[var(--spacing-sm)] py-[var(--spacing-md)] load-scale-up",
+            "menu-item text-lg uppercase tracking-wide hover:text-accent px-[var(--spacing-md)] py-[var(--spacing-md)] load-scale-up",
           activeClass: "text-accent font-bold",
         },
         submenuItem: {
@@ -62,7 +62,7 @@ const logoImgClass =
           class: "submenu-class text-text shadow-inner-outer bg-bg",
           activeClass: "text-bg",
         },
-        listClass: "flex gap-[var(--spacing-xl)]",
+        listClass: "flex flex-grow gap-[var(--spacing-sm)]",
       }}
       hamburgerMenu={{
         hamburgerIconClass: "custom-hamburger-icon text-bg",
@@ -81,7 +81,7 @@ const logoImgClass =
       <Button
         href={`tel:${ContactData.phone}`}
         variant="secondary"
-        className="hidden xl:flex"
+        className="hidden xl:flex p-0"
         showIcon={true}
         iconProps={{
           element: PhoneIcon,
