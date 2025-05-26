@@ -72,6 +72,7 @@ export default function Carousel({
         ref={containerRef}
         className={`
           overflow-x-auto snap-x snap-mandatory
+          touch-scroll
           scrollbar-hide list-none
           ${containerClass}
         `}
