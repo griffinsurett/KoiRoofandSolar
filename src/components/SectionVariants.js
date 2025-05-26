@@ -184,7 +184,7 @@ export const SectionVariants = {
       "section-md flex flex-col justify-center items-center section-md media-border",
     contentClass: "m-0 p-0 content-section fade-in",
     itemsClass:
-      "w-full flex items-center justify-evenly flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
+      "w-full flex items-center justify-evenly gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] text-center text-bg pb-[var(--spacing-lg)]",
     descriptionClass:
