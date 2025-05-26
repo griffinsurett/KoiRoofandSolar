@@ -70,17 +70,28 @@ export default function Carousel({
       <ul
         ref={containerRef}
         className={`
-          flex flex-row flex-nowrap overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scrollbar list-none ${containerClass}
-        `}
+w-full          
+    m-0 p-0        
+    flex flex-row flex-nowrap
+    overflow-x-auto overflow-y-hidden
+    snap-x snap-mandatory
+    hide-scrollbar
+    ${containerClass}        `}
       >
         {items.map((item) => (
           <li
             key={item.slug}
             className={`
               ${itemClass}
-              snap-align-start flex-shrink-0
+              flex-shrink-0   
+        flex-grow-0    
+        snap-start   
+        ${itemClass}
             `}
-            style={{ minWidth: `${100 / slidesToShow}%` }}
+            style={{
+              flex: `0 0 ${100 / slidesToShow}%` /* set exact width */,
+              boxSizing: "border-box",
+            }}
           >
             {renderItem(item)}
           </li>
