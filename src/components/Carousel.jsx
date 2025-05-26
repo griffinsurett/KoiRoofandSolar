@@ -81,7 +81,7 @@ ${containerClass}
               ${itemClass}
               snap-align-start flex-shrink-0
             `}
-                        style={{ flex: `${100 / slidesToShow}%` }}
+                        style={{ minWidth: `${100 / slidesToShow}%` }}
                     >
                         {renderItem(item)}
                     </li>
