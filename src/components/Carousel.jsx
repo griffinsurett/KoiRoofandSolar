@@ -83,7 +83,7 @@ export default function Carousel({
               ${itemClass}
               snap-align-start flex-shrink-0
             `}
-            style={{ minWidth: `${100 / slidesToShow}%` }}
+            style={{ flex: `${100 / slidesToShow}%` }}
           >
             {renderItem(item)}
           </li>
