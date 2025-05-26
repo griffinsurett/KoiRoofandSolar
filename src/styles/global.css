@@ -164,13 +164,13 @@
 
 @layer utilities {
     /* NEW: hide scrollbars for carousel */
-  .scrollbar-hide::-webkit-scrollbar {
+  /* .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
-  }
+  } */
 
   .transition-default {
     transition: var(--transition-default);
