@@ -72,7 +72,7 @@ export default function Carousel({
         ref={containerRef}
         className={`
           flex flex-row flex-nowrap h-[50vh] overflow-x-auto snap-x snap-mandatory
-          scrollbar-hide list-none
+          hide-scrollbar list-none
           ${containerClass}
         `}
       >
