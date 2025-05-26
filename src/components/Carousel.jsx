@@ -81,7 +81,7 @@ export default function Carousel({
             key={item.slug}
             className={`
               ${itemClass}
-              snap-align-start flex-shrink-0
+              snap-start flex-shrink-0
             `}
             style={{ minWidth: `${100 / slidesToShow}%` }}
           >
