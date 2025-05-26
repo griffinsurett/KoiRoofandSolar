@@ -22,12 +22,12 @@ export default function Carousel({
 
   // update slidesToShow on resize (1 slide on mobile)
   useEffect(() => {
-    function update() {
-      if (window.innerWidth < 640) {
-        setCurrentSlidesToShow(1);
-      } else {
-        setCurrentSlidesToShow(slidesToShow);
-      }
+    function onResize() {
+      setCurrentSlides(
+        window.innerWidth < 640
+          ? 1                // always 1 slide on narrow screens
+          : slidesToShow
+      );
     }
     window.addEventListener("resize", update);
     update();

@@ -17,8 +17,8 @@ export default function ClientItemsTemplate({
     autoplay: true,
     autoplaySpeed: 1000,
     infinite: true,
-    slidesToShow,
-    slidesToScroll,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     arrows: true,
   },
 }) {
