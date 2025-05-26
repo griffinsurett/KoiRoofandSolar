@@ -164,10 +164,10 @@
 
 @layer utilities {
     /* NEW: hide scrollbars for carousel */
-  .scrollbar-hide::-webkit-scrollbar {
+  .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  .scrollbar-hide {
+  .hide-scrollbar {
    overflow-y: hidden;          /* never show vertical bar */
     -ms-overflow-style: none;    /* IE/Edge */
     scrollbar-width: none;   
