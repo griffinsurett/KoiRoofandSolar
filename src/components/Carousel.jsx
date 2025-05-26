@@ -9,8 +9,8 @@ export default function Carousel({
   autoplay,
   autoplaySpeed,
   arrows,
-  containerClass,   // passed to <ul>
-  itemClass,        // passed to each <li>
+  containerClass, // passed to <ul>
+  itemClass, // passed to each <li>
   renderItem,
 }) {
   const [index, setIndex] = useState(0);
@@ -21,11 +21,9 @@ export default function Carousel({
   useEffect(() => {
     if (!autoplay) return;
     const id = setInterval(() => {
-      setIndex(i => {
+      setIndex((i) => {
         const next = i + slidesToScroll;
-        return infinite
-          ? next % total
-          : Math.min(next, total - slidesToShow);
+        return infinite ? next % total : Math.min(next, total - slidesToShow);
       });
     }, autoplaySpeed);
     return () => clearInterval(id);
@@ -41,7 +39,8 @@ export default function Carousel({
     });
   }, [index, slidesToShow]);
 
-  const arrowStyles = "absolute top-1/2 transform -translate-y-1/2 text-xl z-10 p-2";
+  const arrowStyles =
+    "absolute top-1/2 transform -translate-y-1/2 text-xl z-10 p-2";
 
   return (
     <div className="relative">
@@ -49,14 +48,14 @@ export default function Carousel({
         <>
           <button
             className={`${arrowStyles} left-0`}
-            onClick={() => setIndex(i => Math.max(i - slidesToScroll, 0))}
+            onClick={() => setIndex((i) => Math.max(i - slidesToScroll, 0))}
           >
             ‹
           </button>
           <button
             className={`${arrowStyles} right-0`}
             onClick={() =>
-              setIndex(i => {
+              setIndex((i) => {
                 const max = total - slidesToShow;
                 const nxt = i + slidesToScroll;
                 return infinite ? nxt % total : Math.min(nxt, max);
@@ -71,12 +70,13 @@ export default function Carousel({
       <ul
         ref={containerRef}
         className={`
-          flex flex-row flex-nowrap h-[50vh] overflow-x-auto snap-x snap-mandatory
-          scrollbar-hide list-none
-          ${containerClass}
+          flex flex-row flex-nowrap h-[50vh]
+overflow-x-auto overflow-y-hidden snap-x snap-mandatory
+hide-scrollbar list-none
+${containerClass}
         `}
       >
-        {items.map(item => (
+        {items.map((item) => (
           <li
             key={item.slug}
             className={`
