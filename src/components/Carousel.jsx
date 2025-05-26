@@ -71,7 +71,7 @@ export default function Carousel({
       <ul
         ref={containerRef}
         className={`
-          flex flex-row flex-nowrap h-[50vh] overflow-x-auto snap-x snap-mandatory
+          overflow-x-auto snap-x snap-mandatory
           scrollbar-hide list-none
           ${containerClass}
         `}
@@ -83,7 +83,7 @@ export default function Carousel({
               ${itemClass}
               snap-start flex-shrink-0
             `}
-            style={{ minWidth: `${100 / slidesToShow}%` }}
+            style={{ flex: `0 0 ${100 / slidesToShow}%` }}
           >
             {renderItem(item)}
           </li>
