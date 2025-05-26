@@ -84,7 +84,7 @@ export default function Carousel({
               ${itemClass}
               snap-start
             `}
-            style={{ width: `0 0 ${100 / slidesToShow}%` }}
+            style={{ flex: `0 0 ${100 / slidesToShow}%` }}
           >
             {renderItem(item)}
           </li>
