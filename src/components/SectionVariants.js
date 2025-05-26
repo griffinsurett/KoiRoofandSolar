@@ -169,6 +169,29 @@ export const SectionVariants = {
     itemPlacement: "",
     buttonsSectionClass: "flex flex-col lg:flex-row justify-center items-center gap-[var(--spacing-md)] py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
   },
+  gallery: {
+    backgroundMedia: {
+      video: {
+        src: KoiVideo,
+      },
+      image: {
+        src: SiteData.MainBGImage.src,
+        imageClass: "filter brightness-50 bg-cover bg-center xl:bg-fixed",
+      },
+      overlayClass: "bg-primary opacity-80",
+    },
+    sectionClass:
+      "section-md flex flex-col justify-center items-center section-md media-border",
+    contentClass: "m-0 p-0 content-section fade-in",
+    itemsClass:
+      "w-full flex items-center justify-evenly flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
+    headingAreaClass:
+      "flex flex-col gap-[var(--spacing-sm)] text-center text-bg pb-[var(--spacing-lg)]",
+    descriptionClass:
+      "text-lg order-2 lg:text-2xl text-text-light md:mx-[var(--spacing-lg)]",
+    itemPlacement: "",
+    buttonsSectionClass: "flex flex-col lg:flex-row justify-center items-center gap-[var(--spacing-md)] py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
+  },
   cardSection: {
     sectionClass:
       "flex text-center flex-col section-md justify-center items-center",
