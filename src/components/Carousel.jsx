@@ -71,7 +71,7 @@ export default function Carousel({
       <ul
         ref={containerRef}
         className={`
-          flex overflow-x-auto scroll-snap-x scroll-snap-mandatory
+          flex w-full overflow-x-auto snap-x snap-mandatory
           scrollbar-hide list-none
           ${containerClass}
         `}
