@@ -3,8 +3,8 @@ import React, { useState, useRef, useEffect } from "react";
 
 export default function Carousel({
   items,
-  slidesToShow,
-  slidesToScroll,
+  slidesToShow = 1,
+  slidesToScroll = 1,
   infinite,
   autoplay,
   autoplaySpeed,
@@ -14,25 +14,8 @@ export default function Carousel({
   renderItem,
 }) {
   const [index, setIndex] = useState(0);
-  // track how many slides to show right now
-  const [currentSlidesToShow, setCurrentSlidesToShow] = useState(slidesToShow);
-
   const containerRef = useRef(null);
   const total = items.length;
-
-  // update slidesToShow on resize (1 slide on mobile)
-  useEffect(() => {
-    function onResize() {
-      setCurrentSlides(
-        window.innerWidth < 640
-          ? 1                // always 1 slide on narrow screens
-          : slidesToShow
-      );
-    }
-    window.addEventListener("resize", update);
-    update();
-    return () => window.removeEventListener("resize", update);
-  }, [slidesToShow]);
 
   // autoplay
   useEffect(() => {
@@ -42,21 +25,21 @@ export default function Carousel({
         const next = i + slidesToScroll;
         return infinite
           ? next % total
-          : Math.min(next, total - currentSlidesToShow);
+          : Math.min(next, total - slidesToShow);
       });
     }, autoplaySpeed);
     return () => clearInterval(id);
-  }, [autoplay, autoplaySpeed, slidesToScroll, infinite, currentSlidesToShow, total]);
+  }, [autoplay, autoplaySpeed, slidesToScroll, infinite, slidesToShow, total]);
 
   // smooth scroll on index change
   useEffect(() => {
     if (!containerRef.current) return;
-    const slideWidth = containerRef.current.offsetWidth / currentSlidesToShow;
+    const slideWidth = containerRef.current.offsetWidth / slidesToShow;
     containerRef.current.scrollTo({
       left: slideWidth * index,
       behavior: "smooth",
     });
-  }, [index, currentSlidesToShow]);
+  }, [index, slidesToShow]);
 
   const arrowStyles = "absolute top-1/2 transform -translate-y-1/2 text-xl z-10 p-2";
 
@@ -74,7 +57,7 @@ export default function Carousel({
             className={`${arrowStyles} right-0`}
             onClick={() =>
               setIndex(i => {
-                const max = total - currentSlidesToShow;
+                const max = total - slidesToShow;
                 const nxt = i + slidesToScroll;
                 return infinite ? nxt % total : Math.min(nxt, max);
               })
@@ -100,7 +83,7 @@ export default function Carousel({
               ${itemClass}
               scroll-snap-align-start flex-shrink-0
             `}
-            style={{ minWidth: `${100 / currentSlidesToShow}%` }}
+            style={{ minWidth: `${100 / slidesToShow}%` }}
           >
             {renderItem(item)}
           </li>
