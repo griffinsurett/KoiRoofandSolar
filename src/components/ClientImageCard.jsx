@@ -31,7 +31,7 @@ export default function ClientImageCard({
     : undefined;
 
   return (
-    <div className="scale-up relative group w-full aspect-video overflow-hidden shadow hover:shadow-lg transition-shadow list-none">
+    <div className="scale-up relative group w-full h-[80vh] lg:h-auto overflow-hidden shadow hover:shadow-lg transition-shadow list-none">
       {/* always an <a> wrapper; omit href when no page */}
       <a
         {...(href ? { href } : {})}

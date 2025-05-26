@@ -163,15 +163,13 @@
 }
 
 @layer utilities {
-    /* NEW: hide scrollbars for carousel */
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .hide-scrollbar {
-   overflow-y: hidden;          /* never show vertical bar */
-    -ms-overflow-style: none;    /* IE/Edge */
-    scrollbar-width: none;   
-  }
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
 
   .transition-default {
     transition: var(--transition-default);
