@@ -76,7 +76,7 @@ function getItemProps(item) {
 }
 ---
 {items?.length ? (
-  <ul>
+  <>
     {client === "load" && (
       <ClientItemsTemplate
         client:load
@@ -133,7 +133,7 @@ function getItemProps(item) {
         ))}
       </ul>
     )}
-  </ul>
+  </>
 ) : (
   <p>No items found.</p>
 )}
