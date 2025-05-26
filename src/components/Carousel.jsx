@@ -71,9 +71,10 @@ export default function Carousel({
       <ul
         ref={containerRef}
         className={`
-          flex flex-row flex-nowrap h-[50vh] overflow-x-auto snap-x snap-mandatory
-          scrollbar-hide list-none
-          ${containerClass}
+         flex flex-row flex-nowrap h-[50vh]
+   overflow-x-auto overflow-y-hidden snap-x snap-mandatory
+   hide-scrollbar list-none
+   ${containerClass}
         `}
       >
         {items.map(item => (
