@@ -39,7 +39,7 @@ export default function ClientItemsTemplate({
     return (
       <Carousel
         items={sorted}
-        slidesToShow={slider.slidesToShow}
+        slidesToShow={slider.slidesToShow || 1}
         slidesToScroll={slider.slidesToScroll}
         infinite={slider.infinite}
         autoplay={slider.autoplay}
