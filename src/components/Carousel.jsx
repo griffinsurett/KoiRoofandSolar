@@ -71,7 +71,7 @@ export default function Carousel({
       <ul
         ref={containerRef}
         className={`
-          flex w-full overflow-x-auto snap-x snap-mandatory
+          flex flex-row flex-nowrap h-[50vh] overflow-x-auto snap-x snap-mandatory
           scrollbar-hide list-none
           ${containerClass}
         `}
@@ -81,7 +81,7 @@ export default function Carousel({
             key={item.slug}
             className={`
               ${itemClass}
-              snap-start flex-none
+              snap-align-start flex-shrink-0
             `}
             style={{ minWidth: `${100 / slidesToShow}%` }}
           >
