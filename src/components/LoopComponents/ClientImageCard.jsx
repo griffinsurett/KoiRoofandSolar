@@ -14,7 +14,7 @@ export default function ClientImageCard({ item, collectionName, HasPage }) {
       : featuredImage.src || "");
 
   return (
-    <article className="scale-up relative group w-full h-auto lg:h-[35vh] overflow-hidden shadow hover:shadow-lg transition-shadow">
+    <article className="scale-up relative group w-full h-64 lg:h-[35vh] overflow-hidden shadow hover:shadow-lg transition-shadow">
       {effectiveHasPage ? (
         <a
           href={`/${collectionName}/${item.slug}`}
