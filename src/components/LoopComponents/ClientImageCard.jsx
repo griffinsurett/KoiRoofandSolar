@@ -14,7 +14,7 @@ export default function ClientImageCard({ item, collectionName, HasPage }) {
       : featuredImage.src || "");
 
   return (
-    <li className="scale-up relative group w-full h-auto lg:h-[35vh] overflow-hidden shadow hover:shadow-lg transition-shadow xl:list-none">
+    <div className="scale-up relative group w-full h-auto lg:h-[35vh] overflow-hidden shadow hover:shadow-lg transition-shadow">
       {effectiveHasPage ? (
         <a
           href={`/${collectionName}/${item.slug}`}
@@ -41,6 +41,6 @@ export default function ClientImageCard({ item, collectionName, HasPage }) {
           )}
         </div>
       )}
-    </li>
+    </div>
   );
 }
