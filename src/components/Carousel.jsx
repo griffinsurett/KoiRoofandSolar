@@ -1,16 +1,14 @@
-// src/components/Carousel.jsx
 import React, { useState, useRef, useEffect } from "react";
 
 export default function Carousel({
   items,
-  slidesToShow = 1,
   slidesToScroll = 1,
-  infinite,
-  autoplay,
-  autoplaySpeed,
-  arrows,
-  containerClass, // passed to <ul>
-  itemClass, // passed to each <li>
+  infinite = false,
+  autoplay = false,
+  autoplaySpeed = 3000,
+  arrows = true,
+  containerClass = "",
+  itemClass = "",
   renderItem,
 }) {
   const [index, setIndex] = useState(0);
@@ -22,28 +20,30 @@ export default function Carousel({
     if (!autoplay) return;
     const id = setInterval(() => {
       setIndex((i) => {
-        const next = i + slidesToScroll;
-        return infinite ? next % total : Math.min(next, total - slidesToShow);
+        const nxt = i + slidesToScroll;
+        const max = total - 1;
+        return infinite ? nxt % total : Math.min(nxt, max);
       });
     }, autoplaySpeed);
     return () => clearInterval(id);
-  }, [autoplay, autoplaySpeed, slidesToScroll, infinite, slidesToShow, total]);
+  }, [autoplay, autoplaySpeed, slidesToScroll, infinite, total]);
 
-  // smooth scroll on index change
+  // snap to slide
   useEffect(() => {
     if (!containerRef.current) return;
-    const slideWidth = containerRef.current.offsetWidth / slidesToShow;
+    const slideEls = containerRef.current.children;
+    const slide = slideEls[index];
+    if (!slide) return;
     containerRef.current.scrollTo({
-      left: slideWidth * index,
+      left: slide.offsetLeft,
       behavior: "smooth",
     });
-  }, [index, slidesToShow]);
+  }, [index]);
 
-  const arrowStyles =
-    "absolute top-1/2 transform -translate-y-1/2 text-xl z-10 p-2";
+  const arrowStyles = "absolute top-1/2 transform -translate-y-1/2 z-10 p-2 text-xl";
 
   return (
-    <div className="relative">
+    <div className="relative w-full overflow-hidden">
       {arrows && (
         <>
           <button
@@ -56,8 +56,8 @@ export default function Carousel({
             className={`${arrowStyles} right-0`}
             onClick={() =>
               setIndex((i) => {
-                const max = total - slidesToShow;
                 const nxt = i + slidesToScroll;
+                const max = total - 1;
                 return infinite ? nxt % total : Math.min(nxt, max);
               })
             }
@@ -67,36 +67,26 @@ export default function Carousel({
         </>
       )}
 
-      <ul
+      <div
         ref={containerRef}
         className={`
-w-full          
-    m-0 p-0        
-    flex flex-row flex-nowrap
-    overflow-x-auto overflow-y-hidden
-    snap-x snap-mandatory
-    hide-scrollbar
-    ${containerClass}        `}
+          flex flex-row flex-nowrap
+          w-full m-0 p-0
+          overflow-x-auto overflow-y-hidden
+          snap-x snap-mandatory hide-scrollbar
+          ${containerClass}
+        `}
+        style={{ WebkitOverflowScrolling: "touch" }}
       >
         {items.map((item) => (
-          <li
+          <div
             key={item.slug}
-            className={`
-              ${itemClass}
-              flex-shrink-0   
-        flex-grow-0    
-        snap-start   
-        ${itemClass}
-            `}
-            style={{
-              flex: `0 0 ${100 / slidesToShow}%` /* set exact width */,
-              boxSizing: "border-box",
-            }}
+            className={`block ${itemClass}`}
           >
             {renderItem(item)}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
