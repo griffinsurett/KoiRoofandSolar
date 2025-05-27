@@ -68,7 +68,7 @@ export default function Carousel({
         </>
       )}
 
-      <div
+      <ul
         ref={containerRef}
         className={`
           flex flex-row flex-nowrap
@@ -80,14 +80,14 @@ export default function Carousel({
         style={{ WebkitOverflowScrolling: "touch" }}
       >
         {items.map((item) => (
-          <div
+          <li
             key={item.slug}
             className={`block ${itemClass}`}
           >
             {renderItem(item)}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

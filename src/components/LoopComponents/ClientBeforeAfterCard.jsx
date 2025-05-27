@@ -18,7 +18,7 @@ export default function ClientBeforeAfterCard({ item, collectionName, HasPage })
   const afterSrc  = unwrap(afterImage);
 
   return (
-    <li className="before-after-card relative group overflow-hidden shadow hover:shadow-lg transition-shadow flex-1 w-full flex flex-col h-96">
+    <article className="before-after-card relative group overflow-hidden shadow hover:shadow-lg transition-shadow flex-1 w-full flex flex-col h-96">
       {effectiveHasPage ? (
         <a href={`/${collectionName}/${item.slug}`} className="flex flex-col h-full w-full">
           {beforeSrc && (
@@ -50,6 +50,6 @@ export default function ClientBeforeAfterCard({ item, collectionName, HasPage })
           )}
         </div>
       )}
-    </li>
+    </article>
   );
 }
