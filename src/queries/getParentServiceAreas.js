@@ -12,6 +12,6 @@ export async function getParentServiceAreas() {
   return topLevel.map((entry) => ({
     id: entry.id,
     label: entry.data.title,
-    slug: `/${entry.id}`,
+    slug: `/serviceAreas/${entry.id}`,
   }));
 }
