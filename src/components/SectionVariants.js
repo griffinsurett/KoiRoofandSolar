@@ -186,7 +186,7 @@ export const SectionVariants = {
     itemsClass:
       "w-full flex items-center justify-evenly gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
     headingAreaClass:
-      "flex flex-col gap-[var(--spacing-sm)] text-center text-bg pb-[var(--spacing-sm)]",
+      "flex flex-col gap-[var(--spacing-sm)] text-center text-bg lg:pb-[var(--spacing-sm)]",
     descriptionClass:
       "text-lg order-2 lg:text-2xl text-text-light md:mx-[var(--spacing-lg)]",
     itemPlacement: "",
