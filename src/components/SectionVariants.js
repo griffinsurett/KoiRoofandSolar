@@ -1,7 +1,6 @@
 import HeroBg from "@/assets/roof.png";
 import KoiVideo from "@/assets/roofingandsolarvid.MOV";
 import { SiteData } from "@/content/SiteData";
-import KoiVideo from "@/assets/roofingandsolarvid.MOV";
 import Poster from "@/assets/roofingandsolarvid-poster.jpg";
 
 export const SectionVariants = {
