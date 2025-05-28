@@ -174,7 +174,7 @@ export const SectionVariants = {
       overlayClass: "bg-primary opacity-80",
     },
     sectionClass:
-      "section-md flex flex-col justify-center items-center section-md media-border",
+      "section-md flex flex-col justify-center items-center section-md",
     contentClass: "m-0 p-0 content-section fade-in",
     itemsClass:
       "w-full flex items-center justify-evenly flex-col-reverse lg:flex-row gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
@@ -198,7 +198,7 @@ export const SectionVariants = {
       overlayClass: "bg-primary opacity-80",
     },
     sectionClass:
-      "section-md flex flex-col justify-center items-center section-md media-border",
+      "section-md flex flex-col justify-center items-center section-md",
     contentClass: "m-0 p-0 content-section fade-in",
     itemsClass:
       "w-full flex items-center justify-evenly gap-[var(--spacing-md)] lg:gap-[var(--spacing-sm)]",
