@@ -26,6 +26,41 @@ import MainPageLayout from "@/layouts/MainPageLayout.astro";
   ]}
   buttons={ServiceBtns}
 />
+
+ <Section
+    variant="imageCol"
+    contentClass="md:flex-row-reverse"
+    childSlotClass="hidden lg:block"
+    heading={[
+      {
+        text: "About Koi Roofing & Solar",
+        tagName: "h2",
+        class: "h2 heading-primary slide-down",
+      },
+      {
+        text: `"Some start at the bottom we go to the top"`,
+        tagName: "h5",
+        class:
+          "h5 py-[var(--spacing-sm)] font-medium italic text-secondary slide-in",
+      },
+    ]}
+    buttons={[
+      { text: "Get Started", link: "/contact-us", variant: "primary" },
+      { text: "Learn More", link: "/about-us", variant: "secondary" },
+    ]}
+    description=`${SiteData.title} is a proud family-owned company based in New Jersey, built on over 20 years of experience passed down through three generations. We combine expert craftsmanship with genuine care, treating every home like our own and every client like family. Our mission is to change the way people experience contractors—making home upgrades smooth, honest, and even enjoyable. We specialize in residential roof replacements and solar energy systems, including flat roofs that few in New Jersey confidently handle or warranty. Whether it’s storm damage, an aging roof, or high electric bills, we offer full-service solutions with $0 down and flexible financing for all credit types.`
+  >
+    <Video
+      src={KoiVideo}
+      poster={KoiVideoPoster}
+      controls
+      muted
+      autoplay={true}
+      loop={false}
+      class="shadow-xs border-radius"
+    />
+  </Section>
+  
 <MainPageLayout/>
 
   <!-- <Section collection="faq" query="getAll" /> -->

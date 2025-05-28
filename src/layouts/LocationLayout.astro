@@ -3,20 +3,101 @@ import Section from "@/components/Section.astro";
 import MainPageLayout from "./MainPageLayout.astro";
 import { ServiceBtns, SiteData } from "@/content/SiteData";
 import ExtendedLayout from "./ExtendedLayout.astro";
+import { capitalize } from "@/utils/ContentUtils";
+import Video from "@/components/Video.astro";
+import KoiVideo from "@/assets/notlikekoi.mp4";
+import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
+
+const {
+  collection,
+  entry,
+  title: overrideTitle,
+  description: overrideDesc,
+  keywords,
+  ogType,
+  ...rest
+} = Astro.props;
+
+const isItemPage = Boolean(entry);
+const data = entry?.data || {};
+const body = entry?.body || "";
+const pageTitle =
+  overrideTitle ?? (isItemPage ? data.title : capitalize(collection));
+const pageDesc =
+  overrideDesc ?? (isItemPage ? data.description : rest.description);
 ---
+
 <ExtendedLayout
   title={SiteData.title || SiteData.tagline}
   description={SiteData.description}
   featuredImage={SiteData.MainBGImage.src}
->  <!-- Hero Section -->
-   <Section
-  variant="primaryHero"
-  heading={[
-    { text: SiteData.title,  tagName: "h1", class: "top-heading py-[var(--spacing-sm)] text-accent font-bold load-slide-down" },
-    { text: `Top-Quality Roofing & Solar Solutions in for Your Home`, tagName: "h2", class: "h1 text-bg load-slide-up" },
-    { text: SiteData.tagline, tagName: "h4", class: "h4 text-text-light py-[var(--spacing-sm)] font-thin load-fade-in" },
-  ]}
-  buttons={ServiceBtns}
-/>
-<MainPageLayout/>
+>
+  <!-- Hero Section -->
+  <Section
+    variant="primaryHero"
+    heading={[
+      {
+        text: SiteData.title,
+        tagName: "h1",
+        class:
+          "top-heading py-[var(--spacing-sm)] text-accent font-bold load-slide-down",
+      },
+      {
+        text: `Top-Quality Roofing & Solar Solutions in ${pageTitle}`,
+        tagName: "h2",
+        class: "h1 text-bg load-slide-up",
+      },
+      {
+        text: `At Koi Roofing & Solar we specialize in bringing premium, reliable service right to your doorstep in ${pageTitle}. From $0‑down financing to full‑system installs, your home is in expert hands.`,
+        tagName: "h4",
+        class:
+          "h4 text-text-light py-[var(--spacing-sm)] font-thin load-fade-in",
+      },
+    ]}
+    buttons={ServiceBtns}
+  />
+  <Section
+    variant="imageCol"
+    contentClass="md:flex-row-reverse"
+    childSlotClass="hidden lg:block"
+    heading={[
+      {
+        text: `Serving ${pageTitle} & Surrounding Areas`,
+        tagName: "h2",
+        class: "h2 heading-primary slide-down",
+      },
+      {
+        text: `"Some start at the bottom—we take you to the top"`,
+        tagName: "h5",
+        class:
+          "h5 py-[var(--spacing-sm)] font-medium italic text-secondary slide-in",
+      },
+    ]}
+    description={`
+  At Koi Roofing & Solar, we’re proud to serve the homeowners of ${pageTitle} and the surrounding communities. 
+  As a family‑owned company with over 20 years of experience passed down through three generations, 
+  we bring expert craftsmanship, transparent pricing, and genuine care to every roof and solar installation. 
+  Whether you need a free inspection, emergency repair, a brand‑new roof, or a turnkey solar energy system, 
+  our local team makes the process smooth and stress‑free. 
+  We offer $0‑down financing options for all credit types, industry‑leading warranties, 
+  and a commitment to treating your home like our own—because here in ${pageTitle}, 
+  your peace of mind is our top priority.
+`}
+    buttons={[
+      { text: "Get Started", link: "/contact-us", variant: "primary" },
+      { text: "Learn More", link: "/about-us", variant: "secondary" },
+    ]}
+  >
+    <Video
+      src={KoiVideo}
+      poster={KoiVideoPoster}
+      controls
+      muted
+      autoplay
+      loop={false}
+      class="shadow-xs border-radius"
+    />
+  </Section>
+
+  <MainPageLayout />
 </ExtendedLayout>
