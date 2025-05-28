@@ -250,7 +250,7 @@ export const SectionVariants = {
     sectionClass:
       "flex text-center flex-col section-md justify-center items-center",
     contentClass:
-      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-md)]",
+      "content-section flex flex-col justify-center lg:py-[var(--spacing-2xl)] md:px-[var(--spacing-md)]",
     headingAreaClass: "lg:pb-[var(--spacing-2xl)]",
   },
   banner: {
