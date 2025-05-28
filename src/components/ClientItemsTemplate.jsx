@@ -72,12 +72,13 @@ export default function ClientItemsTemplate({
   ) : (
     <ul className={itemsClass}>
       {sorted.map((item) => (
+      <li key={item.slug}>
         <Comp
-          key={item.slug}
           item={item}
           collectionName={collectionName}
           HasPage={HasPage}
         />
+      </li>
       ))}
     </ul>
   );

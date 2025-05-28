@@ -8,7 +8,7 @@ export default function ListItem({ item }) {
   const { title } = item.data;
 
   return (
-    <li className="flex flex-col items-start justify-start space-x-[var(--spacing-md)] slide-left">
+    <article className="flex flex-col items-start justify-start space-x-[var(--spacing-md)] slide-left">
       {/* Static number indicator */}
       <Heading tagName="h3" className="h4 text-left text-primary m-0">
         {title}
@@ -16,6 +16,6 @@ export default function ListItem({ item }) {
       <p className="text-text text-left text-lg m-0">
         {item.data.description}
       </p>
-    </li>
+    </article>
   );
 }

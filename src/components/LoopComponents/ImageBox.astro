@@ -21,7 +21,7 @@ let imageSrc = featuredImage
   const headerClass = "h3 text-bg"
   const textClass = "lg:text-lg text-text font-thin lg:px-[var(--spacing-xl)]"
 ---
-<li class=`group w-full lg:h-[50vh] overflow-hidden shadow border-radius hover:shadow-lg transition-shadow lg:even:flex-row-reverse scale-up`>
+<article class=`group w-full lg:h-[50vh] overflow-hidden shadow border-radius hover:shadow-lg transition-shadow lg:even:flex-row-reverse scale-up`>
   {effectiveHasPage ? (
     <a href={`/${collectionName}/${item.slug}`} class={containerClass}>
         {imageSrc && (
@@ -67,4 +67,4 @@ let imageSrc = featuredImage
       </div>
     </div>
   )}
-</li>
+</article>

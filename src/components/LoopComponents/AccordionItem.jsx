@@ -11,7 +11,7 @@ export default function AccordionItem({
   const toggle = () => setOpen(prev => !prev);
 
   return (
-    <li
+    <article
       className={`
         ${itemClass}
         group
@@ -57,6 +57,6 @@ export default function AccordionItem({
           {item.data.description ?? item.body}
         </div>
       </div>
-    </li>
+    </article>
   );
 }

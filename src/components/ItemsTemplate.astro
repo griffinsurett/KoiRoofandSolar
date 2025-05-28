@@ -129,13 +129,14 @@ if (typeof ItemComponent === "string") {
     {!client && (
       <ul class={itemsClass} {...rest}>
         {items.map((item) => (
-          <RenderComponent
-            key={item.slug}
-            item={item}
-            itemClass={itemClass}
-            collectionName={collection}
-            HasPage={HasPage}
-          />
+         <li key={item.slug}>
+            <RenderComponent
+              item={item}
+              class={itemClass}
+              collectionName={collection}
+              HasPage={HasPage}
+            />
+          </li>
         ))}
       </ul>
     )}

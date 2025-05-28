@@ -9,7 +9,7 @@ const { item } = Astro.props;
 const iconSrc = item.data.icon || Default;
 ---
 
-<li class="flex items-start justify-center space-x-[var(--spacing-lg)] slide-left">
+<article class="flex items-start justify-center space-x-[var(--spacing-lg)] slide-left">
   <Image
     src={iconSrc}
     alt={item.data.title || "Icon"}
@@ -29,4 +29,4 @@ const iconSrc = item.data.icon || Default;
       {item.data.description || item.body}
     </p>
   </div>
-</li>
+</article>

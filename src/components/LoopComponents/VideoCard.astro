@@ -8,7 +8,7 @@ const { item } = Astro.props;
 const videoSrc = item.data.video;
 const posterSrc = item.data.featuredImage;
 ---
-<li
+<article
   class="video-card scale-up break-inside-avoid mb-[var(--spacing-md)] self-start relative border-radius w-full overflow-hidden shadow-xs transition-shadow"
 >
   {videoSrc ? (
@@ -58,7 +58,7 @@ const posterSrc = item.data.featuredImage;
       <p class="text-xl m-0 py-[var(--spacing-lg)]">"{item.body}"</p>
     </div>
   )}
-</li>
+</article>
 
 <script is:inline client:load>
   document.querySelectorAll('.video-card').forEach(card => {

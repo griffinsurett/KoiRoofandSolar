@@ -47,7 +47,7 @@ const labelBase = [
   "rounded",
 ].join(" ");
 ---
-<li class={cardClasses}>
+<article class={cardClasses}>
   {effectiveHasPage ? (
     <a href={`/${collectionName}/${item.slug}`} class={wrapperClasses}>
       {beforeImage && (
@@ -95,4 +95,4 @@ const labelBase = [
       )}
     </div>
   )}
-</li>
+</article>
