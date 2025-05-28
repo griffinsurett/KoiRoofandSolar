@@ -1,9 +1,26 @@
 import HeroBg from "@/assets/roof.png";
 import KoiVideo from "@/assets/roofingandsolarvid.MOV";
 import { SiteData } from "@/content/SiteData";
+import KoiVideo from "@/assets/roofingandsolarvid.MOV";
+import Poster from "@/assets/roofingandsolarvid-poster.jpg";
 
 export const SectionVariants = {
   // Variants for different section types
+  primaryHero: {
+    sectionClass:
+      "section-lg text-center flex items-center justify-center bg-cover bg-fixed bg-center z-100 shadow-lg p-[var(--spacing-lg)] md:p-[var(--spacing-md)]",
+    contentClass: "lg:w-4/6 flex flex-col items-center justify-center",
+    headingAreaClass:
+      "flex flex-col items-center justify-center text-center w-full h-full z-10",
+    buttonsSectionClass:
+      "h6 mt-[var(--spacing-xl)] gap-[var(--spacing-md)] lg:gap-[var(--spacing-xl)] flex flex-col md:flex-row items-center justify-center w-18/20 lg:w-4/5",
+    backgroundMedia: {
+      video: { src: KoiVideo, preload: "auto" },
+      image: { src: Poster, imageClass: "" },
+      overlayClass:
+        "bg-primary opacity-70 filter brightness-50 bg-cover bg-center xl:bg-fixed",
+    },
+  },
   media1: {
     sectionClass:
       "section-sm animate-on-appear flex text-center flex-col justify-center items-center sec-spacing-y",
@@ -167,7 +184,8 @@ export const SectionVariants = {
     descriptionClass:
       "text-lg order-2 lg:text-2xl text-text-light md:mx-[var(--spacing-lg)]",
     itemPlacement: "",
-    buttonsSectionClass: "flex flex-col lg:flex-row justify-center items-center gap-[var(--spacing-md)] py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
+    buttonsSectionClass:
+      "flex flex-col lg:flex-row justify-center items-center gap-[var(--spacing-md)] py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
   },
   gallery: {
     backgroundMedia: {
@@ -190,7 +208,8 @@ export const SectionVariants = {
     descriptionClass:
       "text-lg order-2 lg:text-2xl text-text-light md:mx-[var(--spacing-lg)]",
     itemPlacement: "",
-    buttonsSectionClass: "flex flex-col lg:flex-row justify-center items-center gap-[var(--spacing-md)] py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
+    buttonsSectionClass:
+      "flex flex-col lg:flex-row justify-center items-center gap-[var(--spacing-md)] py-[var(--spacing-lg)] lg:py-[var(--spacing-xl)]",
   },
   cardSection: {
     sectionClass:
@@ -206,10 +225,8 @@ export const SectionVariants = {
       "text-lg order-2 lg:text-2xl text-text m-[var(--spacing-lg)]",
   },
   listSection: {
-    sectionClass:
-      "flex text-center flex-col justify-center items-center",
-    contentClass:
-      "content-section flex flex-col justify-center",
+    sectionClass: "flex text-center flex-col justify-center items-center",
+    contentClass: "content-section flex flex-col justify-center",
     // Use grid for wrapping: 1 column on mobile, 2 on sm, 3 on lg
     itemsClass:
       "w-full grid grid-cols-1 sm:grid-cols-2 gap-[var(--spacing-xl)] py-[var(--spacing-md)]",
@@ -221,11 +238,9 @@ export const SectionVariants = {
   listOfBoxes: {
     sectionClass:
       "section-md flex text-center flex-col justify-center items-center",
-    contentClass:
-      "content-section flex flex-col justify-center",
+    contentClass: "content-section flex flex-col justify-center",
     // Use grid for wrapping: 1 column on mobile, 2 on sm, 3 on lg
-    itemsClass:
-      "flex flex-col w-full gap-[var(--spacing-xl)]",
+    itemsClass: "flex flex-col w-full gap-[var(--spacing-xl)]",
     itemClass: "flex flex-row-reverse",
     headingAreaClass:
       "flex flex-col gap-[var(--spacing-sm)] py-[var(--spacing-sm)] lg:py-[var(--spacing-md)]",

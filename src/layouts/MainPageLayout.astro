@@ -1,0 +1,167 @@
+---
+import Section from "@/components/Section.astro";
+import PrimaryHero from "@/components/StaticSections/PrimaryHero.astro";
+import Video from "@/components/Video.astro";
+import AboutImage from "@/assets/koiandfriends2.jpg";
+import KoiVideo from "@/assets/notlikekoi.mp4";
+import KoiVideoPoster from "@/assets/videothumbnail.jpeg";
+import { ContactData, ServiceBtns, SiteData } from "@/content/SiteData";
+import { Image } from "astro:assets";
+import { formatPhoneNumber } from "@/utils/ContentUtils";
+import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
+import ClientBeforeAfterCard from "@/components/LoopComponents/ClientBeforeAfterCard";
+---
+ <Section
+    variant="imageCol"
+    contentClass="md:flex-row-reverse"
+    childSlotClass="hidden lg:block"
+    heading={[
+      {
+        text: "About Koi Roofing & Solar",
+        tagName: "h2",
+        class: "h2 heading-primary slide-down",
+      },
+      {
+        text: `"Some start at the bottom we go to the top"`,
+        tagName: "h5",
+        class:
+          "h5 py-[var(--spacing-sm)] font-medium italic text-secondary slide-in",
+      },
+    ]}
+    buttons={[
+      { text: "Get Started", link: "/contact-us", variant: "primary" },
+      { text: "Learn More", link: "/about-us", variant: "secondary" },
+    ]}
+    description=`${SiteData.title} is a proud family-owned company based in New Jersey, built on over 20 years of experience passed down through three generations. We combine expert craftsmanship with genuine care, treating every home like our own and every client like family. Our mission is to change the way people experience contractors—making home upgrades smooth, honest, and even enjoyable. We specialize in residential roof replacements and solar energy systems, including flat roofs that few in New Jersey confidently handle or warranty. Whether it’s storm damage, an aging roof, or high electric bills, we offer full-service solutions with $0 down and flexible financing for all credit types.`
+  >
+    <Video
+      src={KoiVideo}
+      poster={KoiVideoPoster}
+      controls
+      muted
+      autoplay={true}
+      loop={false}
+      class="shadow-xs border-radius"
+    />
+  </Section>
+
+  <Section
+    variant="media1"
+    heading={[
+      {
+        text: "Our goal is simple:",
+        tagName: "h2",
+        class: "h2 text-bg uppercase py-[var(--spacing-sm)]",
+      },
+    ]}
+    description=`"Make Roofing and Solar an enjoyable, trustworthy, and inspiring experience for everyone."`
+  />
+
+  <Section collection="benefits" query="getAll">
+    <!-- Your inner content here -->
+    <Video
+      src={KoiVideo}
+      poster={KoiVideoPoster}
+      controls
+      muted
+      autoplay={true}
+      loop={false}
+      class="shadow-xs border-radius"
+    />
+  </Section>
+
+  <SpanishSection />
+
+  <!-- <Section
+      sectionClass="flex justify-center items-center p-[var(--spacing-3xl)] md:p-[var(--spacing-md)] bg-cover bg-center bg-fixed min-h-[75vh]"
+      buttonsSectionClass="flex flex-col items-center justify-center w-full h-full z-10 mt-[var(--spacing-md)]"
+      topContentClass="flex flex-col items-center justify-center text-center w-full h-full z-10 text-text-light md:w-3/4 w-auto"
+      headingAreaClass=""
+      backgroundMedia={{
+        image: {
+          src: TeamImg,
+          imageClass: "bg-cover filter brightness-50 bg-center xl:bg-fixed",
+        },
+        overlayClass: "bg-primary/50",
+      }}
+      class="h-[60vh]"
+      heading={{
+        text: "Koi Roofing & Solar is a full-service contractor proudly serving New Jersey, Pennsylvania and all five boroughs of New York City",
+        tagName: "h2",
+        class: "text-center text-bg h2 tracking-wider leading-8vh mb-[var(--spacing-sm)]",
+      }}
+      description={SiteData.description}
+      buttons={[{ text: "About Us", link: "/about-us", variant: "primary" }]}
+    /> -->
+
+  <!-- Testimonials -->
+  <Section collection="testimonials" query="getAll" />
+
+  <!-- <Section
+  variant="media1"
+  childSlotClass="flex flex-col items-center justify-center"
+  heading={[
+    // {
+    //   text: "Hear From Our CEO, Richard Faria",
+    //   tagName: "label",
+    //   class: "h4 text-accent uppercase font-bold",
+    // },
+    {
+      text: `"All I have is my words and my smile, and without that-I am nothing."`,
+      tagName: "h2",
+      class: "h2 text-bg uppercase italic py-[var(--spacing-sm)]",
+    },
+    {
+      text: "Dominican-American entrepreneur and U.S. military veteran who built Koi with a vision to bring transparency and life back into the roofing and solar industry.",
+      tagName: "p",
+      class: "font-thin text-text-light text-xl lg:text-2xl",
+    },
+  ]}
+  contentClass="lg:text-left flex-col-reverse lg:flex-row-reverse gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]"
+>
+<div class="w-40 h-40 md:w-70 md:h-70 rounded-full overflow-hidden bg-accent mb-[var(--spacing-sm)]">
+  <Image
+    src={RichiePic}
+    alt="Richard Faria"
+    class="w-full h-full object-cover"
+    width={320}
+    height={320}
+    sizes="(max-width: 768px) 160px, 320px"
+    loading="lazy"
+    decoding="async"
+    quality={60}
+    fetchpriority="low"
+  />
+</div>
+
+</Section> -->
+
+  <!-- Services -->
+  <Section collection="services" query="parent" />
+
+  <!-- Projects -->
+  <Section
+    collection="projects"
+    query="getAll"
+    heading={[
+      {
+        text: `Discover ${SiteData.title}'s' Rooftop Masterpieces`,
+        tagName: "h2",
+        class: "h2 text-bg py-[var(--spacing-sm)]",
+      },
+    ]}
+  />
+
+  <!-- Gallery -->
+  <Section
+    collection="gallery"
+    query="getAll"
+    heading={[
+      {
+        text: "Whether you need a new roof or want to go solar with NO MONEY DOWN, we make it easy!",
+        tagName: "h2",
+        class: "h2 text-bg py-[var(--spacing-sm)]",
+      },
+    ]}
+    buttons={ServiceBtns}
+  />
