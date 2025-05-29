@@ -53,7 +53,7 @@ export default function AccordionItem({
           }
         `}
       >
-        <div className="text-left">
+        <div className="text-left text-xl">
           {item.data.description ?? item.body}
         </div>
       </div>
