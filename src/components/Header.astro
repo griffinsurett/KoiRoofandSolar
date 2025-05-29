@@ -6,14 +6,14 @@ import { buildMenuQueries } from "@/utils/ArrayQueryUtils";
 import Menu from "../components/Menu/Menu.astro";
 import MenuItem from "../components/Menu/BarMenu/MenuItem.astro";
 import { Image } from "astro:assets";
-import Button from "@/components/Button.jsx";
+import Button from "@/components/Button/Button.jsx";
 import PhoneIcon from "@/components/Phone";
 import { MainNavMenu } from "@/queries/MainNavMenu";
 
 const breakpoint = "xl";
-const logoImgClass =
-  "h-28 xl:h-32 w-auto load-fade-in hidden";
+const logoImgClass = "h-28 xl:h-32 w-auto load-fade-in hidden";
 ---
+
 <header
   id="site-header"
   class={`fixed top-0 w-full h-[13vh] md:h-[18vh] py-[var(--spacing-lg)] xl:py-0 flex justify-center items-center bg-transparent z-[10000]`}
@@ -89,7 +89,7 @@ const logoImgClass =
           className: "mr-[var(--spacing-sm)]",
         }}
       >
-      {ContactData.phone}
+        {ContactData.phone}
       </Button>
 
       <a href={`tel:${ContactData.phone}`} class="flex xl:hidden text-accent">

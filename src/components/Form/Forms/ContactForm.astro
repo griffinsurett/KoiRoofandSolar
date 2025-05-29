@@ -1,27 +1,38 @@
 ---
-import Form      from "@/components/Forms/Form.astro";
-import TextInput from "@/components/Forms/Inputs/TextInput.astro";
-import Textarea  from "@/components/Forms/Inputs/Textarea.astro";
-import { SiteData } from "@/content/SiteData";
+import Form from "@/components/Form/Form.astro";
+import TextInput from "@/components/Form/Inputs/TextInput.astro";
+import Textarea from "@/components/Form/Inputs/Textarea.astro";
+import Select from "@/components/Form/Inputs/Select.astro";
 import { getCurrentEntryId } from "@/utils/CurrentEntry";
+import { getParentServiceItems } from "@/queries/getParentServiceItems";
 
 const {
-  inputClasses   = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary rounded-md",
+  inputClasses = "border border-[var(--color-border)] transition-default py-[var(--spacing-sm)] px-[var(--spacing-md)] w-full bg-light-opacity placeholder:text-[var(--color-primary)] text-primary rounded-md",
   wrapperClasses = "mb-[var(--spacing-md)] w-full flex flex-col text-left",
-  labelClasses   = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
+  labelClasses = "text-primary mb-[var(--spacing-xs)] font-thin text-left",
 } = Astro.props;
 
 const currentPage = getCurrentEntryId(Astro);
+const parentServices = await getParentServiceItems();
+const serviceOptions = parentServices.map(({ slug, label }) => ({
+  value: slug,
+  label,
+}));
+
+const formAction =
+  import.meta.env.PUBLIC_INTEGRATION_FORMSPREE +
+  import.meta.env.PUBLIC_CONTACT_FORM;
 ---
 
 <Form
-  name="quote-form"
-  class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] rounded-4xl shadow-lg w-[90vw] lg:w-full gap-[var(--spacing-md)] mb-[-100px] xl:mb-[-200px]"
+  name="contact-form"
+  class="bg-bg py-[var(--spacing-2xl)] px-[var(--spacing-2xl)] rounded-4xl shadow-lg w-[90vw] lg:w-full gap-[var(--spacing-md)]"
   formClass="pt-[var(--spacing-md)]"
   formLabel="Get in Touch"
   enableSuccessBanner={true}
   successBannerMessage="Thank you for your message. We will get in touch with you shortly."
   successBannerClass="p-[var(--spacing-sm)] bg-primary text-bg rounded"
+  action={formAction}
 >
   <input type="hidden" name="Page-of-Submission" value={currentPage} />
 
@@ -69,13 +80,22 @@ const currentPage = getCurrentEntryId(Astro);
         type="tel"
         label="Phone Number"
         placeholder="123-456-7890"
-        required
         inputClass={inputClasses}
         wrapperClass={wrapperClasses}
         labelClass={labelClasses}
       />
     </div>
   </div>
+
+  <Select
+    name="service"
+    label="Service of Interest"
+    required
+    options={serviceOptions}
+    selectClass={inputClasses}
+    wrapperClass={wrapperClasses}
+    labelClass={labelClasses}
+  />
 
   <div class="w-full">
     <Textarea

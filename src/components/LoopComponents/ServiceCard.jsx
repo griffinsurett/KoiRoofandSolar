@@ -1,5 +1,5 @@
 // src/components/ServiceCard.jsx
-import Button from "../Button.jsx";
+import Button from "@/components/Button/Button";
 
 export default function ServiceCard({ item, HasPage }) {
   const effectiveHasPage =

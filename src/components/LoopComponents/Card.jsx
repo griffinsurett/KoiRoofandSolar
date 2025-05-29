@@ -1,4 +1,4 @@
-import Button from "../Button.jsx";
+import Button from "@/components/Button/Button";
 
 /**
  * Card component for rendering an individual item.
@@ -12,9 +12,15 @@ export default function Card({ item, collectionName, HasPage }) {
   return (
     <article className="card p-[var(--spacing-sm)]">
       <h3 className="mb-[var(--spacing-sm)] text-primary">{item.data.title}</h3>
-      <p className="mb-[var(--spacing-sm)]">{item.data.description || item.body}</p>
+      <p className="mb-[var(--spacing-sm)]">
+        {item.data.description || item.body}
+      </p>
       {effectiveHasPage && (
-        <Button href={`/${collectionName}/${item.slug || item.id}`} variant="primary" className="w-full">
+        <Button
+          href={`/${collectionName}/${item.slug || item.id}`}
+          variant="primary"
+          className="w-full"
+        >
           View More
         </Button>
       )}

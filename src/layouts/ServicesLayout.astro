@@ -1,8 +1,8 @@
 ---
 // src/layouts/ServicesLayout.astro
 import BaseLayout from "./BaseLayout.astro";
-import Section from "@/components/Section.astro";
-import QuoteForm from "@/components/Forms/QuoteForm.astro";
+import Section from "@/components/Section/Section.astro";
+import QuoteForm from "@/components/Form/Forms/QuoteForm.astro";
 import Video from "@/components/Video.astro";
 import KoiVideo from "@/assets/video.mp4";
 import NotLikeVideo from "@/assets/notlikekoi.mp4";
@@ -13,7 +13,7 @@ import { ContactData, SiteData } from "@/content/SiteData";
 import ListItem from "@/components/LoopComponents/ListItem";
 import { Image } from "astro:assets";
 import Koiroofers from "@/assets/roof-work-koi.jpg";
-import SpanishSection from "@/components/StaticSections/SpanishSection.astro";
+import SpanishSection from "@/components/Section/StaticSections/SpanishSection.astro";
 
 const { entry, description } = Astro.props;
 
@@ -60,7 +60,8 @@ console.log("media", media);
         tagName: "h2",
         class: "h1 text-bg py-[var(--spacing-sm)] load-slide-up",
       },
-    ]},
+    ]}
+    ,
     description={description}
     descriptionClass="h4 font-thin text-text-light load-fade-in"
     backgroundMedia={{
@@ -125,15 +126,18 @@ console.log("media", media);
     ]}
   />
 
-    <!-- Projects -->
-  <Section collection="projects" query="related" heading={
-    [{
-      text: `Discover ${SiteData.title}'s Rooftop Masterpieces`,
-      tagName: "h2",
-      class: "h2 text-bg py-[var(--spacing-sm)]",
-    }]
-  } 
- />
+  <!-- Projects -->
+  <Section
+    collection="projects"
+    query="related"
+    heading={[
+      {
+        text: `Discover ${SiteData.title}'s Rooftop Masterpieces`,
+        tagName: "h2",
+        class: "h2 text-bg py-[var(--spacing-sm)]",
+      },
+    ]}
+  />
 
   <Section
     sectionClass="w-full section-md"
@@ -223,5 +227,5 @@ console.log("media", media);
     ]}
   />
 
-<slot/>
+  <slot />
 </BaseLayout>
