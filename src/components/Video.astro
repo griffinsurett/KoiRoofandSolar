@@ -5,6 +5,9 @@ import { getImage } from 'astro:assets';
 const {
   src: videoSrc,
   poster: posterSrc,
+  autoplay = false,
+  loop = false,
+  muted = false,
   posterOptions = {
     width: 1280,
     format: 'webp',
@@ -27,6 +30,9 @@ if (posterSrc) {
   {...videoProps}
   playsinline
   preload="metadata"
+  autoplay={autoplay}
+  loop={loop}
+  muted={muted}
   class=`aspect-video`
 >
   <source src={videoSrc} type="video/mp4" />
