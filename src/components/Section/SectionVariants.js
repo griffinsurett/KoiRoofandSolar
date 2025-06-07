@@ -112,7 +112,7 @@ export const SectionVariants = {
     sectionClass: "bg-bg flex text-center flex-col justify-center items-center",
     contentClass:
       "content-section flex flex-col justify-center py-[var(--spacing-2xl)]",
-    itemsClass: `w-full columns-1 md:columns-2 lg:columns-3 gap-x-[var(--spacing-xl)] gap-y-[var(--spacing-xl)]`,
+    itemsClass: `w-full columns-1 md:columns-2 lg:columns-2 gap-x-[var(--spacing-xl)] gap-y-[var(--spacing-xl)]`,
     topContentClass: "py-[var(--spacing-xl)]",
     headingAreaClass:
       "flex flex-col text-bg md:px-[var(--spacing-md)] gap-[var(--spacing-sm)]",
